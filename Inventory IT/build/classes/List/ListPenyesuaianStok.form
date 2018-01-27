@@ -37,8 +37,6 @@
                       <Component id="JBRefresh" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBTambah" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JBHapus" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -54,7 +52,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JBKembali" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBHapus" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBTambah" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -88,14 +85,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="KomponenGUI.JbuttonF" name="JBHapus">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Hapus"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBHapusActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

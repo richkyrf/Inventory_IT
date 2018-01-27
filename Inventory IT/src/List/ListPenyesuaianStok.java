@@ -25,9 +25,6 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
         setTitle("Penyesuaian Stok");
         setVisible(true);
         load();
-        if (!GlobalVar.VarL.level.equals("Administrator")) {
-            JBHapus.setVisible(false);
-        }
     }
 
     /**
@@ -43,7 +40,6 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
         JBKembali = new KomponenGUI.JbuttonF();
         JBRefresh = new KomponenGUI.JbuttonF();
         JBTambah = new KomponenGUI.JbuttonF();
-        JBHapus = new KomponenGUI.JbuttonF();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -73,13 +69,6 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
             }
         });
 
-        JBHapus.setText("Hapus");
-        JBHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBHapusActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,8 +84,6 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
                         .addComponent(JBRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)))
                 .addContainerGap())
         );
@@ -108,7 +95,6 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBHapus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -120,10 +106,6 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
     private void JBRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRefreshActionPerformed
         load();
     }//GEN-LAST:event_JBRefreshActionPerformed
-
-    private void JBHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBHapusActionPerformed
-        hapus();
-    }//GEN-LAST:event_JBHapusActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         GlobalVar.Var.listPenyesuaianStok = null;
@@ -196,7 +178,6 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private KomponenGUI.JbuttonF JBHapus;
     private KomponenGUI.JbuttonF JBKembali;
     private KomponenGUI.JbuttonF JBRefresh;
     private KomponenGUI.JbuttonF JBTambah;
