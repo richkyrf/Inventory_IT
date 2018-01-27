@@ -46,13 +46,13 @@ public class JCari extends javax.swing.JFrame {
         judul2 = Judul2;
         judul3 = Judul3;
         initComponents();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setTitle(Title);
+        setVisible(true);
         JTNamaBarang.setText(FocusLeftOrRight);
         searchByNamaBarang();
         JTNamaBarang.requestFocus();
-        setTitle(Title);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setVisible(true);
         JTNamaBarang.setCaretPosition(0);
     }
 
@@ -272,11 +272,22 @@ public class JCari extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void JTKategoriBarangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTKategoriBarangFocusGained
-        // TODO add your handling code here:
+        searchByKategoriBarang();
     }//GEN-LAST:event_JTKategoriBarangFocusGained
 
     private void JTKategoriBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKategoriBarangKeyReleased
-        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jF.setText(JTableData.getValueAt(JTableData.getSelectedRow(), colNum).toString());
+            GlobalVar.Var.jCari.dispose();
+            GlobalVar.Var.jCari = null;
+        } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
+            JTableData.requestFocus();
+            if (JTableData.getSelectedRow() == 0) {
+                JTableData.setRowSelectionInterval(1, 1);
+            }
+        } else {
+            searchByKategoriBarang();
+        }
     }//GEN-LAST:event_JTKategoriBarangKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
