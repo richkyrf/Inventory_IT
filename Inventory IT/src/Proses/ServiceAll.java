@@ -37,7 +37,6 @@ public class ServiceAll extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BGGaransi = new javax.swing.ButtonGroup();
         JLTanggalService = new KomponenGUI.JlableF();
         JLTanggalService2 = new KomponenGUI.JlableF();
         JDTanggalService = new KomponenGUI.JdateCF();
@@ -317,7 +316,6 @@ public class ServiceAll extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup BGGaransi;
     private KomponenGUI.JbuttonF JBKembali;
     private KomponenGUI.JbuttonF JBService;
     private KomponenGUI.JdateCF JDTanggalService;

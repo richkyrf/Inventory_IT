@@ -47,7 +47,6 @@ public class BarangRusak extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BGGaransi = new javax.swing.ButtonGroup();
         JLJenisBarang = new KomponenGUI.JlableF();
         JLJenisBarang2 = new KomponenGUI.JlableF();
         JCJenisBarang = new KomponenGUI.JcomboboxF();
@@ -615,7 +614,6 @@ public class BarangRusak extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup BGGaransi;
     private KomponenGUI.JbuttonF JBJenisBarang;
     private KomponenGUI.JbuttonF JBKategoriBarang;
     private KomponenGUI.JbuttonF JBKembali;
