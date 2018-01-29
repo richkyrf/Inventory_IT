@@ -2,6 +2,7 @@ package Proses;
 
 import KomponenGUI.FDateF;
 import static KomponenGUI.FDateF.datetostr;
+import LSubProces.DRunSelctOne;
 import LSubProces.Insert;
 import LSubProces.RunSelct;
 import javax.swing.JOptionPane;
@@ -12,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -32,7 +34,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Tambah Penyesuaian Stok");
         setVisible(true);
-        nomorPenyesuaianStok();
+        setNomorPenyesuaianStok();
         JTNamaBarang.requestFocus();
         arrayBarang = new KomponenGUI.JtextF[]{JTJenisBarang, JTKategoriBarang, JTNamaBarang};
     }
@@ -328,9 +330,14 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     }//GEN-LAST:event_JTKeteranganKeyPressed
 
     private void JBNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNamaBarangActionPerformed
-        GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, null, PenyesuaianStok.JTNamaBarang);
+        if (GlobalVar.Var.jCari == null) {
+            GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, null, PenyesuaianStok.JTNamaBarang);
+        }
+        else{
+            
+        }
         if (!JTNamaBarang.getText().isEmpty()) {
-            stokLama();
+            setStokLama();
         }
     }//GEN-LAST:event_JBNamaBarangActionPerformed
 
@@ -374,8 +381,8 @@ public class PenyesuaianStok extends javax.swing.JFrame {
             }
         });
     }
-    
-    void nomorPenyesuaianStok(){
+
+    void setNomorPenyesuaianStok() {
         NumberFormat nf = new DecimalFormat("000000");
         String nomorPenyesuaianStok = null;
         RunSelct runSelct = new RunSelct();
@@ -383,13 +390,13 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         try {
             ResultSet rs = runSelct.excute();
             if (!rs.isBeforeFirst()) {
-                nomorPenyesuaianStok = "000001/"+ datetostr(new Date(), "YY") + "/PY";
+                nomorPenyesuaianStok = "000001/" + datetostr(new Date(), "YY") + "/PY";
             }
             while (rs.next()) {
                 String autonumbers = rs.getString("NomorPenyesuaianStok");
-                autonumbers = autonumbers.substring(0,6);
+                autonumbers = autonumbers.substring(0, 6);
                 int p = parseInt(autonumbers) + 1;
-                if (p == 999999){
+                if (p == 999999) {
                     p = 1;
                 }
                 nomorPenyesuaianStok = nf.format(p) + "/" + datetostr(new Date(), "YY") + "/PY";
@@ -403,10 +410,30 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         JTNomorPenyesuaianStok.setText(nomorPenyesuaianStok);
     }
 
+    void setStokLama() {
+        /*
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.seterorm("Eror gagal Menampilkan Data Stock");
+        dRunSelctOne.setQuery("SELECT SUM(Stock) FROM ((SELECT sum(`Jumlah`) as 'Stock' FROM `tbprosesindetail` WHERE `IdBarang` = '" + idbarangkiriman + "') UNION ALL (SELECT sum(`Jumlah`)*-1 as 'Stock' FROM `tbprosesoutdetail` WHERE `IdBarang` = '" + idbarangkiriman + "') UNION ALL   (SELECT  sum(`Penyesuaian`) as 'Stock' FROM `tbpenyesuaian` WHERE  `IdBarang` = '" + idbarangkiriman + "')) t1");
+        ArrayList<String> list = dRunSelctOne.excute();
+        String Stock = list.get(0);
+        return Stock;
+         */
+    }
+
     boolean checkInput() {
-        if (JDTanggalPenyesuaianStok.getDate() == null) {
+        if (JTNomorPenyesuaianStok.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nomor Penyesuaian Stok Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
+            return false;
+        } else if (JDTanggalPenyesuaianStok.getDate() == null) {
             JOptionPane.showMessageDialog(this, "Tanggal Penyesuaian Stok Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
             JDTanggalPenyesuaianStok.requestFocus();
+            return false;
+        } else if (JTJenisBarang.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Jenis Barang Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
+            return false;
+        } else if (JTKategoriBarang.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Kategori Barang Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
             return false;
         } else if (JTNamaBarang.getText().replace(" ", "").isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nama Barang Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -420,7 +447,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     void tambah(boolean tutup) {
         if (checkInput()) {
             Insert insert = new LSubProces.Insert();
-            boolean simpan = insert.Simpan("INSERT INTO `tbpenyesuaianstok`(`IdBarang`, `NomorPenyesuaianStok`, `TanggalPenyesuaianStok`, `PenyesuaianStok`, `Keterangan`) VALUES ((SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText()+ "'), '" + JTNomorPenyesuaianStok.getText() + "', '" + FDateF.datetostr(JDTanggalPenyesuaianStok.getDate(), "yyyy-MM-dd") + "', " + (Integer.parseInt(JNStokBaru.getText()) - Integer.parseInt(JTStokLama.getText())) + ", '" + JTKeterangan.getText() + "')", "Tambah Data Penyesuaian Stok", this);
+            boolean simpan = insert.Simpan("INSERT INTO `tbpenyesuaianstok`(`IdBarang`, `NomorPenyesuaianStok`, `TanggalPenyesuaianStok`, `PenyesuaianStok`, `Keterangan`) VALUES ((SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), '" + JTNomorPenyesuaianStok.getText() + "', '" + FDateF.datetostr(JDTanggalPenyesuaianStok.getDate(), "yyyy-MM-dd") + "', " + (Integer.parseInt(JNStokBaru.getText()) - Integer.parseInt(JTStokLama.getText())) + ", '" + JTKeterangan.getText() + "')", "Tambah Data Penyesuaian Stok", this);
             if (simpan) {
                 if (GlobalVar.Var.listPenyesuaianStok != null) {
                     GlobalVar.Var.listPenyesuaianStok.load();
@@ -437,7 +464,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     }
 
     void clearText() {
-        nomorPenyesuaianStok();
+        setNomorPenyesuaianStok();
         JDTanggalPenyesuaianStok.setDate(new Date());
         JTJenisBarang.setText("");
         JTKategoriBarang.setText("");
