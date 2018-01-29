@@ -1,10 +1,19 @@
 package Proses;
 
 import KomponenGUI.FDateF;
+import static KomponenGUI.FDateF.datetostr;
 import LSubProces.Insert;
+import LSubProces.RunSelct;
 import javax.swing.JOptionPane;
 import java.awt.event.KeyEvent;
+import static java.lang.Integer.parseInt;
+import static java.lang.System.out;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Date;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -23,7 +32,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Tambah Penyesuaian Stok");
         setVisible(true);
-        JTNomorPenyesuaianStok.setText(nomorPenyesuaianStok());
+        nomorPenyesuaianStok();
         JTNamaBarang.requestFocus();
         arrayBarang = new KomponenGUI.JtextF[]{JTJenisBarang, JTKategoriBarang, JTNamaBarang};
     }
@@ -365,6 +374,34 @@ public class PenyesuaianStok extends javax.swing.JFrame {
             }
         });
     }
+    
+    void nomorPenyesuaianStok(){
+        NumberFormat nf = new DecimalFormat("000000");
+        String nomorPenyesuaianStok = null;
+        RunSelct runSelct = new RunSelct();
+        runSelct.setQuery("SELECT `NomorPenyesuaianStok` FROM `tbpenyesuaianstok` ORDER BY `NomorPenyesuaianStok` DESC LIMIT 1");
+        try {
+            ResultSet rs = runSelct.excute();
+            if (!rs.isBeforeFirst()) {
+                nomorPenyesuaianStok = "000001/"+ datetostr(new Date(), "YY") + "/PY";
+            }
+            while (rs.next()) {
+                String autonumbers = rs.getString("NomorPenyesuaianStok");
+                autonumbers = autonumbers.substring(0,6);
+                int p = parseInt(autonumbers) + 1;
+                if (p == 999999){
+                    p = 1;
+                }
+                nomorPenyesuaianStok = nf.format(p) + "/" + datetostr(new Date(), "YY") + "/PY";
+            }
+        } catch (SQLException e) {
+            out.println("E6" + e);
+            JOptionPane.showMessageDialog(this, "Gagal Generate Nomor Penyesuaian Stok", "Information", JOptionPane.INFORMATION_MESSAGE);
+        } finally {
+            runSelct.closecon();
+        }
+        JTNomorPenyesuaianStok.setText(nomorPenyesuaianStok);
+    }
 
     boolean checkInput() {
         if (JDTanggalPenyesuaianStok.getDate() == null) {
@@ -383,7 +420,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     void tambah(boolean tutup) {
         if (checkInput()) {
             Insert insert = new LSubProces.Insert();
-            boolean simpan = insert.Simpan("INSERT INTO `tbpenyesuaianstok`(`IdBarang`, `NomorPenyesuaianStok`, `TanggalPenyesuaianStok`, `PenyesuaianStok`, `Keterangan`) VALUES ((SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText()+ "'), '" + JTNomorPenyesuaianStok.getText() + "', '" + FDateF.datetostr(JDTanggalPenyesuaianStok.getDate(), "yyyy-MM-dd") + "', " + (Float.parseFloat(JTStockBaru.getText() + "." + JTKoma.getText())) + ", '" + JTKeterangan.getText() + "')", "Tambah Data Barang Rusak", this);
+            boolean simpan = insert.Simpan("INSERT INTO `tbpenyesuaianstok`(`IdBarang`, `NomorPenyesuaianStok`, `TanggalPenyesuaianStok`, `PenyesuaianStok`, `Keterangan`) VALUES ((SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText()+ "'), '" + JTNomorPenyesuaianStok.getText() + "', '" + FDateF.datetostr(JDTanggalPenyesuaianStok.getDate(), "yyyy-MM-dd") + "', " + (Integer.parseInt(JNStokBaru.getText()) - Integer.parseInt(JTStokLama.getText())) + ", '" + JTKeterangan.getText() + "')", "Tambah Data Penyesuaian Stok", this);
             if (simpan) {
                 if (GlobalVar.Var.listPenyesuaianStok != null) {
                     GlobalVar.Var.listPenyesuaianStok.load();
@@ -400,7 +437,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     }
 
     void clearText() {
-        JTNomorPenyesuaianStok.setText(nomorPenyesuaianStok());
+        nomorPenyesuaianStok();
         JDTanggalPenyesuaianStok.setDate(new Date());
         JTJenisBarang.setText("");
         JTKategoriBarang.setText("");
