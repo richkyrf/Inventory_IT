@@ -16,33 +16,26 @@ public class JCari extends javax.swing.JFrame {
     /**
      * Creates new form JCari
      */
+    Boolean Success = false;
     String query1, query2, query3;
     int selectedRow = -1;
-    KomponenGUI.JtextF[] jF = new KomponenGUI.JtextF[3];
-    KomponenGUI.JtextF jR;
+    KomponenGUI.JtextF[] ArrayBarang = new KomponenGUI.JtextF[3];
+    KomponenGUI.JtextF FocusIfCancel;
+    KomponenGUI.JNumberOnly FocusIfSuccess;
 
-    /**
-     *
-     * @param Query_Pencarian_1
-     * @param Query_Pencarian_2
-     * @param Query_Pencarian_3
-     * @param Title
-     * @param Jf__parameter_untuk_isi_jtext_di_form_sebelumnya
-     * @param FocusLeftOrRight__pilih_request_fokus_jtext_di_jcari
-     * @param Jr__parameter_untuk_pilih_request_focus_di_form_sebelumnya
-     */
-    public JCari(String Query1, String Query2, String Query3, String Title, KomponenGUI.JtextF[] Jf, String FocusLeftOrRight, KomponenGUI.JtextF Jr) {
+    public JCari(String Query1, String Query2, String Query3, String Title, KomponenGUI.JtextF[] arrayBarang, String keywordForSearch, KomponenGUI.JNumberOnly focusIfSuccess, KomponenGUI.JtextF focusIfCancel) {
         query1 = Query1;
         query2 = Query2;
         query3 = Query3;
-        jF = Jf;
-        jR = Jr;
+        ArrayBarang = arrayBarang;
+        FocusIfSuccess = focusIfSuccess;
+        FocusIfCancel = focusIfCancel;
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle(Title);
         setVisible(true);
-        JTNamaBarang.setText(FocusLeftOrRight);
+        JTNamaBarang.setText(keywordForSearch);
         searchByNamaBarang();
         JTNamaBarang.requestFocus();
         JTNamaBarang.setCaretPosition(0);
@@ -71,12 +64,8 @@ public class JCari extends javax.swing.JFrame {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
         });
 
-        JTJenisBarang.setForeground(new java.awt.Color(153, 153, 153));
         JTJenisBarang.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 JTJenisBarangFocusGained(evt);
@@ -88,7 +77,6 @@ public class JCari extends javax.swing.JFrame {
             }
         });
 
-        JTKategoriBarang.setForeground(new java.awt.Color(153, 153, 153));
         JTKategoriBarang.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 JTKategoriBarangFocusGained(evt);
@@ -180,75 +168,56 @@ public class JCari extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JTJenisBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTJenisBarangKeyReleased
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
-            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
-            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
-            GlobalVar.Var.jCari.dispose();
-            GlobalVar.Var.jCari = null;
-        } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
-            JTableData.requestFocus();
-            if (JTableData.getSelectedRow() == 0) {
-                JTableData.setRowSelectionInterval(1, 1);
-            }
-        } else {
-            searchByJenisBarang();
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_ENTER:
+                executePilih();
+                break;
+            case KeyEvent.VK_DOWN:
+                JTableData.requestFocus();
+                if (JTableData.getSelectedRow() == 0) {
+                    JTableData.setRowSelectionInterval(1, 1);
+                }   break;
+            default:
+                searchByJenisBarang();
+                break;
         }
     }//GEN-LAST:event_JTJenisBarangKeyReleased
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.jCari = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPilihActionPerformed
-        jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
-        jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
-        jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
-        GlobalVar.Var.jCari.dispose();
-        GlobalVar.Var.jCari = null;
+        executePilih();
     }//GEN-LAST:event_JBPilihActionPerformed
 
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.jCari.dispose();
-        GlobalVar.Var.jCari = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JTableDataMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableDataMouseReleased
         if (JTableData.getSelectedRow() == selectedRow) {
-            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
-            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
-            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
-            GlobalVar.Var.jCari.dispose();
-            GlobalVar.Var.jCari = null;
+            executePilih();
         } else {
             selectedRow = JTableData.getSelectedRow();
         }
     }//GEN-LAST:event_JTableDataMouseReleased
 
     private void JTNamaBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTNamaBarangKeyReleased
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
-            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
-            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
-            GlobalVar.Var.jCari.dispose();
-            GlobalVar.Var.jCari = null;
-        } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
-            JTableData.requestFocus();
-            if (JTableData.getSelectedRow() == 0) {
-                JTableData.setRowSelectionInterval(1, 1);
-            }
-        } else {
-            searchByNamaBarang();
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_ENTER:
+                executePilih();
+                break;
+            case KeyEvent.VK_DOWN:
+                JTableData.requestFocus();
+                if (JTableData.getSelectedRow() == 0) {
+                    JTableData.setRowSelectionInterval(1, 1);
+                }   break;
+            default:
+                searchByNamaBarang();
+                break;
         }
     }//GEN-LAST:event_JTNamaBarangKeyReleased
 
     private void JTableDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTableDataKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
-            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
-            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
-            GlobalVar.Var.jCari.dispose();
-            GlobalVar.Var.jCari = null;
+            executePilih();
         }
     }//GEN-LAST:event_JTableDataKeyPressed
 
@@ -260,30 +229,34 @@ public class JCari extends javax.swing.JFrame {
         searchByNamaBarang();
     }//GEN-LAST:event_JTNamaBarangFocusGained
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        jR.requestFocus();
-    }//GEN-LAST:event_formWindowClosed
-
     private void JTKategoriBarangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTKategoriBarangFocusGained
         searchByKategoriBarang();
     }//GEN-LAST:event_JTKategoriBarangFocusGained
 
     private void JTKategoriBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKategoriBarangKeyReleased
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
-            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
-            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
-            GlobalVar.Var.jCari.dispose();
-            GlobalVar.Var.jCari = null;
-        } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
-            JTableData.requestFocus();
-            if (JTableData.getSelectedRow() == 0) {
-                JTableData.setRowSelectionInterval(1, 1);
-            }
-        } else {
-            searchByKategoriBarang();
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_ENTER:
+                executePilih();
+                break;
+            case KeyEvent.VK_DOWN:
+                JTableData.requestFocus();
+                if (JTableData.getSelectedRow() == 0) {
+                    JTableData.setRowSelectionInterval(1, 1);
+                }   break;
+            default:
+                searchByKategoriBarang();
+                break;
         }
     }//GEN-LAST:event_JTKategoriBarangKeyReleased
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.jCari = null;
+        if (Success) {
+            FocusIfSuccess.requestFocus();
+        } else {
+            FocusIfCancel.requestFocus();
+        }
+    }//GEN-LAST:event_formWindowClosed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private KomponenGUI.JbuttonF JBKembali;
@@ -295,12 +268,7 @@ public class JCari extends javax.swing.JFrame {
     private KomponenGUI.JtableF JTableData;
     // End of variables declaration//GEN-END:variables
 
-    void searchByJenisBarang() {
-        if (JTJenisBarang.getText().equals("")) {
-            JTableData.setQuery(query1 + "LIKE '%" + JTJenisBarang.getText() + "%'");
-        } else {
-            JTableData.setQuery(query1 + "REGEXP '" + JTJenisBarang.getText().replace(" ", ".+") + "'");
-        }
+    void tampilkan(){
         JTableData.tampilkan();
         JTableData.getColumnModel().getColumn(0).setPreferredWidth(366);
         JTableData.getColumnModel().getColumn(1).setPreferredWidth(371);
@@ -308,35 +276,40 @@ public class JCari extends javax.swing.JFrame {
         if (JTableData.getRowCount() != 0) {
             JTableData.setRowSelectionInterval(0, 0);
         }
+    }
+    
+    void executePilih() {
+        ArrayBarang[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
+        ArrayBarang[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
+        ArrayBarang[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
+        Success = true;
+        GlobalVar.Var.jCari.dispose();
+    }
+
+    void searchByJenisBarang() {
+        if (JTJenisBarang.getText().equals("")) {
+            JTableData.setQuery(query1 + "LIKE '%" + JTJenisBarang.getText() + "%' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
+        } else {
+            JTableData.setQuery(query1 + "REGEXP '" + JTJenisBarang.getText().replace(" ", ".+") + "' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
+        }
+        tampilkan();
     }
 
     void searchByKategoriBarang() {
         if (JTKategoriBarang.getText().equals("")) {
-            JTableData.setQuery(query2 + "LIKE '%" + JTKategoriBarang.getText() + "%'");
+            JTableData.setQuery(query2 + "LIKE '%" + JTKategoriBarang.getText() + "%' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         } else {
-            JTableData.setQuery(query2 + "REGEXP '" + JTKategoriBarang.getText().replace(" ", ".+") + "'");
+            JTableData.setQuery(query2 + "REGEXP '" + JTKategoriBarang.getText().replace(" ", ".+") + "' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         }
-        JTableData.tampilkan();
-        JTableData.getColumnModel().getColumn(0).setPreferredWidth(366);
-        JTableData.getColumnModel().getColumn(1).setPreferredWidth(371);
-        JTableData.getColumnModel().getColumn(2).setPreferredWidth(648);
-        if (JTableData.getRowCount() != 0) {
-            JTableData.setRowSelectionInterval(0, 0);
-        }
+        tampilkan();
     }
 
     void searchByNamaBarang() {
         if (JTNamaBarang.getText().equals("")) {
-            JTableData.setQuery(query3 + "LIKE '%" + JTNamaBarang.getText() + "%'");
+            JTableData.setQuery(query3 + "LIKE '%" + JTNamaBarang.getText() + "%' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         } else {
-            JTableData.setQuery(query3 + "REGEXP '" + JTNamaBarang.getText().replace(" ", ".+") + "'");
+            JTableData.setQuery(query3 + "REGEXP '" + JTNamaBarang.getText().replace(" ", ".+") + "' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         }
-        JTableData.tampilkan();
-        JTableData.getColumnModel().getColumn(0).setPreferredWidth(366);
-        JTableData.getColumnModel().getColumn(1).setPreferredWidth(371);
-        JTableData.getColumnModel().getColumn(2).setPreferredWidth(648);
-        if (JTableData.getRowCount() != 0) {
-            JTableData.setRowSelectionInterval(0, 0);
-        }
+        tampilkan();
     }
 }

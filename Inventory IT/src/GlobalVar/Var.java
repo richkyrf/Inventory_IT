@@ -45,6 +45,7 @@ public class Var {
     public static ServiceAll serviceAll;
     public static BarangRusak tambahBarangRusak, editBarangRusak;
     public static ListBarangRusak listBarangRusak;
+    public static PurchaseRequest tambahPurchaseRequest, editPurchaseRequest;
 
     /*
     public static Jcari jcari;
