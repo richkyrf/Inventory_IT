@@ -339,6 +339,12 @@ public class MasterVendor extends javax.swing.JFrame {
                 if (GlobalVar.Var.listMasterVendor != null) {
                     GlobalVar.Var.listMasterVendor.load();
                 }
+                if (GlobalVar.Var.tambahPurchaseRequest != null) {
+                    GlobalVar.Var.tambahPurchaseRequest.JCVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
+                }
+                if (GlobalVar.Var.editPurchaseRequest != null) {
+                    GlobalVar.Var.editPurchaseRequest.JCVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
+                }
                 if (tutup) {
                     GlobalVar.Var.tambahMasterVendor.dispose();
                     GlobalVar.Var.tambahMasterVendor = null;
