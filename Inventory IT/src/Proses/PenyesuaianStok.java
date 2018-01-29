@@ -2,7 +2,6 @@ package Proses;
 
 import KomponenGUI.FDateF;
 import static KomponenGUI.FDateF.datetostr;
-import LSubProces.DRunSelctOne;
 import LSubProces.Insert;
 import LSubProces.RunSelct;
 import javax.swing.JOptionPane;
@@ -13,9 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -81,8 +78,8 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -90,7 +87,6 @@ public class PenyesuaianStok extends javax.swing.JFrame {
 
         JLNomorPenyesuaianStok2.setText(":");
 
-        JTNomorPenyesuaianStok.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTNomorPenyesuaianStok.setEnabled(false);
 
         JLTanggalPenyesuaianStok.setText("Tanggal Penyesuaian Stok");
@@ -108,19 +104,28 @@ public class PenyesuaianStok extends javax.swing.JFrame {
 
         JLJenisBarang2.setText(":");
 
-        JTJenisBarang.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTJenisBarang.setEnabled(false);
 
         JLKategoriBarang.setText("Kategori Barang");
 
         JLKategoriBarang2.setText(":");
 
-        JTKategoriBarang.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTKategoriBarang.setEnabled(false);
 
         JLNamaBarang.setText("Nama Barang");
 
         JLNamaBarang2.setText(":");
+
+        JTNamaBarang.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JTNamaBarangFocusGained(evt);
+            }
+        });
+        JTNamaBarang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JTNamaBarangKeyReleased(evt);
+            }
+        });
 
         JBNamaBarang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/Search.png"))); // NOI18N
         JBNamaBarang.addActionListener(new java.awt.event.ActionListener() {
@@ -135,12 +140,22 @@ public class PenyesuaianStok extends javax.swing.JFrame {
 
         JTStokLama.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         JTStokLama.setText("0");
-        JTStokLama.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTStokLama.setEnabled(false);
 
         JLStokBaru.setText("Stok Baru");
 
         JLStokBaru2.setText(":");
+
+        JRStokBaru.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                JRStokBaruFocusGained(evt);
+            }
+        });
+        JRStokBaru.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JRStokBaruKeyReleased(evt);
+            }
+        });
 
         JLKeterangan.setText("Keterangan");
 
@@ -313,12 +328,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
 
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.tambahPenyesuaianStok.dispose();
-        GlobalVar.Var.tambahPenyesuaianStok = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.tambahPenyesuaianStok = null;
-    }//GEN-LAST:event_formWindowClosing
 
     private void JTKeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKeteranganKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -327,15 +337,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     }//GEN-LAST:event_JTKeteranganKeyPressed
 
     private void JBNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNamaBarangActionPerformed
-        if (GlobalVar.Var.jCari == null) {
-            GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, null, JRStokBaru, JTNamaBarang);
-        } else {
-            GlobalVar.Var.jCari.setState(NORMAL);
-            GlobalVar.Var.jCari.toFront();
-        }
-        if (!JTNamaBarang.getText().isEmpty()) {
-            setStokLama();
-        }
+        cariBarang(null);
     }//GEN-LAST:event_JBNamaBarangActionPerformed
 
     private void JDTanggalPenyesuaianStokKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JDTanggalPenyesuaianStokKeyReleased
@@ -343,6 +345,38 @@ public class PenyesuaianStok extends javax.swing.JFrame {
             JTNamaBarang.requestFocus();
         }
     }//GEN-LAST:event_JDTanggalPenyesuaianStokKeyReleased
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.tambahPenyesuaianStok = null;
+    }//GEN-LAST:event_formWindowClosed
+
+    private void JTNamaBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTNamaBarangKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (JTNamaBarang.getText().replace(" ", "").isEmpty()) {
+                cariBarang(null);
+            } else {
+                JRStokBaru.requestFocus();
+            }
+        } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
+            cariBarang(null);
+        } else if (isAlphaNumeric(String.valueOf(evt.getKeyChar())) == true) {
+            cariBarang(JTNamaBarang.getText());
+        }
+    }//GEN-LAST:event_JTNamaBarangKeyReleased
+
+    private void JRStokBaruKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JRStokBaruKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            JTKeterangan.requestFocus();
+        }
+    }//GEN-LAST:event_JRStokBaruKeyReleased
+
+    private void JRStokBaruFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRStokBaruFocusGained
+        setStokLama();
+    }//GEN-LAST:event_JRStokBaruFocusGained
+
+    private void JTNamaBarangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTNamaBarangFocusGained
+        setStokLama();
+    }//GEN-LAST:event_JTNamaBarangFocusGained
 
     /**
      * @param args the command line arguments
@@ -390,9 +424,9 @@ public class PenyesuaianStok extends javax.swing.JFrame {
                 nomorPenyesuaianStok = "000001/" + datetostr(new Date(), "YY") + "/PY";
             }
             while (rs.next()) {
-                String autonumbers = rs.getString("NomorPenyesuaianStok");
-                autonumbers = autonumbers.substring(0, 6);
-                int p = parseInt(autonumbers) + 1;
+                String autoNumbers = rs.getString("NomorPenyesuaianStok");
+                autoNumbers = autoNumbers.substring(0, 6);
+                int p = parseInt(autoNumbers) + 1;
                 if (p == 999999) {
                     p = 1;
                 }
@@ -407,6 +441,25 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         JTNomorPenyesuaianStok.setText(nomorPenyesuaianStok);
     }
 
+    boolean isAlphaNumeric(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (c < 0x30 || (c >= 0x3a && c <= 0x40) || (c > 0x5a && c <= 0x60) || c > 0x7a) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void cariBarang(String keywordCari) {
+        if (GlobalVar.Var.jCari == null) {
+            GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, keywordCari, JRStokBaru, JTNamaBarang);
+        } else {
+            GlobalVar.Var.jCari.setState(NORMAL);
+            GlobalVar.Var.jCari.toFront();
+        }
+    }
+
     void setStokLama() {
         /*
         DRunSelctOne dRunSelctOne = new DRunSelctOne();
@@ -416,16 +469,6 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         String Stock = list.get(0);
         return Stock;
          */
-    }
-    
-    boolean isAlphaNumeric(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-            if (c < 0x30 || (c >= 0x3a && c <= 0x40) || (c > 0x5a && c <= 0x60) || c > 0x7a) {
-                return false;
-            }
-        }
-        return true;
     }
 
     boolean checkInput() {
@@ -461,7 +504,6 @@ public class PenyesuaianStok extends javax.swing.JFrame {
                 }
                 if (tutup) {
                     GlobalVar.Var.tambahPenyesuaianStok.dispose();
-                    GlobalVar.Var.tambahPenyesuaianStok = null;
                 } else {
                     clearText();
                     JTNamaBarang.requestFocus();
