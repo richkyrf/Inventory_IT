@@ -17,23 +17,23 @@ public class JCari extends javax.swing.JFrame {
      * Creates new form JCari
      */
     Boolean Success = false;
-    String query1, query2, query3;
+    String Query1, Query2, Query3;
     int selectedRow = -1;
     KomponenGUI.JtextF[] ArrayBarang = new KomponenGUI.JtextF[3];
     KomponenGUI.JtextF FocusIfCancel;
     KomponenGUI.JRibuanTextField FocusIfSuccess;
 
-    public JCari(String Query1, String Query2, String Query3, String Title, KomponenGUI.JtextF[] arrayBarang, String keywordForSearch, KomponenGUI.JRibuanTextField focusIfSuccess, KomponenGUI.JtextF focusIfCancel) {
-        query1 = Query1;
-        query2 = Query2;
-        query3 = Query3;
+    public JCari(String query1, String query2, String query3, String title, KomponenGUI.JtextF[] arrayBarang, String keywordForSearch, KomponenGUI.JRibuanTextField focusIfSuccess, KomponenGUI.JtextF focusIfCancel) {
+        Query1 = query1;
+        Query2 = query2;
+        Query3 = query3;
         ArrayBarang = arrayBarang;
         FocusIfSuccess = focusIfSuccess;
         FocusIfCancel = focusIfCancel;
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle(Title);
+        setTitle(title);
         setVisible(true);
         JTNamaBarang.setText(keywordForSearch);
         searchByNamaBarang();
@@ -288,27 +288,27 @@ public class JCari extends javax.swing.JFrame {
 
     void searchByJenisBarang() {
         if (JTJenisBarang.getText().equals("")) {
-            JTableData.setQuery(query1 + "LIKE '%" + JTJenisBarang.getText() + "%' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
+            JTableData.setQuery(Query1 + "LIKE '%" + JTJenisBarang.getText() + "%' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         } else {
-            JTableData.setQuery(query1 + "REGEXP '" + JTJenisBarang.getText().replace(" ", ".+") + "' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
+            JTableData.setQuery(Query1 + "REGEXP '" + JTJenisBarang.getText().replace(" ", ".+") + "' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         }
         tampilkan();
     }
 
     void searchByKategoriBarang() {
         if (JTKategoriBarang.getText().equals("")) {
-            JTableData.setQuery(query2 + "LIKE '%" + JTKategoriBarang.getText() + "%' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
+            JTableData.setQuery(Query2 + "LIKE '%" + JTKategoriBarang.getText() + "%' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         } else {
-            JTableData.setQuery(query2 + "REGEXP '" + JTKategoriBarang.getText().replace(" ", ".+") + "' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
+            JTableData.setQuery(Query2 + "REGEXP '" + JTKategoriBarang.getText().replace(" ", ".+") + "' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         }
         tampilkan();
     }
 
     void searchByNamaBarang() {
         if (JTNamaBarang.getText().equals("")) {
-            JTableData.setQuery(query3 + "LIKE '%" + JTNamaBarang.getText() + "%' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
+            JTableData.setQuery(Query3 + "LIKE '%" + JTNamaBarang.getText() + "%' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         } else {
-            JTableData.setQuery(query3 + "REGEXP '" + JTNamaBarang.getText().replace(" ", ".+") + "' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
+            JTableData.setQuery(Query3 + "REGEXP '" + JTNamaBarang.getText().replace(" ", ".+") + "' ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`");
         }
         tampilkan();
     }
