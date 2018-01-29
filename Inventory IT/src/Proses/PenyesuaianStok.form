@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="BGGaransi">
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="resizable" type="boolean" value="false"/>
@@ -78,7 +74,7 @@
                           <Group type="102" attributes="0">
                               <Component id="JLStokBaru2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JNStokBaru" max="32767" attributes="0"/>
+                              <Component id="JRStokBaru" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="JLKeterangan2" min="-2" max="-2" attributes="0"/>
@@ -156,7 +152,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLStokBaru" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLStokBaru2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JNStokBaru" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JRStokBaru" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -266,9 +262,6 @@
       </Properties>
     </Component>
     <Component class="KomponenGUI.JtextF" name="JTNamaBarang">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBNamaBarang">
       <Properties>
@@ -310,10 +303,7 @@
         <Property name="text" type="java.lang.String" value=":"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JNumberOnly" name="JNStokBaru">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
-      </Properties>
+    <Component class="KomponenGUI.JRibuanTextField" name="JRStokBaru">
     </Component>
     <Component class="KomponenGUI.JlableF" name="JLKeterangan">
       <Properties>

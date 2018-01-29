@@ -48,7 +48,6 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BGGaransi = new javax.swing.ButtonGroup();
         JLNomorPenyesuaianStok = new KomponenGUI.JlableF();
         JLNomorPenyesuaianStok2 = new KomponenGUI.JlableF();
         JTNomorPenyesuaianStok = new KomponenGUI.JtextF();
@@ -70,7 +69,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         JTStokLama = new KomponenGUI.JtextF();
         JLStokBaru = new KomponenGUI.JlableF();
         JLStokBaru2 = new KomponenGUI.JlableF();
-        JNStokBaru = new KomponenGUI.JNumberOnly();
+        JRStokBaru = new KomponenGUI.JRibuanTextField();
         JLKeterangan = new KomponenGUI.JlableF();
         JLKeterangan2 = new KomponenGUI.JlableF();
         JSPKeterangan = new javax.swing.JScrollPane();
@@ -142,8 +141,6 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         JLStokBaru.setText("Stok Baru");
 
         JLStokBaru2.setText(":");
-
-        JNStokBaru.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         JLKeterangan.setText("Keterangan");
 
@@ -225,7 +222,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JLStokBaru2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JNStokBaru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(JRStokBaru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JLKeterangan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -286,7 +283,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLStokBaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLStokBaru2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JNStokBaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JRStokBaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -331,10 +328,10 @@ public class PenyesuaianStok extends javax.swing.JFrame {
 
     private void JBNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNamaBarangActionPerformed
         if (GlobalVar.Var.jCari == null) {
-            GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, null, PenyesuaianStok.JTNamaBarang);
-        }
-        else{
-            
+            GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, null, JRStokBaru, JTNamaBarang);
+        } else {
+            GlobalVar.Var.jCari.setState(NORMAL);
+            GlobalVar.Var.jCari.toFront();
         }
         if (!JTNamaBarang.getText().isEmpty()) {
             setStokLama();
@@ -447,7 +444,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     void tambah(boolean tutup) {
         if (checkInput()) {
             Insert insert = new LSubProces.Insert();
-            boolean simpan = insert.Simpan("INSERT INTO `tbpenyesuaianstok`(`IdBarang`, `NomorPenyesuaianStok`, `TanggalPenyesuaianStok`, `PenyesuaianStok`, `Keterangan`) VALUES ((SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), '" + JTNomorPenyesuaianStok.getText() + "', '" + FDateF.datetostr(JDTanggalPenyesuaianStok.getDate(), "yyyy-MM-dd") + "', " + (Integer.parseInt(JNStokBaru.getText()) - Integer.parseInt(JTStokLama.getText())) + ", '" + JTKeterangan.getText() + "')", "Tambah Data Penyesuaian Stok", this);
+            boolean simpan = insert.Simpan("INSERT INTO `tbpenyesuaianstok`(`IdBarang`, `NomorPenyesuaianStok`, `TanggalPenyesuaianStok`, `PenyesuaianStok`, `Keterangan`) VALUES ((SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), '" + JTNomorPenyesuaianStok.getText() + "', '" + FDateF.datetostr(JDTanggalPenyesuaianStok.getDate(), "yyyy-MM-dd") + "', " + (Integer.parseInt(JRStokBaru.getText()) - Integer.parseInt(JTStokLama.getText())) + ", '" + JTKeterangan.getText() + "')", "Tambah Data Penyesuaian Stok", this);
             if (simpan) {
                 if (GlobalVar.Var.listPenyesuaianStok != null) {
                     GlobalVar.Var.listPenyesuaianStok.load();
@@ -470,12 +467,11 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         JTKategoriBarang.setText("");
         JTNamaBarang.setText("");
         JTStokLama.setText("0");
-        JNStokBaru.setText("0");
+        JRStokBaru.setText("0");
         JTKeterangan.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup BGGaransi;
     private KomponenGUI.JbuttonF JBKembali;
     private KomponenGUI.JbuttonF JBNamaBarang;
     private KomponenGUI.JbuttonF JBTambah;
@@ -497,12 +493,12 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     private KomponenGUI.JlableF JLStokLama2;
     private KomponenGUI.JlableF JLTanggalPenyesuaianStok;
     private KomponenGUI.JlableF JLTanggalPenyesuaianStok2;
-    private KomponenGUI.JNumberOnly JNStokBaru;
+    private KomponenGUI.JRibuanTextField JRStokBaru;
     private javax.swing.JScrollPane JSPKeterangan;
     private KomponenGUI.JtextF JTJenisBarang;
     private KomponenGUI.JtextF JTKategoriBarang;
     private KomponenGUI.JTextAreaF JTKeterangan;
-    public static KomponenGUI.JtextF JTNamaBarang;
+    private KomponenGUI.JtextF JTNamaBarang;
     private KomponenGUI.JtextF JTNomorPenyesuaianStok;
     private KomponenGUI.JtextF JTStokLama;
     // End of variables declaration//GEN-END:variables

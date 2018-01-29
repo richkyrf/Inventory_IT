@@ -21,9 +21,9 @@ public class JCari extends javax.swing.JFrame {
     int selectedRow = -1;
     KomponenGUI.JtextF[] ArrayBarang = new KomponenGUI.JtextF[3];
     KomponenGUI.JtextF FocusIfCancel;
-    KomponenGUI.JNumberOnly FocusIfSuccess;
+    KomponenGUI.JRibuanTextField FocusIfSuccess;
 
-    public JCari(String Query1, String Query2, String Query3, String Title, KomponenGUI.JtextF[] arrayBarang, String keywordForSearch, KomponenGUI.JNumberOnly focusIfSuccess, KomponenGUI.JtextF focusIfCancel) {
+    public JCari(String Query1, String Query2, String Query3, String Title, KomponenGUI.JtextF[] arrayBarang, String keywordForSearch, KomponenGUI.JRibuanTextField focusIfSuccess, KomponenGUI.JtextF focusIfCancel) {
         query1 = Query1;
         query2 = Query2;
         query3 = Query3;
