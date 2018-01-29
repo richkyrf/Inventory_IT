@@ -194,6 +194,11 @@ public class MenuUtama extends javax.swing.JFrame {
         JMProses.setText("Proses");
 
         JMIProsesPurchaseRequest.setText("Purchase Request ");
+        JMIProsesPurchaseRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIProsesPurchaseRequestActionPerformed(evt);
+            }
+        });
         JMProses.add(JMIProsesPurchaseRequest);
 
         JMIProsesBarangMasuk.setText("Barang Masuk");
@@ -233,6 +238,11 @@ public class MenuUtama extends javax.swing.JFrame {
         JMList.setText("List");
 
         JMIListPurchaseRequest.setText("Purchase Request");
+        JMIListPurchaseRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIListPurchaseRequestActionPerformed(evt);
+            }
+        });
         JMList.add(JMIListPurchaseRequest);
 
         JMIListBarangMasuk.setText("Barang Masuk");
@@ -393,6 +403,18 @@ public class MenuUtama extends javax.swing.JFrame {
             GlobalVar.Var.tambahPenyesuaianStok = new PenyesuaianStok();
         }
     }//GEN-LAST:event_JMIProsesPenyesuaianStokActionPerformed
+
+    private void JMIProsesPurchaseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIProsesPurchaseRequestActionPerformed
+        if (GlobalVar.Var.tambahPurchaseRequest == null){
+            GlobalVar.Var.tambahPurchaseRequest = new PurchaseRequest("0");
+        }
+    }//GEN-LAST:event_JMIProsesPurchaseRequestActionPerformed
+
+    private void JMIListPurchaseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListPurchaseRequestActionPerformed
+        if (GlobalVar.Var.listPurchaseRequest == null){
+            GlobalVar.Var.listPurchaseRequest = new ListPurchaseRequest();
+        }
+    }//GEN-LAST:event_JMIListPurchaseRequestActionPerformed
 
     /**
      * @param args the command line arguments

@@ -13,7 +13,7 @@
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
-    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
+    <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosed"/>
   </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -38,19 +38,19 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jbuttonF1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="204" max="32767" attributes="0"/>
-                      <Component id="BTNPrint" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBKembali" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="474" max="32767" attributes="0"/>
+                      <Component id="JBPrint" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BTNUbahPrint" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBUbahPrint" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BTNUbah" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBUbah" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BTNSimpan" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBTambah" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BTNSimpanDanPrint" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBTambahPrint" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BTNSimpanDanTutup" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBTambahTutup" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -75,22 +75,22 @@
                           <Component id="jlableF9" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="JCPenerima" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="JCVendor" min="-2" pref="280" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jbuttonF4" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="JTPenerima" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jlableF1" min="-2" pref="65" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jlableF10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTNomorPurchaseRequest" min="-2" pref="243" max="-2" attributes="0"/>
+                              <Component id="JTNomorPurchaseRequest" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jlableF6" min="-2" pref="65" max="-2" attributes="0"/>
@@ -105,38 +105,38 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="JTJenisBarang" max="32767" attributes="0"/>
-                                  <Component id="jtextF13" pref="150" max="32767" attributes="0"/>
+                                  <Component id="jtextF13" pref="178" max="32767" attributes="0"/>
+                                  <Component id="JTJenisBarang" pref="178" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtextF12" pref="200" max="32767" attributes="0"/>
-                                  <Component id="JTKategoriBarang" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtextF7" min="-2" pref="141" max="-2" attributes="0"/>
-                                  <Component id="JTNamaBarang" min="-2" pref="141" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jbuttonF2" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="jbuttonF6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtextF12" pref="134" max="32767" attributes="0"/>
+                                  <Component id="JTKategoriBarang" pref="134" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtextF9" pref="80" max="32767" attributes="0"/>
-                                  <Component id="JTHarga" max="32767" attributes="0"/>
+                                  <Component id="jtextF7" pref="346" max="32767" attributes="0"/>
+                                  <Component id="JTNamaBarang" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="JBSearchNamaBarang" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="jbuttonF6" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jtextF9" pref="113" max="32767" attributes="0"/>
+                                  <Component id="JTHargaBarang" pref="113" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtextF8" max="32767" attributes="0"/>
-                                  <Component id="JTJumlah" max="32767" attributes="0"/>
+                                  <Component id="jtextF8" pref="94" max="32767" attributes="0"/>
+                                  <Component id="JTJumlahBarang" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JTKeterangan" max="32767" attributes="0"/>
                                   <Component id="jtextF11" max="32767" attributes="0"/>
+                                  <Component id="JTKeterangan" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -144,15 +144,15 @@
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="hapustable" alignment="0" max="32767" attributes="0"/>
-                              <Component id="ubahtable" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tambahtable" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="JBHapusDetail" alignment="0" max="32767" attributes="0"/>
+                              <Component id="JBUbahDetail" alignment="0" max="32767" attributes="0"/>
+                              <Component id="JBTambahDetail" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jbuttonF3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JBRefreshDetail" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -176,24 +176,39 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jlableF11" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JCPenerima" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF13" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JTPenerima" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="JDTanggal" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jtextF7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbuttonF6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtextF13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtextF12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTJumlahBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTHargaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTKeterangan" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jbuttonF2" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="jtextF7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtextF13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtextF12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="jtextF9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtextF8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtextF11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jbuttonF6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="JBSearchNamaBarang" min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="JTNamaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="JTJenisBarang" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -201,32 +216,19 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="JTJumlah" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTHarga" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTKeterangan" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jtextF9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtextF8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtextF11" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="tambahtable" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBTambahDetail" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="ubahtable" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBUbahDetail" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="hapustable" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBHapusDetail" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jbuttonF3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
+                      <Component id="JBRefreshDetail" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="173" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -243,13 +245,13 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jbuttonF1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BTNSimpanDanTutup" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BTNSimpan" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BTNUbah" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BTNSimpanDanPrint" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BTNPrint" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BTNUbahPrint" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBKembali" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBTambahTutup" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBTambah" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBUbah" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBTambahPrint" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBPrint" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBUbahPrint" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -268,6 +270,11 @@
       </Properties>
     </Component>
     <Component class="KomponenGUI.JcomboboxF" name="JCVendor">
+      <Properties>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="JTNamaBarang"/>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JCVendorItemStateChanged"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JCVendorFocusLost"/>
@@ -280,14 +287,11 @@
     </Component>
     <Component class="KomponenGUI.JtextF" name="JTNamaBarang">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTHarga"/>
+          <ComponentRef name="JTHargaBarang"/>
         </Property>
       </Properties>
       <Events>
@@ -347,22 +351,29 @@
         <Component class="KomponenGUI.JtableF" name="JTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="0">
+              <Table columnCount="7" rowCount="0">
                 <Column editable="false" title="No" type="java.lang.Object"/>
-                <Column editable="false" title="Kategori" type="java.lang.Object"/>
+                <Column editable="false" title="Jenis Barang" type="java.lang.Object"/>
+                <Column editable="false" title="Kategori Barang" type="java.lang.Object"/>
                 <Column editable="false" title="Nama Barang" type="java.lang.Object"/>
                 <Column editable="false" title="Harga" type="java.lang.Object"/>
                 <Column editable="false" title="Jumlah" type="java.lang.Object"/>
+                <Column editable="false" title="Keterangan" type="java.lang.Object"/>
               </Table>
             </Property>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="JTable.setrender(3, &quot;Number&quot;);&#xa;JTable.setrender(4, &quot;Number&quot;);">
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="JTable.setrender(4, &quot;Number&quot;);&#xa;JTable.setrender(5, &quot;Number&quot;);">
               <TableColumnModel selectionModel="0">
                 <Column maxWidth="60" minWidth="60" prefWidth="60" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="120" minWidth="120" prefWidth="120" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="140" minWidth="140" prefWidth="140" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -372,12 +383,17 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
+                <Column maxWidth="120" minWidth="120" prefWidth="120" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="100" minWidth="100" prefWidth="100" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="60" minWidth="60" prefWidth="60" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -409,62 +425,54 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="BTNSimpan">
+    <Component class="KomponenGUI.JbuttonF" name="JBTambah">
       <Properties>
         <Property name="text" type="java.lang.String" value="SIMPAN"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNSimpanActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahActionPerformed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="BTNSimpanDanTutup">
+    <Component class="KomponenGUI.JbuttonF" name="JBTambahTutup">
       <Properties>
         <Property name="text" type="java.lang.String" value="SIMPAN &amp; TUTUP"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNSimpanDanTutupActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahTutupActionPerformed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="tambahtable">
+    <Component class="KomponenGUI.JbuttonF" name="JBTambahDetail">
       <Properties>
         <Property name="text" type="java.lang.String" value="TAMBAH"/>
       </Properties>
       <BindingProperties>
-        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement == null}" target="tambahtable" targetPath="enabled" updateStrategy="0" immediately="false"/>
+        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement == null}" target="JBTambahDetail" targetPath="enabled" updateStrategy="0" immediately="false"/>
       </BindingProperties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tambahtableActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahDetailActionPerformed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="ubahtable">
+    <Component class="KomponenGUI.JbuttonF" name="JBUbahDetail">
       <Properties>
         <Property name="text" type="java.lang.String" value="UBAH"/>
       </Properties>
       <BindingProperties>
-        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="ubahtable" targetPath="enabled" updateStrategy="0" immediately="false"/>
+        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JBUbahDetail" targetPath="enabled" updateStrategy="0" immediately="false"/>
       </BindingProperties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ubahtableActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBUbahDetailActionPerformed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="hapustable">
+    <Component class="KomponenGUI.JbuttonF" name="JBHapusDetail">
       <Properties>
         <Property name="text" type="java.lang.String" value="HAPUS"/>
       </Properties>
       <BindingProperties>
-        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="hapustable" targetPath="enabled" updateStrategy="0" immediately="false"/>
+        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JBHapusDetail" targetPath="enabled" updateStrategy="0" immediately="false"/>
       </BindingProperties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hapustableActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBHapusDetailActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="KomponenGUI.JtextF" name="JTNomorPurchaseRequest">
-      <Properties>
-        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
@@ -490,16 +498,16 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JNumberOnly" name="JTJumlah">
+    <Component class="KomponenGUI.JNumberOnly" name="JTJumlahBarang">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTKategoriBarang"/>
+          <ComponentRef name="JTKeterangan"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTJumlahKeyPressed"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTJumlahKeyReleased"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTJumlahBarangKeyPressed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTJumlahBarangKeyReleased"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JdateCF" name="JDTanggal">
@@ -514,39 +522,39 @@
         <Property name="text" type="java.lang.String" value="Tanggal"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="BTNUbah">
+    <Component class="KomponenGUI.JbuttonF" name="JBUbah">
       <Properties>
         <Property name="text" type="java.lang.String" value="UBAH"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNUbahActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBUbahActionPerformed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="jbuttonF1">
+    <Component class="KomponenGUI.JbuttonF" name="JBKembali">
       <Properties>
         <Property name="text" type="java.lang.String" value="Kembali"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonF1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBKembaliActionPerformed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="jbuttonF2">
+    <Component class="KomponenGUI.JbuttonF" name="JBSearchNamaBarang">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resource/Search.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jbuttonF2FocusGained"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonF2ActionPerformed"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JBSearchNamaBarangFocusGained"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBSearchNamaBarangActionPerformed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="jbuttonF3">
+    <Component class="KomponenGUI.JbuttonF" name="JBRefreshDetail">
       <Properties>
         <Property name="text" type="java.lang.String" value="REFRESH"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonF3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBRefreshDetailActionPerformed"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF8">
@@ -567,17 +575,6 @@
         <Property name="text" type="java.lang.String" value="Penerima"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JcomboboxF" name="JCPenerima">
-      <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JCPenerimaItemStateChanged"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JCPenerimaFocusLost"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCPenerimaKeyPressed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JCPenerima.load(&quot;SELECT `NamaPenerima` FROM `tbmpenerima` &quot;);"/>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
-    </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF12">
       <Properties>
         <Property name="text" type="java.lang.String" value=":"/>
@@ -593,33 +590,38 @@
         <Property name="text" type="java.lang.String" value=":"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JRibuanTextField" name="JTHarga">
+    <Component class="KomponenGUI.JRibuanTextField" name="JTHargaBarang">
+      <Properties>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="JTJumlahBarang"/>
+        </Property>
+      </Properties>
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTHargaKeyPressed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTHargaBarangKeyPressed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="BTNSimpanDanPrint">
+    <Component class="KomponenGUI.JbuttonF" name="JBTambahPrint">
       <Properties>
         <Property name="text" type="java.lang.String" value="SIMPAN &amp; PRINT"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNSimpanDanPrintActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahPrintActionPerformed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="BTNPrint">
+    <Component class="KomponenGUI.JbuttonF" name="JBPrint">
       <Properties>
         <Property name="text" type="java.lang.String" value="Print"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNPrintActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBPrintActionPerformed"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="BTNUbahPrint">
+    <Component class="KomponenGUI.JbuttonF" name="JBUbahPrint">
       <Properties>
         <Property name="text" type="java.lang.String" value="UBAH &amp; PRINT"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNUbahPrintActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBUbahPrintActionPerformed"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="jbuttonF4">
@@ -640,14 +642,12 @@
     </Component>
     <Component class="KomponenGUI.JtextF" name="JTKategoriBarang">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTHarga"/>
+          <ComponentRef name="JTHargaBarang"/>
         </Property>
       </Properties>
       <Events>
@@ -671,14 +671,12 @@
     </Component>
     <Component class="KomponenGUI.JtextF" name="JTJenisBarang">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTHarga"/>
+          <ComponentRef name="JTHargaBarang"/>
         </Property>
       </Properties>
       <Events>
@@ -710,7 +708,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTHarga"/>
+          <ComponentRef name="JTHargaBarang"/>
         </Property>
       </Properties>
       <Events>
@@ -722,6 +720,17 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTPenerima">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PELITA GROUP"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTNomorPurchaseRequest">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
