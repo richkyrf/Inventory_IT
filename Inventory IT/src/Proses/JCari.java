@@ -6,7 +6,6 @@
 package Proses;
 
 import java.awt.event.KeyEvent;
-import javax.swing.table.TableColumn;
 
 /**
  *
@@ -17,10 +16,9 @@ public class JCari extends javax.swing.JFrame {
     /**
      * Creates new form JCari
      */
-    String query1, query2, query3, judul1, judul2, judul3;
-    Object selectedRow = null;
-    int colNum;
-    KomponenGUI.JtextF jF;
+    String query1, query2, query3;
+    int selectedRow = -1;
+    KomponenGUI.JtextF[] jF = new KomponenGUI.JtextF[3];
     KomponenGUI.JtextF jR;
 
     /**
@@ -28,23 +26,17 @@ public class JCari extends javax.swing.JFrame {
      * @param Query_Pencarian_1
      * @param Query_Pencarian_2
      * @param Query_Pencarian_3
-     * @param Judul1_Pencarian_1
-     * @param Judul2_Pencarian_2
-     * @param Judul3_Pencarian_3
      * @param Title
-     * @param Jf__parameter_untuk_isi_jtext_di_form_sbelumnya
+     * @param Jf__parameter_untuk_isi_jtext_di_form_sebelumnya
      * @param FocusLeftOrRight__pilih_request_fokus_jtext_di_jcari
+     * @param Jr__parameter_untuk_pilih_request_focus_di_form_sebelumnya
      */
-    public JCari(String Query1, String Query2, String Query3, String Judul1, String Judul2, String Judul3, String Title, int Colnum, KomponenGUI.JtextF Jf, String FocusLeftOrRight, KomponenGUI.JtextF Jr) {
-        jR = Jr;
-        jF = Jf;
-        colNum = Colnum;
+    public JCari(String Query1, String Query2, String Query3, String Title, KomponenGUI.JtextF[] Jf, String FocusLeftOrRight, KomponenGUI.JtextF Jr) {
         query1 = Query1;
         query2 = Query2;
         query3 = Query3;
-        judul1 = Judul1;
-        judul2 = Judul2;
-        judul3 = Judul3;
+        jF = Jf;
+        jR = Jr;
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -74,6 +66,7 @@ public class JCari extends javax.swing.JFrame {
         JBPilih = new KomponenGUI.JbuttonF();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -118,17 +111,8 @@ public class JCari extends javax.swing.JFrame {
             }
         });
 
-        JTableData.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                judul1, judul2
-            }
-        ));
+        JSPData.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
         JTableData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 JTableDataMouseReleased(evt);
@@ -197,7 +181,9 @@ public class JCari extends javax.swing.JFrame {
 
     private void JTJenisBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTJenisBarangKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jF.setText(JTableData.getValueAt(JTableData.getSelectedRow(), colNum).toString());
+            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
+            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
+            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
             GlobalVar.Var.jCari.dispose();
             GlobalVar.Var.jCari = null;
         } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -215,7 +201,9 @@ public class JCari extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void JBPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPilihActionPerformed
-        jF.setText(JTableData.getValueAt(JTableData.getSelectedRow(), colNum).toString());
+        jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
+        jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
+        jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
         GlobalVar.Var.jCari.dispose();
         GlobalVar.Var.jCari = null;
     }//GEN-LAST:event_JBPilihActionPerformed
@@ -226,18 +214,22 @@ public class JCari extends javax.swing.JFrame {
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JTableDataMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableDataMouseReleased
-        if (JTableData.getValueAt(JTableData.getSelectedRow(), colNum) == selectedRow) {
-            jF.setText(JTableData.getValueAt(JTableData.getSelectedRow(), colNum).toString());
+        if (JTableData.getSelectedRow() == selectedRow) {
+            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
+            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
+            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
             GlobalVar.Var.jCari.dispose();
             GlobalVar.Var.jCari = null;
         } else {
-            selectedRow = JTableData.getValueAt(JTableData.getSelectedRow(), colNum);
+            selectedRow = JTableData.getSelectedRow();
         }
     }//GEN-LAST:event_JTableDataMouseReleased
 
     private void JTNamaBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTNamaBarangKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jF.setText(JTableData.getValueAt(JTableData.getSelectedRow(), colNum).toString());
+            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
+            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
+            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
             GlobalVar.Var.jCari.dispose();
             GlobalVar.Var.jCari = null;
         } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -248,12 +240,13 @@ public class JCari extends javax.swing.JFrame {
         } else {
             searchByNamaBarang();
         }
-
     }//GEN-LAST:event_JTNamaBarangKeyReleased
 
     private void JTableDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTableDataKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jF.setText(JTableData.getValueAt(JTableData.getSelectedRow(), colNum).toString());
+            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
+            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
+            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
             GlobalVar.Var.jCari.dispose();
             GlobalVar.Var.jCari = null;
         }
@@ -277,7 +270,9 @@ public class JCari extends javax.swing.JFrame {
 
     private void JTKategoriBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKategoriBarangKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jF.setText(JTableData.getValueAt(JTableData.getSelectedRow(), colNum).toString());
+            jF[0].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 0).toString());
+            jF[1].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 1).toString());
+            jF[2].setText(JTableData.getValueAt(JTableData.getSelectedRow(), 2).toString());
             GlobalVar.Var.jCari.dispose();
             GlobalVar.Var.jCari = null;
         } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -302,27 +297,29 @@ public class JCari extends javax.swing.JFrame {
 
     void searchByJenisBarang() {
         if (JTJenisBarang.getText().equals("")) {
-            JTableData.setQuery(query1);
+            JTableData.setQuery(query1 + "LIKE '%" + JTJenisBarang.getText() + "%'");
         } else {
             JTableData.setQuery(query1 + "REGEXP '" + JTJenisBarang.getText().replace(" ", ".+") + "'");
         }
         JTableData.tampilkan();
-        TableColumn tableColumn = JTableData.getColumnModel().getColumn(0);
-        tableColumn.setPreferredWidth(90);
+        JTableData.getColumnModel().getColumn(0).setPreferredWidth(366);
+        JTableData.getColumnModel().getColumn(1).setPreferredWidth(371);
+        JTableData.getColumnModel().getColumn(2).setPreferredWidth(648);
         if (JTableData.getRowCount() != 0) {
             JTableData.setRowSelectionInterval(0, 0);
         }
     }
-    
+
     void searchByKategoriBarang() {
         if (JTKategoriBarang.getText().equals("")) {
-            JTableData.setQuery(query2);
+            JTableData.setQuery(query2 + "LIKE '%" + JTKategoriBarang.getText() + "%'");
         } else {
             JTableData.setQuery(query2 + "REGEXP '" + JTKategoriBarang.getText().replace(" ", ".+") + "'");
         }
         JTableData.tampilkan();
-        TableColumn tableColumn = JTableData.getColumnModel().getColumn(0);
-        tableColumn.setPreferredWidth(90);
+        JTableData.getColumnModel().getColumn(0).setPreferredWidth(366);
+        JTableData.getColumnModel().getColumn(1).setPreferredWidth(371);
+        JTableData.getColumnModel().getColumn(2).setPreferredWidth(648);
         if (JTableData.getRowCount() != 0) {
             JTableData.setRowSelectionInterval(0, 0);
         }
@@ -330,13 +327,14 @@ public class JCari extends javax.swing.JFrame {
 
     void searchByNamaBarang() {
         if (JTNamaBarang.getText().equals("")) {
-            JTableData.setQuery(query3);
+            JTableData.setQuery(query3 + "LIKE '%" + JTNamaBarang.getText() + "%'");
         } else {
             JTableData.setQuery(query3 + "REGEXP '" + JTNamaBarang.getText().replace(" ", ".+") + "'");
         }
         JTableData.tampilkan();
-        TableColumn tableColumn = JTableData.getColumnModel().getColumn(0);
-        tableColumn.setPreferredWidth(90);
+        JTableData.getColumnModel().getColumn(0).setPreferredWidth(366);
+        JTableData.getColumnModel().getColumn(1).setPreferredWidth(371);
+        JTableData.getColumnModel().getColumn(2).setPreferredWidth(648);
         if (JTableData.getRowCount() != 0) {
             JTableData.setRowSelectionInterval(0, 0);
         }
