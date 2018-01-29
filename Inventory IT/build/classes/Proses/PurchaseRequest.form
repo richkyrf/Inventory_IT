@@ -39,7 +39,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="JBKembali" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="474" max="32767" attributes="0"/>
+                      <EmptySpace pref="542" max="32767" attributes="0"/>
                       <Component id="JBPrint" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBUbahPrint" min="-2" max="-2" attributes="0"/>
@@ -142,14 +142,13 @@
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="JBHapusDetail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="JBUbahDetail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="JBTambahDetail" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="JBRefreshDetail" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="JBHapusDetail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="JBUbahDetail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="JBTambahDetail" alignment="1" max="32767" attributes="0"/>
+                          <Component id="JBRefreshDetail" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -276,8 +275,6 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JCVendorItemStateChanged"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JCVendorFocusLost"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCVendorKeyPressed"/>
       </Events>
       <AuxValues>
@@ -295,9 +292,6 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTNamaBarangFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTNamaBarangFocusLost"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTNamaBarangKeyPressed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTNamaBarangKeyReleased"/>
       </Events>
       <AuxValues>
@@ -427,7 +421,7 @@
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBTambah">
       <Properties>
-        <Property name="text" type="java.lang.String" value="SIMPAN"/>
+        <Property name="text" type="java.lang.String" value="Simpan"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahActionPerformed"/>
@@ -435,7 +429,7 @@
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBTambahTutup">
       <Properties>
-        <Property name="text" type="java.lang.String" value="SIMPAN &amp; TUTUP"/>
+        <Property name="text" type="java.lang.String" value="Simpan &amp; Tutup"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahTutupActionPerformed"/>
@@ -443,7 +437,7 @@
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBTambahDetail">
       <Properties>
-        <Property name="text" type="java.lang.String" value="TAMBAH"/>
+        <Property name="text" type="java.lang.String" value="Tambah"/>
       </Properties>
       <BindingProperties>
         <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement == null}" target="JBTambahDetail" targetPath="enabled" updateStrategy="0" immediately="false"/>
@@ -454,7 +448,7 @@
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBUbahDetail">
       <Properties>
-        <Property name="text" type="java.lang.String" value="UBAH"/>
+        <Property name="text" type="java.lang.String" value="Ubah"/>
       </Properties>
       <BindingProperties>
         <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JBUbahDetail" targetPath="enabled" updateStrategy="0" immediately="false"/>
@@ -465,7 +459,7 @@
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBHapusDetail">
       <Properties>
-        <Property name="text" type="java.lang.String" value="HAPUS"/>
+        <Property name="text" type="java.lang.String" value="Hapus"/>
       </Properties>
       <BindingProperties>
         <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JBHapusDetail" targetPath="enabled" updateStrategy="0" immediately="false"/>
@@ -507,7 +501,6 @@
       </Properties>
       <Events>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTJumlahBarangKeyPressed"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTJumlahBarangKeyReleased"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JdateCF" name="JDTanggal">
@@ -524,7 +517,7 @@
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBUbah">
       <Properties>
-        <Property name="text" type="java.lang.String" value="UBAH"/>
+        <Property name="text" type="java.lang.String" value="Ubah"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBUbahActionPerformed"/>
@@ -545,13 +538,12 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JBSearchNamaBarangFocusGained"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBSearchNamaBarangActionPerformed"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBRefreshDetail">
       <Properties>
-        <Property name="text" type="java.lang.String" value="REFRESH"/>
+        <Property name="text" type="java.lang.String" value="Refresh"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBRefreshDetailActionPerformed"/>
@@ -602,7 +594,7 @@
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBTambahPrint">
       <Properties>
-        <Property name="text" type="java.lang.String" value="SIMPAN &amp; PRINT"/>
+        <Property name="text" type="java.lang.String" value="Simpan &amp; Print"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahPrintActionPerformed"/>
@@ -618,7 +610,7 @@
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="JBUbahPrint">
       <Properties>
-        <Property name="text" type="java.lang.String" value="UBAH &amp; PRINT"/>
+        <Property name="text" type="java.lang.String" value="Ubah &amp; Print"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBUbahPrintActionPerformed"/>
@@ -650,12 +642,6 @@
           <ComponentRef name="JTHargaBarang"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTKategoriBarangFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTKategoriBarangFocusLost"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTKategoriBarangKeyPressed"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTKategoriBarangKeyReleased"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
@@ -679,12 +665,6 @@
           <ComponentRef name="JTHargaBarang"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTJenisBarangFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTJenisBarangFocusLost"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTJenisBarangKeyPressed"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTJenisBarangKeyReleased"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
@@ -712,10 +692,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTKeteranganFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTKeteranganFocusLost"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTKeteranganKeyPressed"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTKeteranganKeyReleased"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

@@ -19,7 +19,6 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import javafx.scene.input.KeyCode;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
@@ -54,6 +53,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
             JBTambahTutup.setVisible(false);
             JBTambahPrint.setVisible(false);
         }
+        setExtendedState(MAXIMIZED_BOTH);
         setVisible(true);
     }
 
@@ -227,16 +227,6 @@ public class PurchaseRequest extends javax.swing.JFrame {
 
         JCVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
         JCVendor.setNextFocusableComponent(JTNamaBarang);
-        JCVendor.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                JCVendorItemStateChanged(evt);
-            }
-        });
-        JCVendor.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                JCVendorFocusLost(evt);
-            }
-        });
         JCVendor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JCVendorKeyPressed(evt);
@@ -245,18 +235,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
 
         JTNamaBarang.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTNamaBarang.setNextFocusableComponent(JTHargaBarang);
-        JTNamaBarang.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                JTNamaBarangFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                JTNamaBarangFocusLost(evt);
-            }
-        });
         JTNamaBarang.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JTNamaBarangKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 JTNamaBarangKeyReleased(evt);
             }
@@ -330,21 +309,21 @@ public class PurchaseRequest extends javax.swing.JFrame {
 
         jlableF5.setText(GlobalVar.VarL.username);
 
-        JBTambah.setText("SIMPAN");
+        JBTambah.setText("Simpan");
         JBTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTambahActionPerformed(evt);
             }
         });
 
-        JBTambahTutup.setText("SIMPAN & TUTUP");
+        JBTambahTutup.setText("Simpan & Tutup");
         JBTambahTutup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTambahTutupActionPerformed(evt);
             }
         });
 
-        JBTambahDetail.setText("TAMBAH");
+        JBTambahDetail.setText("Tambah");
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement == null}"), JBTambahDetail, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
@@ -355,7 +334,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
             }
         });
 
-        JBUbahDetail.setText("UBAH");
+        JBUbahDetail.setText("Ubah");
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JBUbahDetail, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
@@ -366,7 +345,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
             }
         });
 
-        JBHapusDetail.setText("HAPUS");
+        JBHapusDetail.setText("Hapus");
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JBHapusDetail, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
@@ -391,16 +370,13 @@ public class PurchaseRequest extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JTJumlahBarangKeyPressed(evt);
             }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                JTJumlahBarangKeyReleased(evt);
-            }
         });
 
         JDTanggal.setDate(new Date());
 
         jlableF6.setText("Tanggal");
 
-        JBUbah.setText("UBAH");
+        JBUbah.setText("Ubah");
         JBUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBUbahActionPerformed(evt);
@@ -415,18 +391,13 @@ public class PurchaseRequest extends javax.swing.JFrame {
         });
 
         JBSearchNamaBarang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/Search.png"))); // NOI18N
-        JBSearchNamaBarang.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                JBSearchNamaBarangFocusGained(evt);
-            }
-        });
         JBSearchNamaBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBSearchNamaBarangActionPerformed(evt);
             }
         });
 
-        JBRefreshDetail.setText("REFRESH");
+        JBRefreshDetail.setText("Refresh");
         JBRefreshDetail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBRefreshDetailActionPerformed(evt);
@@ -453,7 +424,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
             }
         });
 
-        JBTambahPrint.setText("SIMPAN & PRINT");
+        JBTambahPrint.setText("Simpan & Print");
         JBTambahPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTambahPrintActionPerformed(evt);
@@ -467,7 +438,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
             }
         });
 
-        JBUbahPrint.setText("UBAH & PRINT");
+        JBUbahPrint.setText("Ubah & Print");
         JBUbahPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBUbahPrintActionPerformed(evt);
@@ -491,22 +462,6 @@ public class PurchaseRequest extends javax.swing.JFrame {
         JTKategoriBarang.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTKategoriBarang.setEnabled(false);
         JTKategoriBarang.setNextFocusableComponent(JTHargaBarang);
-        JTKategoriBarang.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                JTKategoriBarangFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                JTKategoriBarangFocusLost(evt);
-            }
-        });
-        JTKategoriBarang.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JTKategoriBarangKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                JTKategoriBarangKeyReleased(evt);
-            }
-        });
 
         jtextF13.setText("Jenis Barang");
         jtextF13.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -515,22 +470,6 @@ public class PurchaseRequest extends javax.swing.JFrame {
         JTJenisBarang.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTJenisBarang.setEnabled(false);
         JTJenisBarang.setNextFocusableComponent(JTHargaBarang);
-        JTJenisBarang.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                JTJenisBarangFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                JTJenisBarangFocusLost(evt);
-            }
-        });
-        JTJenisBarang.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JTJenisBarangKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                JTJenisBarangKeyReleased(evt);
-            }
-        });
 
         jtextF11.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jtextF11.setText("Keterangan");
@@ -540,20 +479,9 @@ public class PurchaseRequest extends javax.swing.JFrame {
         JTKeterangan.setForeground(new java.awt.Color(102, 102, 102));
         JTKeterangan.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTKeterangan.setNextFocusableComponent(JTHargaBarang);
-        JTKeterangan.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                JTKeteranganFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                JTKeteranganFocusLost(evt);
-            }
-        });
         JTKeterangan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JTKeteranganKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                JTKeteranganKeyReleased(evt);
             }
         });
 
@@ -574,7 +502,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JBKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 474, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 542, Short.MAX_VALUE)
                         .addComponent(JBPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBUbahPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -656,12 +584,12 @@ public class PurchaseRequest extends javax.swing.JFrame {
                                     .addComponent(JTKeterangan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jScrollPane1))
                         .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(JBHapusDetail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(JBUbahDetail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(JBTambahDetail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(JBRefreshDetail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(JBHapusDetail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JBUbahDetail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JBTambahDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JBRefreshDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(2, 2, 2)))
                 .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
@@ -756,14 +684,16 @@ public class PurchaseRequest extends javax.swing.JFrame {
     }//GEN-LAST:event_JBTambahDetailActionPerformed
 
     private void JTNamaBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTNamaBarangKeyReleased
-        if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
-            if (GlobalVar.Var.jCari == null) {
-                GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, null, JTHargaBarang, JTNamaBarang);
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (JTNamaBarang.getText().replace(" ", "").isEmpty()) {
+                cariBarang(null);
+            } else {
+                JTHargaBarang.requestFocus();
             }
+        } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
+            cariBarang(null);
         } else if (isAlphanumeric(String.valueOf(evt.getKeyChar())) == true) {
-            if (GlobalVar.Var.jCari == null) {
-                GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, JTNamaBarang.getText(), JTHargaBarang, JTNamaBarang);
-            }
+            cariBarang(JTNamaBarang.getText());
         }
     }//GEN-LAST:event_JTNamaBarangKeyReleased
 
@@ -780,23 +710,9 @@ public class PurchaseRequest extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBHapusDetailActionPerformed
 
-    private void JTJumlahBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTJumlahBarangKeyReleased
-
-    }//GEN-LAST:event_JTJumlahBarangKeyReleased
-
     private void JBTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTambahActionPerformed
         TambahData(false, false);
     }//GEN-LAST:event_JBTambahActionPerformed
-
-    private void JTNamaBarangFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTNamaBarangFocusLost
-
-    }//GEN-LAST:event_JTNamaBarangFocusLost
-
-    private void JTNamaBarangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTNamaBarangKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            JTHargaBarang.requestFocus();
-        }
-    }//GEN-LAST:event_JTNamaBarangKeyPressed
 
     private void JTJumlahBarangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTJumlahBarangKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -813,7 +729,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
     }//GEN-LAST:event_JBTambahTutupActionPerformed
 
     private void JBSearchNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSearchNamaBarangActionPerformed
-        GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, null, JTHargaBarang, JTNamaBarang);
+        cariBarang(null);
     }//GEN-LAST:event_JBSearchNamaBarangActionPerformed
 
     private void JTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableMouseClicked
@@ -835,27 +751,11 @@ public class PurchaseRequest extends javax.swing.JFrame {
         RefreshTbl();
     }//GEN-LAST:event_JBRefreshDetailActionPerformed
 
-    private void JCVendorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCVendorItemStateChanged
-
-    }//GEN-LAST:event_JCVendorItemStateChanged
-
-    private void JCVendorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JCVendorFocusLost
-
-    }//GEN-LAST:event_JCVendorFocusLost
-
     private void JCVendorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCVendorKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             JTNamaBarang.requestFocus();
         }
     }//GEN-LAST:event_JCVendorKeyPressed
-
-    private void JTNamaBarangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTNamaBarangFocusGained
-
-    }//GEN-LAST:event_JTNamaBarangFocusGained
-
-    private void JBSearchNamaBarangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JBSearchNamaBarangFocusGained
-
-    }//GEN-LAST:event_JBSearchNamaBarangFocusGained
 
     private void JTHargaBarangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTHargaBarangKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -887,46 +787,6 @@ public class PurchaseRequest extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbuttonF6ActionPerformed
 
-    private void JTKategoriBarangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTKategoriBarangFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTKategoriBarangFocusGained
-
-    private void JTKategoriBarangFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTKategoriBarangFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTKategoriBarangFocusLost
-
-    private void JTKategoriBarangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKategoriBarangKeyPressed
-
-    }//GEN-LAST:event_JTKategoriBarangKeyPressed
-
-    private void JTKategoriBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKategoriBarangKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTKategoriBarangKeyReleased
-
-    private void JTJenisBarangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTJenisBarangFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTJenisBarangFocusGained
-
-    private void JTJenisBarangFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTJenisBarangFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTJenisBarangFocusLost
-
-    private void JTJenisBarangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTJenisBarangKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTJenisBarangKeyPressed
-
-    private void JTJenisBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTJenisBarangKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTJenisBarangKeyReleased
-
-    private void JTKeteranganFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTKeteranganFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTKeteranganFocusGained
-
-    private void JTKeteranganFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTKeteranganFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTKeteranganFocusLost
-
     private void JTKeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKeteranganKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (JBTambahDetail.isEnabled()) {
@@ -936,10 +796,6 @@ public class PurchaseRequest extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_JTKeteranganKeyPressed
-
-    private void JTKeteranganKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKeteranganKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTKeteranganKeyReleased
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         if (idEdit.equals("0")) {
@@ -974,9 +830,6 @@ public class PurchaseRequest extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PurchaseRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -1059,11 +912,20 @@ public class PurchaseRequest extends javax.swing.JFrame {
             }
         } catch (SQLException e) {
             out.println("E6" + e);
-            JOptionPane.showMessageDialog(this, "Gagal Generate Nomor Penyesuaian Stok", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Gagal Generate Nomor Purchase Request", "Information", JOptionPane.INFORMATION_MESSAGE);
         } finally {
             runSelct.closecon();
         }
         JTNomorPurchaseRequest.setText(nomorPurchaseRequest);
+    }
+
+    void cariBarang(String keywordCari) {
+        if (GlobalVar.Var.jCari == null) {
+            GlobalVar.Var.jCari = new JCari("SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang` ", "SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang' FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `NamaBarang` ", "Cari Barang", arrayBarang, keywordCari, JTHargaBarang, JTNamaBarang);
+        } else {
+            GlobalVar.Var.jCari.setState(NORMAL);
+            GlobalVar.Var.jCari.toFront();
+        }
     }
 
     void RefreshAll() {
@@ -1323,5 +1185,4 @@ public class PurchaseRequest extends javax.swing.JFrame {
         }
         return false;
     }
-
 }
