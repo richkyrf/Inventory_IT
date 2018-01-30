@@ -56,8 +56,8 @@ public class GantiPassword extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -196,14 +196,13 @@ public class GantiPassword extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JTKonfirmasiPasswordKeyReleased
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.gantiPassword = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBatalActionPerformed
         GlobalVar.Var.gantiPassword.dispose();
-        GlobalVar.Var.gantiPassword = null;
     }//GEN-LAST:event_JBBatalActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.gantiPassword = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -252,7 +251,6 @@ public class GantiPassword extends javax.swing.JFrame {
                     boolean ubah = update.Ubah("UPDATE `tbuser` SET `Password`='" + getMD5(new String(JTPasswordBaru.getPassword())) + "' WHERE `Username`='" + GlobalVar.VarL.username + "'", "Ganti Password", this);
                     if (ubah) {
                         GlobalVar.Var.gantiPassword.dispose();
-                        GlobalVar.Var.gantiPassword = null;
                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "Gagal Ganti Passsword. Password Lama Salah !!!", "Error", JOptionPane.ERROR_MESSAGE);

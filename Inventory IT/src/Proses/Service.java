@@ -82,8 +82,8 @@ public class Service extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -354,20 +354,10 @@ public class Service extends javax.swing.JFrame {
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         if (idEdit.equals("0")) {
             GlobalVar.Var.tambahService.dispose();
-            GlobalVar.Var.tambahService = null;
         } else {
             GlobalVar.Var.editService.dispose();
-            GlobalVar.Var.editService = null;
         }
     }//GEN-LAST:event_JBKembaliActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if (idEdit.equals("0")) {
-            GlobalVar.Var.tambahService = null;
-        } else {
-            GlobalVar.Var.editService = null;
-        }
-    }//GEN-LAST:event_formWindowClosing
 
     private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
         ubah();
@@ -386,6 +376,9 @@ public class Service extends javax.swing.JFrame {
     private void JBJenisServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBJenisServiceActionPerformed
         if (GlobalVar.Var.tambahMasterJenisService == null) {
             GlobalVar.Var.tambahMasterJenisService = new MasterJenisService("0");
+        } else {
+            GlobalVar.Var.tambahMasterJenisService.setState(NORMAL);
+            GlobalVar.Var.tambahMasterJenisService.toFront();
         }
     }//GEN-LAST:event_JBJenisServiceActionPerformed
 
@@ -412,6 +405,9 @@ public class Service extends javax.swing.JFrame {
     private void JBJenisBarangServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBJenisBarangServiceActionPerformed
         if (GlobalVar.Var.tambahMasterJenisBarangService == null) {
             GlobalVar.Var.tambahMasterJenisBarangService = new MasterJenisBarangService("0");
+        } else {
+            GlobalVar.Var.tambahMasterJenisBarangService.setState(NORMAL);
+            GlobalVar.Var.tambahMasterJenisBarangService.toFront();
         }
     }//GEN-LAST:event_JBJenisBarangServiceActionPerformed
 
@@ -428,6 +424,9 @@ public class Service extends javax.swing.JFrame {
     private void JBNamaBarangServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNamaBarangServiceActionPerformed
         if (GlobalVar.Var.tambahMasterBarangService == null) {
             GlobalVar.Var.tambahMasterBarangService = new MasterBarangService("0+" + JCJenisBarangService.getSelectedItem());
+        } else {
+            GlobalVar.Var.tambahMasterBarangService.setState(NORMAL);
+            GlobalVar.Var.tambahMasterBarangService.toFront();
         }
     }//GEN-LAST:event_JBNamaBarangServiceActionPerformed
 
@@ -450,6 +449,14 @@ public class Service extends javax.swing.JFrame {
     private void JNTanggalServiceSelanjutnyaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JNTanggalServiceSelanjutnyaFocusLost
         nextService(Integer.valueOf(JNTanggalServiceSelanjutnya.getText()));
     }//GEN-LAST:event_JNTanggalServiceSelanjutnyaFocusLost
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        if (idEdit.equals("0")) {
+            GlobalVar.Var.tambahService = null;
+        } else {
+            GlobalVar.Var.editService = null;
+        }
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -535,7 +542,6 @@ public class Service extends javax.swing.JFrame {
                 }
                 if (tutup) {
                     GlobalVar.Var.tambahService.dispose();
-                    GlobalVar.Var.tambahService = null;
                 } else {
                     clearText();
                     JCJenisService.requestFocus();
@@ -573,7 +579,6 @@ public class Service extends javax.swing.JFrame {
             boolean ubah = update.Ubah("UPDATE `tbservice` SET `IdBarangService`=(SELECT `IdBarangService` FROM `tbmbarangservice` AS A JOIN `tbmjenisbarangservice` AS B ON A.`IdJenisBarangService`=B.`IdJenisBarangService` WHERE `JenisBarangService`='" + JCJenisBarangService.getSelectedItem() + "' AND `NamaBarangService`='" + JCNamaBarangService.getSelectedItem() + "'), `TanggalService`='" + FDateF.datetostr(JDTanggalService.getDate(), "yyyy-MM-dd") + "', `TanggalServiceSelanjutnya`='" + FDateF.datetostr(JDTanggalServiceSelanjutnya.getDate(), "yyyy-MM-dd") + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdService`=" + idEdit, "Ubah Data Service", this);
             if (ubah) {
                 GlobalVar.Var.editService.dispose();
-                GlobalVar.Var.editService = null;
                 GlobalVar.Var.listService.load();
             }
         }

@@ -48,8 +48,8 @@ public class ResetPasswordUser extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -147,13 +147,8 @@ public class ResetPasswordUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JTPasswordBaruKeyReleased
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.resetPasswordUser = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBatalActionPerformed
         GlobalVar.Var.resetPasswordUser.dispose();
-        GlobalVar.Var.resetPasswordUser = null;
     }//GEN-LAST:event_JBBatalActionPerformed
 
     private void JCUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCUsernameKeyReleased
@@ -165,6 +160,10 @@ public class ResetPasswordUser extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_JCUsernameKeyReleased
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.resetPasswordUser = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -211,7 +210,6 @@ public class ResetPasswordUser extends javax.swing.JFrame {
             boolean ubah = update.Ubah("UPDATE `tbuser` SET `Password`='" + getMD5(new String(JTPasswordBaru.getPassword())) + "' WHERE `Username`='" + JCUsername.getSelectedItem() + "'", "Reset Password User", this);
             if (ubah) {
                 GlobalVar.Var.resetPasswordUser.dispose();
-                GlobalVar.Var.resetPasswordUser = null;
             }
         }
     }

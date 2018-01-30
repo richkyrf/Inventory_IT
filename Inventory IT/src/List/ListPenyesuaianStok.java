@@ -43,8 +43,8 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -107,18 +107,17 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
         load();
     }//GEN-LAST:event_JBRefreshActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.listPenyesuaianStok = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.listPenyesuaianStok.dispose();
-        GlobalVar.Var.listPenyesuaianStok = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTambahActionPerformed
         tambah();
     }//GEN-LAST:event_JBTambahActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.listPenyesuaianStok = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -163,6 +162,9 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
     void tambah() {
         if (GlobalVar.Var.tambahPenyesuaianStok == null) {
             GlobalVar.Var.tambahPenyesuaianStok = new PenyesuaianStok();
+        } else {
+            GlobalVar.Var.tambahPenyesuaianStok.setState(NORMAL);
+            GlobalVar.Var.tambahPenyesuaianStok.toFront();
         }
     }
 

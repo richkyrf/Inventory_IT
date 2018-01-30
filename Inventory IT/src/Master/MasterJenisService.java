@@ -59,8 +59,8 @@ public class MasterJenisService extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -185,20 +185,10 @@ public class MasterJenisService extends javax.swing.JFrame {
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         if (idEdit.equals("0")) {
             GlobalVar.Var.tambahMasterJenisService.dispose();
-            GlobalVar.Var.tambahMasterJenisService = null;
         } else {
             GlobalVar.Var.editMasterJenisService.dispose();
-            GlobalVar.Var.editMasterJenisService = null;
         }
     }//GEN-LAST:event_JBKembaliActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if (idEdit.equals("0")) {
-            GlobalVar.Var.tambahMasterJenisService = null;
-        } else {
-            GlobalVar.Var.editMasterJenisService = null;
-        }
-    }//GEN-LAST:event_formWindowClosing
 
     private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
         ubah();
@@ -219,6 +209,14 @@ public class MasterJenisService extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_JTKeteranganKeyPressed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        if (idEdit.equals("0")) {
+            GlobalVar.Var.tambahMasterJenisService = null;
+        } else {
+            GlobalVar.Var.editMasterJenisService = null;
+        }
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -285,7 +283,6 @@ public class MasterJenisService extends javax.swing.JFrame {
                 }
                 if (tutup) {
                     GlobalVar.Var.tambahMasterJenisService.dispose();
-                    GlobalVar.Var.tambahMasterJenisService = null;
                 } else {
                     clearText();
                     JTJenisService.requestFocus();
@@ -314,7 +311,6 @@ public class MasterJenisService extends javax.swing.JFrame {
             boolean ubah = update.Ubah("UPDATE `tbmjenisservice` SET `JenisService`='" + JTJenisService.getText() + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdJenisService`=" + idEdit, "Ubah Data Master Jenis Service", this);
             if (ubah) {
                 GlobalVar.Var.editMasterJenisService.dispose();
-                GlobalVar.Var.editMasterJenisService = null;
                 GlobalVar.Var.listMasterJenisService.load();
             }
         }

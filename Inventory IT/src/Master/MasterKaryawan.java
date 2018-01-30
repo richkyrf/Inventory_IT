@@ -62,8 +62,8 @@ public class MasterKaryawan extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -213,20 +213,10 @@ public class MasterKaryawan extends javax.swing.JFrame {
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         if (idEdit.equals("0")) {
             GlobalVar.Var.tambahMasterKaryawan.dispose();
-            GlobalVar.Var.tambahMasterKaryawan = null;
         } else {
             GlobalVar.Var.editMasterKaryawan.dispose();
-            GlobalVar.Var.editMasterKaryawan = null;
         }
     }//GEN-LAST:event_JBKembaliActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if (idEdit.equals("0")) {
-            GlobalVar.Var.tambahMasterKaryawan = null;
-        } else {
-            GlobalVar.Var.editMasterKaryawan = null;
-        }
-    }//GEN-LAST:event_formWindowClosing
 
     private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
         ubah();
@@ -253,6 +243,14 @@ public class MasterKaryawan extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_JTKeteranganKeyPressed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        if (idEdit.equals("0")) {
+            GlobalVar.Var.tambahMasterKaryawan = null;
+        } else {
+            GlobalVar.Var.editMasterKaryawan = null;
+        }
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -323,7 +321,6 @@ public class MasterKaryawan extends javax.swing.JFrame {
                 }
                 if (tutup) {
                     GlobalVar.Var.tambahMasterKaryawan.dispose();
-                    GlobalVar.Var.tambahMasterKaryawan = null;
                 } else {
                     clearText();
                     JTNIK.requestFocus();
@@ -354,7 +351,6 @@ public class MasterKaryawan extends javax.swing.JFrame {
             boolean ubah = update.Ubah("UPDATE `tbmkaryawan` SET `NIK`='" + JTNIK.getText() + "', `NamaKaryawan`='" + JTNamaKaryawan.getText() + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdKaryawan`=" + idEdit, "Ubah Data Master Karyawan (Pemakai)", this);
             if (ubah) {
                 GlobalVar.Var.editMasterKaryawan.dispose();
-                GlobalVar.Var.editMasterKaryawan = null;
                 GlobalVar.Var.listMasterKaryawan.load();
             }
         }

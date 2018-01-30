@@ -55,8 +55,8 @@ public class ServiceAll extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -194,12 +194,7 @@ public class ServiceAll extends javax.swing.JFrame {
 
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.serviceAll.dispose();
-        GlobalVar.Var.serviceAll = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.serviceAll = null;
-    }//GEN-LAST:event_formWindowClosing
 
     private void JBServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBServiceActionPerformed
         service();
@@ -226,6 +221,10 @@ public class ServiceAll extends javax.swing.JFrame {
     private void JNTanggalServiceSelanjutnyaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JNTanggalServiceSelanjutnyaFocusLost
         nextService(Integer.valueOf(JNTanggalServiceSelanjutnya.getText()));
     }//GEN-LAST:event_JNTanggalServiceSelanjutnyaFocusLost
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.serviceAll = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -305,7 +304,6 @@ public class ServiceAll extends javax.swing.JFrame {
                 multiInsert.closecon();
                 JOptionPane.showMessageDialog(this, "Berhasil Service", "Information", JOptionPane.INFORMATION_MESSAGE);
                 GlobalVar.Var.serviceAll.dispose();
-                GlobalVar.Var.serviceAll = null;
                 GlobalVar.Var.listService.load();
             } else {
                 multiInsert.rollback();

@@ -48,8 +48,8 @@ public class ListMasterVendor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -140,18 +140,17 @@ public class ListMasterVendor extends javax.swing.JFrame {
         hapus();
     }//GEN-LAST:event_JBHapusActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.listMasterVendor = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.listMasterVendor.dispose();
-        GlobalVar.Var.listMasterVendor = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTambahActionPerformed
         tambah();
     }//GEN-LAST:event_JBTambahActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.listMasterVendor = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -196,6 +195,9 @@ public class ListMasterVendor extends javax.swing.JFrame {
     void tambah() {
         if (GlobalVar.Var.tambahMasterVendor == null) {
             GlobalVar.Var.tambahMasterVendor = new MasterVendor("0");
+        } else {
+            GlobalVar.Var.tambahMasterVendor.setState(NORMAL);
+            GlobalVar.Var.tambahMasterVendor.toFront();
         }
     }
 
@@ -205,6 +207,9 @@ public class ListMasterVendor extends javax.swing.JFrame {
         } else {
             if (GlobalVar.Var.editMasterVendor == null) {
                 GlobalVar.Var.editMasterVendor = new MasterVendor(JComCari.GetIDTable());
+            } else {
+                GlobalVar.Var.editMasterVendor.setState(NORMAL);
+                GlobalVar.Var.editMasterVendor.toFront();
             }
         }
     }

@@ -152,6 +152,9 @@ public class PenyesuaianStok extends javax.swing.JFrame {
             }
         });
         JRStokBaru.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JRStokBaruKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 JRStokBaruKeyReleased(evt);
             }
@@ -377,6 +380,12 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     private void JTNamaBarangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTNamaBarangFocusGained
         setStokLama();
     }//GEN-LAST:event_JTNamaBarangFocusGained
+
+    private void JRStokBaruKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JRStokBaruKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            JTKeterangan.requestFocus();
+        }
+    }//GEN-LAST:event_JRStokBaruKeyPressed
 
     /**
      * @param args the command line arguments

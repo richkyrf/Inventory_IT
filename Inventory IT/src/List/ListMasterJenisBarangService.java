@@ -48,8 +48,8 @@ public class ListMasterJenisBarangService extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -140,18 +140,17 @@ public class ListMasterJenisBarangService extends javax.swing.JFrame {
         hapus();
     }//GEN-LAST:event_JBHapusActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.listMasterJenisBarangService = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.listMasterJenisBarangService.dispose();
-        GlobalVar.Var.listMasterJenisBarangService = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTambahActionPerformed
         tambah();
     }//GEN-LAST:event_JBTambahActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.listMasterJenisBarangService = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -196,6 +195,9 @@ public class ListMasterJenisBarangService extends javax.swing.JFrame {
     void tambah() {
         if (GlobalVar.Var.tambahMasterJenisBarangService == null) {
             GlobalVar.Var.tambahMasterJenisBarangService = new MasterJenisBarangService("0");
+        } else {
+            GlobalVar.Var.tambahMasterJenisBarangService.setState(NORMAL);
+            GlobalVar.Var.tambahMasterJenisBarangService.toFront();
         }
     }
 
@@ -205,6 +207,9 @@ public class ListMasterJenisBarangService extends javax.swing.JFrame {
         } else {
             if (GlobalVar.Var.editMasterJenisBarangService == null) {
                 GlobalVar.Var.editMasterJenisBarangService = new MasterJenisBarangService(JComCari.GetIDTable());
+            } else {
+                GlobalVar.Var.editMasterJenisBarangService.setState(NORMAL);
+                GlobalVar.Var.editMasterJenisBarangService.toFront();
             }
         }
     }

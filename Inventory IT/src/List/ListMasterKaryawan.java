@@ -48,8 +48,8 @@ public class ListMasterKaryawan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -140,18 +140,17 @@ public class ListMasterKaryawan extends javax.swing.JFrame {
         hapus();
     }//GEN-LAST:event_JBHapusActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.listMasterKaryawan = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.listMasterKaryawan.dispose();
-        GlobalVar.Var.listMasterKaryawan = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTambahActionPerformed
         tambah();
     }//GEN-LAST:event_JBTambahActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.listMasterKaryawan = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -197,6 +196,9 @@ public class ListMasterKaryawan extends javax.swing.JFrame {
     void tambah() {
         if (GlobalVar.Var.tambahMasterKaryawan == null) {
             GlobalVar.Var.tambahMasterKaryawan = new MasterKaryawan("0");
+        } else {
+            GlobalVar.Var.tambahMasterKaryawan.setState(NORMAL);
+            GlobalVar.Var.tambahMasterKaryawan.toFront();
         }
     }
 
@@ -206,6 +208,9 @@ public class ListMasterKaryawan extends javax.swing.JFrame {
         } else {
             if (GlobalVar.Var.editMasterKaryawan == null) {
                 GlobalVar.Var.editMasterKaryawan = new MasterKaryawan(JComCari.GetIDTable());
+            } else {
+                GlobalVar.Var.editMasterKaryawan.setState(NORMAL);
+                GlobalVar.Var.editMasterKaryawan.toFront();
             }
         }
     }

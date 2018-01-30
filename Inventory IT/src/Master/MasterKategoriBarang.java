@@ -69,8 +69,8 @@ public class MasterKategoriBarang extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -229,20 +229,10 @@ public class MasterKategoriBarang extends javax.swing.JFrame {
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         if (idEdit.equals("0") || data.length > 1) {
             GlobalVar.Var.tambahMasterKategoriBarang.dispose();
-            GlobalVar.Var.tambahMasterKategoriBarang = null;
         } else {
             GlobalVar.Var.editMasterKategoriBarang.dispose();
-            GlobalVar.Var.editMasterKategoriBarang = null;
         }
     }//GEN-LAST:event_JBKembaliActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if (idEdit.equals("0") || data.length > 1) {
-            GlobalVar.Var.tambahMasterKategoriBarang = null;
-        } else {
-            GlobalVar.Var.editMasterKategoriBarang = null;
-        }
-    }//GEN-LAST:event_formWindowClosing
 
     private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
         ubah();
@@ -267,6 +257,9 @@ public class MasterKategoriBarang extends javax.swing.JFrame {
     private void JBJenisBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBJenisBarangActionPerformed
         if (GlobalVar.Var.tambahMasterJenisBarang == null) {
             GlobalVar.Var.tambahMasterJenisBarang = new MasterJenisBarang("0");
+        } else {
+            GlobalVar.Var.tambahMasterJenisBarang.setState(NORMAL);
+            GlobalVar.Var.tambahMasterJenisBarang.toFront();
         }
     }//GEN-LAST:event_JBJenisBarangActionPerformed
 
@@ -279,6 +272,14 @@ public class MasterKategoriBarang extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_JCJenisBarangKeyReleased
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        if (idEdit.equals("0") || data.length > 1) {
+            GlobalVar.Var.tambahMasterKategoriBarang = null;
+        } else {
+            GlobalVar.Var.editMasterKategoriBarang = null;
+        }
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -359,7 +360,6 @@ public class MasterKategoriBarang extends javax.swing.JFrame {
                 }
                 if (tutup) {
                     GlobalVar.Var.tambahMasterKategoriBarang.dispose();
-                    GlobalVar.Var.tambahMasterKategoriBarang = null;
                 } else {
                     clearText();
                     JCJenisBarang.requestFocus();
@@ -389,7 +389,6 @@ public class MasterKategoriBarang extends javax.swing.JFrame {
             boolean ubah = update.Ubah("UPDATE `tbmkategoribarang` SET `IdJenisBarang`=(SELECT `IdJenisBarang` FROM `tbmjenisbarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'), `KategoriBarang`='" + JTKategoriBarang.getText() + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdKategoriBarang`=" + idEdit, "Ubah Data Master Kategori Barang", this);
             if (ubah) {
                 GlobalVar.Var.editMasterKategoriBarang.dispose();
-                GlobalVar.Var.editMasterKategoriBarang = null;
                 GlobalVar.Var.listMasterKategoriBarang.load();
             }
         }

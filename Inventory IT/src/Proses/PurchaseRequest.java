@@ -778,12 +778,18 @@ public class PurchaseRequest extends javax.swing.JFrame {
     private void jbuttonF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonF4ActionPerformed
         if (GlobalVar.Var.tambahMasterVendor == null) {
             GlobalVar.Var.tambahMasterVendor = new MasterVendor("0");
+        } else {
+            GlobalVar.Var.tambahMasterVendor.setState(NORMAL);
+            GlobalVar.Var.tambahMasterVendor.toFront();
         }
     }//GEN-LAST:event_jbuttonF4ActionPerformed
 
     private void jbuttonF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonF6ActionPerformed
         if (GlobalVar.Var.tambahMasterBarang == null) {
             GlobalVar.Var.tambahMasterBarang = new MasterBarang("0");
+        } else {
+            GlobalVar.Var.tambahMasterBarang.setState(NORMAL);
+            GlobalVar.Var.tambahMasterBarang.toFront();
         }
     }//GEN-LAST:event_jbuttonF6ActionPerformed
 

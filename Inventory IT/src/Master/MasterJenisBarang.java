@@ -59,8 +59,8 @@ public class MasterJenisBarang extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -185,20 +185,10 @@ public class MasterJenisBarang extends javax.swing.JFrame {
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         if (idEdit.equals("0")) {
             GlobalVar.Var.tambahMasterJenisBarang.dispose();
-            GlobalVar.Var.tambahMasterJenisBarang = null;
         } else {
             GlobalVar.Var.editMasterJenisBarang.dispose();
-            GlobalVar.Var.editMasterJenisBarang = null;
         }
     }//GEN-LAST:event_JBKembaliActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if (idEdit.equals("0")) {
-            GlobalVar.Var.tambahMasterJenisBarang = null;
-        } else {
-            GlobalVar.Var.editMasterJenisBarang = null;
-        }
-    }//GEN-LAST:event_formWindowClosing
 
     private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
         ubah();
@@ -219,6 +209,14 @@ public class MasterJenisBarang extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_JTKeteranganKeyPressed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        if (idEdit.equals("0")) {
+            GlobalVar.Var.tambahMasterJenisBarang = null;
+        } else {
+            GlobalVar.Var.editMasterJenisBarang = null;
+        }
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -305,7 +303,6 @@ public class MasterJenisBarang extends javax.swing.JFrame {
                 }
                 if (tutup) {
                     GlobalVar.Var.tambahMasterJenisBarang.dispose();
-                    GlobalVar.Var.tambahMasterJenisBarang = null;
                 } else {
                     clearText();
                     JTJenisBarang.requestFocus();
@@ -334,7 +331,6 @@ public class MasterJenisBarang extends javax.swing.JFrame {
             boolean ubah = update.Ubah("UPDATE `tbmjenisbarang` SET `JenisBarang`='" + JTJenisBarang.getText() + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdJenisBarang`=" + idEdit, "Ubah Data Master Jenis Barang", this);
             if (ubah) {
                 GlobalVar.Var.editMasterJenisBarang.dispose();
-                GlobalVar.Var.editMasterJenisBarang = null;
                 GlobalVar.Var.listMasterJenisBarang.load();
             }
         }

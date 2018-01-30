@@ -301,12 +301,18 @@ public class MenuUtama extends javax.swing.JFrame {
     private void JMITambahUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMITambahUserActionPerformed
         if (GlobalVar.Var.tambahUser == null) {
             GlobalVar.Var.tambahUser = new TambahUser();
+        } else {
+            GlobalVar.Var.tambahUser.setState(NORMAL);
+            GlobalVar.Var.tambahUser.toFront();
         }
     }//GEN-LAST:event_JMITambahUserActionPerformed
 
     private void JMIGantiPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIGantiPasswordActionPerformed
         if (GlobalVar.Var.gantiPassword == null) {
             GlobalVar.Var.gantiPassword = new GantiPassword();
+        } else {
+            GlobalVar.Var.gantiPassword.setState(NORMAL);
+            GlobalVar.Var.gantiPassword.toFront();
         }
     }//GEN-LAST:event_JMIGantiPasswordActionPerformed
 
@@ -317,102 +323,153 @@ public class MenuUtama extends javax.swing.JFrame {
     private void JMIResetPasswordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIResetPasswordUserActionPerformed
         if (GlobalVar.Var.resetPasswordUser == null) {
             GlobalVar.Var.resetPasswordUser = new ResetPasswordUser();
+        } else {
+            GlobalVar.Var.resetPasswordUser.setState(NORMAL);
+            GlobalVar.Var.resetPasswordUser.toFront();
         }
     }//GEN-LAST:event_JMIResetPasswordUserActionPerformed
 
     private void JMIMasterVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterVendorActionPerformed
         if (GlobalVar.Var.listMasterVendor == null) {
             GlobalVar.Var.listMasterVendor = new ListMasterVendor();
+        } else {
+            GlobalVar.Var.listMasterVendor.setState(NORMAL);
+            GlobalVar.Var.listMasterVendor.toFront();
         }
     }//GEN-LAST:event_JMIMasterVendorActionPerformed
 
     private void JMIMasterKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterKaryawanActionPerformed
         if (GlobalVar.Var.listMasterKaryawan == null) {
             GlobalVar.Var.listMasterKaryawan = new ListMasterKaryawan();
+        } else {
+            GlobalVar.Var.listMasterKaryawan.setState(NORMAL);
+            GlobalVar.Var.listMasterKaryawan.toFront();
         }
     }//GEN-LAST:event_JMIMasterKaryawanActionPerformed
 
     private void JMIMasterJenisBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterJenisBarangActionPerformed
         if (GlobalVar.Var.listMasterJenisBarang == null) {
             GlobalVar.Var.listMasterJenisBarang = new ListMasterJenisBarang();
+        } else {
+            GlobalVar.Var.listMasterJenisBarang.setState(NORMAL);
+            GlobalVar.Var.listMasterJenisBarang.toFront();
         }
     }//GEN-LAST:event_JMIMasterJenisBarangActionPerformed
 
     private void JMIMasterKategoriBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterKategoriBarangActionPerformed
         if (GlobalVar.Var.listMasterKategoriBarang == null) {
             GlobalVar.Var.listMasterKategoriBarang = new ListMasterKategoriBarang();
+        } else {
+            GlobalVar.Var.listMasterKategoriBarang.setState(NORMAL);
+            GlobalVar.Var.listMasterKategoriBarang.toFront();
         }
     }//GEN-LAST:event_JMIMasterKategoriBarangActionPerformed
 
     private void JMIMasterBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterBarangActionPerformed
         if (GlobalVar.Var.listMasterBarang == null) {
             GlobalVar.Var.listMasterBarang = new ListMasterBarang();
+        } else {
+            GlobalVar.Var.listMasterBarang.setState(NORMAL);
+            GlobalVar.Var.listMasterBarang.toFront();
         }
     }//GEN-LAST:event_JMIMasterBarangActionPerformed
 
     private void JMIMasterJenisServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterJenisServiceActionPerformed
         if (GlobalVar.Var.listMasterJenisService == null) {
             GlobalVar.Var.listMasterJenisService = new ListMasterJenisService();
+        } else {
+            GlobalVar.Var.listMasterJenisService.setState(NORMAL);
+            GlobalVar.Var.listMasterJenisService.toFront();
         }
     }//GEN-LAST:event_JMIMasterJenisServiceActionPerformed
 
     private void JMIMasterJenisBarangServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterJenisBarangServiceActionPerformed
         if (GlobalVar.Var.listMasterJenisBarangService == null) {
             GlobalVar.Var.listMasterJenisBarangService = new ListMasterJenisBarangService();
+        } else {
+            GlobalVar.Var.listMasterJenisBarangService.setState(NORMAL);
+            GlobalVar.Var.listMasterJenisBarangService.toFront();
         }
     }//GEN-LAST:event_JMIMasterJenisBarangServiceActionPerformed
 
     private void JMIMasterBarangServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterBarangServiceActionPerformed
         if (GlobalVar.Var.listMasterBarangService == null) {
             GlobalVar.Var.listMasterBarangService = new ListMasterBarangService();
+        } else {
+            GlobalVar.Var.listMasterBarangService.setState(NORMAL);
+            GlobalVar.Var.listMasterBarangService.toFront();
         }
     }//GEN-LAST:event_JMIMasterBarangServiceActionPerformed
 
     private void JMIListBarangRusakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListBarangRusakActionPerformed
         if (GlobalVar.Var.listBarangRusak == null) {
             GlobalVar.Var.listBarangRusak = new ListBarangRusak();
+        } else {
+            GlobalVar.Var.listBarangRusak.setState(NORMAL);
+            GlobalVar.Var.listBarangRusak.toFront();
         }
     }//GEN-LAST:event_JMIListBarangRusakActionPerformed
 
     private void JMIProsesBarangRusakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIProsesBarangRusakActionPerformed
         if (GlobalVar.Var.tambahBarangRusak == null) {
             GlobalVar.Var.tambahBarangRusak = new BarangRusak("0");
+        } else {
+            GlobalVar.Var.tambahBarangRusak.setState(NORMAL);
+            GlobalVar.Var.tambahBarangRusak.toFront();
         }
     }//GEN-LAST:event_JMIProsesBarangRusakActionPerformed
 
     private void JMIListServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListServiceActionPerformed
         if (GlobalVar.Var.listService == null) {
             GlobalVar.Var.listService = new ListService();
+        } else {
+            GlobalVar.Var.listService.setState(NORMAL);
+            GlobalVar.Var.listService.toFront();
         }
     }//GEN-LAST:event_JMIListServiceActionPerformed
 
     private void JMIProsesServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIProsesServiceActionPerformed
         if (GlobalVar.Var.tambahService == null) {
             GlobalVar.Var.tambahService = new Service("0");
+        } else {
+            GlobalVar.Var.tambahService.setState(NORMAL);
+            GlobalVar.Var.tambahService.toFront();
         }
     }//GEN-LAST:event_JMIProsesServiceActionPerformed
 
     private void JMIListPenyesuaianStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListPenyesuaianStokActionPerformed
         if (GlobalVar.Var.listPenyesuaianStok == null) {
             GlobalVar.Var.listPenyesuaianStok = new ListPenyesuaianStok();
+        } else {
+            GlobalVar.Var.listPenyesuaianStok.setState(NORMAL);
+            GlobalVar.Var.listPenyesuaianStok.toFront();
         }
     }//GEN-LAST:event_JMIListPenyesuaianStokActionPerformed
 
     private void JMIProsesPenyesuaianStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIProsesPenyesuaianStokActionPerformed
         if (GlobalVar.Var.tambahPenyesuaianStok == null) {
             GlobalVar.Var.tambahPenyesuaianStok = new PenyesuaianStok();
+        } else {
+            GlobalVar.Var.tambahPenyesuaianStok.setState(NORMAL);
+            GlobalVar.Var.tambahPenyesuaianStok.toFront();
         }
     }//GEN-LAST:event_JMIProsesPenyesuaianStokActionPerformed
 
     private void JMIProsesPurchaseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIProsesPurchaseRequestActionPerformed
-        if (GlobalVar.Var.tambahPurchaseRequest == null){
+        if (GlobalVar.Var.tambahPurchaseRequest == null) {
             GlobalVar.Var.tambahPurchaseRequest = new PurchaseRequest("0");
+        } else {
+            GlobalVar.Var.tambahPurchaseRequest.setState(NORMAL);
+            GlobalVar.Var.tambahPurchaseRequest.toFront();
         }
     }//GEN-LAST:event_JMIProsesPurchaseRequestActionPerformed
 
     private void JMIListPurchaseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListPurchaseRequestActionPerformed
-        if (GlobalVar.Var.listPurchaseRequest == null){
+        if (GlobalVar.Var.listPurchaseRequest == null) {
             GlobalVar.Var.listPurchaseRequest = new ListPurchaseRequest();
+        } else {
+            GlobalVar.Var.listPurchaseRequest.setState(NORMAL);
+            GlobalVar.Var.listPurchaseRequest.toFront();
         }
     }//GEN-LAST:event_JMIListPurchaseRequestActionPerformed
 

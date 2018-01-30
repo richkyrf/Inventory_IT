@@ -50,8 +50,8 @@ public class ListService extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -152,13 +152,8 @@ public class ListService extends javax.swing.JFrame {
         hapus();
     }//GEN-LAST:event_JBHapusActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.listService = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.listService.dispose();
-        GlobalVar.Var.listService = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTambahActionPerformed
@@ -168,10 +163,17 @@ public class ListService extends javax.swing.JFrame {
     private void JBServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBServiceActionPerformed
         if (JComCari.getSelectedRows() < 1) {
             JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Terlebih Dahulu", "Information", JOptionPane.INFORMATION_MESSAGE);
-        } else {
+        } else if (GlobalVar.Var.serviceAll == null) {
             GlobalVar.Var.serviceAll = new ServiceAll(JComCari.getSelectedIDs());
+        } else {
+            GlobalVar.Var.serviceAll.setState(NORMAL);
+            GlobalVar.Var.serviceAll.toFront();
         }
     }//GEN-LAST:event_JBServiceActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.listService = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -187,16 +189,24 @@ public class ListService extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListService.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListService.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListService.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListService.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -220,6 +230,9 @@ public class ListService extends javax.swing.JFrame {
     void tambah() {
         if (GlobalVar.Var.tambahService == null) {
             GlobalVar.Var.tambahService = new Service("0");
+        } else {
+            GlobalVar.Var.tambahService.setState(NORMAL);
+            GlobalVar.Var.tambahService.toFront();
         }
     }
 
@@ -229,6 +242,9 @@ public class ListService extends javax.swing.JFrame {
         } else {
             if (GlobalVar.Var.editService == null) {
                 GlobalVar.Var.editService = new Service(JComCari.GetIDTable());
+            } else {
+                GlobalVar.Var.editService.setState(NORMAL);
+                GlobalVar.Var.editService.toFront();
             }
         }
     }

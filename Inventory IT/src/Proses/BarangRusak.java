@@ -81,8 +81,8 @@ public class BarangRusak extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -375,20 +375,10 @@ public class BarangRusak extends javax.swing.JFrame {
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         if (idEdit.equals("0")) {
             GlobalVar.Var.tambahBarangRusak.dispose();
-            GlobalVar.Var.tambahBarangRusak = null;
         } else {
             GlobalVar.Var.editBarangRusak.dispose();
-            GlobalVar.Var.editBarangRusak = null;
         }
     }//GEN-LAST:event_JBKembaliActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if (idEdit.equals("0")) {
-            GlobalVar.Var.tambahBarangRusak = null;
-        } else {
-            GlobalVar.Var.editBarangRusak = null;
-        }
-    }//GEN-LAST:event_formWindowClosing
 
     private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
         ubah();
@@ -407,6 +397,9 @@ public class BarangRusak extends javax.swing.JFrame {
     private void JBJenisBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBJenisBarangActionPerformed
         if (GlobalVar.Var.tambahMasterJenisBarang == null) {
             GlobalVar.Var.tambahMasterJenisBarang = new MasterJenisBarang("0");
+        } else {
+            GlobalVar.Var.tambahMasterJenisBarang.setState(NORMAL);
+            GlobalVar.Var.tambahMasterJenisBarang.toFront();
         }
     }//GEN-LAST:event_JBJenisBarangActionPerformed
 
@@ -433,6 +426,9 @@ public class BarangRusak extends javax.swing.JFrame {
     private void JBKategoriBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKategoriBarangActionPerformed
         if (GlobalVar.Var.tambahMasterKategoriBarang == null) {
             GlobalVar.Var.tambahMasterKategoriBarang = new MasterKategoriBarang("0+" + JCJenisBarang.getSelectedItem());
+        } else {
+            GlobalVar.Var.tambahMasterKategoriBarang.setState(NORMAL);
+            GlobalVar.Var.tambahMasterKategoriBarang.toFront();
         }
     }//GEN-LAST:event_JBKategoriBarangActionPerformed
 
@@ -464,12 +460,18 @@ public class BarangRusak extends javax.swing.JFrame {
     private void JBNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNamaBarangActionPerformed
         if (GlobalVar.Var.tambahMasterBarang == null) {
             GlobalVar.Var.tambahMasterBarang = new MasterBarang("0+" + JCJenisBarang.getSelectedItem() + "+" + JCKategoriBarang.getSelectedItem());
+        } else {
+            GlobalVar.Var.tambahMasterBarang.setState(NORMAL);
+            GlobalVar.Var.tambahMasterBarang.toFront();
         }
     }//GEN-LAST:event_JBNamaBarangActionPerformed
 
     private void JBNamaPemakaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNamaPemakaiActionPerformed
         if (GlobalVar.Var.tambahMasterKaryawan == null) {
             GlobalVar.Var.tambahMasterKaryawan = new MasterKaryawan("0");
+        }else {
+            GlobalVar.Var.tambahMasterKaryawan.setState(NORMAL);
+            GlobalVar.Var.tambahMasterKaryawan.toFront();
         }
     }//GEN-LAST:event_JBNamaPemakaiActionPerformed
 
@@ -488,6 +490,14 @@ public class BarangRusak extends javax.swing.JFrame {
     private void JCKategoriBarangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCKategoriBarangItemStateChanged
         JCNamaBarang.load("SELECT '-- Pilih Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "' AND `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'");
     }//GEN-LAST:event_JCKategoriBarangItemStateChanged
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        if (idEdit.equals("0")) {
+            GlobalVar.Var.tambahBarangRusak = null;
+        } else {
+            GlobalVar.Var.editBarangRusak = null;
+        }
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -568,7 +578,6 @@ public class BarangRusak extends javax.swing.JFrame {
                 }
                 if (tutup) {
                     GlobalVar.Var.tambahBarangRusak.dispose();
-                    GlobalVar.Var.tambahBarangRusak = null;
                 } else {
                     clearText();
                     JCJenisBarang.requestFocus();
@@ -607,7 +616,6 @@ public class BarangRusak extends javax.swing.JFrame {
             boolean ubah = update.Ubah("UPDATE `tbbarangrusak` SET `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "' AND `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "' AND `NamaBarang`='" + JCNamaBarang.getSelectedItem() + "'), `IdKaryawan`=(SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), `TanggalBeli`='" + FDateF.datetostr(JDTanggalBeli.getDate(), "yyyy-MM-dd") + "', `TanggalRusak`='" + FDateF.datetostr(JDTanggalRusak.getDate(), "yyyy-MM-dd") + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdBarangRusak`=" + idEdit, "Ubah Data Barang Rusak", this);
             if (ubah) {
                 GlobalVar.Var.editBarangRusak.dispose();
-                GlobalVar.Var.editBarangRusak = null;
                 GlobalVar.Var.listBarangRusak.load();
             }
         }

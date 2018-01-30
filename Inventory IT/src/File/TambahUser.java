@@ -51,8 +51,8 @@ public class TambahUser extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -177,13 +177,8 @@ public class TambahUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JTUsernameKeyReleased
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.tambahUser = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBatalActionPerformed
         GlobalVar.Var.tambahUser.dispose();
-        GlobalVar.Var.tambahUser = null;
     }//GEN-LAST:event_JBBatalActionPerformed
 
     private void JCLevelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCLevelKeyReleased
@@ -195,6 +190,10 @@ public class TambahUser extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_JCLevelKeyReleased
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.tambahUser = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -244,7 +243,6 @@ public class TambahUser extends javax.swing.JFrame {
             boolean simpan = insert.Simpan("INSERT INTO `tbuser`(`Username`, `Password`, `Level`) VALUES ('" + JTUsername.getText() + "', '" + getMD5(new String(JTPassword.getPassword())) + "', '" + JCLevel.getSelectedItem() + "')", "Tambah User", this);
             if (simpan) {
                 GlobalVar.Var.tambahUser.dispose();
-                GlobalVar.Var.tambahUser = null;
             }
         }
     }

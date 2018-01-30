@@ -48,8 +48,8 @@ public class ListMasterBarang extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -140,18 +140,17 @@ public class ListMasterBarang extends javax.swing.JFrame {
         hapus();
     }//GEN-LAST:event_JBHapusActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.listMasterBarang = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.listMasterBarang.dispose();
-        GlobalVar.Var.listMasterBarang = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTambahActionPerformed
         tambah();
     }//GEN-LAST:event_JBTambahActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.listMasterBarang = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -197,6 +196,9 @@ public class ListMasterBarang extends javax.swing.JFrame {
     void tambah() {
         if (GlobalVar.Var.tambahMasterBarang == null) {
             GlobalVar.Var.tambahMasterBarang = new MasterBarang("0");
+        } else {
+            GlobalVar.Var.tambahMasterBarang.setState(NORMAL);
+            GlobalVar.Var.tambahMasterBarang.toFront();
         }
     }
 
@@ -206,6 +208,9 @@ public class ListMasterBarang extends javax.swing.JFrame {
         } else {
             if (GlobalVar.Var.editMasterBarang == null) {
                 GlobalVar.Var.editMasterBarang = new MasterBarang(JComCari.GetIDTable());
+            } else {
+                GlobalVar.Var.editMasterBarang.setState(NORMAL);
+                GlobalVar.Var.editMasterBarang.toFront();
             }
         }
     }

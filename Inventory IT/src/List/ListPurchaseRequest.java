@@ -48,8 +48,8 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -140,18 +140,17 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
         hapus();
     }//GEN-LAST:event_JBHapusActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        GlobalVar.Var.listPurchaseRequest = null;
-    }//GEN-LAST:event_formWindowClosing
-
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         GlobalVar.Var.listPurchaseRequest.dispose();
-        GlobalVar.Var.listPurchaseRequest = null;
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTambahActionPerformed
         tambah();
     }//GEN-LAST:event_JBTambahActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.listPurchaseRequest = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -200,6 +199,9 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
     void tambah() {
         if (GlobalVar.Var.tambahPurchaseRequest == null) {
             GlobalVar.Var.tambahPurchaseRequest = new PurchaseRequest("0");
+        } else {
+            GlobalVar.Var.tambahPurchaseRequest.setState(NORMAL);
+            GlobalVar.Var.tambahPurchaseRequest.toFront();
         }
     }
 
@@ -209,6 +211,9 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
         } else {
             if (GlobalVar.Var.editPurchaseRequest == null) {
                 GlobalVar.Var.editPurchaseRequest = new PurchaseRequest(JComCari.GetIDTable());
+            } else {
+                GlobalVar.Var.editPurchaseRequest.setState(NORMAL);
+                GlobalVar.Var.editPurchaseRequest.toFront();
             }
         }
     }
