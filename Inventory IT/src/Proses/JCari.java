@@ -18,7 +18,7 @@ public class JCari extends javax.swing.JFrame {
      */
     Boolean Success = false;
     String Query1, Query2, Query3;
-    int selectedRow = -1;
+    int SelectedRow = -1;
     KomponenGUI.JtextF[] ArrayBarang = new KomponenGUI.JtextF[3];
     KomponenGUI.JtextF FocusIfCancel;
     KomponenGUI.JRibuanTextField FocusIfSuccess;
@@ -192,10 +192,10 @@ public class JCari extends javax.swing.JFrame {
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JTableDataMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableDataMouseReleased
-        if (JTableData.getSelectedRow() == selectedRow) {
+        if (JTableData.getSelectedRow() == SelectedRow) {
             executePilih();
         } else {
-            selectedRow = JTableData.getSelectedRow();
+            SelectedRow = JTableData.getSelectedRow();
         }
     }//GEN-LAST:event_JTableDataMouseReleased
 

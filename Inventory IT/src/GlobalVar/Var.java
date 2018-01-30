@@ -47,6 +47,8 @@ public class Var {
     public static ListBarangRusak listBarangRusak;
     public static PurchaseRequest tambahPurchaseRequest, editPurchaseRequest;
     public static ListPurchaseRequest listPurchaseRequest;
+    public static BarangMasuk tambahBarangMasuk, editBarangMasuk;
+    public static ListBarangMasuk listBarangMasuk;
 
     /*
     public static Jcari jcari;

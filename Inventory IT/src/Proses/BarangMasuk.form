@@ -39,16 +39,10 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="JBKembali" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="542" max="32767" attributes="0"/>
-                      <Component id="JBPrint" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JBUbahPrint" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="JBUbah" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBTambah" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JBTambahPrint" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBTambahTutup" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -81,24 +75,47 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jbuttonF4" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="JTPenerima" max="32767" attributes="0"/>
+                          <Component id="JTNomorBarangMasuk" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jlableF1" min="-2" pref="65" max="-2" attributes="0"/>
+                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jlableF3" max="32767" attributes="0"/>
+                          <Component id="jlableF7" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jlableF15" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlableF10" min="-2" max="-2" attributes="0"/>
+                              <Component id="JBAmbilGambarBuktiNota" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTNomorPurchaseRequest" max="32767" attributes="0"/>
+                              <Component id="JTUrlBuktiNota" min="-2" pref="187" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jlableF14" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBAmbilGambarBuktiPurchaseRequest" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JTUrlBuktiPurchaseRequest" min="-2" pref="187" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jlableF6" min="-2" pref="65" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jlableF13" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JDTanggal" min="-2" pref="243" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jlableF1" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlableF10" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="JTNomorPurchaseRequest" max="32767" attributes="0"/>
+                          <Component id="JDTanggal" pref="243" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -123,15 +140,18 @@
                                   <Component id="JBSearchNamaBarang" min="-2" pref="45" max="-2" attributes="0"/>
                                   <Component id="jbuttonF6" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtextF9" pref="113" max="32767" attributes="0"/>
-                                  <Component id="JTHargaBarang" pref="113" max="32767" attributes="0"/>
-                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtextF8" pref="94" max="32767" attributes="0"/>
-                                  <Component id="JTJumlahBarang" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="JTJumlahBarang" min="-2" pref="94" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JTSerialNumber" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jtextF8" min="-2" pref="94" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jtextF9" min="-2" pref="200" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -169,6 +189,10 @@
                   <Component id="jlableF1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jlableF10" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JTNomorPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlableF3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlableF14" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBAmbilGambarBuktiPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTUrlBuktiPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -177,7 +201,11 @@
                       <Component id="jlableF12" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF13" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JTPenerima" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JTNomorBarangMasuk" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlableF7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlableF15" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBAmbilGambarBuktiNota" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JTUrlBuktiNota" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="JDTanggal" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -186,9 +214,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="JTJumlahBarang" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTHargaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="JTKeterangan" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTSerialNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTJumlahBarang" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -248,9 +276,6 @@
                   <Component id="JBTambahTutup" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBTambah" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBUbah" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTambahPrint" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBPrint" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBUbahPrint" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -260,7 +285,7 @@
   <SubComponents>
     <Component class="KomponenGUI.JlableF" name="jlableF1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nomor"/>
+        <Property name="text" type="java.lang.String" value="No. PR"/>
       </Properties>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF2">
@@ -288,7 +313,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTHargaBarang"/>
+          <ComponentRef name="JTSerialNumber"/>
         </Property>
       </Properties>
       <Events>
@@ -320,7 +345,8 @@
     </Component>
     <Component class="KomponenGUI.JtextF" name="jtextF9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Harga"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
+        <Property name="text" type="java.lang.String" value="Serial Number"/>
         <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
@@ -351,8 +377,8 @@
                 <Column editable="false" title="Jenis Barang" type="java.lang.Object"/>
                 <Column editable="false" title="Kategori Barang" type="java.lang.Object"/>
                 <Column editable="false" title="Nama Barang" type="java.lang.Object"/>
-                <Column editable="false" title="Harga" type="java.lang.Object"/>
                 <Column editable="false" title="Jumlah" type="java.lang.Object"/>
+                <Column editable="false" title="Serial Number" type="java.lang.Object"/>
                 <Column editable="false" title="Keterangan" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -378,12 +404,12 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="120" minWidth="120" prefWidth="120" resizable="true">
+                <Column maxWidth="100" minWidth="100" prefWidth="100" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="100" minWidth="100" prefWidth="100" resizable="true">
+                <Column maxWidth="120" minWidth="120" prefWidth="120" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -493,17 +519,6 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JNumberOnly" name="JTJumlahBarang">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTKeterangan"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTJumlahBarangKeyPressed"/>
-      </Events>
-    </Component>
     <Component class="KomponenGUI.JdateCF" name="JDTanggal">
       <Properties>
         <Property name="date" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -552,7 +567,7 @@
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="PURCHASE REQUEST"/>
+        <Property name="text" type="java.lang.String" value="BARANG MASUK"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="0"/>
         </Property>
@@ -565,7 +580,7 @@
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Penerima"/>
+        <Property name="text" type="java.lang.String" value="No. Barang Masuk"/>
       </Properties>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF12">
@@ -582,40 +597,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value=":"/>
       </Properties>
-    </Component>
-    <Component class="KomponenGUI.JRibuanTextField" name="JTHargaBarang">
-      <Properties>
-        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTJumlahBarang"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTHargaBarangKeyPressed"/>
-      </Events>
-    </Component>
-    <Component class="KomponenGUI.JbuttonF" name="JBTambahPrint">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Simpan &amp; Print"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahPrintActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="KomponenGUI.JbuttonF" name="JBPrint">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Print"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBPrintActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="KomponenGUI.JbuttonF" name="JBUbahPrint">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ubah &amp; Print"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBUbahPrintActionPerformed"/>
-      </Events>
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="jbuttonF4">
       <Properties>
@@ -640,7 +621,7 @@
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTHargaBarang"/>
+          <ComponentRef name="JTSerialNumber"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -663,7 +644,7 @@
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTHargaBarang"/>
+          <ComponentRef name="JTSerialNumber"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -689,7 +670,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="JTHargaBarang"/>
+          <ComponentRef name="JTSerialNumber"/>
         </Property>
       </Properties>
       <Events>
@@ -699,13 +680,80 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="KomponenGUI.JtextF" name="JTPenerima">
+    <Component class="KomponenGUI.JtextF" name="JTNomorBarangMasuk">
       <Properties>
-        <Property name="text" type="java.lang.String" value="PELITA GROUP"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="KomponenGUI.JtextF" name="JTNomorPurchaseRequest">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTSerialNumber">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
+        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="JTSerialNumber"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTSerialNumberActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTSerialNumberKeyPressed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+    <Component class="KomponenGUI.JRibuanTextField" name="JTJumlahBarang">
+    </Component>
+    <Component class="javax.swing.JButton" name="JBAmbilGambarBuktiPurchaseRequest">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ambil Gambar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBAmbilGambarBuktiPurchaseRequestActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTUrlBuktiPurchaseRequest">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="jlableF3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Upload Bukti PR"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="jlableF14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="jlableF7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Upload Bukti Nota"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="jlableF15">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="JBAmbilGambarBuktiNota">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ambil Gambar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBAmbilGambarBuktiNotaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTUrlBuktiNota">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
