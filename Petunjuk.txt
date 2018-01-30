@@ -17,3 +17,5 @@ Button		= KembaliButton
 Table		= DataTable
 Label		= NamaBarangLabel
 RadioButton	= JenisKelaminRadioButton
+
+asdasd
