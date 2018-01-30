@@ -202,9 +202,19 @@ public class MenuUtama extends javax.swing.JFrame {
         JMProses.add(JMIProsesPurchaseRequest);
 
         JMIProsesBarangMasuk.setText("Barang Masuk");
+        JMIProsesBarangMasuk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIProsesBarangMasukActionPerformed(evt);
+            }
+        });
         JMProses.add(JMIProsesBarangMasuk);
 
         JMIProsesBarangKeluar.setText("Barang Keluar");
+        JMIProsesBarangKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIProsesBarangKeluarActionPerformed(evt);
+            }
+        });
         JMProses.add(JMIProsesBarangKeluar);
 
         JMIProsesPenyesuaianStok.setText("Penyesuaian Stok");
@@ -249,6 +259,11 @@ public class MenuUtama extends javax.swing.JFrame {
         JMList.add(JMIListBarangMasuk);
 
         JMIListBarangKeluar.setText("Barang Keluar");
+        JMIListBarangKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIListBarangKeluarActionPerformed(evt);
+            }
+        });
         JMList.add(JMIListBarangKeluar);
 
         JMIListPenyesuaianStok.setText("Penyesuaian Stok");
@@ -472,6 +487,28 @@ public class MenuUtama extends javax.swing.JFrame {
             GlobalVar.Var.listPurchaseRequest.toFront();
         }
     }//GEN-LAST:event_JMIListPurchaseRequestActionPerformed
+
+    private void JMIProsesBarangMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIProsesBarangMasukActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JMIProsesBarangMasukActionPerformed
+
+    private void JMIProsesBarangKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIProsesBarangKeluarActionPerformed
+        if (GlobalVar.Var.tambahBarangKeluar == null) {
+            GlobalVar.Var.tambahBarangKeluar = new BarangKeluar("0");
+        } else {
+            GlobalVar.Var.tambahBarangKeluar.setState(NORMAL);
+            GlobalVar.Var.tambahBarangKeluar.toFront();
+        }
+    }//GEN-LAST:event_JMIProsesBarangKeluarActionPerformed
+
+    private void JMIListBarangKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListBarangKeluarActionPerformed
+        if (GlobalVar.Var.listBarangKeluar == null) {
+            GlobalVar.Var.listBarangKeluar = new ListBarangKeluar();
+        } else {
+            GlobalVar.Var.listBarangKeluar.setState(NORMAL);
+            GlobalVar.Var.listBarangKeluar.toFront();
+        }
+    }//GEN-LAST:event_JMIListBarangKeluarActionPerformed
 
     /**
      * @param args the command line arguments

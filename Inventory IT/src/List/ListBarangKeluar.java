@@ -7,24 +7,27 @@ package List;
 
 import javax.swing.JOptionPane;
 import LSubProces.Delete;
-import Proses.PenyesuaianStok;
+import Proses.BarangKeluar;
 
 /**
  *
  * @author Martono
  */
-public class ListPenyesuaianStok extends javax.swing.JFrame {
+public class ListBarangKeluar extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public ListPenyesuaianStok() {
+    public ListBarangKeluar() {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle("Penyesuaian Stok");
+        setTitle("Barang Keluar");
         setVisible(true);
         load();
+        if (!GlobalVar.VarL.level.equals("Administrator")) {
+            JBHapus.setVisible(false);
+        }
     }
 
     /**
@@ -40,6 +43,8 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
         JBKembali = new KomponenGUI.JbuttonF();
         JBRefresh = new KomponenGUI.JbuttonF();
         JBTambah = new KomponenGUI.JbuttonF();
+        JBUbah = new KomponenGUI.JbuttonF();
+        JBHapus = new KomponenGUI.JbuttonF();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -69,6 +74,20 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
             }
         });
 
+        JBUbah.setText("Ubah");
+        JBUbah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBUbahActionPerformed(evt);
+            }
+        });
+
+        JBHapus.setText("Hapus");
+        JBHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBHapusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,6 +103,10 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
                         .addComponent(JBRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)))
                 .addContainerGap())
         );
@@ -95,6 +118,8 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBUbah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBHapus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -103,12 +128,20 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
+        ubah();
+    }//GEN-LAST:event_JBUbahActionPerformed
+
     private void JBRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRefreshActionPerformed
         load();
     }//GEN-LAST:event_JBRefreshActionPerformed
 
+    private void JBHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBHapusActionPerformed
+        hapus();
+    }//GEN-LAST:event_JBHapusActionPerformed
+
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
-        GlobalVar.Var.listPenyesuaianStok.dispose();
+        GlobalVar.Var.listBarangKeluar.dispose();
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTambahActionPerformed
@@ -116,7 +149,7 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
     }//GEN-LAST:event_JBTambahActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        GlobalVar.Var.listPenyesuaianStok = null;
+        GlobalVar.Var.listBarangKeluar = null;
     }//GEN-LAST:event_formWindowClosed
 
     /**
@@ -136,37 +169,50 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListPenyesuaianStok.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListBarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListPenyesuaianStok.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListBarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListPenyesuaianStok.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListBarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListPenyesuaianStok.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListBarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListPenyesuaianStok();
+                new ListBarangKeluar();
             }
         });
     }
 
     public void load() {
-        JComCari.setQuery("SELECT `IdPenyesuaianStok` AS 'ID', `NomorPenyesuaianStok` AS 'Nomor Penyesuaian Stok', DATE_FORMAT(`TanggalPenyesuaianStok`, '%d/%m/%Y') AS 'Tanggal Penyesuaian Stok', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `PenyesuaianStok` AS 'Penyesuaian Stok', A.`Keterangan` FROM `tbpenyesuaianstok` AS A JOIN `tbmbarang` AS B ON A.`IdBarang`=B.`IdBarang` JOIN `tbmkategoribarang` AS C ON B.`IdKategoriBarang`=C.`IdKategoriBarang` JOIN `tbmjenisbarang` AS D ON C.`IdJenisBarang`=D.`IdJenisBarang`");
-        JComCari.setOrder("ORDER BY `NomorPenyesuaianStok` DESC");
-        JComCari.setSelectedIndex(5);
+        JComCari.setQuery("SELECT `IdBarangKeluar` AS 'ID', `NomorBarangKeluar` AS 'Nomor Barang Keluar', DATE_FORMAT(`TanggalBarangKeluar`, '%d/%m/%Y') AS 'Tanggal Barang Keluar', `NamaKaryawan` AS 'Nama Pemakai', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `Garansi`, `JumlahBarang` AS 'Jumlah Barang', A.`Keterangan` FROM `tbbarangkeluar` AS A JOIN `tbmkaryawan` AS B ON A.`IdKaryawan`=B.`IdKaryawan` JOIN `tbmbarang` AS C ON A.`IdBarang`=C.`IdBarang` JOIN `tbmkategoribarang` AS D ON C.`IdKategoriBarang`=D.`IdKategoriBarang` JOIN `tbmjenisbarang` AS E ON D.`IdJenisBarang`=E.`IdJenisBarang`");
+        JComCari.setOrder("ORDER BY `NomorBarangKeluar` DESC");
+        JComCari.setSelectedIndex(6);
         JComCari.tampilkan();
     }
 
     void tambah() {
-        if (GlobalVar.Var.tambahPenyesuaianStok == null) {
-            GlobalVar.Var.tambahPenyesuaianStok = new PenyesuaianStok();
+        if (GlobalVar.Var.tambahBarangKeluar == null) {
+            GlobalVar.Var.tambahBarangKeluar = new BarangKeluar("0");
         } else {
-            GlobalVar.Var.tambahPenyesuaianStok.setState(NORMAL);
-            GlobalVar.Var.tambahPenyesuaianStok.toFront();
+            GlobalVar.Var.tambahBarangKeluar.setState(NORMAL);
+            GlobalVar.Var.tambahBarangKeluar.toFront();
+        }
+    }
+
+    void ubah() {
+        if (JComCari.getSelectedRow() < 0) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Terlebih Dahulu", "Information", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            if (GlobalVar.Var.editBarangKeluar == null) {
+                GlobalVar.Var.editBarangKeluar = new BarangKeluar(JComCari.GetIDTable());
+            } else {
+                GlobalVar.Var.editBarangKeluar.setState(NORMAL);
+                GlobalVar.Var.editBarangKeluar.toFront();
+            }
         }
     }
 
@@ -175,16 +221,18 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Terlebih Dahulu", "Information", JOptionPane.INFORMATION_MESSAGE);
         } else {
             Delete delete = new LSubProces.Delete();
-            if (delete.Hapus(JComCari.GetIDTable(), "DELETE FROM `tbpenyesuaianstok` WHERE `IdPenyesuaianStok`=" + JComCari.GetIDTable(), "Hapus Data Penyesuaian Stok", this)) {
+            if (delete.Hapus(JComCari.GetIDTable(), "DELETE FROM `tbbarangkeluar` WHERE `IdBarangKeluar`=" + JComCari.GetIDTable(), "Hapus Data Barang Keluar", this)) {
                 load();
             }
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private KomponenGUI.JbuttonF JBHapus;
     private KomponenGUI.JbuttonF JBKembali;
     private KomponenGUI.JbuttonF JBRefresh;
     private KomponenGUI.JbuttonF JBTambah;
+    private KomponenGUI.JbuttonF JBUbah;
     private KomponenGUI.JcomCari JComCari;
     // End of variables declaration//GEN-END:variables
 }
