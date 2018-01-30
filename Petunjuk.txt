@@ -18,8 +18,3 @@ Table		= DataTable
 Label		= NamaBarangLabel
 RadioButton	= JenisKelaminRadioButton
 
-<<<<<<< HEAD
-asdasd
-=======
-Martono
->>>>>>> 0d3411ba50533d93dcd004294908bebc690fac82
