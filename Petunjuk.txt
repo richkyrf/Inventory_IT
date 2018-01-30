@@ -3,8 +3,6 @@ Nama Project Lib	= GudangBengkelL, PurchaseRequestL, CutiL
 
 Nama Package 	= File, GlobalVar, Laporan, List, Master, Proses, Resource
 
-Label
-
 Variabel		= namaBarang, idBarang
 Variabel Public	= Username, Password, Level, BarangMasuk
 Fungsi		= getSelectedItem(), fillEmptySlot(), loadData()
@@ -19,5 +17,3 @@ Button		= KembaliButton
 Table		= DataTable
 Label		= NamaBarangLabel
 RadioButton	= JenisKelaminRadioButton
-
-Martono
