@@ -39,10 +39,27 @@
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <Component id="JLNomorPenyesuaianStok" min="-2" pref="207" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="JLNomorPenyesuaianStok2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="JTNomorPenyesuaianStok" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="JLTanggalPenyesuaianStok" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="JLTanggalPenyesuaianStok2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="JDTanggalPenyesuaianStok" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="JLNamaBarang" alignment="0" max="32767" attributes="0"/>
                           <Component id="JLKategoriBarang" pref="207" max="32767" attributes="0"/>
                           <Component id="JLJenisBarang" max="32767" attributes="0"/>
-                          <Component id="JLNamaBarang" max="32767" attributes="0"/>
+                          <Component id="JLCariBarang" max="32767" attributes="0"/>
                           <Component id="JLStokLama" max="32767" attributes="0"/>
                           <Component id="JLStokBaru" max="32767" attributes="0"/>
                           <Component id="JLKeterangan" max="32767" attributes="0"/>
@@ -60,16 +77,16 @@
                               <Component id="JTKategoriBarang" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="JLNamaBarang2" min="-2" max="-2" attributes="0"/>
+                              <Component id="JLCariBarang2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTNamaBarang" max="32767" attributes="0"/>
+                              <Component id="JTCariBarang" max="32767" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                              <Component id="JBNamaBarang" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="JBCariBarang" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="JLStokLama2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTStokLama" max="32767" attributes="0"/>
+                              <Component id="JRStokLama" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="JLStokBaru2" min="-2" max="-2" attributes="0"/>
@@ -81,23 +98,12 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="JSPKeterangan" max="32767" attributes="0"/>
                           </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="JLNamaBarang2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JTNamaBarang" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="JLNomorPenyesuaianStok" min="-2" pref="207" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JLNomorPenyesuaianStok2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTNomorPenyesuaianStok" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="JLTanggalPenyesuaianStok" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JLTanggalPenyesuaianStok2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JDTanggalPenyesuaianStok" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -134,19 +140,25 @@
                   <Component id="JTKategoriBarang" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLNamaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLNamaBarang2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTNamaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="JBNamaBarang" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBCariBarang" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="JLNamaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JLNamaBarang2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JTNamaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JLCariBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JLCariBarang2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JTCariBarang" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLStokLama" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLStokLama2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTStokLama" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JRStokLama" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -163,7 +175,7 @@
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="JSPKeterangan" pref="150" max="32767" attributes="0"/>
+                  <Component id="JSPKeterangan" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -253,19 +265,34 @@
       </Properties>
     </Component>
     <Component class="KomponenGUI.JtextF" name="JTNamaBarang">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLCariBarang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cari Barang"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLCariBarang2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTCariBarang">
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTNamaBarangFocusGained"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTNamaBarangKeyReleased"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTCariBarangFocusGained"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTCariBarangKeyReleased"/>
       </Events>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="JBNamaBarang">
+    <Component class="KomponenGUI.JbuttonF" name="JBCariBarang">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resource/Search.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBNamaBarangActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCariBarangActionPerformed"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JlableF" name="JLStokLama">
@@ -278,13 +305,6 @@
         <Property name="text" type="java.lang.String" value=":"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JtextF" name="JTStokLama">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="0"/>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="KomponenGUI.JlableF" name="JLStokBaru">
       <Properties>
         <Property name="text" type="java.lang.String" value="Stok Baru"/>
@@ -295,11 +315,15 @@
         <Property name="text" type="java.lang.String" value=":"/>
       </Properties>
     </Component>
+    <Component class="KomponenGUI.JRibuanTextField" name="JRStokLama">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
     <Component class="KomponenGUI.JRibuanTextField" name="JRStokBaru">
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JRStokBaruFocusGained"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JRStokBaruKeyPressed"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JRStokBaruKeyReleased"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JlableF" name="JLKeterangan">
