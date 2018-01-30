@@ -1,19 +1,19 @@
 Nama Project	= GudangBengkel, PurchaseRequest, Cuti
-Nama Project Lib	= GudangBengkelL, PurchaseRequestL, CutiL
+Nama Project Lib= GudangBengkelL, PurchaseRequestL, CutiL
 
 Nama Package 	= File, GlobalVar, Laporan, List, Master, Proses, Resource
 
 Variabel		= namaBarang, idBarang
 Variabel Public	= Username, Password, Level, BarangMasuk
-Fungsi		= getSelectedItem(), fillEmptySlot(), loadData()
+Fungsi			= getSelectedItem(), fillEmptySlot(), loadData()
 
 Komponen:
-TextField 	= NamaBarangTextField
-ComboBox	= KodeBarangComboBox
+TextField 		= NamaBarangTextField
+ComboBox		= KodeBarangComboBox
 JDateChooser	= TanggalPurchaseDateChooser
 TextArea		= KeteranganTextArea
 CheckBox		= StatusCheckBox
-Button		= KembaliButton
-Table		= DataTable
-Label		= NamaBarangLabel
-RadioButton	= JenisKelaminRadioButton
+Button			= KembaliButton
+Table			= DataTable
+Label			= NamaBarangLabel
+RadioButton		= JenisKelaminRadioButton
