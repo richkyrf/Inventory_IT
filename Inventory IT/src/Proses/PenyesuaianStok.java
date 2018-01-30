@@ -2,6 +2,7 @@ package Proses;
 
 import KomponenGUI.FDateF;
 import static KomponenGUI.FDateF.datetostr;
+import LSubProces.DRunSelctOne;
 import LSubProces.Insert;
 import LSubProces.RunSelct;
 import javax.swing.JOptionPane;
@@ -12,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -376,7 +378,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
             }
         } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             cariBarang(null);
-        } else if (isAlphaNumeric(String.valueOf(evt.getKeyChar())) == true) {
+        } else if (isAlphaNumeric(String.valueOf(evt.getKeyChar()))) {
             cariBarang(JTCariBarang.getText());
         }
     }//GEN-LAST:event_JTCariBarangKeyReleased
@@ -479,14 +481,14 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     }
 
     void setStokLama() {
-        /*
-        DRunSelctOne dRunSelctOne = new DRunSelctOne();
-        dRunSelctOne.seterorm("Eror gagal Menampilkan Data Stock");
-        dRunSelctOne.setQuery("SELECT SUM(Stock) FROM ((SELECT sum(`Jumlah`) as 'Stock' FROM `tbprosesindetail` WHERE `IdBarang` = '" + idbarangkiriman + "') UNION ALL (SELECT sum(`Jumlah`)*-1 as 'Stock' FROM `tbprosesoutdetail` WHERE `IdBarang` = '" + idbarangkiriman + "') UNION ALL   (SELECT  sum(`Penyesuaian`) as 'Stock' FROM `tbpenyesuaian` WHERE  `IdBarang` = '" + idbarangkiriman + "')) t1");
-        ArrayList<String> list = dRunSelctOne.excute();
-        String Stock = list.get(0);
-        return Stock;
-         */
+        if (!JTJenisBarang.getText().isEmpty() && !JTKategoriBarang.getText().isEmpty() && !JTNamaBarang.getText().isEmpty()) {
+            DRunSelctOne dRunSelctOne = new DRunSelctOne();
+            dRunSelctOne.seterorm("Gagal Menampilkan Data Stok Lama");
+            dRunSelctOne.setQuery("SELECT SUM(`Stok`) AS 'Stok' FROM (SELECT IFNULL(SUM(`JumlahBarang`),0) AS 'Stok' FROM `tbbarangmasukdetail` WHERE `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "') UNION SELECT IFNULL(SUM(`JumlahBarang`)*-1,0) AS 'Stok' FROM `tbbarangkeluar` WHERE `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "') UNION SELECT IFNULL(SUM(`PenyesuaianStok`),0) AS 'Stok' FROM `tbpenyesuaianstok` WHERE `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "')) AS `stok`");
+            ArrayList<String> list = dRunSelctOne.excute();
+            String Stok = list.get(0);
+            JRStokLama.setText(Stok);
+        }
     }
 
     boolean checkInput() {

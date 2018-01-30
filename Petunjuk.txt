@@ -16,4 +16,4 @@ CheckBox		= StatusCheckBox
 Button		= KembaliButton
 Table		= DataTable
 Label		= NamaBarangLabel
-RadioButton	= 
+RadioButton	= JenisKelaminRadioButton

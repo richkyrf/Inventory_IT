@@ -38,6 +38,8 @@ public class Var {
     public static ListMasterVendor listMasterVendor;
     public static MasterVendor tambahMasterVendor, editMasterVendor;
     public static JCari jCari;
+    public static BarangKeluar tambahBarangKeluar, editBarangKeluar;
+    public static ListBarangKeluar listBarangKeluar;
     public static PenyesuaianStok tambahPenyesuaianStok;
     public static ListPenyesuaianStok listPenyesuaianStok;
     public static Service tambahService, editService;

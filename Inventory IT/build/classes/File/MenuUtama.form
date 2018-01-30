@@ -149,11 +149,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Barang Masuk"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMIProsesBarangMasukActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="JMIProsesBarangKeluar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Barang Keluar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMIProsesBarangKeluarActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="JMIProsesPenyesuaianStok">
               <Properties>
@@ -210,6 +216,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Barang Keluar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMIListBarangKeluarActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="JMIListPenyesuaianStok">
               <Properties>

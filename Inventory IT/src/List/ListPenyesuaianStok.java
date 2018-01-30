@@ -156,6 +156,8 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
 
     public void load() {
         JComCari.setQuery("SELECT `IdPenyesuaianStok` AS 'ID', `NomorPenyesuaianStok` AS 'Nomor Penyesuaian Stok', DATE_FORMAT(`TanggalPenyesuaianStok`, '%d/%m/%Y') AS 'Tanggal Penyesuaian Stok', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `PenyesuaianStok` AS 'Penyesuaian Stok', A.`Keterangan` FROM `tbpenyesuaianstok` AS A JOIN `tbmbarang` AS B ON A.`IdBarang`=B.`IdBarang` JOIN `tbmkategoribarang` AS C ON B.`IdKategoriBarang`=C.`IdKategoriBarang` JOIN `tbmjenisbarang` AS D ON C.`IdJenisBarang`=D.`IdJenisBarang`");
+        JComCari.setOrder("ORDER BY `NomorPenyesuaianStok` DESC");
+        JComCari.setSelectedIndex(5);
         JComCari.tampilkan();
     }
 
