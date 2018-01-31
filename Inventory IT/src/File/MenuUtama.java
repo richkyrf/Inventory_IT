@@ -504,7 +504,12 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_JMIListBarangMasukActionPerformed
 
     private void JMIProsesBarangMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIProsesBarangMasukActionPerformed
-        // TODO add your handling code here:
+        if (GlobalVar.Var.tambahBarangMasuk == null) {
+            GlobalVar.Var.tambahBarangMasuk = new BarangMasuk("0");
+        } else {
+            GlobalVar.Var.tambahBarangMasuk.setState(NORMAL);
+            GlobalVar.Var.tambahBarangMasuk.toFront();
+        }
     }//GEN-LAST:event_JMIProsesBarangMasukActionPerformed
 
     private void JMIProsesBarangKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIProsesBarangKeluarActionPerformed
