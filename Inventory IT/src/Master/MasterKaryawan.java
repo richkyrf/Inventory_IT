@@ -319,6 +319,16 @@ public class MasterKaryawan extends javax.swing.JFrame {
                     GlobalVar.Var.editBarangRusak.JCNamaPemakai.setSelectedItem(JTNamaKaryawan.getText());
                     GlobalVar.Var.editBarangRusak.JCNamaPemakai.requestFocus();
                 }
+                if (GlobalVar.Var.tambahBarangKeluar != null) {
+                    GlobalVar.Var.tambahBarangKeluar.JCNamaPemakai.load("SELECT '-- Pilih Nama Pemakai --' AS `NamaKaryawan` UNION SELECT `NamaKaryawan` FROM `tbmkaryawan`");
+                    GlobalVar.Var.tambahBarangKeluar.JCNamaPemakai.setSelectedItem(JTNamaKaryawan.getText());
+                    GlobalVar.Var.tambahBarangKeluar.JCNamaPemakai.requestFocus();
+                }
+                if (GlobalVar.Var.editBarangKeluar != null) {
+                    GlobalVar.Var.editBarangKeluar.JCNamaPemakai.load("SELECT '-- Pilih Nama Pemakai --' AS `NamaKaryawan` UNION SELECT `NamaKaryawan` FROM `tbmkaryawan`");
+                    GlobalVar.Var.editBarangKeluar.JCNamaPemakai.setSelectedItem(JTNamaKaryawan.getText());
+                    GlobalVar.Var.editBarangKeluar.JCNamaPemakai.requestFocus();
+                }
                 if (tutup) {
                     GlobalVar.Var.tambahMasterKaryawan.dispose();
                 } else {

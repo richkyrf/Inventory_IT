@@ -281,7 +281,6 @@
     </Component>
     <Component class="KomponenGUI.JtextF" name="JTCariBarang">
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JTCariBarangFocusGained"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTCariBarangKeyReleased"/>
       </Events>
     </Component>
@@ -305,6 +304,11 @@
         <Property name="text" type="java.lang.String" value=":"/>
       </Properties>
     </Component>
+    <Component class="KomponenGUI.JRibuanTextField" name="JRStokLama">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
     <Component class="KomponenGUI.JlableF" name="JLStokBaru">
       <Properties>
         <Property name="text" type="java.lang.String" value="Stok Baru"/>
@@ -313,11 +317,6 @@
     <Component class="KomponenGUI.JlableF" name="JLStokBaru2">
       <Properties>
         <Property name="text" type="java.lang.String" value=":"/>
-      </Properties>
-    </Component>
-    <Component class="KomponenGUI.JRibuanTextField" name="JRStokLama">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="KomponenGUI.JRibuanTextField" name="JRStokBaru">

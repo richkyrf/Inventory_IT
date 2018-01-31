@@ -68,9 +68,9 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         JBCariBarang = new KomponenGUI.JbuttonF();
         JLStokLama = new KomponenGUI.JlableF();
         JLStokLama2 = new KomponenGUI.JlableF();
+        JRStokLama = new KomponenGUI.JRibuanTextField();
         JLStokBaru = new KomponenGUI.JlableF();
         JLStokBaru2 = new KomponenGUI.JlableF();
-        JRStokLama = new KomponenGUI.JRibuanTextField();
         JRStokBaru = new KomponenGUI.JRibuanTextField();
         JLKeterangan = new KomponenGUI.JlableF();
         JLKeterangan2 = new KomponenGUI.JlableF();
@@ -127,11 +127,6 @@ public class PenyesuaianStok extends javax.swing.JFrame {
 
         JLCariBarang2.setText(":");
 
-        JTCariBarang.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                JTCariBarangFocusGained(evt);
-            }
-        });
         JTCariBarang.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 JTCariBarangKeyReleased(evt);
@@ -149,11 +144,11 @@ public class PenyesuaianStok extends javax.swing.JFrame {
 
         JLStokLama2.setText(":");
 
+        JRStokLama.setEnabled(false);
+
         JLStokBaru.setText("Stok Baru");
 
         JLStokBaru2.setText(":");
-
-        JRStokLama.setEnabled(false);
 
         JRStokBaru.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -384,13 +379,9 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     }//GEN-LAST:event_JTCariBarangKeyReleased
 
     private void JRStokBaruFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRStokBaruFocusGained
+        setStokLama();
         JTCariBarang.setText("");
-        setStokLama();
     }//GEN-LAST:event_JRStokBaruFocusGained
-
-    private void JTCariBarangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTCariBarangFocusGained
-        setStokLama();
-    }//GEN-LAST:event_JTCariBarangFocusGained
 
     private void JRStokBaruKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JRStokBaruKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
