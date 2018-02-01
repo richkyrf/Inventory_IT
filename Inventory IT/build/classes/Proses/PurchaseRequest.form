@@ -71,17 +71,18 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlableF12" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlableF9" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jlableF12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="JCVendor" min="-2" pref="280" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jbuttonF4" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="JTPenerima" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jlableF9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JTPenerima" min="-2" pref="331" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -164,11 +165,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jlableF2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jlableF9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JCVendor" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbuttonF4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jlableF1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jlableF10" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JTNomorPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTPenerima" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -177,11 +177,12 @@
                       <Component id="jlableF12" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF13" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JTPenerima" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JCVendor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbuttonF4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="JDTanggal" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" pref="12" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -227,7 +228,7 @@
                       <Component id="JBHapusDetail" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="JBRefreshDetail" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="173" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="174" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -265,11 +266,16 @@
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Vendor"/>
+        <Property name="text" type="java.lang.String" value="Penerima"/>
       </Properties>
     </Component>
     <Component class="KomponenGUI.JcomboboxF" name="JCVendor">
       <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor" postCode="JCVendor.load(&quot;SELECT &apos;-- Pilih Nama Vendor --&apos; UNION SELECT `NamaVendor` FROM `tbmvendor` &quot;);">
+          <StringArray count="1">
+            <StringItem index="0" value="-- Pilih Nama Vendor --"/>
+          </StringArray>
+        </Property>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="JTNamaBarang"/>
         </Property>
@@ -278,7 +284,6 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCVendorKeyPressed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JCVendor.load(&quot;SELECT `NamaVendor` FROM `tbmvendor` &quot;);"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
@@ -565,7 +570,7 @@
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Penerima"/>
+        <Property name="text" type="java.lang.String" value="Vendor"/>
       </Properties>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF12">
