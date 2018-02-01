@@ -559,7 +559,7 @@ public class BarangKeluar extends javax.swing.JFrame {
             dRunSelctOne.setQuery("SELECT SUM(`Stok`) AS 'Stok' FROM (SELECT IFNULL(SUM(`JumlahBarang`),0) AS 'Stok' FROM `tbbarangmasukdetail` WHERE `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "') UNION SELECT IFNULL(SUM(`JumlahBarang`)*-1,0) AS 'Stok' FROM `tbbarangkeluar` WHERE `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "') UNION SELECT IFNULL(SUM(`PenyesuaianStok`),0) AS 'Stok' FROM `tbpenyesuaianstok` WHERE `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "')) AS `stok`");
             ArrayList<String> list = dRunSelctOne.excute();
             String Stok = list.get(0);
-            if(!idEdit.equals("0") && JTJenisBarang.getText().equals(jenisBarang) && JTKategoriBarang.getText().equals(kategoriBarang) && JTNamaBarang.getText().equals(namaBarang)){
+            if (!idEdit.equals("0") && JTJenisBarang.getText().equals(jenisBarang) && JTKategoriBarang.getText().equals(kategoriBarang) && JTNamaBarang.getText().equals(namaBarang)) {
                 Stok = String.valueOf(Integer.parseInt(Stok) + Integer.parseInt(jumlahBarangKeluar));
             }
             JRStokBarang.setText(Stok);
@@ -606,7 +606,7 @@ public class BarangKeluar extends javax.swing.JFrame {
     void tambah(boolean tutup) {
         if (checkInput()) {
             Insert insert = new LSubProces.Insert();
-            boolean simpan = insert.Simpan("INSERT INTO `tbbarangkeluar`(`NomorBarangKeluar`, `TanggalBarangKeluar`, `IdKaryawan`, `IdBarang`, `JumlahBarang`, `Keterangan`) VALUES ('" + JTNomorBarangKeluar.getText() + "', '" + FDateF.datetostr(JDTanggalBarangKeluar.getDate(), "yyyy-MM-dd") + "', (SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), (SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), '" + JRJumlahBarangKeluar.getText() + ", '" + JTKeterangan.getText() + "')", "Tambah Data Barang Keluar", this);
+            boolean simpan = insert.Simpan("INSERT INTO `tbbarangkeluar`(`NomorBarangKeluar`, `TanggalBarangKeluar`, `IdKaryawan`, `IdBarang`, `JumlahBarang`, `Keterangan`) VALUES ('" + JTNomorBarangKeluar.getText() + "', '" + FDateF.datetostr(JDTanggalBarangKeluar.getDate(), "yyyy-MM-dd") + "', (SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), (SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), '" + JRJumlahBarangKeluar.getInt() + "', '" + JTKeterangan.getText() + "')", "Tambah Data Barang Keluar", this);
             if (simpan) {
                 if (GlobalVar.Var.listBarangKeluar != null) {
                     GlobalVar.Var.listBarangKeluar.load();
@@ -633,7 +633,7 @@ public class BarangKeluar extends javax.swing.JFrame {
         JRJumlahBarangKeluar.setText("1");
         JTKeterangan.setText("");
     }
-    
+
     void loadData() {
         DRunSelctOne dRunSelctOne = new DRunSelctOne();
         dRunSelctOne.seterorm("Gagal Menampilkan Data Barang Keluar");
@@ -647,17 +647,17 @@ public class BarangKeluar extends javax.swing.JFrame {
         JTNamaBarang.setText(list.get(6));
         JRJumlahBarangKeluar.setText(list.get(7));
         JTKeterangan.setText(list.get(8));
-        jenisBarang=list.get(4);
-        kategoriBarang=list.get(5);
-        namaBarang=list.get(6);
-        jumlahBarangKeluar=list.get(7);
+        jenisBarang = list.get(4);
+        kategoriBarang = list.get(5);
+        namaBarang = list.get(6);
+        jumlahBarangKeluar = list.get(7);
         setStokBarang();
     }
 
     void ubah() {
         if (checkInput()) {
             Update update = new LSubProces.Update();
-            boolean ubah = update.Ubah("UPDATE `tbbarangkeluar` SET `TanggalBarangKeluar`='" + FDateF.datetostr(JDTanggalBarangKeluar.getDate(), "yyyy-MM-dd") + "', `IdKaryawan`=(SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText()+ "' AND `NamaBarang`='" + JTNamaBarang.getText()+ "'), `JumlahBarang`='" + JRJumlahBarangKeluar.getText() + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdBarangKeluar`=" + idEdit, "Ubah Data Barang Keluar", this);
+            boolean ubah = update.Ubah("UPDATE `tbbarangkeluar` SET `TanggalBarangKeluar`='" + FDateF.datetostr(JDTanggalBarangKeluar.getDate(), "yyyy-MM-dd") + "', `IdKaryawan`=(SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), `JumlahBarang`='" + JRJumlahBarangKeluar.getInt() + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdBarangKeluar`=" + idEdit, "Ubah Data Barang Keluar", this);
             if (ubah) {
                 GlobalVar.Var.editBarangKeluar.dispose();
                 GlobalVar.Var.listBarangKeluar.load();

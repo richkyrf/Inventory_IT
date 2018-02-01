@@ -5,7 +5,7 @@
  */
 package File;
 
-//import Laporan.*;
+import Laporan.*;
 import List.*;
 import Proses.*;
 
@@ -72,6 +72,19 @@ public class MenuUtama extends javax.swing.JFrame {
         SList2 = new javax.swing.JPopupMenu.Separator();
         JMIListBarangRusak = new javax.swing.JMenuItem();
         JMLaporan = new javax.swing.JMenu();
+        JMILaporanMasterBarang = new javax.swing.JMenuItem();
+        JMILaporanMasterBarangService = new javax.swing.JMenuItem();
+        JMILaporanMasterKaryawan = new javax.swing.JMenuItem();
+        JMILaporanMasterVendor = new javax.swing.JMenuItem();
+        SLaporan1 = new javax.swing.JPopupMenu.Separator();
+        JMILaporanPurchaseRequest = new javax.swing.JMenuItem();
+        JMILaporanBarangMasuk = new javax.swing.JMenuItem();
+        JMILaporanBarangKeluar = new javax.swing.JMenuItem();
+        JMILaporanPenyesuaianStok = new javax.swing.JMenuItem();
+        SLaporan2 = new javax.swing.JPopupMenu.Separator();
+        JMILaporanService = new javax.swing.JMenuItem();
+        SLaporan3 = new javax.swing.JPopupMenu.Separator();
+        JMILaporanBarangRusak = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -300,6 +313,65 @@ public class MenuUtama extends javax.swing.JFrame {
         JMenuBar.add(JMList);
 
         JMLaporan.setText("Laporan");
+
+        JMILaporanMasterBarang.setText("Master Barang");
+        JMILaporanMasterBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILaporanMasterBarangActionPerformed(evt);
+            }
+        });
+        JMLaporan.add(JMILaporanMasterBarang);
+
+        JMILaporanMasterBarangService.setText("Master Barang Service");
+        JMILaporanMasterBarangService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILaporanMasterBarangServiceActionPerformed(evt);
+            }
+        });
+        JMLaporan.add(JMILaporanMasterBarangService);
+
+        JMILaporanMasterKaryawan.setText("Master Karyawan (Pemakai)");
+        JMILaporanMasterKaryawan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILaporanMasterKaryawanActionPerformed(evt);
+            }
+        });
+        JMLaporan.add(JMILaporanMasterKaryawan);
+
+        JMILaporanMasterVendor.setText("Master Vendor");
+        JMILaporanMasterVendor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILaporanMasterVendorActionPerformed(evt);
+            }
+        });
+        JMLaporan.add(JMILaporanMasterVendor);
+        JMLaporan.add(SLaporan1);
+
+        JMILaporanPurchaseRequest.setText("Purchase Request");
+        JMLaporan.add(JMILaporanPurchaseRequest);
+
+        JMILaporanBarangMasuk.setText("Barang Masuk");
+        JMLaporan.add(JMILaporanBarangMasuk);
+
+        JMILaporanBarangKeluar.setText("Barang Keluar");
+        JMLaporan.add(JMILaporanBarangKeluar);
+
+        JMILaporanPenyesuaianStok.setText("Penyesuaian Stok");
+        JMLaporan.add(JMILaporanPenyesuaianStok);
+        JMLaporan.add(SLaporan2);
+
+        JMILaporanService.setText("Service");
+        JMLaporan.add(JMILaporanService);
+        JMLaporan.add(SLaporan3);
+
+        JMILaporanBarangRusak.setText("Barang Rusak");
+        JMILaporanBarangRusak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILaporanBarangRusakActionPerformed(evt);
+            }
+        });
+        JMLaporan.add(JMILaporanBarangRusak);
+
         JMenuBar.add(JMLaporan);
 
         setJMenuBar(JMenuBar);
@@ -495,7 +567,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
 
     private void JMIListBarangMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListBarangMasukActionPerformed
-        if (GlobalVar.Var.listBarangMasuk == null){
+        if (GlobalVar.Var.listBarangMasuk == null) {
             GlobalVar.Var.listBarangMasuk = new ListBarangMasuk();
         } else {
             GlobalVar.Var.listBarangMasuk.setState(NORMAL);
@@ -530,6 +602,50 @@ public class MenuUtama extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JMIListBarangKeluarActionPerformed
 
+    private void JMILaporanMasterVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanMasterVendorActionPerformed
+        if (GlobalVar.Var.laporanMasterVendor == null) {
+            GlobalVar.Var.laporanMasterVendor = new LaporanMasterVendor();
+        } else {
+            GlobalVar.Var.laporanMasterVendor.setState(NORMAL);
+            GlobalVar.Var.laporanMasterVendor.toFront();
+        }
+    }//GEN-LAST:event_JMILaporanMasterVendorActionPerformed
+
+    private void JMILaporanMasterKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanMasterKaryawanActionPerformed
+        if (GlobalVar.Var.laporanMasterKaryawan == null) {
+            GlobalVar.Var.laporanMasterKaryawan = new LaporanMasterKaryawan();
+        } else {
+            GlobalVar.Var.laporanMasterKaryawan.setState(NORMAL);
+            GlobalVar.Var.laporanMasterKaryawan.toFront();
+        }
+    }//GEN-LAST:event_JMILaporanMasterKaryawanActionPerformed
+
+    private void JMILaporanMasterBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanMasterBarangActionPerformed
+        if (GlobalVar.Var.laporanMasterBarang == null) {
+            GlobalVar.Var.laporanMasterBarang = new LaporanMasterBarang();
+        } else {
+            GlobalVar.Var.laporanMasterBarang.setState(NORMAL);
+            GlobalVar.Var.laporanMasterBarang.toFront();
+        }
+    }//GEN-LAST:event_JMILaporanMasterBarangActionPerformed
+
+    private void JMILaporanMasterBarangServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanMasterBarangServiceActionPerformed
+        if (GlobalVar.Var.laporanMasterBarangService == null) {
+            GlobalVar.Var.laporanMasterBarangService = new LaporanMasterBarangService();
+        } else {
+            GlobalVar.Var.laporanMasterBarangService.setState(NORMAL);
+            GlobalVar.Var.laporanMasterBarangService.toFront();
+        }
+    }//GEN-LAST:event_JMILaporanMasterBarangServiceActionPerformed
+
+    private void JMILaporanBarangRusakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanBarangRusakActionPerformed
+        if (GlobalVar.Var.laporanBarangRusak == null) {
+            GlobalVar.Var.laporanBarangRusak = new LaporanBarangRusak();
+        } else {
+            GlobalVar.Var.laporanBarangRusak.setState(NORMAL);
+            GlobalVar.Var.laporanBarangRusak.toFront();
+        }
+    }//GEN-LAST:event_JMILaporanBarangRusakActionPerformed
 
     /**
      * @param args the command line arguments
@@ -570,6 +686,16 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenu JMFile;
     private javax.swing.JMenuItem JMIExit;
     private javax.swing.JMenuItem JMIGantiPassword;
+    private javax.swing.JMenuItem JMILaporanBarangKeluar;
+    private javax.swing.JMenuItem JMILaporanBarangMasuk;
+    private javax.swing.JMenuItem JMILaporanBarangRusak;
+    private javax.swing.JMenuItem JMILaporanMasterBarang;
+    private javax.swing.JMenuItem JMILaporanMasterBarangService;
+    private javax.swing.JMenuItem JMILaporanMasterKaryawan;
+    private javax.swing.JMenuItem JMILaporanMasterVendor;
+    private javax.swing.JMenuItem JMILaporanPenyesuaianStok;
+    private javax.swing.JMenuItem JMILaporanPurchaseRequest;
+    private javax.swing.JMenuItem JMILaporanService;
     private javax.swing.JMenuItem JMIListBarangKeluar;
     private javax.swing.JMenuItem JMIListBarangMasuk;
     private javax.swing.JMenuItem JMIListBarangRusak;
@@ -598,6 +724,9 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenu JMProses;
     private javax.swing.JMenuBar JMenuBar;
     private javax.swing.JPopupMenu.Separator SFile;
+    private javax.swing.JPopupMenu.Separator SLaporan1;
+    private javax.swing.JPopupMenu.Separator SLaporan2;
+    private javax.swing.JPopupMenu.Separator SLaporan3;
     private javax.swing.JPopupMenu.Separator SList1;
     private javax.swing.JPopupMenu.Separator SList2;
     private javax.swing.JPopupMenu.Separator SMaster1;
