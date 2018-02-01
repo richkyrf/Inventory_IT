@@ -254,6 +254,79 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Laporan"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanMasterBarang">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Master Barang"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanMasterBarangActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanMasterBarangService">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Master Barang Service"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanMasterBarangServiceActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanMasterKaryawan">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Master Karyawan (Pemakai)"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanMasterKaryawanActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanMasterVendor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Master Vendor"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanMasterVendorActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="SLaporan1">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanPurchaseRequest">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Purchase Request"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanBarangMasuk">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Barang Masuk"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanBarangKeluar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Barang Keluar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanPenyesuaianStok">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Penyesuaian Stok"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="SLaporan2">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanService">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Service"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="SLaporan3">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanBarangRusak">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Barang Rusak"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanBarangRusakActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
