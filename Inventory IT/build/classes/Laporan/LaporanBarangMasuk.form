@@ -43,11 +43,11 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jlableF3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JDTanggal1" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="JDTanggalBarangMasukAwal" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jlableF4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JDTanggal2" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="JDTanggalBarangMasukAkhir" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jlableF8" min="-2" max="-2" attributes="0"/>
@@ -90,9 +90,9 @@
                       <Component id="jlableF2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="JDTanggal1" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="JDTanggalBarangMasukAwal" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="jlableF4" min="-2" max="-2" attributes="0"/>
-                  <Component id="JDTanggal2" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="JDTanggalBarangMasukAkhir" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -142,14 +142,9 @@
         <Property name="text" type="java.lang.String" value=":"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JdateCF" name="JDTanggal1">
-      <Properties>
-        <Property name="date" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new Date()" type="code"/>
-        </Property>
-      </Properties>
+    <Component class="KomponenGUI.JdateCF" name="JDTanggalBarangMasukAwal">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JDTanggal1.setDate(new Date());"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JDTanggalBarangMasukAwal.setDate(new Date());"/>
       </AuxValues>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF4">
@@ -157,15 +152,12 @@
         <Property name="text" type="java.lang.String" value="s/d"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JdateCF" name="JDTanggal2">
+    <Component class="KomponenGUI.JdateCF" name="JDTanggalBarangMasukAkhir">
       <Properties>
         <Property name="date" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="new Date()" type="code"/>
         </Property>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JDTanggal2.setDate(new Date());"/>
-      </AuxValues>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF5">
       <Properties>
@@ -215,6 +207,10 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JCJenisBarangItemStateChanged"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCJenisBarangKeyReleased"/>
+      </Events>
     </Component>
     <Component class="KomponenGUI.JcomboboxF" name="JCKategoriBarang">
       <Properties>
@@ -224,6 +220,10 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JCKategoriBarangItemStateChanged"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCKategoriBarangKeyReleased"/>
+      </Events>
     </Component>
     <Component class="KomponenGUI.JcomboboxF" name="JCNamaBarang">
       <Properties>
@@ -233,6 +233,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCNamaBarangKeyReleased"/>
+      </Events>
     </Component>
     <Component class="KomponenGUI.JcomboboxF" name="JCNamaVendor">
       <Properties>

@@ -9,9 +9,11 @@ import KomponenGUI.FDateF;
 import LSubProces.DRunSelctOne;
 import LSubProces.FLaporan;
 import LSubProces.History;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,37 +38,37 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
         String jenisBarang, kategoriBarang, namaBarang, namaVendor;
         if (JCJenisBarang.getSelectedIndex() != 0) {
             jenisBarang = " AND `NamaBarang` = '" + JCJenisBarang.getSelectedItem() + "'";
-            hashs.put("JenisBarang", "Semua Jenis");
+            hashs.put("JenisBarang", JCJenisBarang.getSelectedItem());
         } else {
             jenisBarang = "";
-            hashs.put("JenisBarang", JCJenisBarang.getSelectedItem());
+            hashs.put("JenisBarang", "Semua Jenis");
         }
         if (JCKategoriBarang.getSelectedIndex() != 0) {
             kategoriBarang = " AND `KategoriBarang` = '" + JCKategoriBarang.getSelectedItem() + "'";
-            hashs.put("KategoriBarang", "Semua Kategori");
+            hashs.put("KategoriBarang", JCKategoriBarang.getSelectedItem());
         } else {
             kategoriBarang = "";
-            hashs.put("KategoriBarang", JCKategoriBarang.getSelectedItem());
+            hashs.put("KategoriBarang", "Semua Kategori");
         }
         if (JCNamaBarang.getSelectedIndex() != 0) {
             namaBarang = " AND `NamaBarang` = '" + JCNamaBarang.getSelectedItem() + "'";
-            hashs.put("NamaBarang", "Semua Nama");
+            hashs.put("NamaBarang", JCNamaBarang.getSelectedItem());
         } else {
             namaBarang = "";
-            hashs.put("NamaBarang", JCNamaBarang.getSelectedItem());
+            hashs.put("NamaBarang", "Semua Nama");
         }
         if (JCNamaVendor.getSelectedIndex() != 0) {
             namaVendor = " AND `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'";
-            hashs.put("NamaVendor", "Semua Vendor");
+            hashs.put("NamaBarang", JCNamaVendor.getSelectedItem());
         } else {
             namaVendor = "";
-            hashs.put("NamaBarang", JCNamaVendor.getSelectedItem());
+            hashs.put("NamaVendor", "Semua Vendor");
         }
-        hashs.put("Title", "LAPORAN BARANG MASUK");
+        hashs.put("Title", "LAPORAN DETAIL BARANG MASUK");
         hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-        hashs.put("FormatTgl1", FDateF.datetostr(JDTanggal1.getDate(), "dd/MM/yyyy"));
-        hashs.put("FormatTgl2", FDateF.datetostr(JDTanggal2.getDate(), "dd/MM/yyyy"));
-        hashs.put("Where", " AND TanggalBarangMasuk` BETWEEN '" + FDateF.datetostr(JDTanggal1.getDate(), "yyyy-MM-dd") + "' and '" + FDateF.datetostr(JDTanggal2.getDate(), "yyyy-MM-dd") + "' " + jenisBarang + kategoriBarang + namaBarang + namaVendor);
+        hashs.put("FormatTgl1", FDateF.datetostr(JDTanggalBarangMasukAwal.getDate(), "dd/MM/yyyy"));
+        hashs.put("FormatTgl2", FDateF.datetostr(JDTanggalBarangMasukAkhir.getDate(), "dd/MM/yyyy"));
+        hashs.put("Where", " AND `TanggalBarangMasuk` BETWEEN '" + FDateF.datetostr(JDTanggalBarangMasukAwal.getDate(), "yyyy-MM-dd") + "' and '" + FDateF.datetostr(JDTanggalBarangMasukAkhir.getDate(), "yyyy-MM-dd") + "' " + jenisBarang + kategoriBarang + namaBarang + namaVendor);
         fLaporan.sethashmap(hashs);
         fLaporan.setfilename("LaporanDetailBarangMasuk");
         fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
@@ -86,9 +88,9 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
         jlableF1 = new KomponenGUI.JlableF();
         jlableF2 = new KomponenGUI.JlableF();
         jlableF3 = new KomponenGUI.JlableF();
-        JDTanggal1 = new KomponenGUI.JdateCF();
+        JDTanggalBarangMasukAwal = new KomponenGUI.JdateCF();
         jlableF4 = new KomponenGUI.JlableF();
-        JDTanggal2 = new KomponenGUI.JdateCF();
+        JDTanggalBarangMasukAkhir = new KomponenGUI.JdateCF();
         jlableF5 = new KomponenGUI.JlableF();
         jlableF6 = new KomponenGUI.JlableF();
         jlableF7 = new KomponenGUI.JlableF();
@@ -112,13 +114,11 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
 
         jlableF3.setText(":");
 
-        JDTanggal1.setDate(new Date());
-        JDTanggal1.setDate(new Date());
+        JDTanggalBarangMasukAwal.setDate(new Date());
 
         jlableF4.setText("s/d");
 
-        JDTanggal2.setDate(new Date());
-        JDTanggal2.setDate(new Date());
+        JDTanggalBarangMasukAkhir.setDate(new Date());
 
         jlableF5.setText("Jenis Barang");
 
@@ -137,10 +137,35 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
         jlableF12.setText(":");
 
         JCJenisBarang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Semua Jenis Barang --" }));
+        JCJenisBarang.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JCJenisBarangItemStateChanged(evt);
+            }
+        });
+        JCJenisBarang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JCJenisBarangKeyReleased(evt);
+            }
+        });
 
         JCKategoriBarang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Semua Kategori Barang --" }));
+        JCKategoriBarang.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JCKategoriBarangItemStateChanged(evt);
+            }
+        });
+        JCKategoriBarang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JCKategoriBarangKeyReleased(evt);
+            }
+        });
 
         JCNamaBarang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Semua Nama Barang --" }));
+        JCNamaBarang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JCNamaBarangKeyReleased(evt);
+            }
+        });
 
         JCNamaVendor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Semua Vendor --" }));
         JCNamaVendor.addActionListener(new java.awt.event.ActionListener() {
@@ -179,11 +204,11 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jlableF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JDTanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(JDTanggalBarangMasukAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jlableF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JDTanggal2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(JDTanggalBarangMasukAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jlableF8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -213,9 +238,9 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jlableF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlableF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(JDTanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JDTanggalBarangMasukAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlableF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JDTanggal2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JDTanggalBarangMasukAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlableF5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,6 +277,42 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
         print();
     }//GEN-LAST:event_jbuttonF1ActionPerformed
 
+    private void JCJenisBarangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCJenisBarangItemStateChanged
+        if (JCJenisBarang.getSelectedIndex() == 0) {
+            JCKategoriBarang.load("SELECT '-- Semua Kategori Barang --' AS `KategoriBarang` UNION SELECT `KategoriBarang` FROM `tbmkategoribarang`");
+            JCNamaBarang.load("SELECT '-- Semua Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang`");
+        } else {
+            JCKategoriBarang.load("SELECT '-- Semua Kategori Barang --' AS `KategoriBarang` UNION SELECT `KategoriBarang` FROM `tbmkategoribarang` AS A JOIN `tbmjenisbarang` AS B ON A.`IdJenisBarang`=B.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'");
+            JCNamaBarang.load("SELECT '-- Semua Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'");
+        }
+    }//GEN-LAST:event_JCJenisBarangItemStateChanged
+
+    private void JCJenisBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCJenisBarangKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            JCKategoriBarang.requestFocus();
+        }
+    }//GEN-LAST:event_JCJenisBarangKeyReleased
+
+    private void JCKategoriBarangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCKategoriBarangItemStateChanged
+        if (JCKategoriBarang.getSelectedIndex() == 0) {
+            JCNamaBarang.load("SELECT '-- Semua Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang`");
+        } else {
+            JCNamaBarang.load("SELECT '-- Pilih Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'");
+        }
+    }//GEN-LAST:event_JCKategoriBarangItemStateChanged
+
+    private void JCKategoriBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCKategoriBarangKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            JCNamaBarang.requestFocus();
+        }
+    }//GEN-LAST:event_JCKategoriBarangKeyReleased
+
+    private void JCNamaBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCNamaBarangKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            JCNamaVendor.requestFocus();
+        }
+    }//GEN-LAST:event_JCNamaBarangKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -287,13 +348,35 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
         });
     }
 
+    boolean checkInput() {
+        if (JCJenisBarang.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Jenis Barang Harus Dipilih", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JCJenisBarang.requestFocus();
+            return false;
+        } else if (JCKategoriBarang.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Kategori Barang Harus Dipilih", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JCKategoriBarang.requestFocus();
+            return false;
+        } else if (JCNamaBarang.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Nama Barang Harus Dipilih", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JCNamaBarang.requestFocus();
+            return false;
+        } else if (JCNamaVendor.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Nama Vendor Harus Dipilih", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JCNamaVendor.requestFocus();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private KomponenGUI.JcomboboxF JCJenisBarang;
     private KomponenGUI.JcomboboxF JCKategoriBarang;
     private KomponenGUI.JcomboboxF JCNamaBarang;
     private KomponenGUI.JcomboboxF JCNamaVendor;
-    private KomponenGUI.JdateCF JDTanggal1;
-    private KomponenGUI.JdateCF JDTanggal2;
+    private KomponenGUI.JdateCF JDTanggalBarangMasukAkhir;
+    private KomponenGUI.JdateCF JDTanggalBarangMasukAwal;
     private KomponenGUI.JbuttonF jbuttonF1;
     private KomponenGUI.JlableF jlableF1;
     private KomponenGUI.JlableF jlableF10;
