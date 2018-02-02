@@ -162,7 +162,7 @@
 	<columnHeader>
 		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="37" height="20" backcolor="#99FFFF" uuid="4a441fa8-bb2f-44ca-b13a-60c45735d207"/>
+				<reportElement mode="Opaque" x="0" y="0" width="37" height="20" backcolor="#D2FDFD" uuid="4a441fa8-bb2f-44ca-b13a-60c45735d207"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -176,7 +176,7 @@
 				<text><![CDATA[NO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="117" y="0" width="80" height="20" backcolor="#99FFFF" uuid="3f78751a-2545-4239-8243-ee3ca7abdd3d"/>
+				<reportElement mode="Opaque" x="117" y="0" width="80" height="20" backcolor="#D2FDFD" uuid="3f78751a-2545-4239-8243-ee3ca7abdd3d"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -190,7 +190,7 @@
 				<text><![CDATA[KATEGORI]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="323" y="0" width="75" height="20" backcolor="#99FFFF" uuid="56bd64ae-e844-4d27-8d54-8266b524780f"/>
+				<reportElement mode="Opaque" x="323" y="0" width="75" height="20" backcolor="#D2FDFD" uuid="56bd64ae-e844-4d27-8d54-8266b524780f"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -204,7 +204,7 @@
 				<text><![CDATA[HARGA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="398" y="0" width="42" height="20" backcolor="#99FFFF" uuid="1362d23a-a840-4fd2-b604-3b3773a5f63b"/>
+				<reportElement mode="Opaque" x="398" y="0" width="42" height="20" backcolor="#D2FDFD" uuid="1362d23a-a840-4fd2-b604-3b3773a5f63b"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -218,7 +218,7 @@
 				<text><![CDATA[JUMLAH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="197" y="0" width="126" height="20" backcolor="#99FFFF" uuid="c5232b92-51cd-4c0e-b1dc-61dcac0e5a5a"/>
+				<reportElement mode="Opaque" x="197" y="0" width="126" height="20" backcolor="#D2FDFD" uuid="c5232b92-51cd-4c0e-b1dc-61dcac0e5a5a"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -232,7 +232,7 @@
 				<text><![CDATA[NAMA BARANG]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="440" y="0" width="76" height="20" backcolor="#99FFFF" uuid="42157ea8-7e91-4b8f-8736-2c3ed9e9b529"/>
+				<reportElement mode="Opaque" x="440" y="0" width="76" height="20" backcolor="#D2FDFD" uuid="42157ea8-7e91-4b8f-8736-2c3ed9e9b529"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -246,7 +246,7 @@
 				<text><![CDATA[SUBTOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="516" y="0" width="38" height="20" backcolor="#EAFFFF" uuid="15089851-e22b-4046-ba40-9e3de4c2de1b"/>
+				<reportElement mode="Opaque" x="516" y="0" width="38" height="20" backcolor="#FFFFFF" uuid="15089851-e22b-4046-ba40-9e3de4c2de1b"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -260,7 +260,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="37" y="0" width="80" height="20" backcolor="#99FFFF" uuid="f7283a13-2517-44d2-95bd-94a74782d925"/>
+				<reportElement mode="Opaque" x="37" y="0" width="80" height="20" backcolor="#D2FDFD" uuid="f7283a13-2517-44d2-95bd-94a74782d925"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
