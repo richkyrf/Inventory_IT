@@ -56,11 +56,11 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
                 hashs.put("NamaBarang", JCNamaBarang.getSelectedItem());
             } else {
                 namaBarang = "";
-                hashs.put("NamaBarang", "Semua Nama");
+                hashs.put("NamaBarang", "Semua Barang");
             }
             if (JCNamaVendor.getSelectedIndex() != 0) {
                 namaVendor = " AND `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'";
-                hashs.put("NamaBarang", JCNamaVendor.getSelectedItem());
+                hashs.put("NamaVendor", JCNamaVendor.getSelectedItem());
             } else {
                 namaVendor = "";
                 hashs.put("NamaVendor", "Semua Vendor");
