@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanBarangMasukDetail" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
 	<property name="ireport.zoom" value="1.6105100000000012"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="333"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="Title" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["Laporan Permintaan Barang"]]></defaultValueExpression>
@@ -77,7 +77,7 @@
 				<textFieldExpression><![CDATA[$P{Title}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="38" width="60" height="20" uuid="31e76b57-dfab-4923-b2f2-984ec4872d26"/>
+				<reportElement x="110" y="38" width="73" height="20" uuid="31e76b57-dfab-4923-b2f2-984ec4872d26"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
@@ -154,7 +154,7 @@
 				<text><![CDATA[Nama Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="170" y="38" width="30" height="20" uuid="49fef4b6-9408-4751-a829-a80c85853360"/>
+				<reportElement x="184" y="38" width="50" height="20" uuid="49fef4b6-9408-4751-a829-a80c85853360"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -165,10 +165,10 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
-				<text><![CDATA[s/d]]></text>
+				<text><![CDATA[Hingga]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="203" y="38" width="60" height="20" uuid="16ec6f0a-4f7a-4b02-a9eb-19a78acd30fd"/>
+				<reportElement x="242" y="38" width="73" height="20" uuid="16ec6f0a-4f7a-4b02-a9eb-19a78acd30fd"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
@@ -238,7 +238,7 @@
 				<textFieldExpression><![CDATA[$P{NamaBarang}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="215" y="38" width="10" height="20" uuid="6f758bf1-7547-4e72-b317-0256b73b1cd7"/>
+				<reportElement x="229" y="38" width="10" height="20" uuid="6f758bf1-7547-4e72-b317-0256b73b1cd7"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -349,7 +349,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" size="9" isBold="true"/>
+					<font fontName="Verdana" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jumlah]]></text>
 			</staticText>

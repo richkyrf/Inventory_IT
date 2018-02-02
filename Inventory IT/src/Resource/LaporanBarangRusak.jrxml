@@ -19,7 +19,7 @@
 	<parameter name="TanggalRusakAwal" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="TanggalRusakAkhir" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
-		<![CDATA[SELECT DATE_FORMAT(`TanggalBeli`, '%d/%m/%Y') AS 'Tanggal Beli', DATE_FORMAT(`TanggalRusak`, '%d/%m/%Y') AS 'Tanggal Rusak', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `NamaKaryawan` AS 'Nama Pemakai', A.`Keterangan` FROM `tbbarangrusak` AS A JOIN `tbmbarang` AS B ON A.`IdBarang`=B.`IdBarang` JOIN `tbmkategoribarang` AS C ON B.`IdKategoriBarang`=C.`IdKategoriBarang` JOIN `tbmjenisbarang` AS D ON C.`IdJenisBarang`=D.`IdJenisBarang` JOIN `tbmkaryawan` AS E ON A.`IdKaryawan`=E.`IdKaryawan` WHERE 1$P!{Where} ORDER BY `TanggalRusak`, `NamaKaryawan`, `JenisBarang`, `KategoriBarang`, `NamaBarang`]]>
+		<![CDATA[SELECT DATE_FORMAT(`TanggalBeli`, '%d/%m/%Y') AS 'Tanggal Beli', DATE_FORMAT(`TanggalRusak`, '%d/%m/%Y') AS 'Tanggal Rusak', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `NamaKaryawan` AS 'Nama Pemakai', A.`Keterangan` FROM `tbbarangrusak` AS A JOIN `tbmbarang` AS B ON A.`IdBarang`=B.`IdBarang` JOIN `tbmkategoribarang` AS C ON B.`IdKategoriBarang`=C.`IdKategoriBarang` JOIN `tbmjenisbarang` AS D ON C.`IdJenisBarang`=D.`IdJenisBarang` JOIN `tbmkaryawan` AS E ON A.`IdKaryawan`=E.`IdKaryawan` WHERE 1$P!{Where} ORDER BY `TanggalRusak`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, `NamaKaryawan`]]>
 	</queryString>
 	<field name="Tanggal Beli" class="java.lang.String"/>
 	<field name="Tanggal Rusak" class="java.lang.String"/>

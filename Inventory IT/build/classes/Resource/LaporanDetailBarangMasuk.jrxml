@@ -372,7 +372,7 @@
 				<text><![CDATA[Jumlah]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="626" y="0" width="50" height="20" uuid="762ddaf4-2ff6-4176-8872-690de02f3cf5"/>
+				<reportElement x="626" y="0" width="67" height="20" uuid="762ddaf4-2ff6-4176-8872-690de02f3cf5"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -386,7 +386,7 @@
 				<text><![CDATA[Harga]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="676" y="0" width="60" height="20" uuid="390eb4e2-49d9-4f5a-8160-0bf0d7d71446"/>
+				<reportElement x="693" y="0" width="55" height="20" uuid="390eb4e2-49d9-4f5a-8160-0bf0d7d71446"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -400,7 +400,7 @@
 				<text><![CDATA[SN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="736" y="0" width="66" height="20" uuid="0ed757c8-24c2-4df8-b0e1-137f2e2b3471"/>
+				<reportElement x="748" y="0" width="66" height="20" uuid="0ed757c8-24c2-4df8-b0e1-137f2e2b3471"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -532,7 +532,7 @@
 				<textFieldExpression><![CDATA[$F{SUM(`JumlahBarang`)}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0">
-				<reportElement x="626" y="0" width="50" height="20" uuid="548b56d6-2f9d-4869-abaf-c68694872ef7"/>
+				<reportElement x="626" y="0" width="67" height="20" uuid="548b56d6-2f9d-4869-abaf-c68694872ef7"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -546,7 +546,7 @@
 				<textFieldExpression><![CDATA[$F{HargaBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="676" y="0" width="60" height="20" uuid="faff7a3d-d9d7-4bae-92a4-ab8a541a57e4"/>
+				<reportElement x="693" y="0" width="55" height="20" uuid="faff7a3d-d9d7-4bae-92a4-ab8a541a57e4"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -560,7 +560,7 @@
 				<textFieldExpression><![CDATA[$F{SerialNumber}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="736" y="0" width="66" height="20" uuid="bdfd462b-fad4-46bc-97f7-d2bc94b1331f"/>
+				<reportElement x="748" y="0" width="66" height="20" uuid="bdfd462b-fad4-46bc-97f7-d2bc94b1331f"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
