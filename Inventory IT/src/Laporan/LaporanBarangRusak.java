@@ -271,10 +271,14 @@ public class LaporanBarangRusak extends javax.swing.JFrame {
     }//GEN-LAST:event_JCJenisBarangKeyReleased
 
     private void JCKategoriBarangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCKategoriBarangItemStateChanged
-        if (JCKategoriBarang.getSelectedIndex() == 0) {
+        if (JCKategoriBarang.getSelectedIndex() == 0 && JCJenisBarang.getSelectedIndex() == 0) {
             JCNamaBarang.load("SELECT '-- Semua Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang`");
+        } else if (JCKategoriBarang.getSelectedIndex() == 0 && JCJenisBarang.getSelectedIndex() != 0) {
+            JCNamaBarang.load("SELECT '-- Semua Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'");
+        } else if (JCKategoriBarang.getSelectedIndex() != 0 && JCJenisBarang.getSelectedIndex() == 0) {
+            JCNamaBarang.load("SELECT '-- Semua Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'");
         } else {
-            JCNamaBarang.load("SELECT '-- Pilih Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'");
+            JCNamaBarang.load("SELECT '-- Semua Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "' AND `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'");
         }
     }//GEN-LAST:event_JCKategoriBarangItemStateChanged
 
@@ -363,7 +367,7 @@ public class LaporanBarangRusak extends javax.swing.JFrame {
 
     void tampilkan() {
         if (checkInput()) {
-            String jenisBarang, kategoriBarang, namaBarang, namaPemakai, tanggalRusakAwal, tanggalRusakAkhir;
+            String jenisBarang, kategoriBarang, namaBarang, namaPemakai;
             HashMap hashs = new HashMap();
             FLaporan fLaporan = new FLaporan();
             hashs.put("Title", "Laporan Barang Rusak");
@@ -394,11 +398,11 @@ public class LaporanBarangRusak extends javax.swing.JFrame {
                 namaPemakai = "";
                 hashs.put("NamaPemakai", "Semua Pemakai");
             } else {
-                namaPemakai = " AND `NamaPemakai`='" + JCNamaPemakai.getSelectedItem() + "'";
+                namaPemakai = " AND `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'";
                 hashs.put("NamaPemakai", JCNamaPemakai.getSelectedItem());
             }
             hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-            hashs.put("Where", " AND `TanggalBarangMasuk` BETWEEN '" + FDateF.datetostr(JDTanggalRusakAwal.getDate(), "yyyy-MM-dd") + "' and '" + FDateF.datetostr(JDTanggalRusakAkhir.getDate(), "yyyy-MM-dd") + "' " + jenisBarang + kategoriBarang + namaBarang + namaPemakai);
+            hashs.put("Where", " AND `TanggalRusak` BETWEEN '" + FDateF.datetostr(JDTanggalRusakAwal.getDate(), "yyyy-MM-dd") + "' AND '" + FDateF.datetostr(JDTanggalRusakAkhir.getDate(), "yyyy-MM-dd") + "'" + jenisBarang + kategoriBarang + namaBarang + namaPemakai);
             fLaporan.sethashmap(hashs);
             fLaporan.setfilename("LaporanBarangRusak");
             fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
