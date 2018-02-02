@@ -367,6 +367,11 @@ public class MenuUtama extends javax.swing.JFrame {
         JMLaporan.add(JMILaporanBarangKeluar);
 
         JMILaporanPenyesuaianStok.setText("Penyesuaian Stok");
+        JMILaporanPenyesuaianStok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILaporanPenyesuaianStokActionPerformed(evt);
+            }
+        });
         JMLaporan.add(JMILaporanPenyesuaianStok);
         JMLaporan.add(SLaporan2);
 
@@ -674,6 +679,15 @@ public class MenuUtama extends javax.swing.JFrame {
             GlobalVar.Var.laporanPurchaseRequest.toFront();
         }
     }//GEN-LAST:event_JMILaporanPurchaseRequestActionPerformed
+
+    private void JMILaporanPenyesuaianStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanPenyesuaianStokActionPerformed
+        if (GlobalVar.Var.laporanPenyesuaianStok == null) {
+            GlobalVar.Var.laporanPenyesuaianStok = new LaporanPenyesuaianStok();
+        } else {
+            GlobalVar.Var.laporanPenyesuaianStok.setState(NORMAL);
+            GlobalVar.Var.laporanPenyesuaianStok.toFront();
+        }
+    }//GEN-LAST:event_JMILaporanPenyesuaianStokActionPerformed
 
     /**
      * @param args the command line arguments
