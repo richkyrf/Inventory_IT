@@ -958,7 +958,7 @@ public class BarangMasuk extends javax.swing.JFrame {
 
     private void JCNomorPurchaseRequestKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCNomorPurchaseRequestKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (JCNamaVendor.getSelectedIndex() == 0) {
+            if (JCNomorPurchaseRequest.getSelectedIndex() == 0) {
                 JCNomorPurchaseRequest.showPopup();
             } else {
                 JCNamaVendor.requestFocus();
@@ -968,7 +968,7 @@ public class BarangMasuk extends javax.swing.JFrame {
 
     private void JCNamaVendorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCNamaVendorKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (JTNamaBarang.getSelectedIndex() == 0) {
+            if (JCNamaVendor.getSelectedIndex() == 0) {
                 JCNamaVendor.showPopup();
             } else {
                 JTNamaBarang.requestFocus();
