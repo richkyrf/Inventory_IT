@@ -707,6 +707,16 @@ public class MenuUtama extends javax.swing.JFrame {
             GlobalVar.Var.laporanService.toFront();
         }
     }//GEN-LAST:event_JMILaporanServiceActionPerformed
+        
+    private void JMILaporanPenyesuaianStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanPenyesuaianStokActionPerformed
+        if (GlobalVar.Var.laporanPenyesuaianStok == null) {
+            GlobalVar.Var.laporanPenyesuaianStok = new LaporanPenyesuaianStok();
+        } else {
+            GlobalVar.Var.laporanPenyesuaianStok.setState(NORMAL);
+            GlobalVar.Var.laporanPenyesuaianStok.toFront();
+        }
+    }//GEN-LAST:event_JMILaporanPenyesuaianStokActionPerformed
+
 
     /**
      * @param args the command line arguments
