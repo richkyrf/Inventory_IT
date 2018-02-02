@@ -35,7 +35,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="153" splitType="Stretch">
+		<band height="123" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="555" height="30" uuid="5c0fbdc4-2ef8-4c98-a95f-1bb4dd356913"/>
 				<box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="5">

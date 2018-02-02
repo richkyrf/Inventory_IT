@@ -367,28 +367,38 @@ public class LaporanBarangRusak extends javax.swing.JFrame {
             HashMap hashs = new HashMap();
             FLaporan fLaporan = new FLaporan();
             hashs.put("Title", "Laporan Barang Rusak");
+            hashs.put("TanggalRusakAwal", FDateF.datetostr(JDTanggalRusakAwal.getDate(), "dd/MM/yyyy"));
+            hashs.put("TanggalRusakAkhir", FDateF.datetostr(JDTanggalRusakAkhir.getDate(), "dd/MM/yyyy"));
             if (JCJenisBarang.getSelectedIndex() == 0) {
                 jenisBarang = "";
+                hashs.put("JenisBarang", "Semua Jenis");
             } else {
                 jenisBarang = " AND `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'";
+                hashs.put("JenisBarang", JCJenisBarang.getSelectedItem());
             }
             if (JCKategoriBarang.getSelectedIndex() == 0) {
                 kategoriBarang = "";
+                hashs.put("KategoriBarang", "Semua Kategori");
             } else {
                 kategoriBarang = " AND `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'";
+                hashs.put("KategoriBarang", JCKategoriBarang.getSelectedItem());
             }
             if (JCNamaBarang.getSelectedIndex() == 0) {
                 namaBarang = "";
+                hashs.put("NamaBarang", "Semua Barang");
             } else {
                 namaBarang = " AND `NamaBarang`='" + JCNamaBarang.getSelectedItem() + "'";
+                hashs.put("NamaBarang", JCNamaBarang.getSelectedItem());
             }
             if (JCNamaPemakai.getSelectedIndex() == 0) {
                 namaPemakai = "";
+                hashs.put("NamaPemakai", "Semua Pemakai");
             } else {
                 namaPemakai = " AND `NamaPemakai`='" + JCNamaPemakai.getSelectedItem() + "'";
+                hashs.put("NamaPemakai", JCNamaPemakai.getSelectedItem());
             }
             hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-            hashs.put("Where", jenisBarang + kategoriBarang + namaBarang + namaPemakai);
+            hashs.put("Where", " AND `TanggalBarangMasuk` BETWEEN '" + FDateF.datetostr(JDTanggalRusakAwal.getDate(), "yyyy-MM-dd") + "' and '" + FDateF.datetostr(JDTanggalRusakAkhir.getDate(), "yyyy-MM-dd") + "' " + jenisBarang + kategoriBarang + namaBarang + namaPemakai);
             fLaporan.sethashmap(hashs);
             fLaporan.setfilename("LaporanBarangRusak");
             fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
