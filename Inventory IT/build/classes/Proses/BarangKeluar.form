@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosed"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="JLNamaPemakai" alignment="0" max="32767" attributes="0"/>
+                          <Component id="JLNomorBarangKeluar" max="32767" attributes="0"/>
+                          <Component id="JLTanggalBarangKeluar" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="JLTanggalBarangKeluar2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLNomoBarangKeluar2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="JTNomorBarangKeluar" max="32767" attributes="0"/>
+                                  <Component id="JDTanggalBarangKeluar" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="JLNamaPemakai2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JCNamaPemakai" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBNamaPemakai" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="JLJumlahBarangKeluar" pref="179" max="32767" attributes="0"/>
+                                  <Component id="JLStokBarang" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="JLCariBarang" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="JLNamaBarang" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="JLKategoriBarang" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="JLJenisBarang" max="32767" attributes="0"/>
+                                  <Component id="JLKeterangan" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="JLJenisBarang2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLKategoriBarang2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLNamaBarang2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLCariBarang2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLStokBarang2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLJumlahBarangKeluar2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLKeterangan2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="JBKembali" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="JBTambah" min="-2" pref="115" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBTambahTutup" min="-2" pref="200" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBUbah" min="-2" pref="110" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="JTCariBarang" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBCariBarang" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="JTKategoriBarang" alignment="1" max="32767" attributes="0"/>
+                          <Component id="JTNamaBarang" alignment="1" max="32767" attributes="0"/>
+                          <Component id="JRStokBarang" alignment="1" max="32767" attributes="0"/>
+                          <Component id="JRJumlahBarangKeluar" alignment="1" max="32767" attributes="0"/>
+                          <Component id="JSPKeterangan" alignment="1" max="32767" attributes="0"/>
+                          <Component id="JTJenisBarang" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLNomorBarangKeluar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLNomoBarangKeluar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTNomorBarangKeluar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="JLTanggalBarangKeluar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JLTanggalBarangKeluar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="JDTanggalBarangKeluar" min="-2" pref="28" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLNamaPemakai" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLNamaPemakai2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JCNamaPemakai" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBNamaPemakai" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLJenisBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLJenisBarang2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTJenisBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLKategoriBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLKategoriBarang2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTKategoriBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLNamaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLNamaBarang2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTNamaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="JBCariBarang" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="JLCariBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JLCariBarang2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JTCariBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLStokBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLStokBarang2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JRStokBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLJumlahBarangKeluar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLJumlahBarangKeluar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JRJumlahBarangKeluar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JLKeterangan" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLKeterangan2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="JSPKeterangan" pref="150" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JBTambahTutup" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBTambah" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBKembali" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBUbah" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="KomponenGUI.JlableF" name="JLNomorBarangKeluar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nomor Barang Keluar"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLNomoBarangKeluar2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTNomorBarangKeluar">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLTanggalBarangKeluar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tanggal Barang Keluar"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLTanggalBarangKeluar2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JdateCF" name="JDTanggalBarangKeluar">
+      <Properties>
+        <Property name="date" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new Date()" type="code"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JDTanggalBarangKeluarKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLNamaPemakai">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nama Pemakai"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLNamaPemakai2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JcomboboxF" name="JCNamaPemakai">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="-- Pilih Nama Pemakai --"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCNamaPemakaiKeyReleased"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="JCNamaPemakai.load(&quot;SELECT &apos;-- Pilih Nama Pemakai --&apos; AS `NamaKaryawan` UNION SELECT `NamaKaryawan` FROM `tbmkaryawan`&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="KomponenGUI.JbuttonF" name="JBNamaPemakai">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBNamaPemakaiActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLJenisBarang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Jenis Barang"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLJenisBarang2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTJenisBarang">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLKategoriBarang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kategori Barang"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLKategoriBarang2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTKategoriBarang">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLNamaBarang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nama Barang"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLNamaBarang2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTNamaBarang">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLCariBarang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cari Barang"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLCariBarang2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JtextF" name="JTCariBarang">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTCariBarangKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JbuttonF" name="JBCariBarang">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resource/Search.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCariBarangActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLStokBarang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stok Barang"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLStokBarang2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JRibuanTextField" name="JRStokBarang">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLJumlahBarangKeluar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Jumlah Barang Keluar"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLJumlahBarangKeluar2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JRibuanTextField" name="JRJumlahBarangKeluar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JRJumlahBarangKeluarFocusGained"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JRJumlahBarangKeluarKeyPressed"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLKeterangan">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Keterangan"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLKeterangan2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="JSPKeterangan">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="KomponenGUI.JTextAreaF" name="JTKeterangan">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="lineWrap" type="boolean" value="true"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTKeteranganKeyPressed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="KomponenGUI.JbuttonF" name="JBKembali">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kembali"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBKembaliActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JbuttonF" name="JBTambah">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tambah"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JbuttonF" name="JBTambahTutup">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tambah dan Tutup"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahTutupActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JbuttonF" name="JBUbah">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ubah"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBUbahActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>

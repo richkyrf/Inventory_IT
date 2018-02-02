@@ -13,8 +13,8 @@ public class Koneksi {
     //String user = "root";
     //String pass = "";
     String db = "dbinventoryit";
-    //String url = "jdbc:mysql://localhost/";
-    String url = "jdbc:mysql://192.168.1.20:1358/";
+    String url = "jdbc:mysql://localhost/";
+    //String url = "jdbc:mysql://192.168.1.20:1358/";
     String user = "root";
     String pass = "";
 
