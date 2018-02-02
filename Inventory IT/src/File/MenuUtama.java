@@ -364,13 +364,28 @@ public class MenuUtama extends javax.swing.JFrame {
         JMLaporan.add(JMILaporanBarangMasuk);
 
         JMILaporanBarangKeluar.setText("Barang Keluar");
+        JMILaporanBarangKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILaporanBarangKeluarActionPerformed(evt);
+            }
+        });
         JMLaporan.add(JMILaporanBarangKeluar);
 
         JMILaporanPenyesuaianStok.setText("Penyesuaian Stok");
+        JMILaporanPenyesuaianStok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILaporanPenyesuaianStokActionPerformed(evt);
+            }
+        });
         JMLaporan.add(JMILaporanPenyesuaianStok);
         JMLaporan.add(SLaporan2);
 
         JMILaporanService.setText("Service");
+        JMILaporanService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMILaporanServiceActionPerformed(evt);
+            }
+        });
         JMLaporan.add(JMILaporanService);
         JMLaporan.add(SLaporan3);
 
@@ -658,7 +673,7 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_JMILaporanBarangRusakActionPerformed
 
     private void JMILaporanBarangMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanBarangMasukActionPerformed
-        if (GlobalVar.Var.laporanBarangMasuk == null){
+        if (GlobalVar.Var.laporanBarangMasuk == null) {
             GlobalVar.Var.laporanBarangMasuk = new LaporanBarangMasuk();
         } else {
             GlobalVar.Var.laporanBarangMasuk.setState(NORMAL);
@@ -667,13 +682,31 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_JMILaporanBarangMasukActionPerformed
 
     private void JMILaporanPurchaseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanPurchaseRequestActionPerformed
-        if (GlobalVar.Var.laporanPurchaseRequest == null){
+        if (GlobalVar.Var.laporanPurchaseRequest == null) {
             GlobalVar.Var.laporanPurchaseRequest = new LaporanPurchaseRequest();
         } else {
             GlobalVar.Var.laporanPurchaseRequest.setState(NORMAL);
             GlobalVar.Var.laporanPurchaseRequest.toFront();
         }
     }//GEN-LAST:event_JMILaporanPurchaseRequestActionPerformed
+
+    private void JMILaporanBarangKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanBarangKeluarActionPerformed
+        if (GlobalVar.Var.laporanBarangKeluar == null) {
+            GlobalVar.Var.laporanBarangKeluar = new LaporanBarangKeluar();
+        } else {
+            GlobalVar.Var.laporanBarangKeluar.setState(NORMAL);
+            GlobalVar.Var.laporanBarangKeluar.toFront();
+        }
+    }//GEN-LAST:event_JMILaporanBarangKeluarActionPerformed
+
+    private void JMILaporanServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanServiceActionPerformed
+        if (GlobalVar.Var.laporanService == null) {
+            GlobalVar.Var.laporanService = new LaporanService();
+        } else {
+            GlobalVar.Var.laporanService.setState(NORMAL);
+            GlobalVar.Var.laporanService.toFront();
+        }
+    }//GEN-LAST:event_JMILaporanServiceActionPerformed
 
     /**
      * @param args the command line arguments

@@ -309,6 +309,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Barang Keluar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanBarangKeluarActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="JMILaporanPenyesuaianStok">
               <Properties>
@@ -324,6 +327,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Service"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanServiceActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="SLaporan3">
             </MenuItem>
