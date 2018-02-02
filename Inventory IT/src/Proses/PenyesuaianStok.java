@@ -425,23 +425,23 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     }
 
     void setNomorPenyesuaianStok() {
-        NumberFormat nf = new DecimalFormat("000000");
-        String nomorPenyesuaianStok = null;
+        NumberFormat nf = new DecimalFormat("0000");
+        String nomorTransaksi = null;
         RunSelct runSelct = new RunSelct();
         runSelct.setQuery("SELECT `NomorPenyesuaianStok` FROM `tbpenyesuaianstok` ORDER BY `NomorPenyesuaianStok` DESC LIMIT 1");
         try {
             ResultSet rs = runSelct.excute();
             if (!rs.isBeforeFirst()) {
-                nomorPenyesuaianStok = "000001/" + datetostr(new Date(), "YY") + "/PY";
+                nomorTransaksi = "0001/" + datetostr(new Date(), "YY") + "/PY";
             }
             while (rs.next()) {
-                String autoNumbers = rs.getString("NomorPenyesuaianStok");
-                autoNumbers = autoNumbers.substring(0, 6);
-                int p = parseInt(autoNumbers) + 1;
-                if (p == 999999) {
-                    p = 1;
+                String lastNomorTransaksi = rs.getString("NomorPenyesuaianStok");
+                String subNomorTransaksi = lastNomorTransaksi.substring(0, 4);
+                int generatedNumber = parseInt(subNomorTransaksi) + 1;
+                if (generatedNumber == 9999 || Integer.valueOf(lastNomorTransaksi.substring(5, 7)) < Integer.valueOf(datetostr(new Date(), "YY"))) {
+                    generatedNumber = 1;
                 }
-                nomorPenyesuaianStok = nf.format(p) + "/" + datetostr(new Date(), "YY") + "/PY";
+                nomorTransaksi = nf.format(generatedNumber) + "/" + datetostr(new Date(), "YY") + "/PY";
             }
         } catch (SQLException e) {
             out.println("E6" + e);
@@ -449,7 +449,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
         } finally {
             runSelct.closecon();
         }
-        JTNomorPenyesuaianStok.setText(nomorPenyesuaianStok);
+        JTNomorPenyesuaianStok.setText(nomorTransaksi);
     }
 
     boolean isAlphaNumeric(String str) {

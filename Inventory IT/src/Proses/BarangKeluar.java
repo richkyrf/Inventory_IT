@@ -506,23 +506,23 @@ public class BarangKeluar extends javax.swing.JFrame {
     }
 
     void setNomorBarangKeluar() {
-        NumberFormat nf = new DecimalFormat("000000");
-        String nomorBarangKeluar = null;
+        NumberFormat nf = new DecimalFormat("0000");
+        String nomorTransaksi = null;
         RunSelct runSelct = new RunSelct();
         runSelct.setQuery("SELECT `NomorBarangKeluar` FROM `tbbarangkeluar` ORDER BY `NomorBarangKeluar` DESC LIMIT 1");
         try {
             ResultSet rs = runSelct.excute();
             if (!rs.isBeforeFirst()) {
-                nomorBarangKeluar = "000001/" + datetostr(new Date(), "YY") + "/BK";
+                nomorTransaksi = "0001/" + datetostr(new Date(), "YY") + "/BK";
             }
             while (rs.next()) {
-                String autoNumbers = rs.getString("NomorBarangKeluar");
-                autoNumbers = autoNumbers.substring(0, 6);
-                int p = parseInt(autoNumbers) + 1;
-                if (p == 999999) {
-                    p = 1;
+                String lastNomorTransaksi = rs.getString("NomorBarangKeluar");
+                String subNomorTransaksi = lastNomorTransaksi.substring(0, 4);
+                int generatedNumber = parseInt(subNomorTransaksi) + 1;
+                if (generatedNumber == 9999 || Integer.valueOf(lastNomorTransaksi.substring(5, 7)) < Integer.valueOf(datetostr(new Date(), "YY"))) {
+                    generatedNumber = 1;
                 }
-                nomorBarangKeluar = nf.format(p) + "/" + datetostr(new Date(), "YY") + "/BK";
+                nomorTransaksi = nf.format(generatedNumber) + "/" + datetostr(new Date(), "YY") + "/BK";
             }
         } catch (SQLException e) {
             out.println("E6" + e);
@@ -530,7 +530,7 @@ public class BarangKeluar extends javax.swing.JFrame {
         } finally {
             runSelct.closecon();
         }
-        JTNomorBarangKeluar.setText(nomorBarangKeluar);
+        JTNomorBarangKeluar.setText(nomorTransaksi);
     }
 
     boolean isAlphaNumeric(String str) {
@@ -615,6 +615,7 @@ public class BarangKeluar extends javax.swing.JFrame {
                     GlobalVar.Var.tambahBarangKeluar.dispose();
                 } else {
                     clearText();
+                    setNomorBarangKeluar();
                     JCNamaPemakai.requestFocus();
                 }
             }
@@ -622,7 +623,6 @@ public class BarangKeluar extends javax.swing.JFrame {
     }
 
     void clearText() {
-        setNomorBarangKeluar();
         JDTanggalBarangKeluar.setDate(new Date());
         JCNamaPemakai.setSelectedIndex(0);
         JTJenisBarang.setText("");

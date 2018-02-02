@@ -1113,23 +1113,23 @@ public class BarangMasuk extends javax.swing.JFrame {
     }
 
     void setNomorBarangMasuk() {
-        NumberFormat nf = new DecimalFormat("000000");
-        String nomorBarangMasuk = null;
+        NumberFormat nf = new DecimalFormat("0000");
+        String nomorTransaksi = null;
         RunSelct runSelct = new RunSelct();
         runSelct.setQuery("SELECT `NomorBarangMasuk` FROM `tbbarangmasuk` ORDER BY `NomorBarangMasuk` DESC LIMIT 1");
         try {
             ResultSet rs = runSelct.excute();
             if (!rs.isBeforeFirst()) {
-                nomorBarangMasuk = "000001/" + datetostr(new Date(), "YY") + "/BM";
+                nomorTransaksi = "0001/" + datetostr(new Date(), "YY") + "/BM";
             }
             while (rs.next()) {
-                String autoNumbers = rs.getString("NomorBarangMasuk");
-                autoNumbers = autoNumbers.substring(0, 6);
-                int p = parseInt(autoNumbers) + 1;
-                if (p == 999999) {
-                    p = 1;
+                String lastNomorTransaksi = rs.getString("NomorBarangMasuk");
+                String subNomorTransaksi = lastNomorTransaksi.substring(0, 4);
+                int generatedNumber = parseInt(subNomorTransaksi) + 1;
+                if (generatedNumber == 9999 || Integer.valueOf(lastNomorTransaksi.substring(5, 7)) < Integer.valueOf(datetostr(new Date(), "YY"))) {
+                    generatedNumber = 1;
                 }
-                nomorBarangMasuk = nf.format(p) + "/" + datetostr(new Date(), "YY") + "/BM";
+                nomorTransaksi = nf.format(generatedNumber) + "/" + datetostr(new Date(), "YY") + "/BM";
             }
         } catch (SQLException e) {
             out.println("E6" + e);
@@ -1137,7 +1137,7 @@ public class BarangMasuk extends javax.swing.JFrame {
         } finally {
             runSelct.closecon();
         }
-        JTNomorBarangMasuk.setText(nomorBarangMasuk);
+        JTNomorBarangMasuk.setText(nomorTransaksi);
     }
 
     void cariBarang(String keywordCari) {

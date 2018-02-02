@@ -888,23 +888,23 @@ public class PurchaseRequest extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     void setNomorPurchaseRequest() {
-        NumberFormat nf = new DecimalFormat("000000");
-        String nomorPurchaseRequest = null;
+        NumberFormat nf = new DecimalFormat("0000");
+        String nomorTransaksi = null;
         RunSelct runSelct = new RunSelct();
-        runSelct.setQuery("SELECT `NomorPurchaseRequest` FROM `tbpurchaserequest` ORDER BY `NomorPurchaseRequest` DESC LIMIT 1");
+        runSelct.setQuery("SELECT `NomorPurchaseRequest`, RIGHT(`NomorPurchaseRequest`, 4) as 'Year' FROM `tbpurchaserequest` ORDER BY `NomorPurchaseRequest` DESC LIMIT 1");
         try {
             ResultSet rs = runSelct.excute();
             if (!rs.isBeforeFirst()) {
-                nomorPurchaseRequest = "000001" + "/PR/PLT/" + getRomawi(datetostr(new Date(), "MM")) + "/" + datetostr(new Date(), "yyyy");
+                nomorTransaksi = "0001" + "/PR/PLT/" + getRomawi(datetostr(new Date(), "MM")) + "/" + datetostr(new Date(), "yyyy");
             }
             while (rs.next()) {
-                String autonumbers = rs.getString("NomorPurchaseRequest");
-                autonumbers = autonumbers.substring(0, 6);
-                int p = parseInt(autonumbers) + 1;
-                if (p == 999999) {
-                    p = 1;
+                String lastNomorTransaksi = rs.getString("NomorPurchaseRequest");
+                String subNomorTransaksi = lastNomorTransaksi.substring(0, 4);
+                int generatedNumber = parseInt(subNomorTransaksi) + 1;
+                if (generatedNumber == 9999 || Integer.valueOf(rs.getString("Year")) < Integer.valueOf(datetostr(new Date(), "yyyy"))) {
+                    generatedNumber = 1;
                 }
-                nomorPurchaseRequest = nf.format(p) + "/PR/PLT/" + getRomawi(datetostr(new Date(), "MM")) + "/" + datetostr(new Date(), "yyyy");
+                nomorTransaksi = nf.format(generatedNumber) + "/PR/PLT/" + getRomawi(datetostr(new Date(), "MM")) + "/" + datetostr(new Date(), "yyyy");
             }
         } catch (SQLException e) {
             out.println("E6" + e);
@@ -912,7 +912,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
         } finally {
             runSelct.closecon();
         }
-        JTNomorPurchaseRequest.setText(nomorPurchaseRequest);
+        JTNomorPurchaseRequest.setText(nomorTransaksi);
     }
 
     void cariBarang(String keywordCari) {
