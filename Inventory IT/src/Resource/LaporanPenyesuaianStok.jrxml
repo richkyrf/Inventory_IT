@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanMasterBarang" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanPenyesuaianStok" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
 	<property name="ireport.zoom" value="1.1000000000000005"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -14,17 +14,18 @@
 	</parameter>
 	<parameter name="JenisBarang" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="KategoriBarang" class="java.lang.String" isForPrompting="false"/>
-	<parameter name="Garansi" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="NamaBarang" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="TanggalPenyesuaianStokAwal" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="TanggalPenyesuaianStokAkhir" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
-		<![CDATA[SELECT `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', IFNULL(SUM(`Stok`),0) AS 'Stok', `Garansi`, `Keterangan` FROM (SELECT `IdBarang`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, 0 AS 'Stok', `Garansi`, A.`Keterangan` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` UNION ALL SELECT `IdBarang`, NULL, NULL, NULL, IFNULL(SUM(`JumlahBarang`),0), NULL, NULL FROM `tbbarangmasukdetail` GROUP BY `IdBarang` UNION ALL SELECT `IdBarang`, NULL, NULL, NULL, IFNULL(SUM(`JumlahBarang`),0)*-1, NULL, NULL FROM `tbbarangkeluar` GROUP BY `IdBarang` UNION ALL SELECT `IdBarang`, NULL, NULL, NULL, IFNULL(SUM(`PenyesuaianStok`),0), NULL, NULL FROM `tbpenyesuaianstok` GROUP BY `IdBarang`) AS `tbmbarangtemp` WHERE 1$P!{Where} GROUP BY `IdBarang` ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`]]>
+		<![CDATA[SELECT `NomorPenyesuaianStok` AS 'Nomor Penyesuaian', DATE_FORMAT(`TanggalPenyesuaianStok`, '%d/%m/%Y') AS 'Tanggal Penyesuaian', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `PenyesuaianStok` AS 'Penyesuaian', A.`Keterangan` FROM `tbpenyesuaianstok` AS A JOIN `tbmbarang` AS B ON A.`IdBarang`=B.`IdBarang` JOIN `tbmkategoribarang` AS C ON B.`IdKategoriBarang`=C.`IdKategoriBarang` JOIN `tbmjenisbarang` AS D ON C.`IdJenisBarang`=D.`IdJenisBarang` WHERE 1$P!{Where} ORDER BY `NomorPenyesuaianStok`]]>
 	</queryString>
+	<field name="Nomor Penyesuaian" class="java.lang.String"/>
+	<field name="Tanggal Penyesuaian" class="java.lang.String"/>
 	<field name="Jenis Barang" class="java.lang.String"/>
 	<field name="Kategori Barang" class="java.lang.String"/>
 	<field name="Nama Barang" class="java.lang.String"/>
-	<field name="Stok" class="java.math.BigDecimal"/>
-	<field name="Garansi" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Penyesuaian" class="java.lang.Integer"/>
 	<field name="Keterangan" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -32,7 +33,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="95" splitType="Stretch">
+		<band height="108" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="555" height="30" uuid="5c0fbdc4-2ef8-4c98-a95f-1bb4dd356913"/>
 				<box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="5">
@@ -48,7 +49,7 @@
 				<textFieldExpression><![CDATA[$P{Title}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="38" width="100" height="20" uuid="6770cde9-15a2-46f8-9afb-13af0181d8bf"/>
+				<reportElement x="0" y="52" width="100" height="20" uuid="6770cde9-15a2-46f8-9afb-13af0181d8bf"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -62,7 +63,7 @@
 				<text><![CDATA[Jenis Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="53" width="100" height="20" uuid="ad5a8933-c0d6-4131-9fa0-5ca6829d4edc"/>
+				<reportElement x="0" y="67" width="100" height="20" uuid="ad5a8933-c0d6-4131-9fa0-5ca6829d4edc"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -76,21 +77,7 @@
 				<text><![CDATA[Kategori Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="68" width="100" height="20" uuid="e6ed20f3-0481-476c-8af7-191b7708b55c"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
-					<pen lineWidth="0.0"/>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.0"/>
-				</box>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Garansi]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="100" y="38" width="11" height="20" uuid="36c74111-dc3a-465c-8ed1-b11ad0d1bb8c"/>
+				<reportElement x="162" y="52" width="11" height="20" uuid="36c74111-dc3a-465c-8ed1-b11ad0d1bb8c"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -104,7 +91,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="53" width="11" height="20" uuid="45c63cd6-b99f-45e1-be7c-f877f6e51b01"/>
+				<reportElement x="162" y="67" width="11" height="20" uuid="45c63cd6-b99f-45e1-be7c-f877f6e51b01"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -118,7 +105,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="68" width="11" height="20" uuid="4621cabb-6409-4c82-b536-87ca3d7067b5"/>
+				<reportElement x="162" y="82" width="11" height="20" uuid="4621cabb-6409-4c82-b536-87ca3d7067b5"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -132,35 +119,125 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="111" y="38" width="200" height="20" uuid="dfeac55d-b570-4691-9f08-610b863df234"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<reportElement x="173" y="52" width="200" height="20" uuid="dfeac55d-b570-4691-9f08-610b863df234"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{JenisBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="111" y="53" width="200" height="20" uuid="62deabe5-e5bd-4bec-b2bc-b34525f98380"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<reportElement x="173" y="67" width="200" height="20" uuid="62deabe5-e5bd-4bec-b2bc-b34525f98380"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{KategoriBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="111" y="68" width="200" height="20" uuid="753189e8-15e8-4126-adac-6aef9fcd967e"/>
+				<reportElement x="173" y="82" width="200" height="20" uuid="2d8bba35-f9b3-4be6-b48c-3fb0e6239b8e"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NamaBarang}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="82" width="100" height="20" uuid="fab4d40d-a634-461c-970c-bde3e5efb626"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="37" width="162" height="20" uuid="fe255d97-4ad0-49d2-bf8c-e9b3002dc13b"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Penyesuaian Stok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="37" width="11" height="20" uuid="3878b3ff-3920-4d19-a23d-76f654160132"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="173" y="37" width="75" height="20" uuid="9b30db18-a281-401d-8b04-fa8cd3eb5374"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Garansi}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{TanggalPenyesuaianStokAwal}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="278" y="37" width="75" height="20" uuid="7cd0f35c-1b65-40ae-a981-fc22e272bfaf"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TanggalPenyesuaianStokAkhir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="248" y="37" width="30" height="20" uuid="72e86bf5-65d9-4634-89d2-9eb6656b1b5c"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[s/d]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="20" splitType="Stretch">
+		<band height="32" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="37" height="20" uuid="4a441fa8-bb2f-44ca-b13a-60c45735d207"/>
+				<reportElement x="0" y="0" width="37" height="32" uuid="4a441fa8-bb2f-44ca-b13a-60c45735d207"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -174,7 +251,35 @@
 				<text><![CDATA[No]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="37" y="0" width="80" height="20" uuid="681866b4-d4f6-4b98-b95d-4b603ed6063f"/>
+				<reportElement x="37" y="0" width="80" height="32" uuid="5a313f8c-7445-4968-9325-c8ad90734b7e"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nomor Penyesuaian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="0" width="80" height="32" uuid="98688ee1-0c9f-4706-9434-91b2eec66808"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Penyesuaian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="0" width="63" height="32" uuid="89ecb61a-84f1-4dc9-a791-be407ddf259d"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -188,7 +293,7 @@
 				<text><![CDATA[Jenis Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="117" y="0" width="100" height="20" uuid="ed67d2ce-b651-41b4-989b-2d6371882cfe"/>
+				<reportElement x="260" y="0" width="69" height="32" uuid="05d2f54a-cf03-4a98-bbd8-4e474c386b26"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -202,7 +307,7 @@
 				<text><![CDATA[Kategori Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="217" y="0" width="138" height="20" uuid="c24b0896-1984-47c4-84cc-c7cb47b1acb4"/>
+				<reportElement x="329" y="0" width="93" height="32" uuid="d71af090-4ba8-4e47-816b-6151a9384c12"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -216,7 +321,7 @@
 				<text><![CDATA[Nama Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="405" y="0" width="50" height="20" uuid="59eda7d7-2007-454c-a687-319210773069"/>
+				<reportElement x="422" y="0" width="50" height="32" uuid="f90233e4-6032-4bab-8b4a-c85611c445ad"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -227,10 +332,10 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Garansi]]></text>
+				<text><![CDATA[Jumlah]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="455" y="0" width="100" height="20" uuid="2fde9699-c4eb-44a3-9ae3-8e2d1911b703"/>
+				<reportElement x="472" y="0" width="83" height="32" uuid="878e1b81-f062-4544-a4e7-a528a450616a"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -242,20 +347,6 @@
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Keterangan]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="355" y="0" width="50" height="20" uuid="89af32c2-ab72-4c96-9fe6-4371dbd2f3f4"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
-					<pen lineWidth="0.5"/>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Stok]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -278,7 +369,35 @@
 				</textField>
 			</elementGroup>
 			<textField>
-				<reportElement x="37" y="0" width="80" height="20" uuid="8be996fb-fb6e-4885-98db-ed78ef965fe2"/>
+				<reportElement x="37" y="0" width="80" height="20" uuid="962e3d31-1428-43ec-957f-5c254800b87b"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nomor Penyesuaian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="0" width="80" height="20" uuid="f506928e-e3ab-4660-9ad9-56b83859bf35"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tanggal Penyesuaian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="0" width="63" height="20" uuid="62924ae9-b626-434b-b16e-c844f3ad451c"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -292,7 +411,7 @@
 				<textFieldExpression><![CDATA[$F{Jenis Barang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="117" y="0" width="100" height="20" uuid="e271e117-658b-4cb7-a691-d48f042a1b53"/>
+				<reportElement x="260" y="0" width="69" height="20" uuid="2ebc04e0-9e57-403f-b4d7-7db8f7cb834e"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -306,7 +425,7 @@
 				<textFieldExpression><![CDATA[$F{Kategori Barang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="217" y="0" width="138" height="20" uuid="f72c550e-15c8-4bbf-bcfd-af20e7ee682c"/>
+				<reportElement x="329" y="0" width="93" height="20" uuid="97ceb4c8-8d58-4895-8390-0dca2bd5b2cc"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -320,7 +439,7 @@
 				<textFieldExpression><![CDATA[$F{Nama Barang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="405" y="0" width="50" height="20" uuid="3c5308ee-576d-41a4-b3ab-03e39c038dd4"/>
+				<reportElement x="422" y="0" width="50" height="20" uuid="e9586616-590f-48ea-93c7-bd646c0b2288"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -328,13 +447,13 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Verdana"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Garansi}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Penyesuaian}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="455" y="0" width="100" height="20" uuid="e271f23c-b711-4d6c-8118-b7a48264804e"/>
+				<reportElement x="472" y="0" width="83" height="20" uuid="b5ceee82-3f65-4638-9789-2889cc0cf40c"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -346,20 +465,6 @@
 					<font fontName="Verdana"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Keterangan}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0">
-				<reportElement x="355" y="0" width="50" height="20" uuid="52915ac3-772b-4bcd-ba82-c7b503fc7cb3"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
-					<pen lineWidth="0.5"/>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Verdana"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Stok}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

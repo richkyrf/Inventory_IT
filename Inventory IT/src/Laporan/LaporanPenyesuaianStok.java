@@ -224,7 +224,7 @@ public class LaporanPenyesuaianStok extends javax.swing.JFrame {
     }//GEN-LAST:event_JBTampilkanActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        GlobalVar.Var.laporanBarangRusak = null;
+        GlobalVar.Var.laporanPenyesuaianStok = null;
     }//GEN-LAST:event_formWindowClosed
 
     private void JCJenisBarangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCJenisBarangItemStateChanged
@@ -305,7 +305,6 @@ public class LaporanPenyesuaianStok extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LaporanPenyesuaianStok.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -317,15 +316,15 @@ public class LaporanPenyesuaianStok extends javax.swing.JFrame {
 
     boolean checkInput() {
         if (JDTanggalPenyesuaianStokAwal.getDate() == null) {
-            JOptionPane.showMessageDialog(this, "Tanggal Rusak Awal Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Tanggal Penyesuaian Stok Awal Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
             JDTanggalPenyesuaianStokAwal.requestFocus();
             return false;
         } else if (JDTanggalPenyesuaianStokAkhir.getDate() == null) {
-            JOptionPane.showMessageDialog(this, "Tanggal Rusak Akhir Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Tanggal Penyesuaian Stok Akhir Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
             JDTanggalPenyesuaianStokAkhir.requestFocus();
             return false;
         } else if (JDTanggalPenyesuaianStokAkhir.getDate().compareTo(JDTanggalPenyesuaianStokAwal.getDate()) < 0) {
-            JOptionPane.showMessageDialog(this, "Tanggal Rusak Akhir Tidak Boleh Lebih Kecil Dari Tanggal Rusak Awal", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Tanggal Penyesuain Stok Akhir Tidak Boleh Lebih Kecil Dari Tanggal Penyesuaian Stok Awal", "Information", JOptionPane.INFORMATION_MESSAGE);
             JDTanggalPenyesuaianStokAkhir.requestFocus();
             return false;
         } else {
@@ -338,9 +337,9 @@ public class LaporanPenyesuaianStok extends javax.swing.JFrame {
             String jenisBarang, kategoriBarang, namaBarang;
             HashMap hashs = new HashMap();
             FLaporan fLaporan = new FLaporan();
-            hashs.put("Title", "Laporan Barang Rusak");
-            hashs.put("TanggalRusakAwal", FDateF.datetostr(JDTanggalPenyesuaianStokAwal.getDate(), "dd/MM/yyyy"));
-            hashs.put("TanggalRusakAkhir", FDateF.datetostr(JDTanggalPenyesuaianStokAkhir.getDate(), "dd/MM/yyyy"));
+            hashs.put("Title", "Laporan Penyesuaian Stok");
+            hashs.put("TanggalPenyesuaianStokAwal", FDateF.datetostr(JDTanggalPenyesuaianStokAwal.getDate(), "dd/MM/yyyy"));
+            hashs.put("TanggalPenyesuaianStokAkhir", FDateF.datetostr(JDTanggalPenyesuaianStokAkhir.getDate(), "dd/MM/yyyy"));
             if (JCJenisBarang.getSelectedIndex() == 0) {
                 jenisBarang = "";
                 hashs.put("JenisBarang", "Semua Jenis");
@@ -363,12 +362,12 @@ public class LaporanPenyesuaianStok extends javax.swing.JFrame {
                 hashs.put("NamaBarang", JCNamaBarang.getSelectedItem());
             }
             hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-            hashs.put("Where", " AND `TanggalRusak` BETWEEN '" + FDateF.datetostr(JDTanggalPenyesuaianStokAwal.getDate(), "yyyy-MM-dd") + "' AND '" + FDateF.datetostr(JDTanggalPenyesuaianStokAkhir.getDate(), "yyyy-MM-dd") + "'" + jenisBarang + kategoriBarang + namaBarang);
+            hashs.put("Where", " AND `TanggalPenyesuaianStok` BETWEEN '" + FDateF.datetostr(JDTanggalPenyesuaianStokAwal.getDate(), "yyyy-MM-dd") + "' AND '" + FDateF.datetostr(JDTanggalPenyesuaianStokAkhir.getDate(), "yyyy-MM-dd") + "'" + jenisBarang + kategoriBarang + namaBarang);
             fLaporan.sethashmap(hashs);
-            fLaporan.setfilename("LaporanBarangRusak");
+            fLaporan.setfilename("LaporanPenyesuaianStok");
             fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
             fLaporan.excute();
-            History.simpanhistory(GlobalVar.VarL.username, "Melihat Laporan Barang Rusak");
+            History.simpanhistory(GlobalVar.VarL.username, "Melihat Laporan Penyesuaian Stok");
         }
     }
 
