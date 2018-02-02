@@ -43,11 +43,11 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jlableF3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JDTanggalBarangMasukAwal" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="JDTanggalPurchaseRequestAwal" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jlableF4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JDTanggalBarangMasukAkhir" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="JDTanggalPurchaseRequestAkhir" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jlableF8" min="-2" max="-2" attributes="0"/>
@@ -90,9 +90,9 @@
                       <Component id="jlableF2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="JDTanggalBarangMasukAwal" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="JDTanggalPurchaseRequestAwal" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="jlableF4" min="-2" max="-2" attributes="0"/>
-                  <Component id="JDTanggalBarangMasukAkhir" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="JDTanggalPurchaseRequestAkhir" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -129,7 +129,7 @@
     <Component class="KomponenGUI.JlableF" name="jlableF1">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="LAPORAN BARANG MASUK"/>
+        <Property name="text" type="java.lang.String" value="LAPORAN PURCHASE REQUEST"/>
       </Properties>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF2">
@@ -142,9 +142,9 @@
         <Property name="text" type="java.lang.String" value=":"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JdateCF" name="JDTanggalBarangMasukAwal">
+    <Component class="KomponenGUI.JdateCF" name="JDTanggalPurchaseRequestAwal">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JDTanggalBarangMasukAwal.setDate(new Date());"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="JDTanggalPurchaseRequestAwal.setDate(new Date());"/>
       </AuxValues>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF4">
@@ -152,7 +152,7 @@
         <Property name="text" type="java.lang.String" value="s/d"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JdateCF" name="JDTanggalBarangMasukAkhir">
+    <Component class="KomponenGUI.JdateCF" name="JDTanggalPurchaseRequestAkhir">
       <Properties>
         <Property name="date" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="new Date()" type="code"/>

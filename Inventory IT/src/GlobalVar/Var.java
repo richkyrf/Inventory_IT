@@ -57,4 +57,5 @@ public class Var {
     public static LaporanMasterKaryawan laporanMasterKaryawan;
     public static LaporanBarangRusak laporanBarangRusak;
     public static LaporanBarangMasuk laporanBarangMasuk;
+    public static LaporanPurchaseRequest laporanPurchaseRequest;
 }

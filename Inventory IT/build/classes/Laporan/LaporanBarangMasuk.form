@@ -134,7 +134,7 @@
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Periode"/>
+        <Property name="text" type="java.lang.String" value="Tanggal Masuk"/>
       </Properties>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF3">

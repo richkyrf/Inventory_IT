@@ -19,14 +19,14 @@ import javax.swing.JOptionPane;
  *
  * @author richky
  */
-public class LaporanBarangMasuk extends javax.swing.JFrame {
+public class LaporanPurchaseRequest extends javax.swing.JFrame {
 
     /**
      * Creates new form LaporanBarangMasuk
      */
-    public LaporanBarangMasuk() {
+    public LaporanPurchaseRequest() {
         initComponents();
-        setTitle("Laporan Barang Masuk");
+        setTitle("Laporan Purchase Request");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
@@ -65,16 +65,16 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
                 namaVendor = "";
                 hashs.put("NamaVendor", "Semua Vendor");
             }
-            hashs.put("Title", "LAPORAN DETAIL BARANG MASUK");
+            hashs.put("Title", "LAPORAN PURCHASE REQUEST");
             hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-            hashs.put("FormatTgl1", FDateF.datetostr(JDTanggalBarangMasukAwal.getDate(), "dd/MM/yyyy"));
-            hashs.put("FormatTgl2", FDateF.datetostr(JDTanggalBarangMasukAkhir.getDate(), "dd/MM/yyyy"));
-            hashs.put("Where", " AND `TanggalBarangMasuk` BETWEEN '" + FDateF.datetostr(JDTanggalBarangMasukAwal.getDate(), "yyyy-MM-dd") + "' and '" + FDateF.datetostr(JDTanggalBarangMasukAkhir.getDate(), "yyyy-MM-dd") + "' " + jenisBarang + kategoriBarang + namaBarang + namaVendor);
+            hashs.put("FormatTgl1", FDateF.datetostr(JDTanggalPurchaseRequestAwal.getDate(), "dd/MM/yyyy"));
+            hashs.put("FormatTgl2", FDateF.datetostr(JDTanggalPurchaseRequestAkhir.getDate(), "dd/MM/yyyy"));
+            hashs.put("Where", " AND `TanggalBarangMasuk` BETWEEN '" + FDateF.datetostr(JDTanggalPurchaseRequestAwal.getDate(), "yyyy-MM-dd") + "' and '" + FDateF.datetostr(JDTanggalPurchaseRequestAkhir.getDate(), "yyyy-MM-dd") + "' " + jenisBarang + kategoriBarang + namaBarang + namaVendor);
             fLaporan.sethashmap(hashs);
-            fLaporan.setfilename("LaporanDetailBarangMasuk");
+            fLaporan.setfilename("LaporanDetailPurchaseRequest");
             fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
             fLaporan.excute();
-            History.simpanhistory(GlobalVar.VarL.username, "LaporanDetailBarangMasuk");
+            History.simpanhistory(GlobalVar.VarL.username, "LaporanDetailPurchaseRequest");
         }
     }
 
@@ -90,9 +90,9 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
         jlableF1 = new KomponenGUI.JlableF();
         jlableF2 = new KomponenGUI.JlableF();
         jlableF3 = new KomponenGUI.JlableF();
-        JDTanggalBarangMasukAwal = new KomponenGUI.JdateCF();
+        JDTanggalPurchaseRequestAwal = new KomponenGUI.JdateCF();
         jlableF4 = new KomponenGUI.JlableF();
-        JDTanggalBarangMasukAkhir = new KomponenGUI.JdateCF();
+        JDTanggalPurchaseRequestAkhir = new KomponenGUI.JdateCF();
         jlableF5 = new KomponenGUI.JlableF();
         jlableF6 = new KomponenGUI.JlableF();
         jlableF7 = new KomponenGUI.JlableF();
@@ -110,17 +110,17 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jlableF1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlableF1.setText("LAPORAN BARANG MASUK");
+        jlableF1.setText("LAPORAN PURCHASE REQUEST");
 
         jlableF2.setText("Tanggal Masuk");
 
         jlableF3.setText(":");
 
-        JDTanggalBarangMasukAwal.setDate(new Date());
+        JDTanggalPurchaseRequestAwal.setDate(new Date());
 
         jlableF4.setText("s/d");
 
-        JDTanggalBarangMasukAkhir.setDate(new Date());
+        JDTanggalPurchaseRequestAkhir.setDate(new Date());
 
         jlableF5.setText("Jenis Barang");
 
@@ -206,11 +206,11 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jlableF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JDTanggalBarangMasukAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(JDTanggalPurchaseRequestAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jlableF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JDTanggalBarangMasukAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(JDTanggalPurchaseRequestAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jlableF8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -240,9 +240,9 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jlableF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlableF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(JDTanggalBarangMasukAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JDTanggalPurchaseRequestAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlableF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JDTanggalBarangMasukAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JDTanggalPurchaseRequestAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlableF5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,36 +332,37 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LaporanBarangMasuk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaporanPurchaseRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LaporanBarangMasuk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaporanPurchaseRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LaporanBarangMasuk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaporanPurchaseRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LaporanBarangMasuk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaporanPurchaseRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LaporanBarangMasuk().setVisible(true);
+                new LaporanPurchaseRequest().setVisible(true);
             }
         });
     }
 
     boolean checkInput() {
-        if (JDTanggalBarangMasukAwal.getDate() == null) {
+        if (JDTanggalPurchaseRequestAwal.getDate() == null) {
             JOptionPane.showMessageDialog(this, "Tanggal Rusak Awal Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
-            JDTanggalBarangMasukAwal.requestFocus();
+            JDTanggalPurchaseRequestAwal.requestFocus();
             return false;
-        } else if (JDTanggalBarangMasukAkhir.getDate() == null) {
+        } else if (JDTanggalPurchaseRequestAkhir.getDate() == null) {
             JOptionPane.showMessageDialog(this, "Tanggal Rusak Akhir Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
-            JDTanggalBarangMasukAkhir.requestFocus();
+            JDTanggalPurchaseRequestAkhir.requestFocus();
             return false;
-        } else if (JDTanggalBarangMasukAkhir.getDate().compareTo(JDTanggalBarangMasukAwal.getDate()) < 0) {
+        } else if (JDTanggalPurchaseRequestAkhir.getDate().compareTo(JDTanggalPurchaseRequestAwal.getDate()) < 0) {
             JOptionPane.showMessageDialog(this, "Tanggal Rusak Akhir Tidak Boleh Lebih Kecil Dari Tanggal Rusak Awal", "Information", JOptionPane.INFORMATION_MESSAGE);
-            JDTanggalBarangMasukAkhir.requestFocus();
+            JDTanggalPurchaseRequestAkhir.requestFocus();
             return false;
         } else {
             return true;
@@ -373,8 +374,8 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
     private KomponenGUI.JcomboboxF JCKategoriBarang;
     private KomponenGUI.JcomboboxF JCNamaBarang;
     private KomponenGUI.JcomboboxF JCNamaVendor;
-    private KomponenGUI.JdateCF JDTanggalBarangMasukAkhir;
-    private KomponenGUI.JdateCF JDTanggalBarangMasukAwal;
+    private KomponenGUI.JdateCF JDTanggalPurchaseRequestAkhir;
+    private KomponenGUI.JdateCF JDTanggalPurchaseRequestAwal;
     private KomponenGUI.JbuttonF jbuttonF1;
     private KomponenGUI.JlableF jlableF1;
     private KomponenGUI.JlableF jlableF10;

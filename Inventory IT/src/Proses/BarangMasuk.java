@@ -111,11 +111,11 @@ public class BarangMasuk extends javax.swing.JFrame {
         if (JTNamaBarang.getText().replace(" ", "").isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nama Barang Tidak Boleh Kosong");
             return false;
-        } else if (JTJumlahBarang.getText().replace("0", "").isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Jumlah Barang Tidak Boleh Kosong");
-            return false;
         } else if (JTHargaBarang.getText().replace("0", "").isEmpty()) {
             JOptionPane.showMessageDialog(this, "Harga Barang Tidak Boleh Kosong");
+            return false;
+        } else if (JTJumlahBarang.getText().replace("0", "").isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Jumlah Barang Tidak Boleh Kosong");
             return false;
         } else {
             return true;
@@ -137,7 +137,7 @@ public class BarangMasuk extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) JTable.getModel();
         model.getDataVector().removeAllElements();
         RunSelct runSelct = new RunSelct();
-        runSelct.setQuery("SELECT `NomorKolom`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, FORMAT(`JumlahBarang`,0), FORMAT(`HargaBarang`,0), `Garansi`, `SerialNumber`, a.`Keterangan` FROM `tbbarangmasukdetail`a JOIN `tbmbarang`b ON a.`IdBarang`=b.`IdBarang` JOIN `tbmkategoribarang`c ON b.`IdKategoriBarang`=c.`IdKategoriBarang` JOIN `tbmjenisbarang`d ON c.`IdJenisBarang`=d.`IdJenisBarang` WHERE `NomorBarangMasuk` = '" + list.get(1) + "'");
+        runSelct.setQuery("SELECT `NomorKolom`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, FORMAT(`HargaBarang`,0), FORMAT(`JumlahBarang`,0), `Garansi`, `SerialNumber`, a.`Keterangan` FROM `tbbarangmasukdetail`a JOIN `tbmbarang`b ON a.`IdBarang`=b.`IdBarang` JOIN `tbmkategoribarang`c ON b.`IdKategoriBarang`=c.`IdKategoriBarang` JOIN `tbmjenisbarang`d ON c.`IdJenisBarang`=d.`IdJenisBarang` WHERE `NomorBarangMasuk` = '" + list.get(1) + "'");
         try {
             ResultSet rs = runSelct.excute();
             int row = 0;
@@ -1070,7 +1070,7 @@ public class BarangMasuk extends javax.swing.JFrame {
             JCVendor.setSelectedItem(list.get(3));
             JTAKeterangan.setText(list.get(4));
             RunSelct runSelct = new RunSelct();
-            runSelct.setQuery("SELECT x.`NomorKolom`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, FORMAT(x.`HargaBarang`,0) 'Harga Barang', x.`JumlahBarang`-IFNULL(y.`Jumlah`,0) as 'Jumlah', `Garansi`, '' as 'SerialNumber', x.`Keterangan` FROM `tbpurchaserequestdetail` as x JOIN `tbmbarang`a ON x.`IdBarang`=a.`IdBarang` JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` LEFT JOIN (SELECT `IdDetailBarangMasuk`, b.`NomorPurchaseRequest`, a.`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, IFNULL(SUM(`JumlahBarang`),0) as 'Jumlah', `HargaBarang`, `SerialNumber`, a.`Keterangan` FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangmasuk` WHERE b.`NomorPurchaseRequest` = '" + list.get(1) + "' GROUP BY `IdBarang`) as y ON x.`IdBarang`=y.`IdBarang` WHERE x.`NomorPurchaseRequest` = '" + list.get(1) + "' AND x.`JumlahBarang` != IFNULL(y.`Jumlah`,0)");
+            runSelct.setQuery("SELECT x.`NomorKolom`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, FORMAT(x.`HargaBarang`,0) 'Harga Barang', x.`JumlahBarang`-IFNULL(y.`Jumlah`,0) as 'Jumlah', `Garansi`, '' as 'SerialNumber', x.`Keterangan` FROM `tbpurchaserequestdetail` as x JOIN `tbmbarang`a ON x.`IdBarang`=a.`IdBarang` JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` LEFT JOIN (SELECT `IdDetailBarangMasuk`, b.`NomorPurchaseRequest`, a.`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, IFNULL(SUM(`JumlahBarang`),0) as 'Jumlah', `SerialNumber`, a.`Keterangan` FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangmasuk` WHERE b.`NomorPurchaseRequest` = '" + list.get(1) + "' GROUP BY `IdBarang`) as y ON x.`IdBarang`=y.`IdBarang` WHERE x.`NomorPurchaseRequest` = '" + list.get(1) + "' AND x.`JumlahBarang` != IFNULL(y.`Jumlah`,0)");
             try {
                 ResultSet rs = runSelct.excute();
                 int row = 0;
