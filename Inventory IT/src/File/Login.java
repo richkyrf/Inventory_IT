@@ -177,9 +177,8 @@ public class Login extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         if (Arrays.toString(args).equals("[-c]")) {
-            // Blok If ini masih harus diperbaiki
             DRunSelctOne dRunSelctOne = new DRunSelctOne();
-            dRunSelctOne.setQuery("SELECT `IdService`, `Tanggal`, `JenisService`, `NamaBarangService`, `TanggalSelanjutnya`, a.`Keterangan` FROM `tbpservice`a JOIN `tbsmjenisservice`b on a.`IdJenisService`=b.`IdJenisService` JOIN `tbmbarangservice`c ON a.`IdBarangService`=c.`IdBarangService` WHERE `TanggalSelanjutnya` <= CURDATE()");
+            dRunSelctOne.setQuery("SELECT A.`IdService` AS 'ID', `JenisService` AS 'Jenis Service', `JenisBarangService` AS 'Jenis Barang Service', `NamaBarangService` AS 'Nama Barang Service', DATE_FORMAT(`TanggalService`, '%d/%m/%Y') AS 'Tanggal Service', DATE_FORMAT(`TanggalServiceSelanjutnya`, '%d/%m/%Y') AS 'Tanggal Service Selanjutnya', A.`Keterangan`, 0 AS 'Pilih' FROM `tbservice` AS A JOIN `tbmjenisservice` AS B ON A.`IdJenisService`=B.`IdJenisService` JOIN `tbmbarangservice` AS C ON A.`IdBarangService`=C.`IdBarangService` JOIN `tbmjenisbarangservice` AS D ON C.`IdJenisBarangService`=D.`IdJenisBarangService` WHERE `TanggalServiceSelanjutnya`<=CURDATE() ORDER BY `JenisService`, `JenisBarangService`, `NamaBarangService`");
             ArrayList<String> list = dRunSelctOne.excute();
             if (list.get(0) == null) {
                 System.exit(0);
@@ -189,10 +188,10 @@ public class Login extends javax.swing.JFrame {
                 FLaporan fLaporan = new FLaporan();
                 hashs.put("Title", "LAPORAN SERVICE TELAH JATUH TEMPO");
                 fLaporan.sethashmap(hashs);
-                fLaporan.setfilename("ServiceExp");
+                fLaporan.setfilename("LaporanServiceExpired");
                 fLaporan.setErorm("Gagal Menampilkan Laporan Service Telah Jatuh Tempo");
                 fLaporan.excute();
-                History.simpanhistory(GlobalVar.VarL.username, "Service");
+                History.simpanhistory(GlobalVar.VarL.username, "Melihat Laporan Service Expired");
             }
         } else {
             try {

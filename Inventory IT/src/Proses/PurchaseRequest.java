@@ -925,7 +925,6 @@ public class PurchaseRequest extends javax.swing.JFrame {
     }
 
     void RefreshAll() {
-        setNomorPurchaseRequest();
         JTAKeterangan.setText("");
         JTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
