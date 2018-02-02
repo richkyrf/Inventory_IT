@@ -61,6 +61,7 @@ public class LaporanMasterBarang extends javax.swing.JFrame {
             }
         });
 
+        JLLaporanMasterBarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLLaporanMasterBarang.setText("LAPORAN MASTER BARANG");
 
         JLJenisBarang.setText("Jenis Barang");
@@ -133,9 +134,9 @@ public class LaporanMasterBarang extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(JBTampilkan, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,11 +161,10 @@ public class LaporanMasterBarang extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(JLJenisBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(JCJenisBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(JLLaporanMasterBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(JCJenisBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(JLLaporanMasterBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,10 +241,9 @@ public class LaporanMasterBarang extends javax.swing.JFrame {
     }//GEN-LAST:event_JRBGaransiTidakKeyReleased
 
     private void JCJenisBarangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCJenisBarangItemStateChanged
-        if(JCJenisBarang.getSelectedIndex()==0){
+        if (JCJenisBarang.getSelectedIndex() == 0) {
             JCKategoriBarang.load("SELECT '-- Semua Kategori Barang --' AS `KategoriBarang` UNION SELECT `KategoriBarang` FROM `tbmkategoribarang`");
-        }
-        else{
+        } else {
             JCKategoriBarang.load("SELECT '-- Semua Kategori Barang --' AS `KategoriBarang` UNION SELECT `KategoriBarang` FROM `tbmkategoribarang` AS A JOIN `tbmjenisbarang` AS B ON A.`IdJenisBarang`=B.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'");
         }
     }//GEN-LAST:event_JCJenisBarangItemStateChanged

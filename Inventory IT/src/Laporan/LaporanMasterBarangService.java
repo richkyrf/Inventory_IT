@@ -52,6 +52,7 @@ public class LaporanMasterBarangService extends javax.swing.JFrame {
             }
         });
 
+        JLLaporanMasterBarangService.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLLaporanMasterBarangService.setText("LAPORAN MASTER BARANG SERVICE");
 
         JLJenisBarangService.setText("Jenis Barang Service");
@@ -78,20 +79,19 @@ public class LaporanMasterBarangService extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLLaporanMasterBarangService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(JLJenisBarangService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JLJenisBarangService2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(JBTampilkan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JCJenisBarangService, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(JLLaporanMasterBarangService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(JCJenisBarangService, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,8 +167,10 @@ public class LaporanMasterBarangService extends javax.swing.JFrame {
         hashs.put("Title", "Laporan Master Barang Service");
         if (JCJenisBarangService.getSelectedIndex() == 0) {
             jenisBarangService = "";
+            hashs.put("JenisBarangService", "Semua Jenis");
         } else {
             jenisBarangService = " AND `JenisBarangService`='" + JCJenisBarangService.getSelectedItem() + "'";
+            hashs.put("JenisBarangService", JCJenisBarangService.getSelectedItem());
         }
         hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
         hashs.put("Where", jenisBarangService);

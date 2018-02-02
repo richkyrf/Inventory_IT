@@ -189,19 +189,19 @@ public class LaporanBarangRusak extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JCNamaPemakai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(JBTampilkan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(JLTanggalRusak, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JLTanggaRusak2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JBTampilkan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(JDTanggalRusakAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JLTanggalRusak3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JDTanggalRusakAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addComponent(JDTanggalRusakAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JLTanggalRusak3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JDTanggalRusakAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -210,6 +210,14 @@ public class LaporanBarangRusak extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(JLLaporanBarangRusak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JLTanggalRusak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JLTanggaRusak2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JDTanggalRusakAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JDTanggalRusakAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLTanggalRusak3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(JLJenisBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,14 +238,6 @@ public class LaporanBarangRusak extends javax.swing.JFrame {
                     .addComponent(JLNamaPemakai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLNamaPemakai2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JCNamaPemakai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(JLTanggalRusak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(JLTanggaRusak2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(JDTanggalRusakAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JDTanggalRusakAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLTanggalRusak3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBTampilkan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -342,23 +342,19 @@ public class LaporanBarangRusak extends javax.swing.JFrame {
             }
         });
     }
-    
+
     boolean checkInput() {
-        if (JCJenisBarang.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(this, "Jenis Barang Harus Dipilih", "Information", JOptionPane.INFORMATION_MESSAGE);
-            JCJenisBarang.requestFocus();
+        if (JDTanggalRusakAwal.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "Tanggal Rusak Awal Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JDTanggalRusakAwal.requestFocus();
             return false;
-        } else if (JCKategoriBarang.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(this, "Kategori Barang Harus Dipilih", "Information", JOptionPane.INFORMATION_MESSAGE);
-            JCKategoriBarang.requestFocus();
+        } else if (JDTanggalRusakAkhir.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "Tanggal Rusak Akhir Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JDTanggalRusakAkhir.requestFocus();
             return false;
-        } else if (JTNamaBarang.getText().replace(" ", "").isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nama Barang Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
-            JTNamaBarang.requestFocus();
-            return false;
-        } else if (!JRBGaransiYa.isSelected() && !JRBGaransiTidak.isSelected()) {
-            JOptionPane.showMessageDialog(this, "Garansi Harus Dipilih", "Information", JOptionPane.INFORMATION_MESSAGE);
-            JRBGaransiYa.requestFocus();
+        } else if (JDTanggalRusakAkhir.getDate().compareTo(JDTanggalRusakAwal.getDate()) < 0) {
+            JOptionPane.showMessageDialog(this, "Tanggal Rusak Akhir Tidak Boleh Lebih Kecil Dari Tanggal Rusak Awal", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JDTanggalRusakAkhir.requestFocus();
             return false;
         } else {
             return true;
@@ -366,37 +362,39 @@ public class LaporanBarangRusak extends javax.swing.JFrame {
     }
 
     void tampilkan() {
-        String jenisBarang, kategoriBarang, namaBarang, namaPemakai, tanggalRusakAwal, tanggalRusakAkhir;
-        HashMap hashs = new HashMap();
-        FLaporan fLaporan = new FLaporan();
-        hashs.put("Title", "Laporan Barang Rusak");
-        if (JCJenisBarang.getSelectedIndex() == 0) {
-            jenisBarang = "";
-        } else {
-            jenisBarang = " AND `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'";
+        if (checkInput()) {
+            String jenisBarang, kategoriBarang, namaBarang, namaPemakai, tanggalRusakAwal, tanggalRusakAkhir;
+            HashMap hashs = new HashMap();
+            FLaporan fLaporan = new FLaporan();
+            hashs.put("Title", "Laporan Barang Rusak");
+            if (JCJenisBarang.getSelectedIndex() == 0) {
+                jenisBarang = "";
+            } else {
+                jenisBarang = " AND `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'";
+            }
+            if (JCKategoriBarang.getSelectedIndex() == 0) {
+                kategoriBarang = "";
+            } else {
+                kategoriBarang = " AND `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'";
+            }
+            if (JCNamaBarang.getSelectedIndex() == 0) {
+                namaBarang = "";
+            } else {
+                namaBarang = " AND `NamaBarang`='" + JCNamaBarang.getSelectedItem() + "'";
+            }
+            if (JCNamaPemakai.getSelectedIndex() == 0) {
+                namaPemakai = "";
+            } else {
+                namaPemakai = " AND `NamaPemakai`='" + JCNamaPemakai.getSelectedItem() + "'";
+            }
+            hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
+            hashs.put("Where", jenisBarang + kategoriBarang + namaBarang + namaPemakai);
+            fLaporan.sethashmap(hashs);
+            fLaporan.setfilename("LaporanMasterBarang");
+            fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
+            fLaporan.excute();
+            History.simpanhistory(GlobalVar.VarL.username, "Melihat Laporan Master Barang");
         }
-        if (JCKategoriBarang.getSelectedIndex() == 0) {
-            kategoriBarang = "";
-        } else {
-            kategoriBarang = " AND `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'";
-        }
-        if (JCNamaBarang.getSelectedIndex() == 0) {
-            namaBarang = "";
-        } else {
-            namaBarang = " AND `NamaBarang`='" + JCNamaBarang.getSelectedItem() + "'";
-        }
-        if (JCNamaPemakai.getSelectedIndex() == 0) {
-            namaPemakai = "";
-        } else {
-            namaPemakai = " AND `NamaPemakai`='" + JCNamaPemakai.getSelectedItem() + "'";
-        }
-        hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-        hashs.put("Where", jenisBarang + kategoriBarang + namaBarang + namaPemakai);
-        fLaporan.sethashmap(hashs);
-        fLaporan.setfilename("LaporanMasterBarang");
-        fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
-        fLaporan.excute();
-        History.simpanhistory(GlobalVar.VarL.username, "Melihat Laporan Master Barang");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

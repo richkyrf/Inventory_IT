@@ -65,7 +65,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="116" splitType="Stretch">
+		<band height="111" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="802" height="30" uuid="5c0fbdc4-2ef8-4c98-a95f-1bb4dd356913"/>
 				<box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="5">
@@ -81,14 +81,14 @@
 				<textFieldExpression><![CDATA[$P{Title}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="43" width="60" height="20" uuid="31e76b57-dfab-4923-b2f2-984ec4872d26"/>
+				<reportElement x="110" y="38" width="60" height="20" uuid="31e76b57-dfab-4923-b2f2-984ec4872d26"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FormatTgl1}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="43" width="100" height="20" uuid="84aeef9c-cdca-4241-8477-76f1bba64dab"/>
+				<reportElement x="0" y="38" width="100" height="20" uuid="84aeef9c-cdca-4241-8477-76f1bba64dab"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -102,7 +102,7 @@
 				<text><![CDATA[Periode]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="43" width="10" height="20" uuid="cf1c5e26-94af-4152-bc25-aa9df40785bf"/>
+				<reportElement x="100" y="38" width="10" height="20" uuid="cf1c5e26-94af-4152-bc25-aa9df40785bf"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -116,7 +116,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="63" width="100" height="20" uuid="48f67a6a-f604-46b9-bf3e-63025dce6e08"/>
+				<reportElement x="0" y="58" width="100" height="20" uuid="48f67a6a-f604-46b9-bf3e-63025dce6e08"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -130,7 +130,7 @@
 				<text><![CDATA[Jenis Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="78" width="100" height="20" uuid="069b455a-58ff-4e0c-8df2-3ddb93bbe0e2"/>
+				<reportElement x="0" y="73" width="100" height="20" uuid="069b455a-58ff-4e0c-8df2-3ddb93bbe0e2"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -144,7 +144,7 @@
 				<text><![CDATA[Kategori Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="93" width="100" height="20" uuid="3ab484b3-4d0a-4431-a9f8-598c1782c538"/>
+				<reportElement x="0" y="88" width="100" height="20" uuid="3ab484b3-4d0a-4431-a9f8-598c1782c538"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -158,7 +158,7 @@
 				<text><![CDATA[Nama Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="167" y="43" width="50" height="20" uuid="49fef4b6-9408-4751-a829-a80c85853360"/>
+				<reportElement x="167" y="38" width="50" height="20" uuid="49fef4b6-9408-4751-a829-a80c85853360"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -172,14 +172,14 @@
 				<text><![CDATA[Hingga]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="225" y="43" width="60" height="20" uuid="16ec6f0a-4f7a-4b02-a9eb-19a78acd30fd"/>
+				<reportElement x="225" y="38" width="60" height="20" uuid="16ec6f0a-4f7a-4b02-a9eb-19a78acd30fd"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FormatTgl2}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="100" y="63" width="10" height="20" uuid="393322c0-7d90-4742-89d4-7ad8079124ab"/>
+				<reportElement x="100" y="58" width="10" height="20" uuid="393322c0-7d90-4742-89d4-7ad8079124ab"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -193,7 +193,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="78" width="10" height="20" uuid="516515f1-e02e-41fb-9470-a3323551e7b1"/>
+				<reportElement x="100" y="73" width="10" height="20" uuid="516515f1-e02e-41fb-9470-a3323551e7b1"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -207,7 +207,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="93" width="10" height="20" uuid="d9dda4c7-3cbc-4a52-a33b-6a7fd180e4da"/>
+				<reportElement x="100" y="88" width="10" height="20" uuid="d9dda4c7-3cbc-4a52-a33b-6a7fd180e4da"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -221,28 +221,28 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="110" y="63" width="234" height="20" uuid="faa3a3b8-8bc1-4a72-a29d-dd686ac427f8"/>
+				<reportElement x="110" y="58" width="234" height="20" uuid="faa3a3b8-8bc1-4a72-a29d-dd686ac427f8"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{JenisBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="78" width="234" height="20" uuid="3f2b3786-08c8-4680-b816-21bbecf75510"/>
+				<reportElement x="110" y="73" width="234" height="20" uuid="3f2b3786-08c8-4680-b816-21bbecf75510"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{KategoriBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="93" width="234" height="20" uuid="95295452-af4c-4dc4-8469-6eafa839cfc3"/>
+				<reportElement x="110" y="88" width="234" height="20" uuid="95295452-af4c-4dc4-8469-6eafa839cfc3"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{NamaBarang}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="215" y="43" width="10" height="20" uuid="6f758bf1-7547-4e72-b317-0256b73b1cd7"/>
+				<reportElement x="215" y="38" width="10" height="20" uuid="6f758bf1-7547-4e72-b317-0256b73b1cd7"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
