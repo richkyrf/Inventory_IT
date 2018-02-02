@@ -1011,6 +1011,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
         ArrayList<String> list = dRunSelctOne.excute();
         hashs.put("Title", "PURCHASE REQUEST");
         hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
+        System.out.println(JTNomorPurchaseRequest.getText());
         hashs.put("NomorPurchaseRequest", JTNomorPurchaseRequest.getText());
         hashs.put("Tanggal", FDateF.datetostr(JDTanggal.getDate(), "dd/MM/yyyy HH:mm"));
         hashs.put("NamaVendor", JCVendor.getSelectedItem());

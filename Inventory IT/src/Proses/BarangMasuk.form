@@ -116,7 +116,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jlableF12" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JCVendor" min="-2" pref="280" max="-2" attributes="0"/>
+                                      <Component id="JCNamaVendor" min="-2" pref="280" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jbuttonF4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -198,7 +198,7 @@
                       <Component id="jlableF12" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF13" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JCVendor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JCNamaVendor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jbuttonF4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF15" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -297,9 +297,9 @@
         <Property name="text" type="java.lang.String" value="No. PR"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JcomboboxF" name="JCVendor">
+    <Component class="KomponenGUI.JcomboboxF" name="JCNamaVendor">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor" postCode="JCVendor.load(&quot;SELECT &apos;-- Pilih Nama Vendor --&apos; AS &apos;NamaVendor&apos; UNION SELECT `NamaVendor` FROM `tbmvendor` &quot;);">
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor" postCode="JCNamaVendor.load(&quot;SELECT &apos;-- Pilih Nama Vendor --&apos; AS &apos;NamaVendor&apos; UNION SELECT `NamaVendor` FROM `tbmvendor` &quot;);">
           <StringArray count="1">
             <StringItem index="0" value="-- Pilih Nama Vendor --"/>
           </StringArray>
@@ -309,7 +309,8 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCVendorKeyPressed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCNamaVendorKeyPressed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCNamaVendorKeyReleased"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -712,6 +713,7 @@
       </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JCNomorPurchaseRequestItemStateChanged"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCNomorPurchaseRequestKeyReleased"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="JCNomorPurchaseRequest.load(&quot;SELECT &apos;-- Pilih No Purchase Request --&apos; AS &apos;NomorPurchaseRequest&apos; UNION SELECT `NomorPurchaseRequest` FROM (SELECT X.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as &apos;JumlahX&apos;, IFNULL(Y.`Jumlah`,0) as &apos;JumlahY&apos; FROM `tbpurchaserequestdetail` as X LEFT JOIN (SELECT b.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as &apos;Jumlah&apos; FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangMasuk` WHERE 1 GROUP BY b.`NomorPurchaseRequest`) as Y ON X.`NomorPurchaserequest`=Y.`NomorPurchaseRequest` WHERE 1 GROUP BY `NomorPurchaseRequest` ) t1 WHERE `JumlahX`!=`JumlahY` &quot;);"/>

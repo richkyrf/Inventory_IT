@@ -59,7 +59,13 @@ public class BarangMasuk extends javax.swing.JFrame {
     }
 
     boolean checkInput() {
-        if (JTNomorBarangMasuk.getText().replace(" ", "").isEmpty()) {
+        if (JCNomorPurchaseRequest.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Nomor Purchase Tidak Boleh Kosong");
+            return false;
+        } else if (JCNamaVendor.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Nama Vendor Tidak Boleh Kosong");
+            return false;
+        } else if (JTNomorBarangMasuk.getText().replace(" ", "").isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nomor Barang Masuk Tidak Boleh Kosong");
             return false;
         } else if (JDTanggal.getDate() == null) {
@@ -130,7 +136,7 @@ public class BarangMasuk extends javax.swing.JFrame {
         JTNomorBarangMasuk.setText(list.get(1));
         JDTanggal.setDate(FDateF.strtodate(list.get(2), "yyyy-MM-dd"));
         JCNomorPurchaseRequest.setSelectedItem(list.get(3));
-        JCVendor.setSelectedItem(list.get(4));
+        JCNamaVendor.setSelectedItem(list.get(4));
         JTUrlBuktiPurchaseRequest.setText(list.get(5));
         JTUrlBuktiNota.setText(list.get(6));
         JTAKeterangan.setText(list.get(7));
@@ -175,7 +181,7 @@ public class BarangMasuk extends javax.swing.JFrame {
         JTNomorBarangMasuk = new KomponenGUI.JtextF();
         jlableF1 = new KomponenGUI.JlableF();
         jlableF2 = new KomponenGUI.JlableF();
-        JCVendor = new KomponenGUI.JcomboboxF();
+        JCNamaVendor = new KomponenGUI.JcomboboxF();
         JTNamaBarang = new KomponenGUI.JtextF();
         jtextF7 = new KomponenGUI.JtextF();
         jtextF8 = new KomponenGUI.JtextF();
@@ -241,12 +247,15 @@ public class BarangMasuk extends javax.swing.JFrame {
 
         jlableF2.setText("No. PR");
 
-        JCVendor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih Nama Vendor --" }));
-        JCVendor.load("SELECT '-- Pilih Nama Vendor --' AS 'NamaVendor' UNION SELECT `NamaVendor` FROM `tbmvendor` ");
-        JCVendor.setNextFocusableComponent(JTNamaBarang);
-        JCVendor.addKeyListener(new java.awt.event.KeyAdapter() {
+        JCNamaVendor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih Nama Vendor --" }));
+        JCNamaVendor.load("SELECT '-- Pilih Nama Vendor --' AS 'NamaVendor' UNION SELECT `NamaVendor` FROM `tbmvendor` ");
+        JCNamaVendor.setNextFocusableComponent(JTNamaBarang);
+        JCNamaVendor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                JCVendorKeyPressed(evt);
+                JCNamaVendorKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JCNamaVendorKeyReleased(evt);
             }
         });
 
@@ -483,6 +492,11 @@ public class BarangMasuk extends javax.swing.JFrame {
                 JCNomorPurchaseRequestItemStateChanged(evt);
             }
         });
+        JCNomorPurchaseRequest.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JCNomorPurchaseRequestKeyReleased(evt);
+            }
+        });
 
         jbuttonF5.setText("+");
         jbuttonF5.addActionListener(new java.awt.event.ActionListener() {
@@ -624,7 +638,7 @@ public class BarangMasuk extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jlableF12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JCVendor, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(JCNamaVendor, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jbuttonF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(30, 30, 30)
@@ -655,12 +669,8 @@ public class BarangMasuk extends javax.swing.JFrame {
                                         .addComponent(JBPilihUrlBuktiPurchaseRequest1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jlableF6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jlableF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jlableF6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlableF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jlableF10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -697,7 +707,7 @@ public class BarangMasuk extends javax.swing.JFrame {
                         .addComponent(jlableF12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlableF13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlableF6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(JCVendor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JCNamaVendor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbuttonF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlableF7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlableF15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -819,11 +829,11 @@ public class BarangMasuk extends javax.swing.JFrame {
         RefreshTbl();
     }//GEN-LAST:event_JBRefreshDetailActionPerformed
 
-    private void JCVendorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCVendorKeyPressed
+    private void JCNamaVendorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCNamaVendorKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             JTNamaBarang.requestFocus();
         }
-    }//GEN-LAST:event_JCVendorKeyPressed
+    }//GEN-LAST:event_JCNamaVendorKeyPressed
 
     private void jbuttonF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonF4ActionPerformed
         if (GlobalVar.Var.tambahMasterVendor == null) {
@@ -946,6 +956,26 @@ public class BarangMasuk extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBPilihUrlBuktiNota1ActionPerformed
 
+    private void JCNomorPurchaseRequestKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCNomorPurchaseRequestKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (JCNamaVendor.getSelectedIndex() == 0) {
+                JCNomorPurchaseRequest.showPopup();
+            } else {
+                JCNamaVendor.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_JCNomorPurchaseRequestKeyReleased
+
+    private void JCNamaVendorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCNamaVendorKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (JTNamaBarang.getSelectedIndex() == 0) {
+                JCNamaVendor.showPopup();
+            } else {
+                JTNamaBarang.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_JCNamaVendorKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -995,8 +1025,8 @@ public class BarangMasuk extends javax.swing.JFrame {
     private KomponenGUI.JbuttonF JBTambahTutup;
     private KomponenGUI.JbuttonF JBUbah;
     private KomponenGUI.JbuttonF JBUbahDetail;
+    public static KomponenGUI.JcomboboxF JCNamaVendor;
     private KomponenGUI.JcomboboxF JCNomorPurchaseRequest;
-    public static KomponenGUI.JcomboboxF JCVendor;
     private KomponenGUI.JdateCF JDTanggal;
     private KomponenGUI.JTextAreaF JTAKeterangan;
     private KomponenGUI.JRibuanTextField JTHargaBarang;
@@ -1067,7 +1097,7 @@ public class BarangMasuk extends javax.swing.JFrame {
             dRunSelctOne.setQuery("SELECT `IdPurchaseRequest` as 'ID', `NomorPurchaseRequest` as 'No. PR', `TanggalPurchaseRequest` as 'Tanggal', `NamaVendor`, a.`Keterangan` FROM `tbpurchaserequest`a JOIN `tbmvendor`b ON a.`IdVendor`=b.`IdVendor` WHERE `NomorPurchaseRequest` = '" + JCNomorPurchaseRequest.getSelectedItem() + "' ");
             ArrayList<String> list = dRunSelctOne.excute();
             //JDTanggal.setDate(FDateF.strtodate(list.get(2), "yyyy-MM-dd"));
-            JCVendor.setSelectedItem(list.get(3));
+            JCNamaVendor.setSelectedItem(list.get(3));
             JTAKeterangan.setText(list.get(4));
             RunSelct runSelct = new RunSelct();
             runSelct.setQuery("SELECT x.`NomorKolom`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, FORMAT(x.`HargaBarang`,0) 'Harga Barang', x.`JumlahBarang`-IFNULL(y.`Jumlah`,0) as 'Jumlah', `Garansi`, '' as 'SerialNumber', x.`Keterangan` FROM `tbpurchaserequestdetail` as x JOIN `tbmbarang`a ON x.`IdBarang`=a.`IdBarang` JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` LEFT JOIN (SELECT `IdDetailBarangMasuk`, b.`NomorPurchaseRequest`, a.`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, IFNULL(SUM(`JumlahBarang`),0) as 'Jumlah', `SerialNumber`, a.`Keterangan` FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangmasuk` WHERE b.`NomorPurchaseRequest` = '" + list.get(1) + "' GROUP BY `IdBarang`) as y ON x.`IdBarang`=y.`IdBarang` WHERE x.`NomorPurchaseRequest` = '" + list.get(1) + "' AND x.`JumlahBarang` != IFNULL(y.`Jumlah`,0)");
@@ -1209,7 +1239,7 @@ public class BarangMasuk extends javax.swing.JFrame {
             if (Berhasil) {
                 Berhasil = multiInsert.setautocomit(false);
                 if (Berhasil) {
-                    Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasuk`(`NomorBarangMasuk`, `TanggalBarangMasuk`, `NomorPurchaseRequest`, `IdVendor`, `UrlPurchaseRequest`, `UrlNotaBarangMasuk`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "','" + JCNomorPurchaseRequest.getSelectedItem() + "',(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCVendor.getSelectedItem() + "'),'" + JTUrlBuktiPurchaseRequest.getText() + "','" + JTUrlBuktiNota.getText() + "','" + JTAKeterangan.getText() + "')", null);
+                    Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasuk`(`NomorBarangMasuk`, `TanggalBarangMasuk`, `NomorPurchaseRequest`, `IdVendor`, `UrlPurchaseRequest`, `UrlNotaBarangMasuk`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "','" + JCNomorPurchaseRequest.getSelectedItem() + "',(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'),'" + JTUrlBuktiPurchaseRequest.getText() + "','" + JTUrlBuktiNota.getText() + "','" + JTAKeterangan.getText() + "')", null);
                     if (Berhasil) {
                         for (int i = 0; i < JTable.getRowCount(); i++) {
                             Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 0) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 3) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 2) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 1) + "'),'" + JTable.getValueAt(i, 4).toString().replace(".", "") + "','" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 7) + "','" + JTable.getValueAt(i, 8) + "')", null);
@@ -1244,7 +1274,7 @@ public class BarangMasuk extends javax.swing.JFrame {
             if (Berhasil) {
                 Berhasil = multiInsert.setautocomit(false);
                 if (Berhasil) {
-                    Berhasil = multiInsert.Excute("UPDATE `tbbarangmasuk` SET `NomorBarangMasuk`='" + JTNomorBarangMasuk.getText() + "',`TanggalBarangMasuk`='" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "',`NomorPurchaseRequest`='" + JCNomorPurchaseRequest.getSelectedItem() + "',`IdVendor`=(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCVendor.getSelectedItem() + "'),`UrlPurchaseRequest`='" + JTUrlBuktiPurchaseRequest.getText() + "',`UrlNotaBarangMasuk`='" + JTUrlBuktiNota.getText() + "',`Keterangan`='" + JTAKeterangan.getText() + "' WHERE `IdBarangMasuk` = '" + idEdit + "'", null);
+                    Berhasil = multiInsert.Excute("UPDATE `tbbarangmasuk` SET `NomorBarangMasuk`='" + JTNomorBarangMasuk.getText() + "',`TanggalBarangMasuk`='" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "',`NomorPurchaseRequest`='" + JCNomorPurchaseRequest.getSelectedItem() + "',`IdVendor`=(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'),`UrlPurchaseRequest`='" + JTUrlBuktiPurchaseRequest.getText() + "',`UrlNotaBarangMasuk`='" + JTUrlBuktiNota.getText() + "',`Keterangan`='" + JTAKeterangan.getText() + "' WHERE `IdBarangMasuk` = '" + idEdit + "'", null);
                     if (Berhasil) {
                         Berhasil = multiInsert.Excute("DELETE FROM `tbbarangmasukdetail` WHERE `NomorBarangMasuk` = '" + JTNomorBarangMasuk.getText() + "'", null);
                         if (Berhasil) {
