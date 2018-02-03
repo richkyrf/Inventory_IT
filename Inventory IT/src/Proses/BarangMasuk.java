@@ -143,10 +143,11 @@ public class BarangMasuk extends javax.swing.JFrame {
         JTNomorBarangMasuk.setText(list.get(1));
         JDTanggal.setDate(FDateF.strtodate(list.get(2), "yyyy-MM-dd"));
         JCNomorPurchaseRequest.setSelectedItem(list.get(3));
-        JCNamaVendor.setSelectedItem(list.get(4));
-        JTUrlBuktiPurchaseRequest.setText(list.get(5));
-        JTUrlBuktiNota.setText(list.get(6));
-        JTAKeterangan.setText(list.get(7));
+        JCNomorPurchaseRequest.setSelectedItem(list.get(4));
+        JCNamaVendor.setSelectedItem(list.get(5));
+        JTUrlBuktiPurchaseRequest.setText(list.get(6));
+        JTUrlBuktiNota.setText(list.get(7));
+        JTAKeterangan.setText(list.get(8));
         DefaultTableModel model = (DefaultTableModel) JTable.getModel();
         model.getDataVector().removeAllElements();
         RunSelct runSelct = new RunSelct();
@@ -1255,15 +1256,15 @@ public class BarangMasuk extends javax.swing.JFrame {
                 Berhasil = multiInsert.setautocomit(false);
                 if (Berhasil) {
                     Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasuk`(`NomorBarangMasuk`, `TanggalBarangMasuk`, `NomorPurchaseRequest`, `IdVendor`, `UrlPurchaseRequest`, `UrlNotaBarangMasuk`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "','" + JCNomorPurchaseRequest.getSelectedItem() + "',(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'),'" + URLPurchaseRequest + "','" + URLNota + "','" + JTAKeterangan.getText() + "')", null);
-                    if (Berhasil) {
-                        Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiPurchaseRequest.getText(), URLPurchaseRequest, JCNomorPurchaseRequest.getSelectedItem() + "-" + "PR" + ".PDF");
-                        if (Berhasil) {
-                            Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota, JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF");
+                    //if (Berhasil) {
+                        //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiPurchaseRequest.getText(), URLPurchaseRequest, JCNomorPurchaseRequest.getSelectedItem() + "-" + "PR" + ".PDF");
+                       // if (Berhasil) {
+                            //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota, JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF");
                             if (Berhasil) {
                                 for (int i = 0; i < JTable.getRowCount(); i++) {
                                     Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 0) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 3) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 2) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 1) + "'),'" + JTable.getValueAt(i, 4).toString().replace(".", "") + "','" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 7) + "','" + JTable.getValueAt(i, 8) + "')", null);
-                                }
-                            }
+                                //}
+                            //}
                         }
                     }
                 }
@@ -1306,15 +1307,15 @@ public class BarangMasuk extends javax.swing.JFrame {
                     Berhasil = multiInsert.Excute("UPDATE `tbbarangmasuk` SET `NomorBarangMasuk`='" + JTNomorBarangMasuk.getText() + "',`TanggalBarangMasuk`='" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "',`NomorPurchaseRequest`='" + JCNomorPurchaseRequest.getSelectedItem() + "',`IdVendor`=(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'),`UrlPurchaseRequest`='" + URLPurchaseRequest + "',`UrlNotaBarangMasuk`='" + URLNota + "',`Keterangan`='" + JTAKeterangan.getText() + "' WHERE `IdBarangMasuk` = '" + idEdit + "'", null);
                     if (Berhasil) {
                         Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiPurchaseRequest.getText(), URLPurchaseRequest, JCNomorPurchaseRequest.getSelectedItem() + "-" + "PR" + ".PDF");
-                        if (Berhasil) {
-                            Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota, JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF");
-                            if (Berhasil) {
-                                Berhasil = multiInsert.Excute("DELETE FROM `tbbarangmasukdetail` WHERE `NomorBarangMasuk` = '" + JTNomorBarangMasuk.getText() + "'", null);
+                       // if (Berhasil) {
+                            //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota, JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF");
+                            //if (Berhasil) {
+                                //Berhasil = multiInsert.Excute("DELETE FROM `tbbarangmasukdetail` WHERE `NomorBarangMasuk` = '" + JTNomorBarangMasuk.getText() + "'", null);
                                 if (Berhasil) {
                                     for (int i = 0; i < JTable.getRowCount(); i++) {
                                         Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 0) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 3) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 2) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 1) + "'),'" + JTable.getValueAt(i, 4).toString().replace(".", "") + "','" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 7) + "','" + JTable.getValueAt(i, 8) + "')", null);
-                                    }
-                                }
+                                    //}
+                                //}
                             }
                         }
                     }
