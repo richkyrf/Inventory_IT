@@ -61,4 +61,6 @@ public class Var {
     public static LaporanBarangKeluar laporanBarangKeluar;
     public static LaporanService laporanService;
     public static LaporanPenyesuaianStok laporanPenyesuaianStok;
+    public static LaporanStokBarang laporanStokBarang;
+    public static LaporanTransaksi laporanTransaksi;
 }

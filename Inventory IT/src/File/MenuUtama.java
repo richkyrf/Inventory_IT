@@ -85,6 +85,9 @@ public class MenuUtama extends javax.swing.JFrame {
         JMILaporanService = new javax.swing.JMenuItem();
         SLaporan3 = new javax.swing.JPopupMenu.Separator();
         JMILaporanBarangRusak = new javax.swing.JMenuItem();
+        SLaporan4 = new javax.swing.JPopupMenu.Separator();
+        JMIStokBarang = new javax.swing.JMenuItem();
+        JMITransaksi = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -396,6 +399,23 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
         JMLaporan.add(JMILaporanBarangRusak);
+        JMLaporan.add(SLaporan4);
+
+        JMIStokBarang.setText("Stok Barang");
+        JMIStokBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIStokBarangActionPerformed(evt);
+            }
+        });
+        JMLaporan.add(JMIStokBarang);
+
+        JMITransaksi.setText("Transaksi");
+        JMITransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMITransaksiActionPerformed(evt);
+            }
+        });
+        JMLaporan.add(JMITransaksi);
 
         JMenuBar.add(JMLaporan);
 
@@ -717,6 +737,24 @@ public class MenuUtama extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JMILaporanPenyesuaianStokActionPerformed
 
+    private void JMIStokBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIStokBarangActionPerformed
+        if (GlobalVar.Var.laporanStokBarang == null) {
+            GlobalVar.Var.laporanStokBarang = new LaporanStokBarang();
+        } else {
+            GlobalVar.Var.laporanStokBarang.setState(NORMAL);
+            GlobalVar.Var.laporanStokBarang.toFront();
+        }
+    }//GEN-LAST:event_JMIStokBarangActionPerformed
+
+    private void JMITransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMITransaksiActionPerformed
+        if (GlobalVar.Var.laporanTransaksi == null) {
+            GlobalVar.Var.laporanTransaksi = new LaporanTransaksi();
+        } else {
+            GlobalVar.Var.laporanTransaksi.setState(NORMAL);
+            GlobalVar.Var.laporanTransaksi.toFront();
+        }
+    }//GEN-LAST:event_JMITransaksiActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -788,7 +826,9 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenuItem JMIProsesPurchaseRequest;
     private javax.swing.JMenuItem JMIProsesService;
     private javax.swing.JMenuItem JMIResetPasswordUser;
+    private javax.swing.JMenuItem JMIStokBarang;
     private javax.swing.JMenuItem JMITambahUser;
+    private javax.swing.JMenuItem JMITransaksi;
     private javax.swing.JMenu JMLaporan;
     private javax.swing.JMenu JMList;
     private javax.swing.JMenu JMMaster;
@@ -798,6 +838,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator SLaporan1;
     private javax.swing.JPopupMenu.Separator SLaporan2;
     private javax.swing.JPopupMenu.Separator SLaporan3;
+    private javax.swing.JPopupMenu.Separator SLaporan4;
     private javax.swing.JPopupMenu.Separator SList1;
     private javax.swing.JPopupMenu.Separator SList2;
     private javax.swing.JPopupMenu.Separator SMaster1;
