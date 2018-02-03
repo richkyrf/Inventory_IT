@@ -140,9 +140,8 @@ public class BarangMasuk extends javax.swing.JFrame {
         dRunSelctOne.seterorm("Gagal Panggil Data Edit");
         dRunSelctOne.setQuery("SELECT `IdBarangMasuk`, `NomorBarangMasuk`, `TanggalBarangMasuk`, `NomorPurchaseRequest`, `NamaVendor`, `UrlPurchaseRequest`, `UrlNotaBarangMasuk`, a.`Keterangan` FROM `tbbarangmasuk`a JOIN `tbmvendor`b ON a.`IdVendor`=b.`IdVendor` WHERE `IdBarangMasuk` = '" + idEdit + "' ");
         ArrayList<String> list = dRunSelctOne.excute();
-        JTNomorBarangMasuk.setText(list.get(1));
-        JDTanggal.setDate(FDateF.strtodate(list.get(2), "yyyy-MM-dd"));
-        JCNomorPurchaseRequest.setSelectedItem(list.get(3));
+        JTNomorBarangMasuk.setText(list.get(2));
+        JDTanggal.setDate(FDateF.strtodate(list.get(3), "yyyy-MM-dd"));
         JCNomorPurchaseRequest.setSelectedItem(list.get(4));
         JCNamaVendor.setSelectedItem(list.get(5));
         JTUrlBuktiPurchaseRequest.setText(list.get(6));
