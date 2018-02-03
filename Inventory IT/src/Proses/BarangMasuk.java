@@ -83,10 +83,7 @@ public class BarangMasuk extends javax.swing.JFrame {
     }
 
     boolean checkUbah() {
-        if (JCNomorPurchaseRequest.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(this, "Nomor Purchase Request Tidak Boleh Kosong");
-            return false;
-        } else if (JCNamaVendor.getSelectedIndex() == 0) {
+        if (JCNamaVendor.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(this, "Nama Vendor Tidak Boleh Kosong");
             return false;
         } else if (JTNomorBarangMasuk.getText().replace(" ", "").isEmpty()) {
