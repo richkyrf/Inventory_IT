@@ -271,6 +271,10 @@ public class BarangMasuk extends javax.swing.JFrame {
 
         JTNamaBarang.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTNamaBarang.setNextFocusableComponent(JTSerialNumber);
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JTNamaBarang, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         JTNamaBarang.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JTNamaBarangKeyPressed(evt);
@@ -377,7 +381,7 @@ public class BarangMasuk extends javax.swing.JFrame {
 
         JBUbahDetail.setText("Ubah");
 
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JBUbahDetail, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JBUbahDetail, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
         JBUbahDetail.addActionListener(new java.awt.event.ActionListener() {
@@ -413,6 +417,10 @@ public class BarangMasuk extends javax.swing.JFrame {
         });
 
         JBSearchNamaBarang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/Search.png"))); // NOI18N
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JBSearchNamaBarang, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         JBSearchNamaBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBSearchNamaBarangActionPerformed(evt);
@@ -474,6 +482,10 @@ public class BarangMasuk extends javax.swing.JFrame {
         JTKeterangan.setForeground(new java.awt.Color(102, 102, 102));
         JTKeterangan.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTKeterangan.setNextFocusableComponent(JTSerialNumber);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JTKeterangan, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         JTKeterangan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JTKeteranganKeyPressed(evt);
@@ -484,6 +496,10 @@ public class BarangMasuk extends javax.swing.JFrame {
         JTSerialNumber.setForeground(new java.awt.Color(102, 102, 102));
         JTSerialNumber.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTSerialNumber.setNextFocusableComponent(JTSerialNumber);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JTSerialNumber, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
         JTSerialNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTSerialNumberActionPerformed(evt);
@@ -494,6 +510,9 @@ public class BarangMasuk extends javax.swing.JFrame {
                 JTSerialNumberKeyPressed(evt);
             }
         });
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JTJumlahBarang, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
 
         JCNomorPurchaseRequest.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih No Purchase Request --" }));
         JCNomorPurchaseRequest.load("SELECT '-- Pilih No Purchase Request --' AS 'NomorPurchaseRequest' UNION SELECT `NomorPurchaseRequest` FROM (SELECT X.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as 'JumlahX', IFNULL(Y.`Jumlah`,0) as 'JumlahY' FROM `tbpurchaserequestdetail` as X LEFT JOIN (SELECT b.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as 'Jumlah' FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangMasuk` WHERE 1 GROUP BY b.`NomorPurchaseRequest`) as Y ON X.`NomorPurchaserequest`=Y.`NomorPurchaseRequest` WHERE 1 GROUP BY `NomorPurchaseRequest` ) t1 WHERE `JumlahX`!=`JumlahY` ");
@@ -519,6 +538,9 @@ public class BarangMasuk extends javax.swing.JFrame {
         jtextF14.setText("Harga");
         jtextF14.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jtextF14.setEnabled(false);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JTHargaBarang, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
 
         HapusTable.setText("Hapus");
 
@@ -1294,11 +1316,14 @@ public class BarangMasuk extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Berhasil Tambah Data Barang Masuk");
                 multiInsert.Commit();
                 multiInsert.closecon();
-                RefreshAll();
                 if (tutup) {
                     dispose();
-                }
+                } else {
+                RefreshAll();
                 setNomorBarangMasuk();
+                    JCNomorPurchaseRequest.load("SELECT '-- Pilih No Purchase Request --' AS 'NomorPurchaseRequest' UNION SELECT `NomorPurchaseRequest` FROM (SELECT X.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as 'JumlahX', IFNULL(Y.`Jumlah`,0) as 'JumlahY' FROM `tbpurchaserequestdetail` as X LEFT JOIN (SELECT b.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as 'Jumlah' FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangMasuk` WHERE 1 GROUP BY b.`NomorPurchaseRequest`) as Y ON X.`NomorPurchaserequest`=Y.`NomorPurchaseRequest` WHERE 1 GROUP BY `NomorPurchaseRequest` ) t1 WHERE `JumlahX`!=`JumlahY` ");
+                    JCNomorPurchaseRequest.requestFocus();
+                }
             }
         }
     }

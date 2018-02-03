@@ -343,6 +343,9 @@
           <ComponentRef name="JTSerialNumber"/>
         </Property>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JTNamaBarang" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTNamaBarangKeyPressed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTNamaBarangKeyReleased"/>
@@ -570,6 +573,9 @@
           <Image iconType="3" name="/Resource/Search.png"/>
         </Property>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JBSearchNamaBarang" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBSearchNamaBarangActionPerformed"/>
       </Events>
@@ -690,6 +696,9 @@
           <ComponentRef name="JTSerialNumber"/>
         </Property>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JTKeterangan" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTKeteranganKeyPressed"/>
       </Events>
@@ -710,6 +719,9 @@
           <ComponentRef name="JTSerialNumber"/>
         </Property>
       </Properties>
+      <BindingProperties>
+        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JTSerialNumber" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTSerialNumberActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTSerialNumberKeyPressed"/>
@@ -720,6 +732,9 @@
       </AuxValues>
     </Component>
     <Component class="KomponenGUI.JRibuanTextField" name="JTJumlahBarang">
+      <BindingProperties>
+        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JTJumlahBarang" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
     </Component>
     <Component class="KomponenGUI.JcomboboxF" name="JCNomorPurchaseRequest">
       <Properties>
@@ -756,6 +771,9 @@
       </Properties>
     </Component>
     <Component class="KomponenGUI.JRibuanTextField" name="JTHargaBarang">
+      <BindingProperties>
+        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JTHargaBarang" targetPath="enabled" updateStrategy="0" immediately="false"/>
+      </BindingProperties>
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="HapusTable">
       <Properties>
