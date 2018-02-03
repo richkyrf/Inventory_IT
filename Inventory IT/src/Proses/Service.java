@@ -352,11 +352,7 @@ public class Service extends javax.swing.JFrame {
     }//GEN-LAST:event_JBTambahActionPerformed
 
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
-        if (idEdit.equals("0")) {
-            GlobalVar.Var.tambahService.dispose();
-        } else {
-            GlobalVar.Var.editService.dispose();
-        }
+        dispose();
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
@@ -578,8 +574,10 @@ public class Service extends javax.swing.JFrame {
             Update update = new LSubProces.Update();
             boolean ubah = update.Ubah("UPDATE `tbservice` SET `IdBarangService`=(SELECT `IdBarangService` FROM `tbmbarangservice` AS A JOIN `tbmjenisbarangservice` AS B ON A.`IdJenisBarangService`=B.`IdJenisBarangService` WHERE `JenisBarangService`='" + JCJenisBarangService.getSelectedItem() + "' AND `NamaBarangService`='" + JCNamaBarangService.getSelectedItem() + "'), `TanggalService`='" + FDateF.datetostr(JDTanggalService.getDate(), "yyyy-MM-dd") + "', `TanggalServiceSelanjutnya`='" + FDateF.datetostr(JDTanggalServiceSelanjutnya.getDate(), "yyyy-MM-dd") + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdService`=" + idEdit, "Ubah Data Service", this);
             if (ubah) {
-                GlobalVar.Var.editService.dispose();
-                GlobalVar.Var.listService.load();
+                dispose();
+                if (GlobalVar.Var.listService != null) {
+                    GlobalVar.Var.listService.load();
+                }
             }
         }
     }

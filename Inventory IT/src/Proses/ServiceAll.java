@@ -193,7 +193,7 @@ public class ServiceAll extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
-        GlobalVar.Var.serviceAll.dispose();
+        dispose();
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBServiceActionPerformed
@@ -303,8 +303,10 @@ public class ServiceAll extends javax.swing.JFrame {
                 multiInsert.Commit();
                 multiInsert.closecon();
                 JOptionPane.showMessageDialog(this, "Berhasil Service", "Information", JOptionPane.INFORMATION_MESSAGE);
-                GlobalVar.Var.serviceAll.dispose();
-                GlobalVar.Var.listService.load();
+                dispose();
+                if(GlobalVar.Var.listService != null){
+                    GlobalVar.Var.listService.load();
+                }
             } else {
                 multiInsert.rollback();
                 multiInsert.closecon();
