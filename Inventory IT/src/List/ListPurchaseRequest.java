@@ -43,7 +43,7 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
         JBKembali = new KomponenGUI.JbuttonF();
         JBRefresh = new KomponenGUI.JbuttonF();
         JBTambah = new KomponenGUI.JbuttonF();
-        JBUbah = new KomponenGUI.JbuttonF();
+        JBDetail = new KomponenGUI.JbuttonF();
         JBHapus = new KomponenGUI.JbuttonF();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,10 +74,10 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
             }
         });
 
-        JBUbah.setText("Ubah");
-        JBUbah.addActionListener(new java.awt.event.ActionListener() {
+        JBDetail.setText("Detail");
+        JBDetail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBUbahActionPerformed(evt);
+                JBDetailActionPerformed(evt);
             }
         });
 
@@ -104,11 +104,11 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)))
-                .addContainerGap())
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +118,7 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBUbah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBDetail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBHapus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -128,9 +128,9 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
+    private void JBDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBDetailActionPerformed
         ubah();
-    }//GEN-LAST:event_JBUbahActionPerformed
+    }//GEN-LAST:event_JBDetailActionPerformed
 
     private void JBRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRefreshActionPerformed
         load();
@@ -230,11 +230,11 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private KomponenGUI.JbuttonF JBDetail;
     private KomponenGUI.JbuttonF JBHapus;
     private KomponenGUI.JbuttonF JBKembali;
     private KomponenGUI.JbuttonF JBRefresh;
     private KomponenGUI.JbuttonF JBTambah;
-    private KomponenGUI.JbuttonF JBUbah;
     private KomponenGUI.JcomCari JComCari;
     // End of variables declaration//GEN-END:variables
 }

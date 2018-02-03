@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PurchaseRequest" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
 	<property name="ireport.zoom" value="1.4641000000000015"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="144"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="Title" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["Laporan Permintaan Barang"]]></defaultValueExpression>
 	</parameter>
@@ -51,7 +51,7 @@
 				<textFieldExpression><![CDATA[$P{NomorPurchaseRequest}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="374" y="30" width="47" height="20" uuid="8252be0d-9662-43f4-93ee-4375507bfbe3"/>
+				<reportElement x="359" y="30" width="49" height="20" uuid="8252be0d-9662-43f4-93ee-4375507bfbe3"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -59,13 +59,13 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Nomor :]]></text>
+				<text><![CDATA[Nomor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="49" width="62" height="20" uuid="aea97aa9-f3dc-44c0-aa89-7f69acdf34c4"/>
+				<reportElement x="359" y="49" width="49" height="20" uuid="aea97aa9-f3dc-44c0-aa89-7f69acdf34c4"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -73,10 +73,10 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Tanggal :]]></text>
+				<text><![CDATA[Tanggal]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="420" y="49" width="70" height="20" uuid="9615bc44-11fc-48ad-bb57-1bb61c182ff1"/>
@@ -103,7 +103,7 @@
 				<textElement verticalAlignment="Middle">
 					<font fontName="Verdana" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Jl. Serunai Malam III no. 88 A Kec. Kotabaru, Jambi]]></text>
+				<text><![CDATA[Jl. Serunai Malam III No. 88 A Kec. Kotabaru, Jambi]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="143" width="57" height="20" uuid="46a80a5d-1cfd-469a-96fd-3d573a136a94"/>
@@ -156,6 +156,34 @@
 					<font fontName="Verdana" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(0741) 20845 / 27653]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="30" width="14" height="20" uuid="21808408-b6d7-466f-9b3e-c135712dcf51"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="49" width="14" height="20" uuid="64baded0-5196-4b8d-a4e4-573357d02e01"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
