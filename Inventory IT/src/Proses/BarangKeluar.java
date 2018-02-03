@@ -391,11 +391,7 @@ public class BarangKeluar extends javax.swing.JFrame {
     }//GEN-LAST:event_JBTambahActionPerformed
 
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
-        if (idEdit.equals("0")) {
-            GlobalVar.Var.tambahBarangKeluar.dispose();
-        } else {
-            GlobalVar.Var.editBarangKeluar.dispose();
-        }
+        dispose();
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JTKeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKeteranganKeyPressed
@@ -659,8 +655,10 @@ public class BarangKeluar extends javax.swing.JFrame {
             Update update = new LSubProces.Update();
             boolean ubah = update.Ubah("UPDATE `tbbarangkeluar` SET `TanggalBarangKeluar`='" + FDateF.datetostr(JDTanggalBarangKeluar.getDate(), "yyyy-MM-dd") + "', `IdKaryawan`=(SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), `JumlahBarang`='" + JRJumlahBarangKeluar.getInt() + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdBarangKeluar`=" + idEdit, "Ubah Data Barang Keluar", this);
             if (ubah) {
-                GlobalVar.Var.editBarangKeluar.dispose();
-                GlobalVar.Var.listBarangKeluar.load();
+                dispose();
+                if (GlobalVar.Var.listBarangKeluar != null) {
+                    GlobalVar.Var.listBarangKeluar.load();
+                }
             }
         }
     }

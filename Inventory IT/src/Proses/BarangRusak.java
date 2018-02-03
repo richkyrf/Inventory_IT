@@ -373,11 +373,7 @@ public class BarangRusak extends javax.swing.JFrame {
     }//GEN-LAST:event_JBTambahActionPerformed
 
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
-        if (idEdit.equals("0")) {
-            GlobalVar.Var.tambahBarangRusak.dispose();
-        } else {
-            GlobalVar.Var.editBarangRusak.dispose();
-        }
+        dispose();
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
@@ -469,7 +465,7 @@ public class BarangRusak extends javax.swing.JFrame {
     private void JBNamaPemakaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNamaPemakaiActionPerformed
         if (GlobalVar.Var.tambahMasterKaryawan == null) {
             GlobalVar.Var.tambahMasterKaryawan = new MasterKaryawan("0");
-        }else {
+        } else {
             GlobalVar.Var.tambahMasterKaryawan.setState(NORMAL);
             GlobalVar.Var.tambahMasterKaryawan.toFront();
         }
@@ -615,8 +611,10 @@ public class BarangRusak extends javax.swing.JFrame {
             Update update = new LSubProces.Update();
             boolean ubah = update.Ubah("UPDATE `tbbarangrusak` SET `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "' AND `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "' AND `NamaBarang`='" + JCNamaBarang.getSelectedItem() + "'), `IdKaryawan`=(SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), `TanggalBeli`='" + FDateF.datetostr(JDTanggalBeli.getDate(), "yyyy-MM-dd") + "', `TanggalRusak`='" + FDateF.datetostr(JDTanggalRusak.getDate(), "yyyy-MM-dd") + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdBarangRusak`=" + idEdit, "Ubah Data Barang Rusak", this);
             if (ubah) {
-                GlobalVar.Var.editBarangRusak.dispose();
-                GlobalVar.Var.listBarangRusak.load();
+                dispose();
+                if (GlobalVar.Var.listBarangRusak != null) {
+                    GlobalVar.Var.listBarangRusak.load();
+                }
             }
         }
     }
