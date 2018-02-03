@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="Title" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["Laporan Master Barang"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["Laporan Service"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="PrintedBy" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["Di Print Oleh Jack 01/01/2015 12:00"]]></defaultValueExpression>
@@ -16,10 +16,10 @@
 	<parameter name="KategoriBarang" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="NamaBarang" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="JenisService" class="java.lang.String" isForPrompting="false"/>
-	<parameter name="TanggalRusakAwal" class="java.lang.String" isForPrompting="false">
+	<parameter name="TanggalServiceAwal" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["01/01/2010"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="TanggalRusakAkhir" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="TanggalServiceAkhir" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
 		<![CDATA[SELECT A.`IdService` AS 'ID', `JenisService` AS 'Jenis Service', `JenisBarangService` AS 'Jenis Barang Service', `NamaBarangService` AS 'Nama Barang Service', DATE_FORMAT(`TanggalService`, '%d/%m/%Y') AS 'Tanggal Service', DATE_FORMAT(`TanggalServiceSelanjutnya`, '%d/%m/%Y') AS 'Tanggal Service Selanjutnya', A.`Keterangan`, 0 AS 'Pilih' FROM `tbservice` AS A JOIN `tbmjenisservice` AS B ON A.`IdJenisService`=B.`IdJenisService` JOIN `tbmbarangservice` AS C ON A.`IdBarangService`=C.`IdBarangService` JOIN `tbmjenisbarangservice` AS D ON C.`IdJenisBarangService`=D.`IdJenisBarangService` WHERE 1 $P!{Where} ORDER BY `JenisService`, `JenisBarangService`, `NamaBarangService`]]>
 	</queryString>
@@ -207,23 +207,23 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="127" y="37" width="75" height="20" uuid="9b30db18-a281-401d-8b04-fa8cd3eb5374"/>
+				<reportElement x="127" y="37" width="55" height="20" uuid="9b30db18-a281-401d-8b04-fa8cd3eb5374"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{TanggalRusakAwal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{TanggalServiceAwal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="209" y="37" width="75" height="20" uuid="7cd0f35c-1b65-40ae-a981-fc22e272bfaf"/>
+				<reportElement x="210" y="37" width="55" height="20" uuid="7cd0f35c-1b65-40ae-a981-fc22e272bfaf"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{TanggalRusakAkhir}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{TanggalServiceAkhir}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="178" y="37" width="30" height="20" uuid="72e86bf5-65d9-4634-89d2-9eb6656b1b5c"/>
+				<reportElement x="181" y="37" width="30" height="20" uuid="72e86bf5-65d9-4634-89d2-9eb6656b1b5c"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -367,7 +367,7 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Jenis Service}]]></textFieldExpression>
@@ -381,7 +381,7 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Jenis Barang Service}]]></textFieldExpression>
@@ -395,7 +395,7 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nama Barang Service}]]></textFieldExpression>
@@ -437,7 +437,7 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Keterangan}]]></textFieldExpression>
@@ -447,7 +447,7 @@
 	<pageFooter>
 		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement x="429" y="0" width="47" height="20" uuid="960269a8-3098-4d48-bf11-6a572c797445"/>
+				<reportElement x="430" y="0" width="47" height="20" uuid="960269a8-3098-4d48-bf11-6a572c797445"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<text><![CDATA[Halaman]]></text>
 			</staticText>
@@ -457,12 +457,12 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="476" y="0" width="29" height="20" uuid="d7202089-af22-4cea-88c8-2be27f8e5ab5"/>
+				<reportElement x="477" y="0" width="29" height="20" uuid="d7202089-af22-4cea-88c8-2be27f8e5ab5"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="505" y="0" width="20" height="20" uuid="729fdb1e-157b-4106-98e0-d966ed7e0824"/>
+				<reportElement x="506" y="0" width="20" height="20" uuid="729fdb1e-157b-4106-98e0-d966ed7e0824"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<text><![CDATA[Dari]]></text>
 			</staticText>

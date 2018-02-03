@@ -6,11 +6,9 @@
 package Laporan;
 
 import KomponenGUI.FDateF;
-import LSubProces.DRunSelctOne;
 import LSubProces.FLaporan;
 import LSubProces.History;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
@@ -30,6 +28,7 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        JCJenisBarang.requestFocus();
     }
 
     void print() {
@@ -65,16 +64,16 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
                 namaVendor = "";
                 hashs.put("NamaVendor", "Semua Vendor");
             }
-            hashs.put("Title", "LAPORAN DETAIL BARANG MASUK");
+            hashs.put("Title", "Laporan Barang Masuk");
             hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
             hashs.put("FormatTgl1", FDateF.datetostr(JDTanggalBarangMasukAwal.getDate(), "dd/MM/yyyy"));
             hashs.put("FormatTgl2", FDateF.datetostr(JDTanggalBarangMasukAkhir.getDate(), "dd/MM/yyyy"));
             hashs.put("Where", " AND `TanggalBarangMasuk` BETWEEN '" + FDateF.datetostr(JDTanggalBarangMasukAwal.getDate(), "yyyy-MM-dd") + "' and '" + FDateF.datetostr(JDTanggalBarangMasukAkhir.getDate(), "yyyy-MM-dd") + "' " + jenisBarang + kategoriBarang + namaBarang + namaVendor);
             fLaporan.sethashmap(hashs);
-            fLaporan.setfilename("LaporanDetailBarangMasuk");
+            fLaporan.setfilename("LaporanBarangMasuk");
             fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
             fLaporan.excute();
-            History.simpanhistory(GlobalVar.VarL.username, "LaporanDetailBarangMasuk");
+            History.simpanhistory(GlobalVar.VarL.username, "Melihat Laporan Barang Masuk");
         }
     }
 
@@ -108,6 +107,11 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
         jbuttonF1 = new KomponenGUI.JbuttonF();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jlableF1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlableF1.setText("LAPORAN BARANG MASUK");
@@ -314,6 +318,10 @@ public class LaporanBarangMasuk extends javax.swing.JFrame {
             JCNamaVendor.requestFocus();
         }
     }//GEN-LAST:event_JCNamaBarangKeyReleased
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GlobalVar.Var.laporanBarangMasuk = null;
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

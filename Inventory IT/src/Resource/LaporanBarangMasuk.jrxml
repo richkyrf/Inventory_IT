@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanBarangMasukDetail" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
-	<property name="ireport.zoom" value="1.6105100000000012"/>
-	<property name="ireport.x" value="333"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanBarangMasuk" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
+	<property name="ireport.zoom" value="1.0000000000000004"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="Title" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["Laporan Permintaan Barang"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["Laporan Barang Masuk"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="PrintedBy" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["Di Print Oleh Jack 01/01/2015 12:00"]]></defaultValueExpression>
@@ -28,12 +28,15 @@
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT `TanggalPurchaseRequest`, a.`NomorPurchaseRequest`, `NomorKolom`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, `JumlahBarang`, `HargaBarang`, a.`Keterangan` FROM `tbpurchaserequestdetail`a JOIN `tbpurchaserequest`b ON a.`NomorPurchaseRequest`=b.`NomorPurchaseRequest`  JOIN `tbmbarang`c ON a.`IdBarang`=c.`IdBarang` JOIN `tbmkategoribarang`d ON c.`IdKategoriBarang`=d.`IdKategoriBarang` JOIN `tbmjenisbarang`e ON d.`IdJenisBarang`=e.`IdJenisBarang` WHERE 1 ORDER BY a.`NomorPurchaseRequest` DESC, `NomorKolom`]]>
+		<![CDATA[SELECT `TanggalBarangMasuk`, `NomorPurchaseRequest`, a.`NomorBarangMasuk`, `NomorKolom`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, SUM(`JumlahBarang`), `HargaBarang`, `SerialNumber`, a.`Keterangan` FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangMasuk`  JOIN `tbmbarang`c ON a.`IdBarang`=c.`IdBarang` JOIN `tbmkategoribarang`d ON c.`IdKategoriBarang`=d.`IdKategoriBarang` JOIN `tbmjenisbarang`e ON d.`IdJenisBarang`=e.`IdJenisBarang` WHERE 1 $P!{Where} GROUP BY a.`IdBarang`, a.`NomorBarangMasuk` ORDER BY a.`NomorBarangMasuk` DESC, `NomorKolom`]]>
 	</queryString>
-	<field name="TanggalPurchaseRequest" class="java.sql.Date">
+	<field name="TanggalBarangMasuk" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="NomorPurchaseRequest" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NomorBarangMasuk" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="NomorKolom" class="java.lang.Integer">
@@ -48,10 +51,11 @@
 	<field name="NamaBarang" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="JumlahBarang" class="java.lang.Integer">
+	<field name="SUM(`JumlahBarang`)" class="java.math.BigDecimal"/>
+	<field name="HargaBarang" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="HargaBarang" class="java.lang.Integer">
+	<field name="SerialNumber" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Keterangan" class="java.lang.String">
@@ -61,7 +65,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="111" splitType="Stretch">
+		<band height="106" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="802" height="30" uuid="5c0fbdc4-2ef8-4c98-a95f-1bb4dd356913"/>
 				<box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="5">
@@ -77,14 +81,14 @@
 				<textFieldExpression><![CDATA[$P{Title}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="38" width="73" height="20" uuid="31e76b57-dfab-4923-b2f2-984ec4872d26"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+				<reportElement x="93" y="38" width="55" height="20" uuid="31e76b57-dfab-4923-b2f2-984ec4872d26"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FormatTgl1}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="38" width="100" height="20" uuid="84aeef9c-cdca-4241-8477-76f1bba64dab"/>
+				<reportElement x="0" y="38" width="83" height="20" uuid="84aeef9c-cdca-4241-8477-76f1bba64dab"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -92,69 +96,13 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Periode]]></text>
+				<text><![CDATA[Tanggal Masuk]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="38" width="10" height="20" uuid="cf1c5e26-94af-4152-bc25-aa9df40785bf"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
-					<pen lineWidth="0.0"/>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
-				</textElement>
-				<text><![CDATA[:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="58" width="100" height="20" uuid="48f67a6a-f604-46b9-bf3e-63025dce6e08"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
-					<pen lineWidth="0.0"/>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Jenis Barang]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="73" width="100" height="20" uuid="069b455a-58ff-4e0c-8df2-3ddb93bbe0e2"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
-					<pen lineWidth="0.0"/>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Kategori Barang]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="88" width="100" height="20" uuid="3ab484b3-4d0a-4431-a9f8-598c1782c538"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
-					<pen lineWidth="0.0"/>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Nama Barang]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="184" y="38" width="50" height="20" uuid="49fef4b6-9408-4751-a829-a80c85853360"/>
+				<reportElement x="82" y="38" width="10" height="20" uuid="cf1c5e26-94af-4152-bc25-aa9df40785bf"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -163,19 +111,75 @@
 					<rightPen lineWidth="0.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Hingga]]></text>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="52" width="83" height="20" uuid="48f67a6a-f604-46b9-bf3e-63025dce6e08"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="66" width="83" height="20" uuid="069b455a-58ff-4e0c-8df2-3ddb93bbe0e2"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kategori Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="83" height="20" uuid="3ab484b3-4d0a-4431-a9f8-598c1782c538"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="38" width="25" height="20" uuid="49fef4b6-9408-4751-a829-a80c85853360"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[s/d]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="242" y="38" width="73" height="20" uuid="16ec6f0a-4f7a-4b02-a9eb-19a78acd30fd"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+				<reportElement x="174" y="38" width="55" height="20" uuid="16ec6f0a-4f7a-4b02-a9eb-19a78acd30fd"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FormatTgl2}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="100" y="58" width="10" height="20" uuid="393322c0-7d90-4742-89d4-7ad8079124ab"/>
+				<reportElement x="82" y="52" width="10" height="20" uuid="393322c0-7d90-4742-89d4-7ad8079124ab"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -183,13 +187,13 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="73" width="10" height="20" uuid="516515f1-e02e-41fb-9470-a3323551e7b1"/>
+				<reportElement x="82" y="66" width="10" height="20" uuid="516515f1-e02e-41fb-9470-a3323551e7b1"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -197,13 +201,13 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="88" width="10" height="20" uuid="d9dda4c7-3cbc-4a52-a33b-6a7fd180e4da"/>
+				<reportElement x="82" y="80" width="10" height="20" uuid="d9dda4c7-3cbc-4a52-a33b-6a7fd180e4da"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -211,46 +215,32 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="110" y="58" width="234" height="20" uuid="faa3a3b8-8bc1-4a72-a29d-dd686ac427f8"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+				<reportElement x="93" y="52" width="234" height="20" uuid="faa3a3b8-8bc1-4a72-a29d-dd686ac427f8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{JenisBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="73" width="234" height="20" uuid="3f2b3786-08c8-4680-b816-21bbecf75510"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+				<reportElement x="93" y="66" width="234" height="20" uuid="3f2b3786-08c8-4680-b816-21bbecf75510"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{KategoriBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="88" width="234" height="20" uuid="95295452-af4c-4dc4-8469-6eafa839cfc3"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+				<reportElement x="93" y="80" width="234" height="20" uuid="95295452-af4c-4dc4-8469-6eafa839cfc3"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{NamaBarang}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="229" y="38" width="10" height="20" uuid="6f758bf1-7547-4e72-b317-0256b73b1cd7"/>
-				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
-					<pen lineWidth="0.0"/>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
-				</textElement>
-				<text><![CDATA[:]]></text>
-			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -265,12 +255,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[NO]]></text>
+				<text><![CDATA[No]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="37" y="0" width="73" height="20" uuid="7056fe23-5144-4c53-bacb-efded690c229"/>
+				<reportElement x="37" y="0" width="65" height="20" uuid="7056fe23-5144-4c53-bacb-efded690c229"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -279,12 +269,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tanggal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="110" y="0" width="140" height="20" uuid="d2ddb9ef-93d1-419b-8b19-282983ef6ccb"/>
+				<reportElement x="102" y="0" width="125" height="20" uuid="d2ddb9ef-93d1-419b-8b19-282983ef6ccb"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -293,12 +283,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[No. PR]]></text>
+				<text><![CDATA[No. Purchase Request]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="250" y="0" width="80" height="20" uuid="fe4e552e-b407-44be-9fb6-007ec3daf8e0"/>
+				<reportElement x="227" y="0" width="75" height="20" uuid="350f2af4-8c1b-4857-96ed-d3c42fed1924"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -307,12 +297,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Jenis Barang]]></text>
+				<text><![CDATA[No. Masuk]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="330" y="0" width="80" height="20" uuid="9d158709-d01c-49f0-baeb-d23d8bfe1cec"/>
+				<reportElement x="302" y="0" width="80" height="20" uuid="fe4e552e-b407-44be-9fb6-007ec3daf8e0"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -321,12 +311,26 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="0" width="80" height="20" uuid="9d158709-d01c-49f0-baeb-d23d8bfe1cec"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Kategori Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="410" y="0" width="90" height="20" uuid="4430bb3b-e3ee-4937-a611-b108c2b97ee9"/>
+				<reportElement x="462" y="0" width="90" height="20" uuid="4430bb3b-e3ee-4937-a611-b108c2b97ee9"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -335,12 +339,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nama Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="500" y="0" width="50" height="20" uuid="1ffc1185-1382-4693-94bc-b049d177bb7e"/>
+				<reportElement x="552" y="0" width="41" height="20" uuid="1ffc1185-1382-4693-94bc-b049d177bb7e"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -349,12 +353,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" size="10" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jumlah]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="550" y="0" width="67" height="20" uuid="762ddaf4-2ff6-4176-8872-690de02f3cf5"/>
+				<reportElement x="593" y="0" width="67" height="20" uuid="762ddaf4-2ff6-4176-8872-690de02f3cf5"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -363,12 +367,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Harga]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="617" y="0" width="185" height="20" uuid="0ed757c8-24c2-4df8-b0e1-137f2e2b3471"/>
+				<reportElement x="660" y="0" width="76" height="20" uuid="390eb4e2-49d9-4f5a-8160-0bf0d7d71446"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -377,7 +381,21 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="736" y="0" width="66" height="20" uuid="0ed757c8-24c2-4df8-b0e1-137f2e2b3471"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Keterangan]]></text>
 			</staticText>
@@ -395,14 +413,14 @@
 						<bottomPen lineWidth="0.5"/>
 						<rightPen lineWidth="0.5"/>
 					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Verdana"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 				</textField>
 			</elementGroup>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="37" y="0" width="73" height="20" uuid="5a2030a6-f79d-4ab2-bba9-e14e156085fc"/>
+				<reportElement x="37" y="0" width="65" height="20" uuid="5a2030a6-f79d-4ab2-bba9-e14e156085fc"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -410,13 +428,13 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TanggalPurchaseRequest}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TanggalBarangMasuk}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="0" width="140" height="20" uuid="09364ce9-4621-4b62-8b85-ed778f5f7e20"/>
+				<reportElement x="102" y="0" width="125" height="20" uuid="09364ce9-4621-4b62-8b85-ed778f5f7e20"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -424,13 +442,13 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NomorPurchaseRequest}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="250" y="0" width="80" height="20" uuid="77db307d-9222-438f-a9c8-6d7ff9fef9d4"/>
+				<reportElement x="227" y="0" width="75" height="20" uuid="81566799-9796-4f20-8d20-f839a7231318"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -438,13 +456,27 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NomorBarangMasuk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="0" width="80" height="20" uuid="77db307d-9222-438f-a9c8-6d7ff9fef9d4"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{JenisBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="330" y="0" width="80" height="20" uuid="756ece35-37eb-46d2-834d-3ea96c17c117"/>
+				<reportElement x="382" y="0" width="80" height="20" uuid="756ece35-37eb-46d2-834d-3ea96c17c117"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -452,13 +484,13 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{KategoriBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="410" y="0" width="90" height="20" uuid="5db609ac-969f-4eeb-b5fc-b4aca1a7ef5b"/>
+				<reportElement x="462" y="0" width="90" height="20" uuid="5db609ac-969f-4eeb-b5fc-b4aca1a7ef5b"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -466,13 +498,13 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NamaBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="500" y="0" width="50" height="20" uuid="e2275e06-520e-4915-b598-0c6671b24ad9"/>
+				<reportElement x="552" y="0" width="41" height="20" uuid="e2275e06-520e-4915-b598-0c6671b24ad9"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -481,12 +513,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+					<font fontName="SansSerif"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{JumlahBarang}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{SUM(`JumlahBarang`)}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0">
-				<reportElement x="550" y="0" width="67" height="20" uuid="548b56d6-2f9d-4869-abaf-c68694872ef7"/>
+				<reportElement x="593" y="0" width="67" height="20" uuid="548b56d6-2f9d-4869-abaf-c68694872ef7"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -495,12 +527,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{HargaBarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="617" y="0" width="185" height="20" uuid="bdfd462b-fad4-46bc-97f7-d2bc94b1331f"/>
+				<reportElement x="660" y="0" width="76" height="20" uuid="faff7a3d-d9d7-4bae-92a4-ab8a541a57e4"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -508,35 +540,43 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SerialNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="736" y="0" width="66" height="20" uuid="bdfd462b-fad4-46bc-97f7-d2bc94b1331f"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Keterangan}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="593" y="0" width="20" height="20" uuid="21d55ccb-a7b1-4894-9202-965d638a91e2"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>
 		<band height="20" splitType="Stretch">
-			<staticText>
-				<reportElement x="607" y="0" width="20" height="20" uuid="960269a8-3098-4d48-bf11-6a572c797445"/>
-				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Hal]]></text>
-			</staticText>
-			<textField evaluationTime="Report">
-				<reportElement x="687" y="0" width="65" height="20" uuid="a2916fd1-0aae-47da-b52b-ea8c02b094ba"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="627" y="0" width="40" height="20" uuid="d7202089-af22-4cea-88c8-2be27f8e5ab5"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="667" y="0" width="20" height="20" uuid="729fdb1e-157b-4106-98e0-d966ed7e0824"/>
-				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Dari]]></text>
-			</staticText>
 			<textField>
 				<reportElement x="0" y="0" width="427" height="20" uuid="e39e21f6-9d23-4422-a54b-1d41958f946e"/>
 				<box leftPadding="5" rightPadding="5">
@@ -546,8 +586,38 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textElement verticalAlignment="Middle"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{PrintedBy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="676" y="0" width="47" height="20" uuid="78d0b895-8b86-48b0-96e1-9419a71c4b6e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Halaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="752" y="0" width="20" height="20" uuid="24ae32bc-a929-4712-8fa9-c9853bfa8057"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Dari]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="772" y="0" width="30" height="20" uuid="a1cb0e78-3c0f-414f-a597-823b830fe092"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="723" y="0" width="29" height="20" uuid="eaa32c9f-1c4e-4f71-988a-7925757e8b7c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>

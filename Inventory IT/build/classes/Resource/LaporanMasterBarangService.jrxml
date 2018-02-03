@@ -44,15 +44,15 @@
 				<reportElement x="0" y="38" width="129" height="20" uuid="a3a5a751-788f-4f8e-8635-16f96651105a"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jenis Barang Service :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="129" y="38" width="200" height="20" uuid="80565bea-0730-4f8b-a124-1b500503f701"/>
+				<reportElement x="112" y="38" width="200" height="20" uuid="80565bea-0730-4f8b-a124-1b500503f701"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{JenisBarangService}]]></textFieldExpression>
 			</textField>
@@ -70,7 +70,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No]]></text>
 			</staticText>
@@ -84,7 +84,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jenis Barang Service]]></text>
 			</staticText>
@@ -98,7 +98,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nama Barang Service]]></text>
 			</staticText>
@@ -112,7 +112,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Keterangan]]></text>
 			</staticText>
@@ -131,7 +131,7 @@
 						<rightPen lineWidth="0.5"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Verdana"/>
+						<font fontName="SansSerif"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 				</textField>
@@ -146,7 +146,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Jenis Barang Service}]]></textFieldExpression>
 			</textField>
@@ -160,7 +160,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nama Barang Service}]]></textFieldExpression>
 			</textField>
@@ -174,7 +174,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Verdana"/>
+					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Keterangan}]]></textFieldExpression>
 			</textField>
@@ -184,22 +184,30 @@
 		<band height="20" splitType="Stretch">
 			<staticText>
 				<reportElement x="429" y="0" width="47" height="20" uuid="960269a8-3098-4d48-bf11-6a572c797445"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
 				<text><![CDATA[Halaman]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
 				<reportElement x="525" y="0" width="30" height="20" uuid="a2916fd1-0aae-47da-b52b-ea8c02b094ba"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="476" y="0" width="29" height="20" uuid="d7202089-af22-4cea-88c8-2be27f8e5ab5"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="505" y="0" width="20" height="20" uuid="729fdb1e-157b-4106-98e0-d966ed7e0824"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
 				<text><![CDATA[Dari]]></text>
 			</staticText>
 			<textField>
@@ -211,7 +219,9 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{PrintedBy}]]></textFieldExpression>
 			</textField>
 		</band>

@@ -8,6 +8,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosed"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -134,7 +137,7 @@
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tanggal Masuk"/>
+        <Property name="text" type="java.lang.String" value="Tanggal PR"/>
       </Properties>
     </Component>
     <Component class="KomponenGUI.JlableF" name="jlableF3">
