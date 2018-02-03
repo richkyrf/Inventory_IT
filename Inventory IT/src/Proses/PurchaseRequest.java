@@ -37,7 +37,6 @@ public class PurchaseRequest extends javax.swing.JFrame {
      */
     public PurchaseRequest(Object id) {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         idEdit = id.toString();

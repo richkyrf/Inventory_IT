@@ -28,8 +28,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="JBKembali" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="JBUbah" min="-2" max="-2" attributes="0"/>
@@ -38,7 +38,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBTambahTutup" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jlableF4" min="-2" max="-2" attributes="0"/>
@@ -103,51 +103,50 @@
                       </Group>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlableF8" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jlableF2" max="32767" attributes="0"/>
-                                  <Component id="jlableF11" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jlableF2" min="-2" pref="56" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jlableF12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JCNamaVendor" min="-2" pref="280" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jbuttonF4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jlableF7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jlableF15" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JTUrlBuktiNota" min="-2" pref="187" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JBPilihUrlBuktiNota" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JBPilihUrlBuktiNota1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jlableF9" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JCNomorPurchaseRequest" min="-2" pref="280" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jbuttonF5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jlableF3" min="-2" pref="144" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jlableF14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JTUrlBuktiPurchaseRequest" min="-2" pref="187" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JBPilihUrlBuktiPurchaseRequest" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="JBPilihUrlBuktiPurchaseRequest1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jlableF9" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jlableF11" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlableF12" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="JCNamaVendor" min="-2" pref="280" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBTambahNamaVendor" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jlableF7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlableF15" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JTUrlBuktiNota" min="-2" pref="187" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBPilihUrlBuktiNota" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBPilihUrlBuktiNota1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="JCNomorPurchaseRequest" min="-2" pref="280" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBTambahNomorPurchaseRequest" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jlableF3" min="-2" pref="144" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlableF14" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JTUrlBuktiPurchaseRequest" min="-2" pref="187" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBPilihUrlBuktiPurchaseRequest" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JBPilihUrlBuktiPurchaseRequest1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
@@ -166,8 +165,11 @@
                           <Component id="JTNomorBarangMasuk" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jlableF8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -178,28 +180,24 @@
               <Component id="jlableF8" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlableF2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlableF9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlableF2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jlableF1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jlableF10" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JTNomorBarangMasuk" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JCNomorPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbuttonF5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JBTambahNomorPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jlableF3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jlableF14" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JTUrlBuktiPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBPilihUrlBuktiPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBPilihUrlBuktiPurchaseRequest1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlableF9" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jlableF11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jlableF12" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF13" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JCNamaVendor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbuttonF4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF15" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="JTUrlBuktiNota" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -207,8 +205,14 @@
                       <Component id="JBPilihUrlBuktiNota1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="JDTanggal" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="jlableF11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlableF12" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JCNamaVendor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBTambahNamaVendor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -597,12 +601,12 @@
         <Property name="text" type="java.lang.String" value=":"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="jbuttonF4">
+    <Component class="KomponenGUI.JbuttonF" name="JBTambahNamaVendor">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonF4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahNamaVendorActionPerformed"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JbuttonF" name="jbuttonF6">
@@ -719,12 +723,12 @@
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="JCNomorPurchaseRequest.load(&quot;SELECT &apos;-- Pilih No Purchase Request --&apos; AS &apos;NomorPurchaseRequest&apos; UNION SELECT `NomorPurchaseRequest` FROM (SELECT X.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as &apos;JumlahX&apos;, IFNULL(Y.`Jumlah`,0) as &apos;JumlahY&apos; FROM `tbpurchaserequestdetail` as X LEFT JOIN (SELECT b.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as &apos;Jumlah&apos; FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangMasuk` WHERE 1 GROUP BY b.`NomorPurchaseRequest`) as Y ON X.`NomorPurchaserequest`=Y.`NomorPurchaseRequest` WHERE 1 GROUP BY `NomorPurchaseRequest` ) t1 WHERE `JumlahX`!=`JumlahY` &quot;);"/>
       </AuxValues>
     </Component>
-    <Component class="KomponenGUI.JbuttonF" name="jbuttonF5">
+    <Component class="KomponenGUI.JbuttonF" name="JBTambahNomorPurchaseRequest">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonF5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTambahNomorPurchaseRequestActionPerformed"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JtextF" name="jtextF14">
