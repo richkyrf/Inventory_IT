@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanService" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanServiceExpired" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
 	<property name="ireport.zoom" value="1.1000000000000005"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="Title" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["Laporan Service"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["Laporan Service Jatuh Tempo"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="PrintedBy" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["Di Print Oleh Jack 01/01/2015 12:00"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="Where" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
-	</parameter>
-	<parameter name="JenisBarang" class="java.lang.String" isForPrompting="false"/>
-	<parameter name="KategoriBarang" class="java.lang.String" isForPrompting="false"/>
-	<parameter name="NamaBarang" class="java.lang.String" isForPrompting="false"/>
-	<parameter name="JenisService" class="java.lang.String" isForPrompting="false"/>
-	<parameter name="TanggalRusakAwal" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["01/01/2010"]]></defaultValueExpression>
-	</parameter>
-	<parameter name="TanggalRusakAkhir" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
-		<![CDATA[SELECT A.`IdService` AS 'ID', `JenisService` AS 'Jenis Service', `JenisBarangService` AS 'Jenis Barang Service', `NamaBarangService` AS 'Nama Barang Service', DATE_FORMAT(`TanggalService`, '%d/%m/%Y') AS 'Tanggal Service', DATE_FORMAT(`TanggalServiceSelanjutnya`, '%d/%m/%Y') AS 'Tanggal Service Selanjutnya', A.`Keterangan`, 0 AS 'Pilih' FROM `tbservice` AS A JOIN `tbmjenisservice` AS B ON A.`IdJenisService`=B.`IdJenisService` JOIN `tbmbarangservice` AS C ON A.`IdBarangService`=C.`IdBarangService` JOIN `tbmjenisbarangservice` AS D ON C.`IdJenisBarangService`=D.`IdJenisBarangService` WHERE `TanggalServiceSelanjutnya`<=CURDATE() ORDER BY `JenisService`, `JenisBarangService`, `NamaBarangService`]]>
+		<![CDATA[SELECT A.`IdService` AS 'ID', `JenisService` AS 'Jenis Service', `JenisBarangService` AS 'Jenis Barang Service', `NamaBarangService` AS 'Nama Barang Service', DATE_FORMAT(`TanggalService`, '%d/%m/%Y') AS 'Tanggal Service', DATE_FORMAT(`TanggalServiceSelanjutnya`, '%d/%m/%Y') AS 'Tanggal Service Selanjutnya', A.`Keterangan` FROM `tbservice` AS A JOIN `tbmjenisservice` AS B ON A.`IdJenisService`=B.`IdJenisService` JOIN `tbmbarangservice` AS C ON A.`IdBarangService`=C.`IdBarangService` JOIN `tbmjenisbarangservice` AS D ON C.`IdJenisBarangService`=D.`IdJenisBarangService` JOIN (SELECT MAX(`IdService`) AS 'IdService' FROM `tbservice` GROUP BY `IdBarangService`) AS E ON A.`IdService`=E.`IdService` WHERE `TanggalServiceSelanjutnya`<=CURDATE() ORDER BY `JenisService`, `JenisBarangService`, `NamaBarangService`]]>
 	</queryString>
 	<field name="ID" class="java.lang.Integer"/>
 	<field name="Jenis Service" class="java.lang.String"/>
@@ -32,7 +21,6 @@
 	<field name="Keterangan" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Pilih" class="java.lang.Long"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -124,7 +112,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tanggal Service]]></text>
+				<text><![CDATA[Tgl Service]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="403" y="0" width="73" height="32" uuid="59da584f-770d-4d26-8a3e-736422216cce"/>
@@ -183,7 +171,7 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Jenis Service}]]></textFieldExpression>
@@ -197,7 +185,7 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Jenis Barang Service}]]></textFieldExpression>
@@ -211,7 +199,7 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nama Barang Service}]]></textFieldExpression>
@@ -253,7 +241,7 @@
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Keterangan}]]></textFieldExpression>
@@ -263,7 +251,7 @@
 	<pageFooter>
 		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement x="429" y="0" width="47" height="20" uuid="960269a8-3098-4d48-bf11-6a572c797445"/>
+				<reportElement x="432" y="0" width="47" height="20" uuid="960269a8-3098-4d48-bf11-6a572c797445"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<text><![CDATA[Halaman]]></text>
 			</staticText>
@@ -273,27 +261,15 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="476" y="0" width="29" height="20" uuid="d7202089-af22-4cea-88c8-2be27f8e5ab5"/>
+				<reportElement x="478" y="0" width="29" height="20" uuid="d7202089-af22-4cea-88c8-2be27f8e5ab5"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="505" y="0" width="20" height="20" uuid="729fdb1e-157b-4106-98e0-d966ed7e0824"/>
+				<reportElement x="506" y="0" width="20" height="20" uuid="729fdb1e-157b-4106-98e0-d966ed7e0824"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<text><![CDATA[Dari]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="0" y="0" width="429" height="20" uuid="e39e21f6-9d23-4422-a54b-1d41958f946e"/>
-				<box leftPadding="5" rightPadding="5">
-					<pen lineWidth="0.0"/>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.0"/>
-				</box>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{PrintedBy}]]></textFieldExpression>
-			</textField>
 		</band>
 	</pageFooter>
 </jasperReport>

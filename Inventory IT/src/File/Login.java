@@ -6,10 +6,8 @@
 package File;
 
 import static File.EncMD5.getMD5;
-import KomponenGUI.FDateF;
 import LSubProces.DRunSelctOne;
 import LSubProces.FLaporan;
-import LSubProces.History;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.BindException;
@@ -17,7 +15,6 @@ import static java.net.InetAddress.getLocalHost;
 import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import static javax.swing.UIManager.setLookAndFeel;
@@ -178,20 +175,18 @@ public class Login extends javax.swing.JFrame {
     public static void main(String args[]) {
         if (Arrays.toString(args).equals("[-c]")) {
             DRunSelctOne dRunSelctOne = new DRunSelctOne();
-            dRunSelctOne.setQuery("SELECT A.`IdService` AS 'ID', `JenisService` AS 'Jenis Service', `JenisBarangService` AS 'Jenis Barang Service', `NamaBarangService` AS 'Nama Barang Service', DATE_FORMAT(`TanggalService`, '%d/%m/%Y') AS 'Tanggal Service', DATE_FORMAT(`TanggalServiceSelanjutnya`, '%d/%m/%Y') AS 'Tanggal Service Selanjutnya', A.`Keterangan`, 0 AS 'Pilih' FROM `tbservice` AS A JOIN `tbmjenisservice` AS B ON A.`IdJenisService`=B.`IdJenisService` JOIN `tbmbarangservice` AS C ON A.`IdBarangService`=C.`IdBarangService` JOIN `tbmjenisbarangservice` AS D ON C.`IdJenisBarangService`=D.`IdJenisBarangService` WHERE `TanggalServiceSelanjutnya`<=CURDATE() ORDER BY `JenisService`, `JenisBarangService`, `NamaBarangService`");
+            dRunSelctOne.setQuery("SELECT A.`IdService` AS 'ID', `JenisService` AS 'Jenis Service', `JenisBarangService` AS 'Jenis Barang Service', `NamaBarangService` AS 'Nama Barang Service', DATE_FORMAT(`TanggalService`, '%d/%m/%Y') AS 'Tanggal Service', DATE_FORMAT(`TanggalServiceSelanjutnya`, '%d/%m/%Y') AS 'Tanggal Service Selanjutnya', A.`Keterangan` FROM `tbservice` AS A JOIN `tbmjenisservice` AS B ON A.`IdJenisService`=B.`IdJenisService` JOIN `tbmbarangservice` AS C ON A.`IdBarangService`=C.`IdBarangService` JOIN `tbmjenisbarangservice` AS D ON C.`IdJenisBarangService`=D.`IdJenisBarangService` JOIN (SELECT MAX(`IdService`) AS 'IdService' FROM `tbservice` GROUP BY `IdBarangService`) AS E ON A.`IdService`=E.`IdService` WHERE `TanggalServiceSelanjutnya`<=CURDATE() ORDER BY `JenisService`, `JenisBarangService`, `NamaBarangService`");
             ArrayList<String> list = dRunSelctOne.excute();
             if (list.get(0) == null) {
                 System.exit(0);
             } else {
                 HashMap hashs = new HashMap();
-                hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
                 FLaporan fLaporan = new FLaporan();
-                hashs.put("Title", "LAPORAN SERVICE TELAH JATUH TEMPO");
+                hashs.put("Title", "Laporan Service Telah Jatuh Tempo");
                 fLaporan.sethashmap(hashs);
                 fLaporan.setfilename("LaporanServiceExpired");
                 fLaporan.setErorm("Gagal Menampilkan Laporan Service Telah Jatuh Tempo");
                 fLaporan.excute();
-                History.simpanhistory(GlobalVar.VarL.username, "Melihat Laporan Service Expired");
             }
         } else {
             try {

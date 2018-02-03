@@ -28,7 +28,7 @@ public class LaporanService extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Laporan Service");
         setVisible(true);
-        JCJenisBarangService.requestFocus();
+        JCJenisService.requestFocus();
     }
 
     /**
@@ -321,8 +321,8 @@ public class LaporanService extends javax.swing.JFrame {
             HashMap hashs = new HashMap();
             FLaporan fLaporan = new FLaporan();
             hashs.put("Title", "Laporan Service");
-            hashs.put("TanggalRusakAwal", FDateF.datetostr(JDTanggalServiceAwal.getDate(), "dd/MM/yyyy"));
-            hashs.put("TanggalRusakAkhir", FDateF.datetostr(JDTanggalServiceAkhir.getDate(), "dd/MM/yyyy"));
+            hashs.put("TanggalServiceAwal", FDateF.datetostr(JDTanggalServiceAwal.getDate(), "dd/MM/yyyy"));
+            hashs.put("TanggalServiceAkhir", FDateF.datetostr(JDTanggalServiceAkhir.getDate(), "dd/MM/yyyy"));
             if (JCJenisService.getSelectedIndex() == 0) {
                 jenisService = "";
                 hashs.put("JenisService", "Semua Jenis");
