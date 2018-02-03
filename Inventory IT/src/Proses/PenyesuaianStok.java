@@ -341,7 +341,7 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     }//GEN-LAST:event_JBTambahActionPerformed
 
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
-        GlobalVar.Var.tambahPenyesuaianStok.dispose();
+        dispose();
     }//GEN-LAST:event_JBKembaliActionPerformed
 
     private void JTKeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKeteranganKeyPressed
@@ -520,9 +520,10 @@ public class PenyesuaianStok extends javax.swing.JFrame {
                     GlobalVar.Var.listPenyesuaianStok.load();
                 }
                 if (tutup) {
-                    GlobalVar.Var.tambahPenyesuaianStok.dispose();
+                    dispose();
                 } else {
                     clearText();
+                    setNomorPenyesuaianStok();
                     JTCariBarang.requestFocus();
                 }
             }
@@ -530,7 +531,6 @@ public class PenyesuaianStok extends javax.swing.JFrame {
     }
 
     void clearText() {
-        setNomorPenyesuaianStok();
         JDTanggalPenyesuaianStok.setDate(new Date());
         JTJenisBarang.setText("");
         JTKategoriBarang.setText("");

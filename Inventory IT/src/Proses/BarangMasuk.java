@@ -1202,6 +1202,8 @@ public class BarangMasuk extends javax.swing.JFrame {
 
     void RefreshAll() {
         setNomorBarangMasuk();
+        JCNomorPurchaseRequest.setSelectedIndex(0);
+        JCNamaVendor.setSelectedIndex(0);
         JTAKeterangan.setText("");
         JTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
@@ -1345,6 +1347,9 @@ public class BarangMasuk extends javax.swing.JFrame {
                 multiInsert.closecon();
                 dispose();
                 RefreshAll();
+                if (GlobalVar.Var.listBarangMasuk != null){
+                    GlobalVar.Var.listBarangMasuk.load();
+                }
             }
         }
     }

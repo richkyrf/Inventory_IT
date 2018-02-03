@@ -1113,6 +1113,9 @@ public class PurchaseRequest extends javax.swing.JFrame {
                     print();
                 }
                 setNomorPurchaseRequest();
+                if (GlobalVar.Var.listPurchaseRequest != null){
+                    GlobalVar.Var.listPurchaseRequest.load();
+                }
             }
         }
     }
@@ -1150,6 +1153,9 @@ public class PurchaseRequest extends javax.swing.JFrame {
                 }
                 dispose();
                 RefreshAll();
+                if (GlobalVar.Var.listPurchaseRequest != null){
+                    GlobalVar.Var.listPurchaseRequest.load();
+                }
             }
         }
     }
