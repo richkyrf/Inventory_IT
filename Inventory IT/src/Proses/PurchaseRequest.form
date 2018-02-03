@@ -74,7 +74,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jlableF12" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JCVendor" min="-2" pref="280" max="-2" attributes="0"/>
+                              <Component id="JCNamaVendor" min="-2" pref="280" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jbuttonF4" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -177,7 +177,7 @@
                       <Component id="jlableF12" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF13" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlableF6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JCVendor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JCNamaVendor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jbuttonF4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="JDTanggal" min="-2" pref="30" max="-2" attributes="0"/>
@@ -269,9 +269,9 @@
         <Property name="text" type="java.lang.String" value="Penerima"/>
       </Properties>
     </Component>
-    <Component class="KomponenGUI.JcomboboxF" name="JCVendor">
+    <Component class="KomponenGUI.JcomboboxF" name="JCNamaVendor">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor" postCode="JCVendor.load(&quot;SELECT &apos;-- Pilih Nama Vendor --&apos; UNION SELECT `NamaVendor` FROM `tbmvendor` &quot;);">
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor" postCode="JCNamaVendor.load(&quot;SELECT &apos;-- Pilih Nama Vendor --&apos; UNION SELECT `NamaVendor` FROM `tbmvendor` &quot;);">
           <StringArray count="1">
             <StringItem index="0" value="-- Pilih Nama Vendor --"/>
           </StringArray>
@@ -281,7 +281,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCVendorKeyPressed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCNamaVendorKeyPressed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

@@ -338,10 +338,10 @@ public class MasterVendor extends javax.swing.JFrame {
                     GlobalVar.Var.listMasterVendor.load();
                 }
                 if (GlobalVar.Var.tambahPurchaseRequest != null) {
-                    GlobalVar.Var.tambahPurchaseRequest.JCVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
+                    GlobalVar.Var.tambahPurchaseRequest.JCNamaVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
                 }
                 if (GlobalVar.Var.editPurchaseRequest != null) {
-                    GlobalVar.Var.editPurchaseRequest.JCVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
+                    GlobalVar.Var.editPurchaseRequest.JCNamaVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
                 }
                 if (GlobalVar.Var.tambahBarangMasuk != null) {
                     GlobalVar.Var.tambahBarangMasuk.JCNamaVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
