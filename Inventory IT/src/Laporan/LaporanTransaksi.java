@@ -363,7 +363,7 @@ public class LaporanTransaksi extends javax.swing.JFrame {
                 hashs.put("NamaBarang", JCNamaBarang.getSelectedItem());
             }
             hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-            hashs.put("Where", " AND `Tanggal` BETWEEN '" + FDateF.datetostr(JDTanggalTransaksiAwal.getDate(), "yyyy-MM-dd") + "' AND '" + FDateF.datetostr(JDTanggalTransaksiAkhir.getDate(), "yyyy-MM-dd") + "'" + jenisBarang + kategoriBarang + namaBarang);
+            hashs.put("Where", " AND `TanggalXXXXXXXXXXXXXXXXX` BETWEEN '" + FDateF.datetostr(JDTanggalTransaksiAwal.getDate(), "yyyy-MM-dd") + "' AND '" + FDateF.datetostr(JDTanggalTransaksiAkhir.getDate(), "yyyy-MM-dd") + "'" + jenisBarang + kategoriBarang + namaBarang);
             fLaporan.sethashmap(hashs);
             fLaporan.setfilename("LaporanTransaksi");
             fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());

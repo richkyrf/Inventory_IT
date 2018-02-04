@@ -323,6 +323,24 @@
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="SLaporan2">
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanStokBarang">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Stok Barang"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanStokBarangActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="JMILaporanTransaksi">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Transaksi"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanTransaksiActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="SLaporan3">
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="JMILaporanService">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Service"/>
@@ -331,7 +349,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanServiceActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="SLaporan3">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="SLaporan4">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="JMILaporanBarangRusak">
               <Properties>
@@ -339,24 +357,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMILaporanBarangRusakActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="SLaporan4">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="JMIStokBarang">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Stok Barang"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMIStokBarangActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="JMITransaksi">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Transaksi"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMITransaksiActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

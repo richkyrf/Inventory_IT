@@ -362,7 +362,7 @@ public class LaporanStokBarang extends javax.swing.JFrame {
                 hashs.put("NamaBarang", JCNamaBarang.getSelectedItem());
             }
             hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-            hashs.put("Where", " AND `Tanggal` BETWEEN '" + FDateF.datetostr(JDTanggalStokAwal.getDate(), "yyyy-MM-dd") + "' AND '" + FDateF.datetostr(JDTanggalStokAkhir.getDate(), "yyyy-MM-dd") + "'" + jenisBarang + kategoriBarang + namaBarang);
+            hashs.put("Where", " AND `TanggalXXXXXXXXXXXXXXXXXX` BETWEEN '" + FDateF.datetostr(JDTanggalStokAwal.getDate(), "yyyy-MM-dd") + "' AND '" + FDateF.datetostr(JDTanggalStokAkhir.getDate(), "yyyy-MM-dd") + "'" + jenisBarang + kategoriBarang + namaBarang);
             fLaporan.sethashmap(hashs);
             fLaporan.setfilename("LaporanStokBarang");
             fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
