@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanStokBarang" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
-	<property name="ireport.zoom" value="1.1000000000000003"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="Title" class="java.lang.String" isForPrompting="false">
@@ -53,7 +53,7 @@ UNION ALL
 SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaianstok` WHERE `TanggalPenyesuaianStok` <= $P{TanggalStokAwal}
 ) t1 GROUP BY `IdBarang`
 
-) b ON a.`IdBarang`=b.`IdBarang` ORDER BY `NamaBarang`, `Tanggal`]]>
+) b ON a.`IdBarang`=b.`IdBarang` ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`, `Tanggal`]]>
 	</queryString>
 	<field name="NoTransaksi" class="java.lang.String"/>
 	<field name="Tanggal" class="java.sql.Date"/>
@@ -94,7 +94,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 						<bottomPen lineWidth="0.5"/>
 						<rightPen lineWidth="0.5"/>
 					</box>
-					<textElement verticalAlignment="Middle">
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Verdana" isBold="true"/>
 					</textElement>
 					<text><![CDATA[NO]]></text>
@@ -183,15 +183,15 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 					<textElement verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Periode]]></text>
+					<text><![CDATA[Tanggal Stok]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="149" y="0" width="41" height="20" uuid="556d4040-257e-4935-bd34-1654a188ec6d"/>
+					<reportElement x="149" y="0" width="23" height="20" uuid="556d4040-257e-4935-bd34-1654a188ec6d"/>
 					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 					<textElement verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Hingga :]]></text>
+					<text><![CDATA[s/d]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="0" y="45" width="85" height="20" uuid="d489684c-b1c0-45b8-a60f-7feffa4edeff"/>
@@ -237,7 +237,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Stock]]></text>
+					<text><![CDATA[Stok]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="90" y="30" width="189" height="20" uuid="69e553f4-c92b-45e5-b32a-2274270c102a"/>
@@ -280,7 +280,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 					<textFieldExpression><![CDATA[$P{FormatTanggalStokAwal}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="189" y="0" width="56" height="20" uuid="7826bad1-152e-4351-979e-1a2445d99784"/>
+					<reportElement x="172" y="0" width="56" height="20" uuid="7826bad1-152e-4351-979e-1a2445d99784"/>
 					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 					<textElement verticalAlignment="Middle">
 						<font isBold="true"/>
@@ -321,6 +321,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 				</textField>
 				<textField>
 					<reportElement x="120" y="65" width="100" height="20" uuid="96e918b4-94e9-419e-8680-891b9e22143f"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 					<textElement verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
@@ -336,7 +337,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 					<textElement verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Stock Akhir]]></text>
+					<text><![CDATA[Stok Akhir]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="90" y="0" width="30" height="20" uuid="56285b53-f756-4712-b4fc-27baca9fe293"/>
@@ -356,6 +357,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 				</staticText>
 				<textField>
 					<reportElement x="120" y="0" width="100" height="20" uuid="acb3af07-69a8-416d-b38f-16b899aea15e"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 					<textElement verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
@@ -456,7 +458,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Verdana"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
@@ -471,7 +473,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{StokAwal}+$V{Masuk_1}+$V{Keluar_1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{StokAwal}+$V{Masuk_1}-$V{Keluar_1}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
