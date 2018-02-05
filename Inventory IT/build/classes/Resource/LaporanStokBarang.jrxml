@@ -16,10 +16,10 @@
 		<defaultValueExpression><![CDATA["2020-12-12"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="TanggalStokAwal" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["01/01/2010"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["2010-01-01"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="TanggalStokAkhir" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["31-12-2020"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["2020-12-31"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="FormatTanggalStokAwal" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["01/01/2010"]]></defaultValueExpression>
@@ -97,7 +97,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 					<text><![CDATA[NO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="37" y="85" width="75" height="20" uuid="9def69f4-0891-49c2-8e24-ad4d7be19683"/>
+					<reportElement x="37" y="85" width="70" height="20" uuid="9def69f4-0891-49c2-8e24-ad4d7be19683"/>
 					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 						<pen lineWidth="0.5"/>
 						<topPen lineWidth="0.5"/>
@@ -108,7 +108,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[NoTransaksi]]></text>
+					<text><![CDATA[No. Transaksi]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="112" y="85" width="60" height="20" uuid="7be09f91-34ea-4ecf-a009-f2aaed576f30"/>
@@ -371,7 +371,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 	<detail>
 		<band height="20">
 			<textField>
-				<reportElement x="37" y="0" width="75" height="20" uuid="d09f5c4b-3ed1-4649-8c84-4695c88dbd80"/>
+				<reportElement x="37" y="0" width="70" height="20" uuid="d09f5c4b-3ed1-4649-8c84-4695c88dbd80"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
