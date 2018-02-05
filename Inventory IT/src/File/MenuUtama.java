@@ -5,9 +5,14 @@
  */
 package File;
 
+import LSubProces.DRunSelctOne;
 import Laporan.*;
 import List.*;
+import Master.*;
 import Proses.*;
+import static java.awt.Frame.NORMAL;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -467,83 +472,186 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_JMIResetPasswordUserActionPerformed
 
     private void JMIMasterVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterVendorActionPerformed
-        if (GlobalVar.Var.listMasterVendor == null) {
-            GlobalVar.Var.listMasterVendor = new ListMasterVendor();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdVendor` AS 'ID', `NamaVendor` AS 'Nama Vendor', `NomorTelepon` AS 'Nomor Telepon', `Alamat`, `Keterangan` FROM `tbmvendor`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listMasterVendor == null) {
+                GlobalVar.Var.listMasterVendor = new ListMasterVendor();
+            } else {
+                GlobalVar.Var.listMasterVendor.setState(NORMAL);
+                GlobalVar.Var.listMasterVendor.toFront();
+            }
         } else {
-            GlobalVar.Var.listMasterVendor.setState(NORMAL);
-            GlobalVar.Var.listMasterVendor.toFront();
+            if (GlobalVar.Var.tambahMasterVendor == null) {
+                GlobalVar.Var.tambahMasterVendor = new MasterVendor("0");
+            } else {
+                GlobalVar.Var.tambahMasterVendor.setState(NORMAL);
+                GlobalVar.Var.tambahMasterVendor.toFront();
+            }
         }
     }//GEN-LAST:event_JMIMasterVendorActionPerformed
 
     private void JMIMasterKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterKaryawanActionPerformed
-        if (GlobalVar.Var.listMasterKaryawan == null) {
-            GlobalVar.Var.listMasterKaryawan = new ListMasterKaryawan();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdKaryawan` AS 'ID', `NIK`, `NamaKaryawan` AS 'Nama Karyawan', `Keterangan` FROM `tbmkaryawan`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listMasterKaryawan == null) {
+                GlobalVar.Var.listMasterKaryawan = new ListMasterKaryawan();
+            } else {
+                GlobalVar.Var.listMasterKaryawan.setState(NORMAL);
+                GlobalVar.Var.listMasterKaryawan.toFront();
+            }
         } else {
-            GlobalVar.Var.listMasterKaryawan.setState(NORMAL);
-            GlobalVar.Var.listMasterKaryawan.toFront();
+            if (GlobalVar.Var.tambahMasterKaryawan == null) {
+                GlobalVar.Var.tambahMasterKaryawan = new MasterKaryawan("0");
+            } else {
+                GlobalVar.Var.tambahMasterKaryawan.setState(NORMAL);
+                GlobalVar.Var.tambahMasterKaryawan.toFront();
+            }
         }
     }//GEN-LAST:event_JMIMasterKaryawanActionPerformed
 
     private void JMIMasterJenisBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterJenisBarangActionPerformed
-        if (GlobalVar.Var.listMasterJenisBarang == null) {
-            GlobalVar.Var.listMasterJenisBarang = new ListMasterJenisBarang();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdJenisBarang` AS 'ID', `JenisBarang` AS 'Jenis Barang', `Keterangan` FROM `tbmjenisbarang`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listMasterJenisBarang == null) {
+                GlobalVar.Var.listMasterJenisBarang = new ListMasterJenisBarang();
+            } else {
+                GlobalVar.Var.listMasterJenisBarang.setState(NORMAL);
+                GlobalVar.Var.listMasterJenisBarang.toFront();
+            }
         } else {
-            GlobalVar.Var.listMasterJenisBarang.setState(NORMAL);
-            GlobalVar.Var.listMasterJenisBarang.toFront();
+            if (GlobalVar.Var.tambahMasterJenisBarang == null) {
+                GlobalVar.Var.tambahMasterJenisBarang = new MasterJenisBarang("0");
+            } else {
+                GlobalVar.Var.tambahMasterJenisBarang.setState(NORMAL);
+                GlobalVar.Var.tambahMasterJenisBarang.toFront();
+            }
         }
     }//GEN-LAST:event_JMIMasterJenisBarangActionPerformed
 
     private void JMIMasterKategoriBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterKategoriBarangActionPerformed
-        if (GlobalVar.Var.listMasterKategoriBarang == null) {
-            GlobalVar.Var.listMasterKategoriBarang = new ListMasterKategoriBarang();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdKategoriBarang` AS 'ID', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', A.`Keterangan` FROM `tbmkategoribarang` AS A JOIN `tbmjenisbarang` AS B ON A.`IdJenisBarang`=B.`IdJenisBarang`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listMasterKategoriBarang == null) {
+                GlobalVar.Var.listMasterKategoriBarang = new ListMasterKategoriBarang();
+            } else {
+                GlobalVar.Var.listMasterKategoriBarang.setState(NORMAL);
+                GlobalVar.Var.listMasterKategoriBarang.toFront();
+            }
         } else {
-            GlobalVar.Var.listMasterKategoriBarang.setState(NORMAL);
-            GlobalVar.Var.listMasterKategoriBarang.toFront();
+            if (GlobalVar.Var.tambahMasterKategoriBarang == null) {
+                GlobalVar.Var.tambahMasterKategoriBarang = new MasterKategoriBarang("0");
+            } else {
+                GlobalVar.Var.tambahMasterKategoriBarang.setState(NORMAL);
+                GlobalVar.Var.tambahMasterKategoriBarang.toFront();
+            }
         }
     }//GEN-LAST:event_JMIMasterKategoriBarangActionPerformed
 
     private void JMIMasterBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterBarangActionPerformed
-        if (GlobalVar.Var.listMasterBarang == null) {
-            GlobalVar.Var.listMasterBarang = new ListMasterBarang();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdBarang` AS 'ID', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `Garansi`, `Satuan`, A.`Keterangan` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listMasterBarang == null) {
+                GlobalVar.Var.listMasterBarang = new ListMasterBarang();
+            } else {
+                GlobalVar.Var.listMasterBarang.setState(NORMAL);
+                GlobalVar.Var.listMasterBarang.toFront();
+            }
         } else {
-            GlobalVar.Var.listMasterBarang.setState(NORMAL);
-            GlobalVar.Var.listMasterBarang.toFront();
+            if (GlobalVar.Var.tambahMasterBarang == null) {
+                GlobalVar.Var.tambahMasterBarang = new MasterBarang("0");
+            } else {
+                GlobalVar.Var.tambahMasterBarang.setState(NORMAL);
+                GlobalVar.Var.tambahMasterBarang.toFront();
+            }
         }
     }//GEN-LAST:event_JMIMasterBarangActionPerformed
 
     private void JMIMasterJenisServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterJenisServiceActionPerformed
-        if (GlobalVar.Var.listMasterJenisService == null) {
-            GlobalVar.Var.listMasterJenisService = new ListMasterJenisService();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdJenisService` AS 'ID', `JenisService` AS 'Jenis Service', `Keterangan` FROM `tbmjenisservice`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listMasterJenisService == null) {
+                GlobalVar.Var.listMasterJenisService = new ListMasterJenisService();
+            } else {
+                GlobalVar.Var.listMasterJenisService.setState(NORMAL);
+                GlobalVar.Var.listMasterJenisService.toFront();
+            }
         } else {
-            GlobalVar.Var.listMasterJenisService.setState(NORMAL);
-            GlobalVar.Var.listMasterJenisService.toFront();
+            if (GlobalVar.Var.tambahMasterJenisService == null) {
+                GlobalVar.Var.tambahMasterJenisService = new MasterJenisService("0");
+            } else {
+                GlobalVar.Var.tambahMasterJenisService.setState(NORMAL);
+                GlobalVar.Var.tambahMasterJenisService.toFront();
+            }
         }
     }//GEN-LAST:event_JMIMasterJenisServiceActionPerformed
 
     private void JMIMasterJenisBarangServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterJenisBarangServiceActionPerformed
-        if (GlobalVar.Var.listMasterJenisBarangService == null) {
-            GlobalVar.Var.listMasterJenisBarangService = new ListMasterJenisBarangService();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdJenisBarangService` AS 'ID', `JenisBarangService` AS 'Jenis Barang Service', `Keterangan` FROM `tbmjenisbarangservice`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listMasterJenisBarangService == null) {
+                GlobalVar.Var.listMasterJenisBarangService = new ListMasterJenisBarangService();
+            } else {
+                GlobalVar.Var.listMasterJenisBarangService.setState(NORMAL);
+                GlobalVar.Var.listMasterJenisBarangService.toFront();
+            }
         } else {
-            GlobalVar.Var.listMasterJenisBarangService.setState(NORMAL);
-            GlobalVar.Var.listMasterJenisBarangService.toFront();
+            if (GlobalVar.Var.tambahMasterJenisBarangService == null) {
+                GlobalVar.Var.tambahMasterJenisBarangService = new MasterJenisBarangService("0");
+            } else {
+                GlobalVar.Var.tambahMasterJenisBarangService.setState(NORMAL);
+                GlobalVar.Var.tambahMasterJenisBarangService.toFront();
+            }
         }
     }//GEN-LAST:event_JMIMasterJenisBarangServiceActionPerformed
 
     private void JMIMasterBarangServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMasterBarangServiceActionPerformed
-        if (GlobalVar.Var.listMasterBarangService == null) {
-            GlobalVar.Var.listMasterBarangService = new ListMasterBarangService();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdBarangService` AS 'ID', `JenisBarangService` AS 'Jenis Barang Service', `NamaBarangService` AS 'Nama Barang Service', A.`Keterangan` FROM `tbmbarangservice` AS A JOIN `tbmjenisbarangservice` AS B ON A.`IdJenisBarangService`=B.`IdJenisBarangService`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listMasterBarangService == null) {
+                GlobalVar.Var.listMasterBarangService = new ListMasterBarangService();
+            } else {
+                GlobalVar.Var.listMasterBarangService.setState(NORMAL);
+                GlobalVar.Var.listMasterBarangService.toFront();
+            }
         } else {
-            GlobalVar.Var.listMasterBarangService.setState(NORMAL);
-            GlobalVar.Var.listMasterBarangService.toFront();
+            if (GlobalVar.Var.tambahMasterBarangService == null) {
+                GlobalVar.Var.tambahMasterBarangService = new MasterBarangService("0");
+            } else {
+                GlobalVar.Var.tambahMasterBarangService.setState(NORMAL);
+                GlobalVar.Var.tambahMasterBarangService.toFront();
+            }
         }
     }//GEN-LAST:event_JMIMasterBarangServiceActionPerformed
 
     private void JMIListBarangRusakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListBarangRusakActionPerformed
-        if (GlobalVar.Var.listBarangRusak == null) {
-            GlobalVar.Var.listBarangRusak = new ListBarangRusak();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdBarangRusak` AS 'ID', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `Garansi`, `NamaKaryawan` AS 'Nama Pemakai', DATE_FORMAT(`TanggalBeli`, '%d/%m/%Y') AS 'Tanggal Beli', DATE_FORMAT(`TanggalRusak`, '%d/%m/%Y') AS 'Tanggal Rusak', A.`Keterangan` FROM `tbbarangrusak` AS A JOIN `tbmbarang` AS B ON A.`IdBarang`=B.`IdBarang` JOIN `tbmkategoribarang` AS C ON B.`IdKategoriBarang`=C.`IdKategoriBarang` JOIN `tbmjenisbarang` AS D ON C.`IdJenisBarang`=D.`IdJenisBarang` JOIN `tbmkaryawan` AS E ON A.`IdKaryawan`=E.`IdKaryawan`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listBarangRusak == null) {
+                GlobalVar.Var.listBarangRusak = new ListBarangRusak();
+            } else {
+                GlobalVar.Var.listBarangRusak.setState(NORMAL);
+                GlobalVar.Var.listBarangRusak.toFront();
+            }
         } else {
-            GlobalVar.Var.listBarangRusak.setState(NORMAL);
-            GlobalVar.Var.listBarangRusak.toFront();
+            JOptionPane.showMessageDialog(this, "Data Barang Rusak Tidak Ada", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_JMIListBarangRusakActionPerformed
 
@@ -557,11 +665,18 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_JMIProsesBarangRusakActionPerformed
 
     private void JMIListServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListServiceActionPerformed
-        if (GlobalVar.Var.listService == null) {
-            GlobalVar.Var.listService = new ListService();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT A.`IdService` AS 'ID', `JenisService` AS 'Jenis Service', `JenisBarangService` AS 'Jenis Barang Service', `NamaBarangService` AS 'Nama Barang Service', DATE_FORMAT(`TanggalService`, '%d/%m/%Y') AS 'Tanggal Service', DATE_FORMAT(`TanggalServiceSelanjutnya`, '%d/%m/%Y') AS 'Tanggal Service Selanjutnya', A.`Keterangan`, 0 AS 'Pilih' FROM `tbservice` AS A JOIN `tbmjenisservice` AS B ON A.`IdJenisService`=B.`IdJenisService` JOIN `tbmbarangservice` AS C ON A.`IdBarangService`=C.`IdBarangService` JOIN `tbmjenisbarangservice` AS D ON C.`IdJenisBarangService`=D.`IdJenisBarangService` JOIN (SELECT MAX(`IdService`) AS 'IdService' FROM `tbservice` GROUP BY `IdBarangService`) AS E ON A.`IdService`=E.`IdService`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listService == null) {
+                GlobalVar.Var.listService = new ListService();
+            } else {
+                GlobalVar.Var.listService.setState(NORMAL);
+                GlobalVar.Var.listService.toFront();
+            }
         } else {
-            GlobalVar.Var.listService.setState(NORMAL);
-            GlobalVar.Var.listService.toFront();
+            JOptionPane.showMessageDialog(this, "Data Service Tidak Ada", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_JMIListServiceActionPerformed
 
@@ -575,11 +690,18 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_JMIProsesServiceActionPerformed
 
     private void JMIListPenyesuaianStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListPenyesuaianStokActionPerformed
-        if (GlobalVar.Var.listPenyesuaianStok == null) {
-            GlobalVar.Var.listPenyesuaianStok = new ListPenyesuaianStok();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdPenyesuaianStok` AS 'ID', `NomorPenyesuaianStok` AS 'Nomor Penyesuaian Stok', DATE_FORMAT(`TanggalPenyesuaianStok`, '%d/%m/%Y') AS 'Tanggal Penyesuaian Stok', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `PenyesuaianStok` AS 'Penyesuaian Stok', A.`Keterangan` FROM `tbpenyesuaianstok` AS A JOIN `tbmbarang` AS B ON A.`IdBarang`=B.`IdBarang` JOIN `tbmkategoribarang` AS C ON B.`IdKategoriBarang`=C.`IdKategoriBarang` JOIN `tbmjenisbarang` AS D ON C.`IdJenisBarang`=D.`IdJenisBarang`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listPenyesuaianStok == null) {
+                GlobalVar.Var.listPenyesuaianStok = new ListPenyesuaianStok();
+            } else {
+                GlobalVar.Var.listPenyesuaianStok.setState(NORMAL);
+                GlobalVar.Var.listPenyesuaianStok.toFront();
+            }
         } else {
-            GlobalVar.Var.listPenyesuaianStok.setState(NORMAL);
-            GlobalVar.Var.listPenyesuaianStok.toFront();
+            JOptionPane.showMessageDialog(this, "Data Penyesuaian Stok Tidak Ada", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_JMIListPenyesuaianStokActionPerformed
 
@@ -602,21 +724,35 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_JMIProsesPurchaseRequestActionPerformed
 
     private void JMIListPurchaseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListPurchaseRequestActionPerformed
-        if (GlobalVar.Var.listPurchaseRequest == null) {
-            GlobalVar.Var.listPurchaseRequest = new ListPurchaseRequest();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdPurchaseRequest` as 'ID', `NomorPurchaseRequest` as 'No. PR', DATE_FORMAT(`TanggalPurchaseRequest`,'%d/%m/%Y') as 'Tanggal', `NamaVendor`, a.`Keterangan` FROM `tbpurchaserequest`a JOIN `tbmvendor`b ON a.`IdVendor`=b.`IdVendor`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listPurchaseRequest == null) {
+                GlobalVar.Var.listPurchaseRequest = new ListPurchaseRequest();
+            } else {
+                GlobalVar.Var.listPurchaseRequest.setState(NORMAL);
+                GlobalVar.Var.listPurchaseRequest.toFront();
+            }
         } else {
-            GlobalVar.Var.listPurchaseRequest.setState(NORMAL);
-            GlobalVar.Var.listPurchaseRequest.toFront();
+            JOptionPane.showMessageDialog(this, "Data Purchase Request Tidak Ada", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_JMIListPurchaseRequestActionPerformed
 
 
     private void JMIListBarangMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListBarangMasukActionPerformed
-        if (GlobalVar.Var.listBarangMasuk == null) {
-            GlobalVar.Var.listBarangMasuk = new ListBarangMasuk();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdBarangMasuk` as 'ID', `NomorBarangMasuk` as 'No. Barang Masuk', DATE_FORMAT(`TanggalBarangMasuk`, '%d/%m%Y') as 'Tanggal', `NomorPurchaseRequest` as 'No. PR', `NamaVendor` as 'Nama Vendor', `UrlPurchaseRequest`, `UrlNotaBarangMasuk`, a.`Keterangan` FROM `tbbarangmasuk`a JOIN `tbmvendor`b ON a.`IdVendor`=b.`IdVendor`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listBarangMasuk == null) {
+                GlobalVar.Var.listBarangMasuk = new ListBarangMasuk();
+            } else {
+                GlobalVar.Var.listBarangMasuk.setState(NORMAL);
+                GlobalVar.Var.listBarangMasuk.toFront();
+            }
         } else {
-            GlobalVar.Var.listBarangMasuk.setState(NORMAL);
-            GlobalVar.Var.listBarangMasuk.toFront();
+            JOptionPane.showMessageDialog(this, "Data Barang Masuk Tidak Ada", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_JMIListBarangMasukActionPerformed
 
@@ -639,11 +775,18 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_JMIProsesBarangKeluarActionPerformed
 
     private void JMIListBarangKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIListBarangKeluarActionPerformed
-        if (GlobalVar.Var.listBarangKeluar == null) {
-            GlobalVar.Var.listBarangKeluar = new ListBarangKeluar();
+        DRunSelctOne dRunSelctOne = new DRunSelctOne();
+        dRunSelctOne.setQuery("SELECT `IdBarangKeluar` AS 'ID', `NomorBarangKeluar` AS 'Nomor Barang Keluar', DATE_FORMAT(`TanggalBarangKeluar`, '%d/%m/%Y') AS 'Tanggal Barang Keluar', `NamaKaryawan` AS 'Nama Pemakai', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `Garansi`, `JumlahBarang` AS 'Jumlah Barang', A.`Keterangan` FROM `tbbarangkeluar` AS A JOIN `tbmkaryawan` AS B ON A.`IdKaryawan`=B.`IdKaryawan` JOIN `tbmbarang` AS C ON A.`IdBarang`=C.`IdBarang` JOIN `tbmkategoribarang` AS D ON C.`IdKategoriBarang`=D.`IdKategoriBarang` JOIN `tbmjenisbarang` AS E ON D.`IdJenisBarang`=E.`IdJenisBarang`");
+        ArrayList<String> list = dRunSelctOne.excute();
+        if (list.get(0) != null) {
+            if (GlobalVar.Var.listBarangKeluar == null) {
+                GlobalVar.Var.listBarangKeluar = new ListBarangKeluar();
+            } else {
+                GlobalVar.Var.listBarangKeluar.setState(NORMAL);
+                GlobalVar.Var.listBarangKeluar.toFront();
+            }
         } else {
-            GlobalVar.Var.listBarangKeluar.setState(NORMAL);
-            GlobalVar.Var.listBarangKeluar.toFront();
+            JOptionPane.showMessageDialog(this, "Data Barang Keluar Tidak Ada", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_JMIListBarangKeluarActionPerformed
 
@@ -727,7 +870,7 @@ public class MenuUtama extends javax.swing.JFrame {
             GlobalVar.Var.laporanService.toFront();
         }
     }//GEN-LAST:event_JMILaporanServiceActionPerformed
-        
+
     private void JMILaporanPenyesuaianStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMILaporanPenyesuaianStokActionPerformed
         if (GlobalVar.Var.laporanPenyesuaianStok == null) {
             GlobalVar.Var.laporanPenyesuaianStok = new LaporanPenyesuaianStok();
@@ -754,7 +897,6 @@ public class MenuUtama extends javax.swing.JFrame {
             GlobalVar.Var.laporanTransaksi.toFront();
         }
     }//GEN-LAST:event_JMILaporanTransaksiActionPerformed
-
 
     /**
      * @param args the command line arguments
