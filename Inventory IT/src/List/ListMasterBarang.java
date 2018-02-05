@@ -188,7 +188,7 @@ public class ListMasterBarang extends javax.swing.JFrame {
     }
 
     public void load() {
-        JComCari.setQuery("SELECT `IdBarang` AS 'ID', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `Garansi`, A.`Keterangan` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang`");
+        JComCari.setQuery("SELECT `IdBarang` AS 'ID', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `Garansi`, `Satuan`, A.`Keterangan` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang`");
         JComCari.setSelectedIndex(3);
         JComCari.tampilkan();
     }

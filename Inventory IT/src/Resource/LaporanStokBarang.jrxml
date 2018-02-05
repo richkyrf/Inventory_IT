@@ -16,10 +16,10 @@
 		<defaultValueExpression><![CDATA["2020-12-12"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="TanggalStokAwal" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["01/01/2010"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["2010-01-01"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="TanggalStokAkhir" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["31-12-2020"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["2020-12-31"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="FormatTanggalStokAwal" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["01/01/2010"]]></defaultValueExpression>
@@ -461,22 +461,22 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 	<pageFooter>
 		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement x="417" y="0" width="20" height="20" uuid="960269a8-3098-4d48-bf11-6a572c797445"/>
+				<reportElement x="427" y="0" width="20" height="20" uuid="960269a8-3098-4d48-bf11-6a572c797445"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Hal]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement x="497" y="0" width="65" height="20" uuid="a2916fd1-0aae-47da-b52b-ea8c02b094ba"/>
+				<reportElement x="507" y="0" width="65" height="20" uuid="a2916fd1-0aae-47da-b52b-ea8c02b094ba"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="437" y="0" width="40" height="20" uuid="d7202089-af22-4cea-88c8-2be27f8e5ab5"/>
+				<reportElement x="447" y="0" width="40" height="20" uuid="d7202089-af22-4cea-88c8-2be27f8e5ab5"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="477" y="0" width="20" height="20" uuid="729fdb1e-157b-4106-98e0-d966ed7e0824"/>
+				<reportElement x="487" y="0" width="20" height="20" uuid="729fdb1e-157b-4106-98e0-d966ed7e0824"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Dari]]></text>
 			</staticText>
