@@ -338,8 +338,10 @@ public class LaporanStokBarang extends javax.swing.JFrame {
             HashMap hashs = new HashMap();
             FLaporan fLaporan = new FLaporan();
             hashs.put("Title", "Laporan Stok Barang");
-            hashs.put("TanggalStokAwal", FDateF.datetostr(JDTanggalStokAwal.getDate(), "dd/MM/yyyy"));
-            hashs.put("TanggalStokAkhir", FDateF.datetostr(JDTanggalStokAkhir.getDate(), "dd/MM/yyyy"));
+            hashs.put("TanggalStokAwal", FDateF.datetostr(JDTanggalStokAwal.getDate(), "yyyy-MM-dd"));
+            hashs.put("TanggalStokAkhir", FDateF.datetostr(JDTanggalStokAkhir.getDate(), "yyyy-MM-dd"));
+            hashs.put("FormatTanggalStokAwal", FDateF.datetostr(JDTanggalStokAwal.getDate(), "dd/MM/yyyy"));
+            hashs.put("FormatTanggalStokAkhir", FDateF.datetostr(JDTanggalStokAkhir.getDate(), "dd/MM/yyyy"));
             if (JCJenisBarang.getSelectedIndex() == 0) {
                 jenisBarang = "";
                 hashs.put("JenisBarang", "Semua Jenis");
@@ -362,7 +364,7 @@ public class LaporanStokBarang extends javax.swing.JFrame {
                 hashs.put("NamaBarang", JCNamaBarang.getSelectedItem());
             }
             hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-            hashs.put("Where", " AND `Tanggal` BETWEEN '" + FDateF.datetostr(JDTanggalStokAwal.getDate(), "yyyy-MM-dd") + "' AND '" + FDateF.datetostr(JDTanggalStokAkhir.getDate(), "yyyy-MM-dd") + "'" + jenisBarang + kategoriBarang + namaBarang);
+            hashs.put("Where", jenisBarang + kategoriBarang + namaBarang);
             fLaporan.sethashmap(hashs);
             fLaporan.setfilename("LaporanStokBarang");
             fLaporan.setErorm("Gagal Menampilkan " + this.getTitle());
