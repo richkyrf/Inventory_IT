@@ -27,87 +27,99 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="JLNamaPemakai" alignment="0" max="32767" attributes="0"/>
-                          <Component id="JLNomorBarangKeluar" max="32767" attributes="0"/>
-                          <Component id="JLTanggalBarangKeluar" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="JLSerialNumber" min="-2" pref="179" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JLTanggalBarangKeluar2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLNomoBarangKeluar2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JTNomorBarangKeluar" max="32767" attributes="0"/>
-                                  <Component id="JDTanggalBarangKeluar" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="JLNamaPemakai2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JCNamaPemakai" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JBNamaPemakai" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="JLSerialNumber2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="JCSerialNumber" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="JLJumlahBarangKeluar" pref="179" max="32767" attributes="0"/>
-                                  <Component id="JLStokBarang" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JLCariBarang" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JLNamaBarang" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JLKategoriBarang" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JLJenisBarang" max="32767" attributes="0"/>
-                                  <Component id="JLKeterangan" max="32767" attributes="0"/>
+                                  <Component id="JLNamaPemakai" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="JLNomorBarangKeluar" max="32767" attributes="0"/>
+                                  <Component id="JLTanggalBarangKeluar" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JLJenisBarang2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLKategoriBarang2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLNamaBarang2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLCariBarang2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLStokBarang2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLJumlahBarangKeluar2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLKeterangan2" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="JLTanggalBarangKeluar2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JLNomoBarangKeluar2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="JTNomorBarangKeluar" max="32767" attributes="0"/>
+                                          <Component id="JDTanggalBarangKeluar" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="JLNamaPemakai2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JCNamaPemakai" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JBNamaPemakai" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Component id="JBKembali" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="JBTambah" min="-2" pref="115" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="JLJumlahBarangKeluar" pref="179" max="32767" attributes="0"/>
+                                          <Component id="JLStokBarang" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="JLCariBarang" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="JLNamaBarang" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="JLKategoriBarang" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="JLJenisBarang" max="32767" attributes="0"/>
+                                          <Component id="JLKeterangan" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="JLJenisBarang2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JLKategoriBarang2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JLNamaBarang2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JLCariBarang2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JLStokBarang2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JLJumlahBarangKeluar2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JLKeterangan2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="JBKembali" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JBTambahTutup" min="-2" pref="200" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JBUbah" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="JBTambah" min="-2" pref="115" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JBTambahTutup" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JBUbah" min="-2" pref="110" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="JTCariBarang" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="JBCariBarang" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="JTKategoriBarang" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="JTNamaBarang" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="JRStokBarang" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="JRJumlahBarangKeluar" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="JSPKeterangan" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="JTJenisBarang" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="JTCariBarang" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JBCariBarang" min="-2" pref="30" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="JTKategoriBarang" alignment="1" max="32767" attributes="0"/>
-                          <Component id="JTNamaBarang" alignment="1" max="32767" attributes="0"/>
-                          <Component id="JRStokBarang" alignment="1" max="32767" attributes="0"/>
-                          <Component id="JRJumlahBarangKeluar" alignment="1" max="32767" attributes="0"/>
-                          <Component id="JSPKeterangan" alignment="1" max="32767" attributes="0"/>
-                          <Component id="JTJenisBarang" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -175,6 +187,12 @@
                   <Component id="JRJumlahBarangKeluar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLSerialNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLSerialNumber2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JCSerialNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -369,6 +387,28 @@
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JRJumlahBarangKeluarFocusGained"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JRJumlahBarangKeluarKeyPressed"/>
+      </Events>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLSerialNumber">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Serial Number"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JlableF" name="JLSerialNumber2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="KomponenGUI.JcomboboxF" name="JCSerialNumber">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="-- Pilih Serial Number --"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JCSerialNumberKeyReleased"/>
       </Events>
     </Component>
     <Component class="KomponenGUI.JlableF" name="JLKeterangan">

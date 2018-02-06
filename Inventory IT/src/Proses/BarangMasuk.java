@@ -59,6 +59,7 @@ public class BarangMasuk extends javax.swing.JFrame {
             JCNamaVendor.requestFocus();
         }
         setVisible(true);
+        JTSerialNumber.setEnabled(false);
     }
 
     boolean checkInput() {
@@ -76,6 +77,8 @@ public class BarangMasuk extends javax.swing.JFrame {
             return false;
         } else if (JTable.getRowCount() < 1) {
             JOptionPane.showMessageDialog(this, "Detail Permintaan Tidak Boleh Kosong");
+            return false;
+        } else if (!checkDoubleSerialNumber()) {
             return false;
         } else {
             return checkSerialNumber();
@@ -110,7 +113,7 @@ public class BarangMasuk extends javax.swing.JFrame {
         } else if (JTable.getRowCount() >= 12) {
             JOptionPane.showMessageDialog(this, "Jenis Barang Yang Diinput Tidak Bisa Lebih Dari 12");
             return false;
-        } else if (cekdoubleitem(JTNamaBarang.getText(), 3, JTKategoriBarang.getText(), 2, JTJenisBarang.getText(), 1)) {
+        } else if (cekdoubleitem(JTNamaBarang.getText(), 4, JTKategoriBarang.getText(), 3, JTJenisBarang.getText(), 2)) {
             JOptionPane.showMessageDialog(this, "Tidak Bisa Input Barang Yang Sama");
             JTNamaBarang.requestFocus();
             return false;
@@ -153,21 +156,22 @@ public class BarangMasuk extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) JTable.getModel();
         model.getDataVector().removeAllElements();
         RunSelct runSelct = new RunSelct();
-        runSelct.setQuery("SELECT `NomorKolom`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, FORMAT(`HargaBarang`,0), FORMAT(`JumlahBarang`,0), `Garansi`, `SerialNumber`, a.`Keterangan` FROM `tbbarangmasukdetail`a JOIN `tbmbarang`b ON a.`IdBarang`=b.`IdBarang` JOIN `tbmkategoribarang`c ON b.`IdKategoriBarang`=c.`IdKategoriBarang` JOIN `tbmjenisbarang`d ON c.`IdJenisBarang`=d.`IdJenisBarang` WHERE `NomorBarangMasuk` = '" + list.get(1) + "'");
+        runSelct.setQuery("SELECT `IdDetailBarangMasuk`, `NomorKolom`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, FORMAT(`HargaBarang`,0), FORMAT(`JumlahBarang`,0), `Garansi`, `SerialNumber`, a.`Keterangan` FROM `tbbarangmasukdetail`a JOIN `tbmbarang`b ON a.`IdBarang`=b.`IdBarang` JOIN `tbmkategoribarang`c ON b.`IdKategoriBarang`=c.`IdKategoriBarang` JOIN `tbmjenisbarang`d ON c.`IdJenisBarang`=d.`IdJenisBarang` WHERE `NomorBarangMasuk` = '" + list.get(1) + "'");
         try {
             ResultSet rs = runSelct.excute();
             int row = 0;
             while (rs.next()) {
-                model.addRow(new Object[]{"", "", "", "", "", "", ""});
+                model.addRow(new Object[]{"", "", "", "", "", "", "", "", "", ""});
                 JTable.setValueAt(rs.getString(1), row, 0);
                 JTable.setValueAt(rs.getString(2), row, 1);
                 JTable.setValueAt(rs.getString(3), row, 2);
                 JTable.setValueAt(rs.getString(4), row, 3);
-                JTable.setValueAt(rs.getString(5).replace(",", "."), row, 4);
+                JTable.setValueAt(rs.getString(5), row, 4);
                 JTable.setValueAt(rs.getString(6).replace(",", "."), row, 5);
-                JTable.setValueAt(rs.getString(7), row, 6);
+                JTable.setValueAt(rs.getString(7).replace(",", "."), row, 6);
                 JTable.setValueAt(rs.getString(8), row, 7);
                 JTable.setValueAt(rs.getString(9), row, 8);
+                JTable.setValueAt(rs.getString(10), row, 9);
                 row++;
             }
         } catch (SQLException e) {
@@ -311,11 +315,11 @@ public class BarangMasuk extends javax.swing.JFrame {
 
             },
             new String [] {
-                "No", "Jenis Barang", "Kategori Barang", "Nama Barang", "Harga", "Jumlah", "Garansi", "Serial Number", "Keterangan"
+                "ID", "No", "Jenis Barang", "Kategori Barang", "Nama Barang", "Harga", "Jumlah", "Garansi", "Serial Number", "Keterangan"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -330,33 +334,36 @@ public class BarangMasuk extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTable);
         if (JTable.getColumnModel().getColumnCount() > 0) {
-            JTable.getColumnModel().getColumn(0).setMinWidth(60);
-            JTable.getColumnModel().getColumn(0).setPreferredWidth(60);
-            JTable.getColumnModel().getColumn(0).setMaxWidth(60);
-            JTable.getColumnModel().getColumn(1).setMinWidth(120);
-            JTable.getColumnModel().getColumn(1).setPreferredWidth(120);
-            JTable.getColumnModel().getColumn(1).setMaxWidth(120);
-            JTable.getColumnModel().getColumn(2).setMinWidth(140);
-            JTable.getColumnModel().getColumn(2).setPreferredWidth(140);
-            JTable.getColumnModel().getColumn(2).setMaxWidth(140);
-            JTable.getColumnModel().getColumn(3).setMinWidth(400);
-            JTable.getColumnModel().getColumn(3).setPreferredWidth(400);
-            JTable.getColumnModel().getColumn(3).setMaxWidth(400);
-            JTable.getColumnModel().getColumn(4).setMinWidth(100);
-            JTable.getColumnModel().getColumn(4).setPreferredWidth(100);
-            JTable.getColumnModel().getColumn(4).setMaxWidth(100);
-            JTable.getColumnModel().getColumn(5).setMinWidth(70);
-            JTable.getColumnModel().getColumn(5).setPreferredWidth(70);
-            JTable.getColumnModel().getColumn(5).setMaxWidth(70);
-            JTable.getColumnModel().getColumn(6).setMinWidth(50);
-            JTable.getColumnModel().getColumn(6).setPreferredWidth(50);
-            JTable.getColumnModel().getColumn(6).setMaxWidth(50);
-            JTable.getColumnModel().getColumn(7).setMinWidth(140);
-            JTable.getColumnModel().getColumn(7).setPreferredWidth(140);
-            JTable.getColumnModel().getColumn(7).setMaxWidth(140);
-            JTable.getColumnModel().getColumn(8).setMinWidth(200);
-            JTable.getColumnModel().getColumn(8).setPreferredWidth(200);
-            JTable.getColumnModel().getColumn(8).setMaxWidth(200);
+            JTable.getColumnModel().getColumn(0).setMinWidth(0);
+            JTable.getColumnModel().getColumn(0).setPreferredWidth(0);
+            JTable.getColumnModel().getColumn(0).setMaxWidth(0);
+            JTable.getColumnModel().getColumn(1).setMinWidth(60);
+            JTable.getColumnModel().getColumn(1).setPreferredWidth(60);
+            JTable.getColumnModel().getColumn(1).setMaxWidth(60);
+            JTable.getColumnModel().getColumn(2).setMinWidth(120);
+            JTable.getColumnModel().getColumn(2).setPreferredWidth(120);
+            JTable.getColumnModel().getColumn(2).setMaxWidth(120);
+            JTable.getColumnModel().getColumn(3).setMinWidth(140);
+            JTable.getColumnModel().getColumn(3).setPreferredWidth(140);
+            JTable.getColumnModel().getColumn(3).setMaxWidth(140);
+            JTable.getColumnModel().getColumn(4).setMinWidth(400);
+            JTable.getColumnModel().getColumn(4).setPreferredWidth(400);
+            JTable.getColumnModel().getColumn(4).setMaxWidth(400);
+            JTable.getColumnModel().getColumn(5).setMinWidth(100);
+            JTable.getColumnModel().getColumn(5).setPreferredWidth(100);
+            JTable.getColumnModel().getColumn(5).setMaxWidth(100);
+            JTable.getColumnModel().getColumn(6).setMinWidth(70);
+            JTable.getColumnModel().getColumn(6).setPreferredWidth(70);
+            JTable.getColumnModel().getColumn(6).setMaxWidth(70);
+            JTable.getColumnModel().getColumn(7).setMinWidth(50);
+            JTable.getColumnModel().getColumn(7).setPreferredWidth(50);
+            JTable.getColumnModel().getColumn(7).setMaxWidth(50);
+            JTable.getColumnModel().getColumn(8).setMinWidth(140);
+            JTable.getColumnModel().getColumn(8).setPreferredWidth(140);
+            JTable.getColumnModel().getColumn(8).setMaxWidth(140);
+            JTable.getColumnModel().getColumn(9).setMinWidth(200);
+            JTable.getColumnModel().getColumn(9).setPreferredWidth(200);
+            JTable.getColumnModel().getColumn(9).setMaxWidth(200);
         }
         JTable.setrender(4, "Number");
         JTable.setrender(5, "Number");
@@ -496,10 +503,6 @@ public class BarangMasuk extends javax.swing.JFrame {
         JTSerialNumber.setForeground(new java.awt.Color(102, 102, 102));
         JTSerialNumber.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTSerialNumber.setNextFocusableComponent(JTSerialNumber);
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, JTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), JTSerialNumber, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
-        bindingGroup.addBinding(binding);
-
         JTSerialNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTSerialNumberActionPerformed(evt);
@@ -608,8 +611,7 @@ public class BarangMasuk extends javax.swing.JFrame {
                                 .addComponent(jlableF5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jtextF10, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2)
-                        .addGap(10, 10, 10))
+                        .addComponent(jScrollPane2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -649,8 +651,7 @@ public class BarangMasuk extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(HapusTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(JBRefreshDetail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JBUbahDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(10, 10, 10))
+                            .addComponent(JBUbahDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -702,22 +703,19 @@ public class BarangMasuk extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JTNomorBarangMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JDTanggal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10))
+                            .addComponent(JDTanggal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(JBKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(JBUbah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBTambahTutup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jlableF8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(10, 10, 10))))
+                        .addComponent(JBKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBUbah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBTambahTutup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jlableF8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -725,19 +723,20 @@ public class BarangMasuk extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jlableF8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlableF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlableF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlableF10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JTNomorBarangMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JCNomorPurchaseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBTambahNomorPurchaseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlableF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlableF14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JTUrlBuktiPurchaseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBPilihUrlBuktiPurchaseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBPilihUrlBuktiPurchaseRequest1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlableF9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jlableF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlableF10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JTNomorBarangMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JCNomorPurchaseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBTambahNomorPurchaseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlableF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlableF14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JTUrlBuktiPurchaseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBPilihUrlBuktiPurchaseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBPilihUrlBuktiPurchaseRequest1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlableF9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -849,17 +848,20 @@ public class BarangMasuk extends javax.swing.JFrame {
 
     private void JTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableMouseClicked
         if (JTable.getSelectedRow() != -1) {
-            JTJenisBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 1).toString());
-            JTKategoriBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 2).toString());
-            JTNamaBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 3).toString());
-            JTHargaBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 4).toString().replace(".", ""));
-            JTJumlahBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 5).toString().replace(".", ""));
-            JTSerialNumber.setText(JTable.getValueAt(JTable.getSelectedRow(), 7).toString());
-            JTKeterangan.setText(JTable.getValueAt(JTable.getSelectedRow(), 8).toString());
+            JTJenisBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 2).toString());
+            JTKategoriBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 3).toString());
+            JTNamaBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 4).toString());
+            JTHargaBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 5).toString().replace(".", ""));
+            JTJumlahBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 6).toString().replace(".", ""));
+            JTSerialNumber.setText(JTable.getValueAt(JTable.getSelectedRow(), 8).toString());
+            JTKeterangan.setText(JTable.getValueAt(JTable.getSelectedRow(), 9).toString());
+            System.out.println(isGaransi());
             if (isGaransi()) {
                 JTJumlahBarang.setEnabled(false);
+                JTSerialNumber.setEnabled(true);
             } else {
                 JTJumlahBarang.setEnabled(true);
+                JTSerialNumber.setEnabled(false);
             }
         }
     }//GEN-LAST:event_JTableMouseClicked
@@ -1126,7 +1128,7 @@ public class BarangMasuk extends javax.swing.JFrame {
     boolean isGaransi() {
         DRunSelctOne dRunSelctOne = new DRunSelctOne();
         dRunSelctOne.seterorm("Gagal checkGaransi");
-        dRunSelctOne.setQuery("SELECT `Garansi` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `JenisBarang` = '" + JTable.getValueAt(JTable.getSelectedRow(), 1) + "' AND `KategoriBarang` = '" + JTable.getValueAt(JTable.getSelectedRow(), 2) + "' AND `NamaBarang` = '" + JTable.getValueAt(JTable.getSelectedRow(), 3) + "'");
+        dRunSelctOne.setQuery("SELECT `Garansi` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `JenisBarang` = '" + JTable.getValueAt(JTable.getSelectedRow(), 2) + "' AND `KategoriBarang` = '" + JTable.getValueAt(JTable.getSelectedRow(), 3) + "' AND `NamaBarang` = '" + JTable.getValueAt(JTable.getSelectedRow(), 4) + "'");
         ArrayList<String> list = dRunSelctOne.excute();
         return list.get(0).equals("Ya");
     }
@@ -1151,34 +1153,34 @@ public class BarangMasuk extends javax.swing.JFrame {
                     if (rs.getString(7).equals("Ya")) {
                         for (int i = 0; i < rs.getInt(6); i++) {
                             model.addRow(new Object[]{"", "", "", "", "", "", ""});
-                            JTable.setValueAt(JTable.getRowCount(), row, 0);
-                            JTable.setValueAt(rs.getString(2), row, 1);
-                            JTable.setValueAt(rs.getString(3), row, 2);
-                            JTable.setValueAt(rs.getString(4), row, 3);
-                            JTable.setValueAt(rs.getString(5).replace(",", "."), row, 4);
-                            JTable.setValueAt(1, row, 5);
-                            JTable.setValueAt(rs.getString(7), row, 6);
-                            JTable.setValueAt(rs.getString(8), row, 7);
-                            JTable.setValueAt(rs.getString(9), row, 8);
+                            JTable.setValueAt(JTable.getRowCount(), row, 1);
+                            JTable.setValueAt(rs.getString(2), row, 2);
+                            JTable.setValueAt(rs.getString(3), row, 3);
+                            JTable.setValueAt(rs.getString(4), row, 4);
+                            JTable.setValueAt(rs.getString(5).replace(",", "."), row, 5);
+                            JTable.setValueAt(1, row, 6);
+                            JTable.setValueAt(rs.getString(7), row, 7);
+                            JTable.setValueAt(rs.getString(8), row, 8);
+                            JTable.setValueAt(rs.getString(9), row, 9);
                             row++;
                         }
                     } else {
                         model.addRow(new Object[]{"", "", "", "", "", "", ""});
-                        JTable.setValueAt(JTable.getRowCount(), row, 0);
-                        JTable.setValueAt(rs.getString(2), row, 1);
-                        JTable.setValueAt(rs.getString(3), row, 2);
-                        JTable.setValueAt(rs.getString(4), row, 3);
-                        JTable.setValueAt(rs.getString(5).replace(",", "."), row, 4);
-                        JTable.setValueAt(rs.getString(6), row, 5);
-                        JTable.setValueAt(rs.getString(7), row, 6);
-                        JTable.setValueAt(rs.getString(8), row, 7);
-                        JTable.setValueAt(rs.getString(9), row, 8);
+                        JTable.setValueAt(JTable.getRowCount(), row, 1);
+                        JTable.setValueAt(rs.getString(2), row, 2);
+                        JTable.setValueAt(rs.getString(3), row, 3);
+                        JTable.setValueAt(rs.getString(4), row, 4);
+                        JTable.setValueAt(rs.getString(5).replace(",", "."), row, 5);
+                        JTable.setValueAt(rs.getString(6), row, 6);
+                        JTable.setValueAt(rs.getString(7), row, 7);
+                        JTable.setValueAt(rs.getString(8), row, 8);
+                        JTable.setValueAt(rs.getString(9), row, 9);
                         row++;
                     }
                 }
             } catch (SQLException e) {
                 out.println("E6" + e);
-                showMessageDialog(null, "Gagal Panggil Data Edit Detail");
+                showMessageDialog(null, "Gagal Panggil Data Purchase Request");
             } finally {
                 runSelct.closecon();
             }
@@ -1230,36 +1232,39 @@ public class BarangMasuk extends javax.swing.JFrame {
         JTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                    "No", "Jenis Barang", "Kategori Barang", "Nama Barang", "Harga", "Jumlah", "Garansi", "Serial Number", "Keterangan"
+                    "ID", "No", "Jenis Barang", "Kategori Barang", "Nama Barang", "Harga", "Jumlah", "Garansi", "Serial Number", "Keterangan"
                 }
         ));
-        JTable.getColumnModel().getColumn(0).setPreferredWidth(60);
-        JTable.getColumnModel().getColumn(0).setMinWidth(60);
-        JTable.getColumnModel().getColumn(0).setMaxWidth(60);
-        JTable.getColumnModel().getColumn(1).setPreferredWidth(120);
-        JTable.getColumnModel().getColumn(1).setMinWidth(120);
-        JTable.getColumnModel().getColumn(1).setMaxWidth(120);
-        JTable.getColumnModel().getColumn(2).setPreferredWidth(140);
-        JTable.getColumnModel().getColumn(2).setMinWidth(140);
-        JTable.getColumnModel().getColumn(2).setMaxWidth(140);
-        JTable.getColumnModel().getColumn(3).setPreferredWidth(400);
-        JTable.getColumnModel().getColumn(3).setMinWidth(400);
-        JTable.getColumnModel().getColumn(3).setMaxWidth(400);
-        JTable.getColumnModel().getColumn(4).setPreferredWidth(120);
-        JTable.getColumnModel().getColumn(4).setMinWidth(120);
-        JTable.getColumnModel().getColumn(4).setMaxWidth(120);
-        JTable.getColumnModel().getColumn(5).setPreferredWidth(100);
-        JTable.getColumnModel().getColumn(5).setMinWidth(100);
-        JTable.getColumnModel().getColumn(5).setMaxWidth(100);
-        JTable.getColumnModel().getColumn(6).setPreferredWidth(50);
-        JTable.getColumnModel().getColumn(6).setMinWidth(50);
-        JTable.getColumnModel().getColumn(6).setMaxWidth(50);
-        JTable.getColumnModel().getColumn(7).setPreferredWidth(250);
-        JTable.getColumnModel().getColumn(7).setMinWidth(250);
-        JTable.getColumnModel().getColumn(7).setMaxWidth(250);
-        JTable.getColumnModel().getColumn(8).setPreferredWidth(200);
-        JTable.getColumnModel().getColumn(8).setMinWidth(200);
-        JTable.getColumnModel().getColumn(8).setMaxWidth(200);
+        JTable.getColumnModel().getColumn(0).setPreferredWidth(0);
+        JTable.getColumnModel().getColumn(0).setMinWidth(0);
+        JTable.getColumnModel().getColumn(0).setMaxWidth(0);
+        JTable.getColumnModel().getColumn(1).setPreferredWidth(60);
+        JTable.getColumnModel().getColumn(1).setMinWidth(60);
+        JTable.getColumnModel().getColumn(1).setMaxWidth(60);
+        JTable.getColumnModel().getColumn(2).setPreferredWidth(120);
+        JTable.getColumnModel().getColumn(2).setMinWidth(120);
+        JTable.getColumnModel().getColumn(2).setMaxWidth(120);
+        JTable.getColumnModel().getColumn(3).setPreferredWidth(140);
+        JTable.getColumnModel().getColumn(3).setMinWidth(140);
+        JTable.getColumnModel().getColumn(3).setMaxWidth(140);
+        JTable.getColumnModel().getColumn(4).setPreferredWidth(400);
+        JTable.getColumnModel().getColumn(4).setMinWidth(400);
+        JTable.getColumnModel().getColumn(4).setMaxWidth(400);
+        JTable.getColumnModel().getColumn(5).setPreferredWidth(120);
+        JTable.getColumnModel().getColumn(5).setMinWidth(120);
+        JTable.getColumnModel().getColumn(5).setMaxWidth(120);
+        JTable.getColumnModel().getColumn(6).setPreferredWidth(100);
+        JTable.getColumnModel().getColumn(6).setMinWidth(100);
+        JTable.getColumnModel().getColumn(6).setMaxWidth(100);
+        JTable.getColumnModel().getColumn(7).setPreferredWidth(50);
+        JTable.getColumnModel().getColumn(7).setMinWidth(50);
+        JTable.getColumnModel().getColumn(7).setMaxWidth(50);
+        JTable.getColumnModel().getColumn(8).setPreferredWidth(250);
+        JTable.getColumnModel().getColumn(8).setMinWidth(250);
+        JTable.getColumnModel().getColumn(8).setMaxWidth(250);
+        JTable.getColumnModel().getColumn(9).setPreferredWidth(200);
+        JTable.getColumnModel().getColumn(9).setMinWidth(200);
+        JTable.getColumnModel().getColumn(9).setMaxWidth(200);
         RefreshTbl();
     }
 
@@ -1274,6 +1279,7 @@ public class BarangMasuk extends javax.swing.JFrame {
         JTSerialNumber.setText("");
         JTKeterangan.setText("");
         JTJumlahBarang.setEnabled(true);
+        JTSerialNumber.setEnabled(false);
     }
 
     void TambahData(boolean tutup) {
@@ -1299,7 +1305,7 @@ public class BarangMasuk extends javax.swing.JFrame {
                     //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota, JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF");
                     if (Berhasil) {
                         for (int i = 0; i < JTable.getRowCount(); i++) {
-                            Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 0) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 3) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 2) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 1) + "'),'" + JTable.getValueAt(i, 4).toString().replace(".", "") + "','" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 7) + "','" + JTable.getValueAt(i, 8) + "')", null);
+                            Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 1) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 4) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 3) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 2) + "'),'" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 6).toString().replace(".", "") + "','" + JTable.getValueAt(i, 8) + "','" + JTable.getValueAt(i, 9) + "')", null);
                             //}
                             //}
                         }
@@ -1319,12 +1325,12 @@ public class BarangMasuk extends javax.swing.JFrame {
                 if (tutup) {
                     dispose();
                 } else {
-                RefreshAll();
-                setNomorBarangMasuk();
+                    RefreshAll();
+                    setNomorBarangMasuk();
                     JCNomorPurchaseRequest.load("SELECT '-- Pilih No Purchase Request --' AS 'NomorPurchaseRequest' UNION SELECT `NomorPurchaseRequest` FROM (SELECT X.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as 'JumlahX', IFNULL(Y.`Jumlah`,0) as 'JumlahY' FROM `tbpurchaserequestdetail` as X LEFT JOIN (SELECT b.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as 'Jumlah' FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangMasuk` WHERE 1 GROUP BY b.`NomorPurchaseRequest`) as Y ON X.`NomorPurchaserequest`=Y.`NomorPurchaseRequest` WHERE 1 GROUP BY `NomorPurchaseRequest` ) t1 WHERE `JumlahX`!=`JumlahY` ");
                     JCNomorPurchaseRequest.requestFocus();
                 }
-                if (GlobalVar.Var.listBarangMasuk != null){
+                if (GlobalVar.Var.listBarangMasuk != null) {
                     GlobalVar.Var.listBarangMasuk.load();
                 }
             }
@@ -1349,14 +1355,14 @@ public class BarangMasuk extends javax.swing.JFrame {
                 if (Berhasil) {
                     Berhasil = multiInsert.Excute("UPDATE `tbbarangmasuk` SET `NomorBarangMasuk`='" + JTNomorBarangMasuk.getText() + "',`TanggalBarangMasuk`='" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "',`NomorPurchaseRequest`='" + JCNomorPurchaseRequest.getSelectedItem() + "',`IdVendor`=(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'),`UrlPurchaseRequest`='" + JTUrlBuktiPurchaseRequest.getText() + "',`UrlNotaBarangMasuk`='" + JTUrlBuktiNota.getText() + "',`Keterangan`='" + JTAKeterangan.getText() + "' WHERE `IdBarangMasuk` = '" + idEdit + "'", null);
                     //if (Berhasil) {
-                        //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiPurchaseRequest.getText(), URLPurchaseRequest, JCNomorPurchaseRequest.getSelectedItem() + "-" + "PR" + ".PDF");
-                        // if (Berhasil) {
-                        //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota, JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF");
-                        if (Berhasil) {
+                    //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiPurchaseRequest.getText(), URLPurchaseRequest, JCNomorPurchaseRequest.getSelectedItem() + "-" + "PR" + ".PDF");
+                    // if (Berhasil) {
+                    //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota, JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF");
+                    if (Berhasil) {
                         Berhasil = multiInsert.Excute("DELETE FROM `tbbarangmasukdetail` WHERE `NomorBarangMasuk` = '" + JTNomorBarangMasuk.getText() + "'", null);
                         if (Berhasil) {
                             for (int i = 0; i < JTable.getRowCount(); i++) {
-                                Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 0) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 3) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 2) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 1) + "'),'" + JTable.getValueAt(i, 4).toString().replace(".", "") + "','" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 7) + "','" + JTable.getValueAt(i, 8) + "')", null);
+                                Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`IdDetailBarangMasuk`, `NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTable.getValueAt(i, 0) + "','" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 1) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 4) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 3) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 2) + "'),'" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 6).toString().replace(".", "") + "','" + JTable.getValueAt(i, 8) + "','" + JTable.getValueAt(i, 9) + "')", null);
                                 //}
                                 //}
                             }
@@ -1375,7 +1381,7 @@ public class BarangMasuk extends javax.swing.JFrame {
                 multiInsert.closecon();
                 dispose();
                 RefreshAll();
-                if (GlobalVar.Var.listBarangMasuk != null){
+                if (GlobalVar.Var.listBarangMasuk != null) {
                     GlobalVar.Var.listBarangMasuk.load();
                 }
             }
@@ -1395,14 +1401,14 @@ public class BarangMasuk extends javax.swing.JFrame {
 
     void ubahtable() {
         if (checkTableUbah()) {
-            JTable.setValueAt(JTJenisBarang.getText(), JTable.getSelectedRow(), 1);
-            JTable.setValueAt(JTKategoriBarang.getText(), JTable.getSelectedRow(), 2);
-            JTable.setValueAt(JTNamaBarang.getText(), JTable.getSelectedRow(), 3);
-            JTable.setValueAt(JTHargaBarang.getText(), JTable.getSelectedRow(), 4);
-            JTable.setValueAt(JTJumlahBarang.getText(), JTable.getSelectedRow(), 5);
-            JTable.setValueAt(JTSerialNumber.getText(), JTable.getSelectedRow(), 7);
-            JTable.setValueAt(JTKeterangan.getText(), JTable.getSelectedRow(), 8);
-            JOptionPane.showMessageDialog(this, "Berhasil Ubah Detail Permintaan");
+            JTable.setValueAt(JTJenisBarang.getText(), JTable.getSelectedRow(), 2);
+            JTable.setValueAt(JTKategoriBarang.getText(), JTable.getSelectedRow(), 3);
+            JTable.setValueAt(JTNamaBarang.getText(), JTable.getSelectedRow(), 4);
+            JTable.setValueAt(JTHargaBarang.getText(), JTable.getSelectedRow(), 5);
+            JTable.setValueAt(JTJumlahBarang.getText(), JTable.getSelectedRow(), 6);
+            JTable.setValueAt(JTSerialNumber.getText(), JTable.getSelectedRow(), 8);
+            JTable.setValueAt(JTKeterangan.getText(), JTable.getSelectedRow(), 9);
+            JOptionPane.showMessageDialog(this, "Berhasil Ubah Detail Barang Masuk");
             RefreshTbl();
             JTNamaBarang.requestFocus();
         }
@@ -1410,23 +1416,44 @@ public class BarangMasuk extends javax.swing.JFrame {
 
     boolean checkSerialNumber() {
         for (int i = 0; i < JTable.getRowCount(); i++) {
-            if (JTable.getValueAt(i, 6).equals("Ya") && JTable.getValueAt(i, 7).toString().replace(" ", "").isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Serial Number Pada Detail Permintaan Nomor " + (i + 1) + " Tidak Boleh Kosong");
+            if (JTable.getValueAt(i, 7).equals("Ya") && JTable.getValueAt(i, 8).toString().replace(" ", "").isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Serial Number Pada Detail Barang Masuk Nomor " + (i + 1) + " Tidak Boleh Kosong");
                 return false;
             }
         }
         return true;
     }
 
-    boolean cekdoubleitem(String item1, int row1, String item2,
-            int row2, String item3,
-            int row3
-    ) {
+    boolean cekdoubleitem(String item1, int row1, String item2, int row2, String item3, int row3) {
         for (int i = 0; i < JTable.getRowCount(); i++) {
             if (item1.equals(JTable.getValueAt(i, row1)) && item2.equals(JTable.getValueAt(i, row2)) && item3.equals(JTable.getValueAt(i, row3))) {
                 return true;
             }
         }
         return false;
+    }
+
+    boolean checkDoubleSerialNumber() {
+        for (int i = 0; i < JTable.getRowCount(); i++) {
+            if (JTable.getValueAt(i, 7).equals("Ya")) {
+                DRunSelctOne dRunSelctOne = new DRunSelctOne();
+                dRunSelctOne.seterorm("Gagal Check Double Serial Number");
+                dRunSelctOne.setQuery("SELECT `SerialNumber` FROM `tbbarangmasukdetail` WHERE `SerialNumber`='" + JTable.getValueAt(i, 8) + "'");
+                ArrayList<String> list = dRunSelctOne.excute();
+                if (list.get(0) != null) {
+                    JOptionPane.showMessageDialog(this, "Serial Number Pada Detail Barang Masuk Nomor " + (i + 1) + " Sudah Ada Dalam Database");
+                    return false;
+                }
+            }
+        }
+        for (int i = 0; i < JTable.getRowCount(); i++) {
+            for (int j = 0; j < JTable.getRowCount(); j++) {
+                if (JTable.getValueAt(i, 8).equals(JTable.getValueAt(j, 8)) && i != j) {
+                    JOptionPane.showMessageDialog(this, "Serial Number Pada Detail Barang Masuk Nomor " + (i + 1) + " dan Nomor " + (j + 1) + " Tidak Boleh Sama");
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

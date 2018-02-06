@@ -40,7 +40,6 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -93,7 +92,6 @@
                           <Component id="JBRefreshDetail" alignment="0" max="32767" attributes="0"/>
                           <Component id="JBUbahDetail" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -156,27 +154,22 @@
                           <Component id="JTNomorBarangMasuk" min="-2" pref="150" max="-2" attributes="0"/>
                           <Component id="JDTanggal" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="JBKembali" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="JBUbah" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JBTambah" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JBTambahTutup" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jlableF8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="JBKembali" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="JBUbah" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="JBTambah" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="JBTambahTutup" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jlableF8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -186,19 +179,21 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jlableF8" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jlableF2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlableF1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlableF10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTNomorBarangMasuk" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JCNomorPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTambahNomorPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlableF3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlableF14" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTUrlBuktiPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBPilihUrlBuktiPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBPilihUrlBuktiPurchaseRequest1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlableF9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlableF1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlableF10" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JTNomorBarangMasuk" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JCNomorPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBTambahNomorPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlableF3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlableF14" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JTUrlBuktiPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBPilihUrlBuktiPurchaseRequest" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="JBPilihUrlBuktiPurchaseRequest1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlableF9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -402,7 +397,8 @@
         <Component class="KomponenGUI.JtableF" name="JTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="9" rowCount="0">
+              <Table columnCount="10" rowCount="0">
+                <Column editable="false" title="ID" type="java.lang.Object"/>
                 <Column editable="false" title="No" type="java.lang.Object"/>
                 <Column editable="false" title="Jenis Barang" type="java.lang.Object"/>
                 <Column editable="false" title="Kategori Barang" type="java.lang.Object"/>
@@ -416,6 +412,11 @@
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="JTable.setrender(4, &quot;Number&quot;);&#xa;JTable.setrender(5, &quot;Number&quot;);">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="60" minWidth="60" prefWidth="60" resizable="true">
                   <Title/>
                   <Editor/>
@@ -719,9 +720,6 @@
           <ComponentRef name="JTSerialNumber"/>
         </Property>
       </Properties>
-      <BindingProperties>
-        <BindingProperty name="enabled" source="JTable" sourcePath="${selectedElement != null}" target="JTSerialNumber" targetPath="enabled" updateStrategy="0" immediately="false"/>
-      </BindingProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTSerialNumberActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTSerialNumberKeyPressed"/>
