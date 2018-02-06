@@ -75,6 +75,12 @@ public class BarangMasuk extends javax.swing.JFrame {
         } else if (JDTanggal.getDate() == null) {
             JOptionPane.showMessageDialog(this, "Tanggal Purchase Request Tidak Boleh Kosong");
             return false;
+        } else if (JTUrlBuktiPurchaseRequest.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bukti Purchase Request Tidak Boleh Kosong");
+            return false;
+        } else if (JTUrlBuktiNota.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bukti Nota Pembelian Tidak Boleh Kosong");
+            return false;
         } else if (JTable.getRowCount() < 1) {
             JOptionPane.showMessageDialog(this, "Detail Permintaan Tidak Boleh Kosong");
             return false;
@@ -91,6 +97,12 @@ public class BarangMasuk extends javax.swing.JFrame {
             return false;
         } else if (JTNomorBarangMasuk.getText().replace(" ", "").isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nomor Barang Masuk Tidak Boleh Kosong");
+            return false;
+        } else if (JTUrlBuktiPurchaseRequest.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bukti Purchase Request Tidak Boleh Kosong");
+            return false;
+        } else if (JTUrlBuktiNota.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bukti Nota Pembelian Tidak Boleh Kosong");
             return false;
         } else {
             return true;
@@ -568,6 +580,7 @@ public class BarangMasuk extends javax.swing.JFrame {
         });
 
         JBPilihUrlBuktiPurchaseRequest1.setText("Tampilkan");
+        JBPilihUrlBuktiPurchaseRequest1.setEnabled(true);
         JBPilihUrlBuktiPurchaseRequest1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBPilihUrlBuktiPurchaseRequest1ActionPerformed(evt);
@@ -855,7 +868,6 @@ public class BarangMasuk extends javax.swing.JFrame {
             JTJumlahBarang.setText(JTable.getValueAt(JTable.getSelectedRow(), 6).toString().replace(".", ""));
             JTSerialNumber.setText(JTable.getValueAt(JTable.getSelectedRow(), 8).toString());
             JTKeterangan.setText(JTable.getValueAt(JTable.getSelectedRow(), 9).toString());
-            System.out.println(isGaransi());
             if (isGaransi()) {
                 JTJumlahBarang.setEnabled(false);
                 JTSerialNumber.setEnabled(true);
@@ -959,7 +971,9 @@ public class BarangMasuk extends javax.swing.JFrame {
         if (returnVal == 0) {
             file = fc.getSelectedFile();
             FileL = file.getAbsolutePath();
-            JTUrlBuktiPurchaseRequest.setText(FileL);
+            if (file.exists()) {
+                JTUrlBuktiPurchaseRequest.setText(FileL);
+            }
         }
     }//GEN-LAST:event_JBPilihUrlBuktiPurchaseRequestActionPerformed
 
@@ -975,28 +989,38 @@ public class BarangMasuk extends javax.swing.JFrame {
         if (returnVal == 0) {
             file = fc.getSelectedFile();
             FileL = file.getAbsolutePath();
-            JTUrlBuktiNota.setText(FileL);
+            if (file.exists()) {
+                JTUrlBuktiNota.setText(FileL);
+            }
         }
     }//GEN-LAST:event_JBPilihUrlBuktiNotaActionPerformed
 
     private void JBPilihUrlBuktiPurchaseRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPilihUrlBuktiPurchaseRequest1ActionPerformed
-        if (Desktop.isDesktopSupported()) {
-            try {
-                File myFile = new File(JTUrlBuktiPurchaseRequest.getText());
-                Desktop.getDesktop().open(myFile);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Eror: File tidak di temukan !!");
+        if (JTUrlBuktiPurchaseRequest.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Bukti Purchase Request Terlebih Dahulu");
+        } else {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    File myFile = new File(JTUrlBuktiPurchaseRequest.getText());
+                    Desktop.getDesktop().open(myFile);
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Eror: File tidak di temukan !!");
+                }
             }
         }
     }//GEN-LAST:event_JBPilihUrlBuktiPurchaseRequest1ActionPerformed
 
     private void JBPilihUrlBuktiNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBPilihUrlBuktiNota1ActionPerformed
-        if (Desktop.isDesktopSupported()) {
-            try {
-                File myFile = new File(JTUrlBuktiNota.getText());
-                Desktop.getDesktop().open(myFile);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Eror: File tidak di temukan !!");
+        if (JTUrlBuktiNota.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Bukti Nota Pembelian Terlebih Dahulu.");
+        } else {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    File myFile = new File(JTUrlBuktiNota.getText());
+                    Desktop.getDesktop().open(myFile);
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Eror: File tidak di temukan !!");
+                }
             }
         }
     }//GEN-LAST:event_JBPilihUrlBuktiNota1ActionPerformed
@@ -1225,6 +1249,8 @@ public class BarangMasuk extends javax.swing.JFrame {
     }
 
     void RefreshAll() {
+        JTUrlBuktiPurchaseRequest.setText("");
+        JTUrlBuktiNota.setText("");
         setNomorBarangMasuk();
         JCNomorPurchaseRequest.setSelectedIndex(0);
         JCNamaVendor.setSelectedIndex(0);
@@ -1283,31 +1309,31 @@ public class BarangMasuk extends javax.swing.JFrame {
     }
 
     void TambahData(boolean tutup) {
-        String URLPurchaseRequest = null;
-        String URLNota = null;
-        if (!"".equals(JTUrlBuktiPurchaseRequest.getText())) {
-            URLPurchaseRequest = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem() + "-" + "PR" + ".PDF";
-        }
-        if (!"".equals(JTUrlBuktiNota.getText())) {
-            URLNota = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF";
-        }
         if (checkInput()) {
+            String URLPurchaseRequest = null;
+            String URLNota = null;
+            if (!"".equals(JTUrlBuktiPurchaseRequest.getText())) {
+                URLPurchaseRequest = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "PR" + ".PDF";
+            }
+            if (!"".equals(JTUrlBuktiNota.getText())) {
+                URLNota = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "Nota" + ".PDF";
+            }
             boolean Berhasil;
             MultiInsert multiInsert = new MultiInsert();
             Berhasil = multiInsert.OpenConnection();
             if (Berhasil) {
                 Berhasil = multiInsert.setautocomit(false);
                 if (Berhasil) {
-                    Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasuk`(`NomorBarangMasuk`, `TanggalBarangMasuk`, `NomorPurchaseRequest`, `IdVendor`, `UrlPurchaseRequest`, `UrlNotaBarangMasuk`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "','" + JCNomorPurchaseRequest.getSelectedItem() + "',(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'),'" + JTUrlBuktiPurchaseRequest.getText() + "','" + JTUrlBuktiNota.getText() + "','" + JTAKeterangan.getText() + "')", null);
-                    //if (Berhasil) {
-                    //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiPurchaseRequest.getText(), URLPurchaseRequest, JCNomorPurchaseRequest.getSelectedItem() + "-" + "PR" + ".PDF");
-                    // if (Berhasil) {
-                    //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota, JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF");
+                    Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasuk`(`NomorBarangMasuk`, `TanggalBarangMasuk`, `NomorPurchaseRequest`, `IdVendor`, `UrlPurchaseRequest`, `UrlNotaBarangMasuk`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "','" + JCNomorPurchaseRequest.getSelectedItem() + "',(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'),'" + URLPurchaseRequest + "','" + URLNota + "','" + JTAKeterangan.getText() + "')", null);
                     if (Berhasil) {
-                        for (int i = 0; i < JTable.getRowCount(); i++) {
-                            Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 1) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 4) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 3) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 2) + "'),'" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 6).toString().replace(".", "") + "','" + JTable.getValueAt(i, 8) + "','" + JTable.getValueAt(i, 9) + "')", null);
-                            //}
-                            //}
+                        Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiPurchaseRequest.getText(), URLPurchaseRequest);
+                        if (Berhasil) {
+                            Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota);
+                            if (Berhasil) {
+                                for (int i = 0; i < JTable.getRowCount(); i++) {
+                                    Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 1) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 4) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 3) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 2) + "'),'" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 6).toString().replace(".", "") + "','" + JTable.getValueAt(i, 8) + "','" + JTable.getValueAt(i, 9) + "')", null);
+                                }
+                            }
                         }
                     }
                 }
@@ -1338,33 +1364,33 @@ public class BarangMasuk extends javax.swing.JFrame {
     }
 
     void UbahData(boolean print) {
-        String URLPurchaseRequest = null;
-        String URLNota = null;
-        if (!"".equals(JTUrlBuktiPurchaseRequest.getText())) {
-            URLPurchaseRequest = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem() + "-" + "PR" + ".PDF";
-        }
-        if (!"".equals(JTUrlBuktiNota.getText())) {
-            URLNota = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF";
-        }
         if (checkUbah()) {
+            String URLPurchaseRequest = null;
+            String URLNota = null;
+            if (!"".equals(JTUrlBuktiPurchaseRequest.getText())) {
+                URLPurchaseRequest = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "PR" + ".PDF";
+            }
+            if (!"".equals(JTUrlBuktiNota.getText())) {
+                URLNota = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "Nota" + ".PDF";
+            }
             boolean Berhasil;
             MultiInsert multiInsert = new MultiInsert();
             Berhasil = multiInsert.OpenConnection();
             if (Berhasil) {
                 Berhasil = multiInsert.setautocomit(false);
                 if (Berhasil) {
-                    Berhasil = multiInsert.Excute("UPDATE `tbbarangmasuk` SET `NomorBarangMasuk`='" + JTNomorBarangMasuk.getText() + "',`TanggalBarangMasuk`='" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "',`NomorPurchaseRequest`='" + JCNomorPurchaseRequest.getSelectedItem() + "',`IdVendor`=(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'),`UrlPurchaseRequest`='" + JTUrlBuktiPurchaseRequest.getText() + "',`UrlNotaBarangMasuk`='" + JTUrlBuktiNota.getText() + "',`Keterangan`='" + JTAKeterangan.getText() + "' WHERE `IdBarangMasuk` = '" + idEdit + "'", null);
-                    //if (Berhasil) {
-                    //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiPurchaseRequest.getText(), URLPurchaseRequest, JCNomorPurchaseRequest.getSelectedItem() + "-" + "PR" + ".PDF");
-                    // if (Berhasil) {
-                    //Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota, JCNomorPurchaseRequest.getSelectedItem() + "-" + "Nota" + ".PDF");
+                    Berhasil = multiInsert.Excute("UPDATE `tbbarangmasuk` SET `NomorBarangMasuk`='" + JTNomorBarangMasuk.getText() + "',`TanggalBarangMasuk`='" + FDateF.datetostr(JDTanggal.getDate(), "yyyy-MM-dd") + "',`NomorPurchaseRequest`='" + JCNomorPurchaseRequest.getSelectedItem() + "',`IdVendor`=(SELECT `IdVendor` FROM `tbmvendor` WHERE `NamaVendor` = '" + JCNamaVendor.getSelectedItem() + "'),`UrlPurchaseRequest`='" + URLPurchaseRequest + "',`UrlNotaBarangMasuk`='" + URLNota + "',`Keterangan`='" + JTAKeterangan.getText() + "' WHERE `IdBarangMasuk` = '" + idEdit + "'", null);
                     if (Berhasil) {
-                        Berhasil = multiInsert.Excute("DELETE FROM `tbbarangmasukdetail` WHERE `NomorBarangMasuk` = '" + JTNomorBarangMasuk.getText() + "'", null);
+                        Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiPurchaseRequest.getText(), URLPurchaseRequest);
                         if (Berhasil) {
-                            for (int i = 0; i < JTable.getRowCount(); i++) {
-                                Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`IdDetailBarangMasuk`, `NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTable.getValueAt(i, 0) + "','" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 1) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 4) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 3) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 2) + "'),'" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 6).toString().replace(".", "") + "','" + JTable.getValueAt(i, 8) + "','" + JTable.getValueAt(i, 9) + "')", null);
-                                //}
-                                //}
+                            Berhasil = UploadPDFCore.UploadPDF(JTUrlBuktiNota.getText(), URLNota);
+                            if (Berhasil) {
+                                Berhasil = multiInsert.Excute("DELETE FROM `tbbarangmasukdetail` WHERE `NomorBarangMasuk` = '" + JTNomorBarangMasuk.getText() + "'", null);
+                                if (Berhasil) {
+                                    for (int i = 0; i < JTable.getRowCount(); i++) {
+                                        Berhasil = multiInsert.Excute("INSERT INTO `tbbarangmasukdetail`(`IdDetailBarangMasuk`, `NomorBarangMasuk`, `NomorKolom`, `IdBarang`, `HargaBarang`, `JumlahBarang`, `SerialNumber`, `Keterangan`) VALUES ('" + JTable.getValueAt(i, 0) + "','" + JTNomorBarangMasuk.getText() + "','" + JTable.getValueAt(i, 1) + "',(SELECT `IdBarang` FROM `tbmbarang`a JOIN `tbmkategoribarang`b ON a.`IdKategoriBarang`=b.`IdKategoriBarang` JOIN `tbmjenisbarang`c ON b.`IdJenisBarang`=c.`IdJenisBarang` WHERE `NamaBarang` = '" + JTable.getValueAt(i, 4) + "' AND `KategoriBarang` = '" + JTable.getValueAt(i, 3) + "' AND `JenisBarang` = '" + JTable.getValueAt(i, 2) + "'),'" + JTable.getValueAt(i, 5).toString().replace(".", "") + "','" + JTable.getValueAt(i, 6).toString().replace(".", "") + "','" + JTable.getValueAt(i, 8) + "','" + JTable.getValueAt(i, 9) + "')", null);
+                                    }
+                                }
                             }
                         }
                     }

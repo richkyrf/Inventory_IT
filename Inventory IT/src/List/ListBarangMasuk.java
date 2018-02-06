@@ -196,7 +196,7 @@ public class ListBarangMasuk extends javax.swing.JFrame {
     }
 
     public void load() {
-        JComCari.setQuery("SELECT `IdBarangMasuk` as 'ID', `NomorBarangMasuk` as 'No. Barang Masuk', DATE_FORMAT(`TanggalBarangMasuk`, '%d/%m%Y') as 'Tanggal', `NomorPurchaseRequest` as 'No. PR', `NamaVendor` as 'Nama Vendor', `UrlPurchaseRequest`, `UrlNotaBarangMasuk`, a.`Keterangan` FROM `tbbarangmasuk`a JOIN `tbmvendor`b ON a.`IdVendor`=b.`IdVendor` ");
+        JComCari.setQuery("SELECT `IdBarangMasuk` as 'ID', `NomorBarangMasuk` as 'No. Barang Masuk', DATE_FORMAT(`TanggalBarangMasuk`, '%d/%m/%Y') as 'Tanggal', `NomorPurchaseRequest` as 'No. PR', `NamaVendor` as 'Nama Vendor', `UrlPurchaseRequest`, `UrlNotaBarangMasuk`, a.`Keterangan` FROM `tbbarangmasuk`a JOIN `tbmvendor`b ON a.`IdVendor`=b.`IdVendor` ");
         JComCari.setOrder(" ORDER BY `NomorBarangMasuk` DESC ");
         JComCari.tampilkan();
     }

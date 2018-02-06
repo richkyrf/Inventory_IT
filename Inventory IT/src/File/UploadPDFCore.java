@@ -15,9 +15,9 @@ import java.io.IOException;
  */
 public class UploadPDFCore {
 
-    public static boolean UploadPDF(String Sourc, String Dest, String NameFile) {
+    public static boolean UploadPDF(String Sourc, String Dest) {
         //System.out.println("LProses.UploadPDFCore.UploadPDF() SOURC " + Sourc);
-        //System.out.println("LProses.UploadPDFCore.UploadPDF() SOURC " + Dest);
+        //System.out.println("LProses.UploadPDFCore.UploadPDF() DEST " + Dest);
         if (!"".equals(Sourc) && !"".equals(Dest) && Sourc != null && Dest != null) {
             try {
                 File source = new File(Sourc);
@@ -25,13 +25,13 @@ public class UploadPDFCore {
                 //System.out.println("UploadPDF() s =" + source);
                 //System.out.println("UploadPDF() d =" + dest);
                 
-                if(!Sourc.toUpperCase().matches("(.*)" + "192.168.1.32" + "(.*)")){
+                if(!Sourc.toUpperCase().matches("(.*)" + "127.0.0.1" + "(.*)")){
                     FileCopy.copyFile(source, dest);
                 }
                 return true;
             } catch (IOException e) {
                 Eror.LogEror.SaveEror(e);
-                ////System.err.println("E filecopy" + e);
+                //System.err.println("E filecopy" + e);
                 return false;
             }
         } else {
