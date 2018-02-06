@@ -46,11 +46,11 @@ SELECT `NomorPenyesuaianStok` as 'NoTransaksi', `TanggalPenyesuaianStok` as 'Tan
 ) a LEFT JOIN (
 
 SELECT `IdBarang`, SUM(IFNULL(`Stok`,0)) as 'Stok' FROM (
-SELECT `IdBarang`, SUM(IFNULL(`JumlahBarang`,0)) as 'Stok' FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangMasuk` WHERE `TanggalBarangMasuk` <= $P{TanggalStokAwal}
+SELECT `IdBarang`, SUM(IFNULL(`JumlahBarang`,0)) as 'Stok' FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangMasuk` WHERE `TanggalBarangMasuk` < $P{TanggalStokAwal}
 UNION ALL
-SELECT `IdBarang`, SUM(IFNULL(`JumlahBarang`,0)) as 'Stok' FROM `tbbarangkeluar` WHERE `TanggalBarangKeluar` <= $P{TanggalStokAwal}
+SELECT `IdBarang`, SUM(IFNULL(`JumlahBarang`,0)) as 'Stok' FROM `tbbarangkeluar` WHERE `TanggalBarangKeluar` < $P{TanggalStokAwal}
 UNION ALL
-SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaianstok` WHERE `TanggalPenyesuaianStok` <= $P{TanggalStokAwal}
+SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaianstok` WHERE `TanggalPenyesuaianStok` < $P{TanggalStokAwal}
 ) t1 GROUP BY `IdBarang`
 
 ) b ON a.`IdBarang`=b.`IdBarang` ORDER BY `JenisBarang`, `KategoriBarang`, `NamaBarang`, `Tanggal`]]>
