@@ -345,7 +345,7 @@ SELECT `IdBarang`, SUM(IFNULL(`PenyesuaianStok`,0)) as 'Stok' FROM `tbpenyesuaia
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{StokAwal}+$V{Masuk_1}+$V{Keluar_1}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{StokAwal}+$V{Masuk_1}-$V{Keluar_1}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="85" y="0" width="4" height="20" uuid="bfe135c1-7f5f-4f96-9db3-971223cceeb4"/>
