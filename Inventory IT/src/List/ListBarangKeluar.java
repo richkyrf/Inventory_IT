@@ -188,7 +188,7 @@ public class ListBarangKeluar extends javax.swing.JFrame {
     }
 
     public void load() {
-        JComCari.setQuery("SELECT `IdBarangKeluar` AS 'ID', `NomorBarangKeluar` AS 'Nomor Barang Keluar', DATE_FORMAT(`TanggalBarangKeluar`, '%d/%m/%Y') AS 'Tanggal Barang Keluar', `NamaKaryawan` AS 'Nama Pemakai', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `Garansi`, `JumlahBarang` AS 'Jumlah Barang', A.`Keterangan` FROM `tbbarangkeluar` AS A JOIN `tbmkaryawan` AS B ON A.`IdKaryawan`=B.`IdKaryawan` JOIN `tbmbarang` AS C ON A.`IdBarang`=C.`IdBarang` JOIN `tbmkategoribarang` AS D ON C.`IdKategoriBarang`=D.`IdKategoriBarang` JOIN `tbmjenisbarang` AS E ON D.`IdJenisBarang`=E.`IdJenisBarang`");
+        JComCari.setQuery("SELECT `IdBarangKeluar` AS 'ID', `NomorBarangKeluar` AS 'Nomor Barang Keluar', DATE_FORMAT(`TanggalBarangKeluar`, '%d/%m/%Y') AS 'Tanggal Barang Keluar', `NamaKaryawan` AS 'Nama Pemakai', `JenisBarang` AS 'Jenis Barang', `KategoriBarang` AS 'Kategori Barang', `NamaBarang` AS 'Nama Barang', `Garansi`, A.`JumlahBarang` AS 'Jumlah Barang', `SerialNumber` AS 'Serial Number', A.`Keterangan` FROM `tbbarangkeluar` AS A JOIN `tbmkaryawan` AS B ON A.`IdKaryawan`=B.`IdKaryawan` JOIN `tbmbarang` AS C ON A.`IdBarang`=C.`IdBarang` JOIN `tbmkategoribarang` AS D ON C.`IdKategoriBarang`=D.`IdKategoriBarang` JOIN `tbmjenisbarang` AS E ON D.`IdJenisBarang`=E.`IdJenisBarang` JOIN `tbbarangmasukdetail` AS F ON A.`IdDetailBarangMasuk`=F.`IdDetailBarangMasuk`");
         JComCari.setOrder("ORDER BY `NomorBarangKeluar` DESC");
         JComCari.setSelectedIndex(6);
         JComCari.tampilkan();

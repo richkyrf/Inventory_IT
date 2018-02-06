@@ -17,6 +17,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -26,9 +27,10 @@ public class BarangKeluar extends javax.swing.JFrame {
 
     KomponenGUI.JtextF[] arrayBarang;
     String idEdit, jenisBarang, kategoriBarang, namaBarang, jumlahBarangKeluar;
+    String[] idDetailBarangMasuk;
 
     /**
-     * Creates new form PenyesuaianStok
+     * Creates new form BarangKeluar
      */
     public BarangKeluar(Object id) {
         initComponents();
@@ -88,6 +90,9 @@ public class BarangKeluar extends javax.swing.JFrame {
         JLJumlahBarangKeluar = new KomponenGUI.JlableF();
         JLJumlahBarangKeluar2 = new KomponenGUI.JlableF();
         JRJumlahBarangKeluar = new KomponenGUI.JRibuanTextField();
+        JLSerialNumber = new KomponenGUI.JlableF();
+        JLSerialNumber2 = new KomponenGUI.JlableF();
+        JCSerialNumber = new KomponenGUI.JcomboboxF();
         JLKeterangan = new KomponenGUI.JlableF();
         JLKeterangan2 = new KomponenGUI.JlableF();
         JSPKeterangan = new javax.swing.JScrollPane();
@@ -198,6 +203,17 @@ public class BarangKeluar extends javax.swing.JFrame {
             }
         });
 
+        JLSerialNumber.setText("Serial Number");
+
+        JLSerialNumber2.setText(":");
+
+        JCSerialNumber.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih Serial Number --" }));
+        JCSerialNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JCSerialNumberKeyReleased(evt);
+            }
+        });
+
         JLKeterangan.setText("Keterangan");
 
         JLKeterangan2.setText(":");
@@ -248,67 +264,76 @@ public class BarangKeluar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(JLNamaPemakai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JLNomorBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JLTanggalBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(JLSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JLTanggalBarangKeluar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLNomoBarangKeluar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JTNomorBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JDTanggalBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(JLNamaPemakai2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JCNamaPemakai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBNamaPemakai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(JLSerialNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JCSerialNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(JLJumlahBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                                    .addComponent(JLStokBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JLCariBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JLNamaBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JLKategoriBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JLJenisBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JLKeterangan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(JLNamaPemakai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(JLNomorBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(JLTanggalBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JLJenisBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLKategoriBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLNamaBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLCariBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLStokBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLJumlahBarangKeluar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLKeterangan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(JBKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(JLTanggalBarangKeluar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JLNomoBarangKeluar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(JTNomorBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(JDTanggalBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(JLNamaPemakai2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JCNamaPemakai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JBNamaPemakai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(JLJumlahBarangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                            .addComponent(JLStokBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(JLCariBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(JLNamaBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(JLKategoriBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(JLJenisBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(JLKeterangan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(JLJenisBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JLKategoriBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JLNamaBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JLCariBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JLStokBarang2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JLJumlahBarangKeluar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(JLKeterangan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(JBKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBTambahTutup, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(JTCariBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JBCariBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(JTKategoriBarang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JTNamaBarang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JRStokBarang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JRJumlahBarangKeluar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JSPKeterangan, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JTJenisBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(10, 10, 10))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(JBTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JBTambahTutup, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JBUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(JTCariBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JBCariBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(JTKategoriBarang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(JTNamaBarang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(JRStokBarang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(JRJumlahBarangKeluar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(JSPKeterangan, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(JTJenisBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(10, 10, 10))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,6 +388,11 @@ public class BarangKeluar extends javax.swing.JFrame {
                     .addComponent(JLJumlahBarangKeluar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JRJumlahBarangKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLSerialNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JCSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -393,12 +423,6 @@ public class BarangKeluar extends javax.swing.JFrame {
     private void JBKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBKembaliActionPerformed
         dispose();
     }//GEN-LAST:event_JBKembaliActionPerformed
-
-    private void JTKeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKeteranganKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            tambah(false);
-        }
-    }//GEN-LAST:event_JTKeteranganKeyPressed
 
     private void JBCariBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCariBarangActionPerformed
         cariBarang(null);
@@ -435,11 +459,12 @@ public class BarangKeluar extends javax.swing.JFrame {
     private void JRJumlahBarangKeluarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JRJumlahBarangKeluarFocusGained
         setStokBarang();
         JTCariBarang.setText("");
+        loadSerialNumber("");
     }//GEN-LAST:event_JRJumlahBarangKeluarFocusGained
 
     private void JRJumlahBarangKeluarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JRJumlahBarangKeluarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            JTKeterangan.requestFocus();
+            JCSerialNumber.requestFocus();
         }
     }//GEN-LAST:event_JRJumlahBarangKeluarKeyPressed
 
@@ -465,6 +490,22 @@ public class BarangKeluar extends javax.swing.JFrame {
     private void JBUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBUbahActionPerformed
         ubah();
     }//GEN-LAST:event_JBUbahActionPerformed
+
+    private void JTKeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKeteranganKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            tambah(false);
+        }
+    }//GEN-LAST:event_JTKeteranganKeyPressed
+
+    private void JCSerialNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JCSerialNumberKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (JCSerialNumber.getSelectedIndex() == 0) {
+                JCSerialNumber.showPopup();
+            } else {
+                JTKeterangan.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_JCSerialNumberKeyReleased
 
     /**
      * @param args the command line arguments
@@ -562,6 +603,35 @@ public class BarangKeluar extends javax.swing.JFrame {
         }
     }
 
+    void loadSerialNumber(String query) {
+        if (!JTJenisBarang.getText().isEmpty() && !JTKategoriBarang.getText().isEmpty() && !JTNamaBarang.getText().isEmpty()) {
+            RunSelct runSelct = new RunSelct();
+            runSelct.setQuery("SELECT A.`IdDetailBarangMasuk`, `SerialNumber` FROM `tbbarangmasukdetail` AS A JOIN `tbmbarang` AS B ON A.`IdBarang`=B.`IdBarang` JOIN `tbmkategoribarang` AS C ON B.`IdKategoriBarang`=C.`IdKategoriBarang` JOIN `tbmjenisbarang` AS D ON C.`IdJenisBarang`=D.`IdJenisBarang` LEFT JOIN `tbbarangkeluar` AS E ON A.`IdDetailBarangMasuk`=E.`IdDetailBarangMasuk` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "' AND (`IdBarangKeluar` IS NULL" + query + ")");
+            try {
+                ResultSet rs = runSelct.excute();
+                int row = 0;
+                if (rs.last()) {
+                    idDetailBarangMasuk = new String[rs.getRow()];
+                    rs.beforeFirst();
+                }
+                DefaultComboBoxModel modelbaru = new DefaultComboBoxModel();
+                JCSerialNumber.setModel(modelbaru);
+                JCSerialNumber.addItem("-- Pilih Serial Number --");
+                while (rs.next()) {
+                    idDetailBarangMasuk[row] = rs.getString(1);
+                    JCSerialNumber.addItem(rs.getString(2));
+                    row++;
+                }
+
+            } catch (SQLException e) {
+                out.println("E6" + e);
+                JOptionPane.showMessageDialog(this, "Gagal Load Serial Number", "Information", JOptionPane.INFORMATION_MESSAGE);
+            } finally {
+                runSelct.closecon();
+            }
+        }
+    }
+
     boolean checkInput() {
         if (JTNomorBarangKeluar.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nomor Barang Keluar Tidak Boleh Kosong", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -594,6 +664,10 @@ public class BarangKeluar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Jumlah Barang Keluar Minimal 1", "Information", JOptionPane.INFORMATION_MESSAGE);
             JRJumlahBarangKeluar.requestFocus();
             return false;
+        } else if (JCSerialNumber.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Serial Number Harus Dipilih", "Information", JOptionPane.INFORMATION_MESSAGE);
+            JCSerialNumber.requestFocus();
+            return false;
         } else {
             return true;
         }
@@ -602,7 +676,7 @@ public class BarangKeluar extends javax.swing.JFrame {
     void tambah(boolean tutup) {
         if (checkInput()) {
             Insert insert = new LSubProces.Insert();
-            boolean simpan = insert.Simpan("INSERT INTO `tbbarangkeluar`(`NomorBarangKeluar`, `TanggalBarangKeluar`, `IdKaryawan`, `IdBarang`, `JumlahBarang`, `Keterangan`) VALUES ('" + JTNomorBarangKeluar.getText() + "', '" + FDateF.datetostr(JDTanggalBarangKeluar.getDate(), "yyyy-MM-dd") + "', (SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), (SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), '" + JRJumlahBarangKeluar.getInt() + "', '" + JTKeterangan.getText() + "')", "Tambah Data Barang Keluar", this);
+            boolean simpan = insert.Simpan("INSERT INTO `tbbarangkeluar`(`NomorBarangKeluar`, `TanggalBarangKeluar`, `IdKaryawan`, `IdBarang`, `JumlahBarang`, `IdDetailBarangMasuk`, `Keterangan`) VALUES ('" + JTNomorBarangKeluar.getText() + "', '" + FDateF.datetostr(JDTanggalBarangKeluar.getDate(), "yyyy-MM-dd") + "', (SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), (SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), '" + JRJumlahBarangKeluar.getInt() + "', '" + idDetailBarangMasuk[JCSerialNumber.getSelectedIndex() - 1] + "', '" + JTKeterangan.getText() + "')", "Tambah Data Barang Keluar", this);
             if (simpan) {
                 if (GlobalVar.Var.listBarangKeluar != null) {
                     GlobalVar.Var.listBarangKeluar.load();
@@ -627,13 +701,14 @@ public class BarangKeluar extends javax.swing.JFrame {
         JTCariBarang.setText("");
         JRStokBarang.setText("0");
         JRJumlahBarangKeluar.setText("1");
+        JCSerialNumber.setSelectedIndex(0);
         JTKeterangan.setText("");
     }
 
     void loadData() {
         DRunSelctOne dRunSelctOne = new DRunSelctOne();
         dRunSelctOne.seterorm("Gagal Menampilkan Data Barang Keluar");
-        dRunSelctOne.setQuery("SELECT `IdBarangKeluar`, `NomorBarangKeluar`, `TanggalBarangKeluar`, `NamaKaryawan`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, `JumlahBarang`, A.`Keterangan` FROM `tbbarangkeluar` AS A JOIN `tbmkaryawan` AS B ON A.`IdKaryawan`=B.`IdKaryawan` JOIN `tbmbarang` AS C ON A.`IdBarang`=C.`IdBarang` JOIN `tbmkategoribarang` AS D ON C.`IdKategoriBarang`=D.`IdKategoriBarang` JOIN `tbmjenisbarang` AS E ON D.`IdJenisBarang`=E.`IdJenisBarang` WHERE `IdBarangKeluar`='" + idEdit + "'");
+        dRunSelctOne.setQuery("SELECT `IdBarangKeluar`, `NomorBarangKeluar`, `TanggalBarangKeluar`, `NamaKaryawan`, `JenisBarang`, `KategoriBarang`, `NamaBarang`, A.`JumlahBarang`, `IdDetailBarangMasuk`, A.`Keterangan` FROM `tbbarangkeluar` AS A JOIN `tbmkaryawan` AS B ON A.`IdKaryawan`=B.`IdKaryawan` JOIN `tbmbarang` AS C ON A.`IdBarang`=C.`IdBarang` JOIN `tbmkategoribarang` AS D ON C.`IdKategoriBarang`=D.`IdKategoriBarang` JOIN `tbmjenisbarang` AS E ON D.`IdJenisBarang`=E.`IdJenisBarang` WHERE `IdBarangKeluar`='" + idEdit + "'");
         ArrayList<String> list = dRunSelctOne.excute();
         JTNomorBarangKeluar.setText(list.get(1));
         JDTanggalBarangKeluar.setDate(FDateF.strtodate(list.get(2), "yyyy-MM-dd"));
@@ -641,19 +716,30 @@ public class BarangKeluar extends javax.swing.JFrame {
         JTJenisBarang.setText(list.get(4));
         JTKategoriBarang.setText(list.get(5));
         JTNamaBarang.setText(list.get(6));
-        JRJumlahBarangKeluar.setText(list.get(7));
-        JTKeterangan.setText(list.get(8));
         jenisBarang = list.get(4);
         kategoriBarang = list.get(5);
         namaBarang = list.get(6);
         jumlahBarangKeluar = list.get(7);
         setStokBarang();
+        JRJumlahBarangKeluar.setText(list.get(7));
+        loadSerialNumber(" OR `IdBarangKeluar`=" + list.get(0));
+        JCSerialNumber.setSelectedIndex(getIndexSerialNumber(list.get(8)));
+        JTKeterangan.setText(list.get(9));
+    }
+
+    int getIndexSerialNumber(String id) {
+        for (int i = 0; i < idDetailBarangMasuk.length; i++) {
+            if (idDetailBarangMasuk[i].equals(id)) {
+                return (i + 1);
+            }
+        }
+        return 0;
     }
 
     void ubah() {
         if (checkInput()) {
             Update update = new LSubProces.Update();
-            boolean ubah = update.Ubah("UPDATE `tbbarangkeluar` SET `TanggalBarangKeluar`='" + FDateF.datetostr(JDTanggalBarangKeluar.getDate(), "yyyy-MM-dd") + "', `IdKaryawan`=(SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), `JumlahBarang`='" + JRJumlahBarangKeluar.getInt() + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdBarangKeluar`=" + idEdit, "Ubah Data Barang Keluar", this);
+            boolean ubah = update.Ubah("UPDATE `tbbarangkeluar` SET `TanggalBarangKeluar`='" + FDateF.datetostr(JDTanggalBarangKeluar.getDate(), "yyyy-MM-dd") + "', `IdKaryawan`=(SELECT `IdKaryawan` FROM `tbmkaryawan` WHERE `NamaKaryawan`='" + JCNamaPemakai.getSelectedItem() + "'), `IdBarang`=(SELECT `IdBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JTJenisBarang.getText() + "' AND `KategoriBarang`='" + JTKategoriBarang.getText() + "' AND `NamaBarang`='" + JTNamaBarang.getText() + "'), `JumlahBarang`='" + JRJumlahBarangKeluar.getInt() + "', `IdDetailBarangMasuk`='" + idDetailBarangMasuk[JCSerialNumber.getSelectedIndex() - 1] + "', `Keterangan`='" + JTKeterangan.getText() + "' WHERE `IdBarangKeluar`=" + idEdit, "Ubah Data Barang Keluar", this);
             if (ubah) {
                 dispose();
                 if (GlobalVar.Var.listBarangKeluar != null) {
@@ -671,6 +757,7 @@ public class BarangKeluar extends javax.swing.JFrame {
     private KomponenGUI.JbuttonF JBTambahTutup;
     private KomponenGUI.JbuttonF JBUbah;
     public KomponenGUI.JcomboboxF JCNamaPemakai;
+    private KomponenGUI.JcomboboxF JCSerialNumber;
     private KomponenGUI.JdateCF JDTanggalBarangKeluar;
     private KomponenGUI.JlableF JLCariBarang;
     private KomponenGUI.JlableF JLCariBarang2;
@@ -688,6 +775,8 @@ public class BarangKeluar extends javax.swing.JFrame {
     private KomponenGUI.JlableF JLNamaPemakai2;
     private KomponenGUI.JlableF JLNomoBarangKeluar2;
     private KomponenGUI.JlableF JLNomorBarangKeluar;
+    private KomponenGUI.JlableF JLSerialNumber;
+    private KomponenGUI.JlableF JLSerialNumber2;
     private KomponenGUI.JlableF JLStokBarang;
     private KomponenGUI.JlableF JLStokBarang2;
     private KomponenGUI.JlableF JLTanggalBarangKeluar;
