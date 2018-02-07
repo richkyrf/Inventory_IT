@@ -269,7 +269,7 @@
 				<text><![CDATA[Jenis Service]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="116" y="0" width="79" height="32" uuid="d3fef027-69c6-411a-a39e-ff9be8eed989"/>
+				<reportElement x="116" y="0" width="65" height="32" uuid="d3fef027-69c6-411a-a39e-ff9be8eed989"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -280,10 +280,10 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Jenis Barang Service]]></text>
+				<text><![CDATA[Jenis Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="195" y="0" width="135" height="32" uuid="f4edafc6-8242-4491-90a2-65ab5d58db98"/>
+				<reportElement x="181" y="0" width="165" height="32" uuid="f4edafc6-8242-4491-90a2-65ab5d58db98"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -294,10 +294,10 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nama Barang Service]]></text>
+				<text><![CDATA[Nama Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="330" y="0" width="73" height="32" uuid="c06b9dd8-2af1-4135-b7db-ce19027c2ae4"/>
+				<reportElement x="346" y="0" width="65" height="32" uuid="c06b9dd8-2af1-4135-b7db-ce19027c2ae4"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -308,10 +308,10 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tanggal Service]]></text>
+				<text><![CDATA[Tgl Service]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="403" y="0" width="73" height="32" uuid="59da584f-770d-4d26-8a3e-736422216cce"/>
+				<reportElement x="411" y="0" width="65" height="32" uuid="59da584f-770d-4d26-8a3e-736422216cce"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -373,7 +373,7 @@
 				<textFieldExpression><![CDATA[$F{Jenis Service}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="116" y="0" width="79" height="20" uuid="03554e45-e4aa-4ad1-bb7e-9534750831ea"/>
+				<reportElement x="116" y="0" width="65" height="20" uuid="03554e45-e4aa-4ad1-bb7e-9534750831ea"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -387,7 +387,7 @@
 				<textFieldExpression><![CDATA[$F{Jenis Barang Service}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="195" y="0" width="135" height="20" uuid="e8e484ab-16b4-4233-81e2-83e7fef92d1d"/>
+				<reportElement x="181" y="0" width="165" height="20" uuid="e8e484ab-16b4-4233-81e2-83e7fef92d1d"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -401,7 +401,7 @@
 				<textFieldExpression><![CDATA[$F{Nama Barang Service}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="330" y="0" width="73" height="20" uuid="36cad332-413a-4643-81e4-25ea932bf4b6"/>
+				<reportElement x="346" y="0" width="65" height="20" uuid="36cad332-413a-4643-81e4-25ea932bf4b6"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -415,7 +415,7 @@
 				<textFieldExpression><![CDATA[$F{Tanggal Service}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="403" y="0" width="73" height="20" uuid="52fc5eec-08e4-4631-abd4-2295d77baeab"/>
+				<reportElement x="411" y="0" width="65" height="20" uuid="52fc5eec-08e4-4631-abd4-2295d77baeab"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
