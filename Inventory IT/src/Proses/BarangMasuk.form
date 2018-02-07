@@ -805,7 +805,6 @@
     <Component class="KomponenGUI.JbuttonF" name="JBPilihUrlBuktiPurchaseRequest1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tampilkan"/>
-        <Property name="enabled" type="boolean" value="true"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBPilihUrlBuktiPurchaseRequest1ActionPerformed"/>

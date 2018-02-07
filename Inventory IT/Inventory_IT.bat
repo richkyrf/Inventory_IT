@@ -1,0 +1,1 @@
+Java -jar Inventory_IT.jar -c

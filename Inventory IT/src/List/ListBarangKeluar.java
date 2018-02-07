@@ -192,6 +192,7 @@ public class ListBarangKeluar extends javax.swing.JFrame {
         JComCari.setOrder("ORDER BY `NomorBarangKeluar` DESC");
         JComCari.setSelectedIndex(6);
         JComCari.tampilkan();
+        JComCari.jtablef.setrender(8, "Number");
     }
 
     void tambah() {

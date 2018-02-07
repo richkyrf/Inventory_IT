@@ -25,7 +25,7 @@ public class UploadPDFCore {
                 //System.out.println("UploadPDF() s =" + source);
                 //System.out.println("UploadPDF() d =" + dest);
                 
-                if(!Sourc.toUpperCase().matches("(.*)" + "127.0.0.1" + "(.*)")){
+                if(!Sourc.toUpperCase().matches("(.*)" + "192.168.1.20" + "(.*)")){
                     FileCopy.copyFile(source, dest);
                 }
                 return true;

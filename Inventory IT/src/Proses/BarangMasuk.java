@@ -1313,10 +1313,10 @@ public class BarangMasuk extends javax.swing.JFrame {
             String URLPurchaseRequest = null;
             String URLNota = null;
             if (!"".equals(JTUrlBuktiPurchaseRequest.getText())) {
-                URLPurchaseRequest = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "PR" + ".PDF";
+                URLPurchaseRequest = "\\\\\\\\" + "192.168.1.20" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "PR" + ".PDF";
             }
             if (!"".equals(JTUrlBuktiNota.getText())) {
-                URLNota = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "Nota" + ".PDF";
+                URLNota = "\\\\\\\\" + "192.168.1.20" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "Nota" + ".PDF";
             }
             boolean Berhasil;
             MultiInsert multiInsert = new MultiInsert();
@@ -1368,10 +1368,10 @@ public class BarangMasuk extends javax.swing.JFrame {
             String URLPurchaseRequest = null;
             String URLNota = null;
             if (!"".equals(JTUrlBuktiPurchaseRequest.getText())) {
-                URLPurchaseRequest = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "PR" + ".PDF";
+                URLPurchaseRequest = "\\\\\\\\" + "192.168.1.20" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "PR" + ".PDF";
             }
             if (!"".equals(JTUrlBuktiNota.getText())) {
-                URLNota = "\\\\\\\\" + "127.0.0.1" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "Nota" + ".PDF";
+                URLNota = "\\\\\\\\" + "192.168.1.20" + "\\\\sharePR$\\\\PDF\\\\" + JCNomorPurchaseRequest.getSelectedItem().toString().replace("/", "-") + "-" + "Nota" + ".PDF";
             }
             boolean Berhasil;
             MultiInsert multiInsert = new MultiInsert();
