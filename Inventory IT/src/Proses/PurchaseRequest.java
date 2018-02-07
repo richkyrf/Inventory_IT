@@ -19,9 +19,11 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRParameter;
 
 /**
  *
@@ -485,7 +487,6 @@ public class PurchaseRequest extends javax.swing.JFrame {
         jtextF11.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jtextF11.setEnabled(false);
 
-        JTKeterangan.setForeground(new java.awt.Color(102, 102, 102));
         JTKeterangan.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTKeterangan.setNextFocusableComponent(JTHargaBarang);
         JTKeterangan.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1015,13 +1016,14 @@ public class PurchaseRequest extends javax.swing.JFrame {
         ArrayList<String> list = dRunSelctOne.excute();
         hashs.put("Title", "PURCHASE REQUEST");
         hashs.put("PrintedBy", "Di Print Oleh " + GlobalVar.VarL.username + " Pada " + FDateF.datetostr(new Date(), "dd/MM/yyyy HH:mm"));
-        System.out.println(JTNomorPurchaseRequest.getText());
         hashs.put("NomorPurchaseRequest", JTNomorPurchaseRequest.getText());
         hashs.put("Tanggal", FDateF.datetostr(JDTanggal.getDate(), "dd/MM/yyyy HH:mm"));
         hashs.put("NamaVendor", JCNamaVendor.getSelectedItem());
         hashs.put("NomorTeleponVendor", list.get(0));
         hashs.put("Keterangan", JTAKeterangan.getText());
         hashs.put("Terbilang", " # " + angkaToTerbilang(getGrandTotal()) + " RUPIAH # ");
+        java.util.Locale locale = new Locale("id", "ID");
+        hashs.put(JRParameter.REPORT_LOCALE, locale);
         FLaporan fLaporan = new FLaporan();
         fLaporan.sethashmap(hashs);
         fLaporan.setfilename("PurchaseRequest");
@@ -1105,15 +1107,15 @@ public class PurchaseRequest extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Berhasil Tambah Data Purchase Request");
                 multiInsert.Commit();
                 multiInsert.closecon();
-                RefreshAll();
                 if (tutup) {
                     dispose();
                 }
                 if (print) {
                     print();
                 }
+                RefreshAll();
                 setNomorPurchaseRequest();
-                if (GlobalVar.Var.listPurchaseRequest != null){
+                if (GlobalVar.Var.listPurchaseRequest != null) {
                     GlobalVar.Var.listPurchaseRequest.load();
                 }
             }
@@ -1153,7 +1155,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
                 }
                 dispose();
                 RefreshAll();
-                if (GlobalVar.Var.listPurchaseRequest != null){
+                if (GlobalVar.Var.listPurchaseRequest != null) {
                     GlobalVar.Var.listPurchaseRequest.load();
                 }
             }
