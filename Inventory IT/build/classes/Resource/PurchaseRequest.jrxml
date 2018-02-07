@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PurchaseRequest" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acc8509b-a836-4b53-b178-b496671fd8c2">
-	<property name="ireport.zoom" value="1.4641000000000015"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="202"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="Title" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["Laporan Permintaan Barang"]]></defaultValueExpression>
 	</parameter>
@@ -321,8 +321,8 @@
 					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 				</textField>
 			</elementGroup>
-			<textField>
-				<reportElement x="197" y="0" width="126" height="20" uuid="9ced7bfa-81a5-43ba-8e5b-7f09a9276935"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="197" y="0" width="126" height="20" uuid="9ced7bfa-81a5-43ba-8e5b-7f09a9276935"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -334,7 +334,7 @@
 				<textFieldExpression><![CDATA[$F{Nama Barang}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0;-#,##0">
-				<reportElement x="323" y="0" width="75" height="20" uuid="dc599a0d-30fe-44a7-a9a6-d2debd94c294"/>
+				<reportElement stretchType="RelativeToBandHeight" x="323" y="0" width="75" height="20" uuid="dc599a0d-30fe-44a7-a9a6-d2debd94c294"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -346,7 +346,7 @@
 				<textFieldExpression><![CDATA[$F{Harga}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="398" y="0" width="42" height="20" uuid="11d8ebcf-2315-47e1-a7c4-41ae0516b71d"/>
+				<reportElement stretchType="RelativeToBandHeight" x="398" y="0" width="42" height="20" uuid="11d8ebcf-2315-47e1-a7c4-41ae0516b71d"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -358,7 +358,7 @@
 				<textFieldExpression><![CDATA[$F{Jumlah}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0;-#,##0">
-				<reportElement x="440" y="0" width="76" height="20" uuid="0b1e05c6-dfaf-4335-af20-4306a320cc80"/>
+				<reportElement stretchType="RelativeToBandHeight" x="440" y="0" width="76" height="20" uuid="0b1e05c6-dfaf-4335-af20-4306a320cc80"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -370,7 +370,7 @@
 				<textFieldExpression><![CDATA[$F{Sub Total}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="323" y="0" width="27" height="20" uuid="cdd9e29b-806c-49f7-ad13-9f636ce990da"/>
+				<reportElement stretchType="RelativeToBandHeight" x="323" y="0" width="27" height="20" uuid="cdd9e29b-806c-49f7-ad13-9f636ce990da"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -384,7 +384,7 @@
 				<text><![CDATA[Rp.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="440" y="0" width="27" height="20" uuid="ee61063b-e1c4-4d5c-8b8e-5a79857130d9"/>
+				<reportElement stretchType="RelativeToBandHeight" x="440" y="0" width="27" height="20" uuid="ee61063b-e1c4-4d5c-8b8e-5a79857130d9"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -412,7 +412,7 @@
 				<textFieldExpression><![CDATA[]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="117" y="0" width="80" height="20" uuid="44b7b994-75b2-42ea-8973-a32997f6aae2"/>
+				<reportElement stretchType="RelativeToBandHeight" x="117" y="0" width="80" height="20" uuid="44b7b994-75b2-42ea-8973-a32997f6aae2"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -424,7 +424,7 @@
 				<textFieldExpression><![CDATA[$F{Kategori Barang}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="37" y="0" width="80" height="20" uuid="ec25758b-6ecf-4631-8511-11a3c78357d9"/>
+				<reportElement stretchType="RelativeToBandHeight" x="37" y="0" width="80" height="20" uuid="ec25758b-6ecf-4631-8511-11a3c78357d9"/>
 				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
