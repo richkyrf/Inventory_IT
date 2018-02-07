@@ -159,6 +159,7 @@ public class ListPenyesuaianStok extends javax.swing.JFrame {
         JComCari.setOrder("ORDER BY `NomorPenyesuaianStok` DESC");
         JComCari.setSelectedIndex(5);
         JComCari.tampilkan();
+        JComCari.jtablef.setrender(6, "Number");
     }
 
     void tambah() {

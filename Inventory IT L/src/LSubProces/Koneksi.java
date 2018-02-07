@@ -9,14 +9,13 @@ import javax.swing.JOptionPane;
 public class Koneksi {
 
     private Connection Con = null;
-    //String url = "jdbc:mysql://localhost:3306/";
+    String url = "jdbc:mysql://192.168.1.20:1358/";
+    String user = "databasedo";
+    String pass = "Win32&serVer";
+    //String url = "jdbc:mysql://localhost/";
     //String user = "root";
     //String pass = "";
     String db = "dbinventoryit";
-    String url = "jdbc:mysql://localhost/";
-    //String url = "jdbc:mysql://192.168.1.20:1358/";
-    String user = "root";
-    String pass = "";
 
     public String GetUrl() {
         return url;
