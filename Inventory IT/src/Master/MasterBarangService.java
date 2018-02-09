@@ -336,11 +336,13 @@ public class MasterBarangService extends javax.swing.JFrame {
                     GlobalVar.Var.listMasterBarangService.load();
                 }
                 if (GlobalVar.Var.tambahService != null) {
+                    GlobalVar.Var.tambahService.JCJenisBarangService.setSelectedItem(JCJenisBarangService.getSelectedItem());
                     GlobalVar.Var.tambahService.JCNamaBarangService.load("SELECT '-- Pilih Nama Barang Service --' AS `NamaBarangService` UNION SELECT `NamaBarangService` FROM `tbmbarangservice` AS A JOIN `tbmjenisbarangservice` AS B ON A.`IdJenisBarangService`=B.`IdJenisBarangService` WHERE `JenisBarangService`='" + JCJenisBarangService.getSelectedItem() + "'");
                     GlobalVar.Var.tambahService.JCNamaBarangService.setSelectedItem(JTNamaBarangService.getText());
                     GlobalVar.Var.tambahService.JCNamaBarangService.requestFocus();
                 }
                 if (GlobalVar.Var.editService != null) {
+                    GlobalVar.Var.editService.JCJenisBarangService.setSelectedItem(JCJenisBarangService.getSelectedItem());
                     GlobalVar.Var.editService.JCNamaBarangService.load("SELECT '-- Pilih Nama Barang Service --' AS `NamaBarangService` UNION SELECT `NamaBarangService` FROM `tbmbarangservice` AS A JOIN `tbmjenisbarangservice` AS B ON A.`IdJenisBarangService`=B.`IdJenisBarangService` WHERE `JenisBarangService`='" + JCJenisBarangService.getSelectedItem() + "'");
                     GlobalVar.Var.editService.JCNamaBarangService.setSelectedItem(JTNamaBarangService.getText());
                     GlobalVar.Var.editService.JCNamaBarangService.requestFocus();

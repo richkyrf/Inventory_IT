@@ -538,7 +538,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
                             .addComponent(jlableF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jlableF11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlableF12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -548,7 +548,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlableF9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JTPenerima, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(JTPenerima, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -1114,10 +1114,15 @@ public class PurchaseRequest extends javax.swing.JFrame {
                     print();
                 }
                 RefreshAll();
-                setNomorPurchaseRequest();
                 if (GlobalVar.Var.listPurchaseRequest != null) {
                     GlobalVar.Var.listPurchaseRequest.load();
                 }
+                if (GlobalVar.Var.tambahBarangMasuk != null) {
+                    GlobalVar.Var.tambahBarangMasuk.JCNomorPurchaseRequest.load("SELECT '-- Pilih No Purchase Request --' AS 'NomorPurchaseRequest' UNION SELECT `NomorPurchaseRequest` FROM (SELECT X.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as 'JumlahX', IFNULL(Y.`Jumlah`,0) as 'JumlahY' FROM `tbpurchaserequestdetail` as X LEFT JOIN (SELECT b.`NomorPurchaseRequest`, SUM(`JumlahBarang`) as 'Jumlah' FROM `tbbarangmasukdetail`a JOIN `tbbarangmasuk`b ON a.`NomorBarangMasuk`=b.`NomorBarangMasuk` WHERE 1 GROUP BY b.`NomorPurchaseRequest`) as Y ON X.`NomorPurchaserequest`=Y.`NomorPurchaseRequest` WHERE 1 GROUP BY `NomorPurchaseRequest` ) t1 WHERE `JumlahX`!=`JumlahY` ");
+                    GlobalVar.Var.tambahBarangMasuk.JCNomorPurchaseRequest.setSelectedItem(JTNomorPurchaseRequest.getText());
+                    GlobalVar.Var.tambahBarangMasuk.JCNomorPurchaseRequest.requestFocus();
+                }
+                setNomorPurchaseRequest();
             }
         }
     }

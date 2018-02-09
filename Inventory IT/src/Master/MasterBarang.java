@@ -522,11 +522,15 @@ public class MasterBarang extends javax.swing.JFrame {
                     GlobalVar.Var.listMasterBarang.load();
                 }
                 if (GlobalVar.Var.tambahBarangRusak != null) {
+                    GlobalVar.Var.tambahBarangRusak.JCJenisBarang.setSelectedItem(JCJenisBarang.getSelectedItem());
+                    GlobalVar.Var.tambahBarangRusak.JCKategoriBarang.setSelectedItem(JCKategoriBarang.getSelectedItem());
                     GlobalVar.Var.tambahBarangRusak.JCNamaBarang.load("SELECT '-- Pilih Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "' AND `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'");
                     GlobalVar.Var.tambahBarangRusak.JCNamaBarang.setSelectedItem(JTNamaBarang.getText());
                     GlobalVar.Var.tambahBarangRusak.JCNamaBarang.requestFocus();
                 }
                 if (GlobalVar.Var.editBarangRusak != null) {
+                    GlobalVar.Var.editBarangRusak.JCJenisBarang.setSelectedItem(JCJenisBarang.getSelectedItem());
+                    GlobalVar.Var.editBarangRusak.JCKategoriBarang.setSelectedItem(JCKategoriBarang.getSelectedItem());
                     GlobalVar.Var.editBarangRusak.JCNamaBarang.load("SELECT '-- Pilih Nama Barang --' AS `NamaBarang` UNION SELECT `NamaBarang` FROM `tbmbarang` AS A JOIN `tbmkategoribarang` AS B ON A.`IdKategoriBarang`=B.`IdKategoriBarang` JOIN `tbmjenisbarang` AS C ON B.`IdJenisBarang`=C.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "' AND `KategoriBarang`='" + JCKategoriBarang.getSelectedItem() + "'");
                     GlobalVar.Var.editBarangRusak.JCNamaBarang.setSelectedItem(JTNamaBarang.getText());
                     GlobalVar.Var.editBarangRusak.JCNamaBarang.requestFocus();

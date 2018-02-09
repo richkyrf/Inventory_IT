@@ -349,36 +349,46 @@ public class BarangMasuk extends javax.swing.JFrame {
             JTable.getColumnModel().getColumn(0).setMinWidth(0);
             JTable.getColumnModel().getColumn(0).setPreferredWidth(0);
             JTable.getColumnModel().getColumn(0).setMaxWidth(0);
+            JTable.getColumnModel().getColumn(0).setHeaderValue("ID");
             JTable.getColumnModel().getColumn(1).setMinWidth(60);
             JTable.getColumnModel().getColumn(1).setPreferredWidth(60);
             JTable.getColumnModel().getColumn(1).setMaxWidth(60);
+            JTable.getColumnModel().getColumn(1).setHeaderValue("No");
             JTable.getColumnModel().getColumn(2).setMinWidth(120);
             JTable.getColumnModel().getColumn(2).setPreferredWidth(120);
             JTable.getColumnModel().getColumn(2).setMaxWidth(120);
+            JTable.getColumnModel().getColumn(2).setHeaderValue("Jenis Barang");
             JTable.getColumnModel().getColumn(3).setMinWidth(140);
             JTable.getColumnModel().getColumn(3).setPreferredWidth(140);
             JTable.getColumnModel().getColumn(3).setMaxWidth(140);
+            JTable.getColumnModel().getColumn(3).setHeaderValue("Kategori Barang");
             JTable.getColumnModel().getColumn(4).setMinWidth(400);
             JTable.getColumnModel().getColumn(4).setPreferredWidth(400);
             JTable.getColumnModel().getColumn(4).setMaxWidth(400);
+            JTable.getColumnModel().getColumn(4).setHeaderValue("Nama Barang");
             JTable.getColumnModel().getColumn(5).setMinWidth(100);
             JTable.getColumnModel().getColumn(5).setPreferredWidth(100);
             JTable.getColumnModel().getColumn(5).setMaxWidth(100);
+            JTable.getColumnModel().getColumn(5).setHeaderValue("Harga");
             JTable.getColumnModel().getColumn(6).setMinWidth(70);
             JTable.getColumnModel().getColumn(6).setPreferredWidth(70);
             JTable.getColumnModel().getColumn(6).setMaxWidth(70);
+            JTable.getColumnModel().getColumn(6).setHeaderValue("Jumlah");
             JTable.getColumnModel().getColumn(7).setMinWidth(50);
             JTable.getColumnModel().getColumn(7).setPreferredWidth(50);
             JTable.getColumnModel().getColumn(7).setMaxWidth(50);
+            JTable.getColumnModel().getColumn(7).setHeaderValue("Garansi");
             JTable.getColumnModel().getColumn(8).setMinWidth(140);
             JTable.getColumnModel().getColumn(8).setPreferredWidth(140);
             JTable.getColumnModel().getColumn(8).setMaxWidth(140);
+            JTable.getColumnModel().getColumn(8).setHeaderValue("Serial Number");
             JTable.getColumnModel().getColumn(9).setMinWidth(200);
             JTable.getColumnModel().getColumn(9).setPreferredWidth(200);
             JTable.getColumnModel().getColumn(9).setMaxWidth(200);
+            JTable.getColumnModel().getColumn(9).setHeaderValue("Keterangan");
         }
-        JTable.setrender(4, "Number");
         JTable.setrender(5, "Number");
+        JTable.setrender(6, "Number");
 
         jlableF4.setText("USER :");
 
@@ -580,7 +590,6 @@ public class BarangMasuk extends javax.swing.JFrame {
         });
 
         JBPilihUrlBuktiPurchaseRequest1.setText("Tampilkan");
-        JBPilihUrlBuktiPurchaseRequest1.setEnabled(true);
         JBPilihUrlBuktiPurchaseRequest1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBPilihUrlBuktiPurchaseRequest1ActionPerformed(evt);
@@ -1097,7 +1106,7 @@ public class BarangMasuk extends javax.swing.JFrame {
     private KomponenGUI.JbuttonF JBUbah;
     private KomponenGUI.JbuttonF JBUbahDetail;
     public static KomponenGUI.JcomboboxF JCNamaVendor;
-    private KomponenGUI.JcomboboxF JCNomorPurchaseRequest;
+    public KomponenGUI.JcomboboxF JCNomorPurchaseRequest;
     private KomponenGUI.JdateCF JDTanggal;
     private KomponenGUI.JTextAreaF JTAKeterangan;
     private KomponenGUI.JRibuanTextField JTHargaBarang;

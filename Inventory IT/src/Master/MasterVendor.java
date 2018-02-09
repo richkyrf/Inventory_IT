@@ -339,15 +339,23 @@ public class MasterVendor extends javax.swing.JFrame {
                 }
                 if (GlobalVar.Var.tambahPurchaseRequest != null) {
                     GlobalVar.Var.tambahPurchaseRequest.JCNamaVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
+                    GlobalVar.Var.tambahPurchaseRequest.JCNamaVendor.setSelectedItem(JTNamaVendor.getText());
+                    GlobalVar.Var.tambahPurchaseRequest.JCNamaVendor.requestFocus();
                 }
                 if (GlobalVar.Var.editPurchaseRequest != null) {
                     GlobalVar.Var.editPurchaseRequest.JCNamaVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
+                    GlobalVar.Var.editPurchaseRequest.JCNamaVendor.setSelectedItem(JTNamaVendor.getText());
+                    GlobalVar.Var.editPurchaseRequest.JCNamaVendor.requestFocus();
                 }
                 if (GlobalVar.Var.tambahBarangMasuk != null) {
                     GlobalVar.Var.tambahBarangMasuk.JCNamaVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
+                    GlobalVar.Var.tambahBarangMasuk.JCNamaVendor.setSelectedItem(JTNamaVendor.getText());
+                    GlobalVar.Var.tambahBarangMasuk.JCNamaVendor.requestFocus();
                 }
                 if (GlobalVar.Var.editBarangMasuk != null) {
                     GlobalVar.Var.editBarangMasuk.JCNamaVendor.load("SELECT `NamaVendor` FROM `tbmvendor` ");
+                    GlobalVar.Var.editBarangMasuk.JCNamaVendor.setSelectedItem(JTNamaVendor.getText());
+                    GlobalVar.Var.editBarangMasuk.JCNamaVendor.requestFocus();
                 }
                 if (tutup) {
                     GlobalVar.Var.tambahMasterVendor.dispose();

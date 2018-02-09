@@ -339,21 +339,25 @@ public class MasterKategoriBarang extends javax.swing.JFrame {
                     GlobalVar.Var.listMasterKategoriBarang.load();
                 }
                 if (GlobalVar.Var.tambahMasterBarang != null) {
+                    GlobalVar.Var.tambahMasterBarang.JCJenisBarang.setSelectedItem(JCJenisBarang.getSelectedItem());
                     GlobalVar.Var.tambahMasterBarang.JCKategoriBarang.load("SELECT '-- Pilih Kategori Barang --' AS `KategoriBarang` UNION SELECT `KategoriBarang` FROM `tbmkategoribarang` AS A JOIN `tbmjenisbarang` AS B ON A.`IdJenisBarang`=B.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'");
                     GlobalVar.Var.tambahMasterBarang.JCKategoriBarang.setSelectedItem(JTKategoriBarang.getText());
                     GlobalVar.Var.tambahMasterBarang.JCKategoriBarang.requestFocus();
                 }
                 if (GlobalVar.Var.editMasterBarang != null) {
+                    GlobalVar.Var.editMasterBarang.JCJenisBarang.setSelectedItem(JCJenisBarang.getSelectedItem());
                     GlobalVar.Var.editMasterBarang.JCKategoriBarang.load("SELECT '-- Pilih Kategori Barang --' AS `KategoriBarang` UNION SELECT `KategoriBarang` FROM `tbmkategoribarang` AS A JOIN `tbmjenisbarang` AS B ON A.`IdJenisBarang`=B.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'");
                     GlobalVar.Var.editMasterBarang.JCKategoriBarang.setSelectedItem(JTKategoriBarang.getText());
                     GlobalVar.Var.editMasterBarang.JCKategoriBarang.requestFocus();
                 }
                 if (GlobalVar.Var.tambahBarangRusak != null) {
+                    GlobalVar.Var.tambahBarangRusak.JCJenisBarang.setSelectedItem(JCJenisBarang.getSelectedItem());
                     GlobalVar.Var.tambahBarangRusak.JCKategoriBarang.load("SELECT '-- Pilih Kategori Barang --' AS `KategoriBarang` UNION SELECT `KategoriBarang` FROM `tbmkategoribarang` AS A JOIN `tbmjenisbarang` AS B ON A.`IdJenisBarang`=B.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'");
                     GlobalVar.Var.tambahBarangRusak.JCKategoriBarang.setSelectedItem(JTKategoriBarang.getText());
                     GlobalVar.Var.tambahBarangRusak.JCKategoriBarang.requestFocus();
                 }
                 if (GlobalVar.Var.editBarangRusak != null) {
+                    GlobalVar.Var.editBarangRusak.JCJenisBarang.setSelectedItem(JCJenisBarang.getSelectedItem());
                     GlobalVar.Var.editBarangRusak.JCKategoriBarang.load("SELECT '-- Pilih Kategori Barang --' AS `KategoriBarang` UNION SELECT `KategoriBarang` FROM `tbmkategoribarang` AS A JOIN `tbmjenisbarang` AS B ON A.`IdJenisBarang`=B.`IdJenisBarang` WHERE `JenisBarang`='" + JCJenisBarang.getSelectedItem() + "'");
                     GlobalVar.Var.editBarangRusak.JCKategoriBarang.setSelectedItem(JTKategoriBarang.getText());
                     GlobalVar.Var.editBarangRusak.JCKategoriBarang.requestFocus();
