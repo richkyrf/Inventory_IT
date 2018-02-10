@@ -493,7 +493,12 @@ public class BarangKeluar extends javax.swing.JFrame {
 
     private void JTKeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKeteranganKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            tambah(false);
+            evt.consume();
+            if (JBTambah.isVisible()) {
+                tambah(false);
+            } else {
+                ubah();
+            }
         }
     }//GEN-LAST:event_JTKeteranganKeyPressed
 

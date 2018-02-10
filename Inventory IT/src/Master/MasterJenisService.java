@@ -202,6 +202,7 @@ public class MasterJenisService extends javax.swing.JFrame {
 
     private void JTKeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTKeteranganKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            evt.consume();
             if (JBTambah.isVisible()) {
                 tambah(false);
             } else {
