@@ -368,6 +368,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
         });
 
         JTAKeterangan.setColumns(20);
+        JTAKeterangan.setLineWrap(true);
         JTAKeterangan.setRows(5);
         jScrollPane2.setViewportView(JTAKeterangan);
 
@@ -494,6 +495,7 @@ public class PurchaseRequest extends javax.swing.JFrame {
                 JTKeteranganKeyPressed(evt);
             }
         });
+        JTKeterangan.setMaxText(250);
 
         JTPenerima.setText("PELITA GROUP");
         JTPenerima.setEnabled(false);

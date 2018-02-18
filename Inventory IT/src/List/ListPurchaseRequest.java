@@ -191,7 +191,7 @@ public class ListPurchaseRequest extends javax.swing.JFrame {
     }
 
     public void load() {
-        JComCari.setQuery("SELECT `IdPurchaseRequest` as 'ID', `NomorPurchaseRequest` as 'No. PR', DATE_FORMAT(`TanggalPurchaseRequest`,'%d/%m/%Y') as 'Tanggal', `NamaVendor`, a.`Keterangan` FROM `tbpurchaserequest`a JOIN `tbmvendor`b ON a.`IdVendor`=b.`IdVendor` ");
+        JComCari.setQuery("SELECT `IdPurchaseRequest` as 'ID', `NomorPurchaseRequest` as 'Nomor Purchase Request', DATE_FORMAT(`TanggalPurchaseRequest`,'%d/%m/%Y') as 'Tanggal Purchase Request', `NamaVendor` as 'Nama Vendor', a.`Keterangan` FROM `tbpurchaserequest`a JOIN `tbmvendor`b ON a.`IdVendor`=b.`IdVendor` ");
         JComCari.setOrder(" ORDER BY `NomorPurchaseRequest` DESC ");
         JComCari.tampilkan();
     }

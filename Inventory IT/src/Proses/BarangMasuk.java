@@ -420,6 +420,7 @@ public class BarangMasuk extends javax.swing.JFrame {
         });
 
         JTAKeterangan.setColumns(20);
+        JTAKeterangan.setLineWrap(true);
         JTAKeterangan.setRows(5);
         jScrollPane2.setViewportView(JTAKeterangan);
 
@@ -507,8 +508,6 @@ public class BarangMasuk extends javax.swing.JFrame {
         jtextF11.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jtextF11.setEnabled(false);
 
-        JTKeterangan.setMaxText(250);
-        JTKeterangan.setForeground(new java.awt.Color(102, 102, 102));
         JTKeterangan.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTKeterangan.setNextFocusableComponent(JTSerialNumber);
 
@@ -522,7 +521,6 @@ public class BarangMasuk extends javax.swing.JFrame {
         });
 
         JTSerialNumber.setMaxText(50);
-        JTSerialNumber.setForeground(new java.awt.Color(102, 102, 102));
         JTSerialNumber.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         JTSerialNumber.setNextFocusableComponent(JTSerialNumber);
         JTSerialNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -617,6 +615,8 @@ public class BarangMasuk extends javax.swing.JFrame {
         jlableF15.setText(":");
 
         jlableF14.setText(":");
+
+        JTKeterangan.setMaxText(250);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
