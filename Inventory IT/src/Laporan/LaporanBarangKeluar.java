@@ -11,7 +11,9 @@ import LSubProces.History;
 import java.awt.event.KeyEvent;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRParameter;
 
 /**
  *
@@ -369,6 +371,8 @@ public class LaporanBarangKeluar extends javax.swing.JFrame {
         if (checkInput()) {
             String jenisBarang, kategoriBarang, namaBarang, namaPemakai;
             HashMap hashs = new HashMap();
+            java.util.Locale locale = new Locale("id", "ID");
+            hashs.put(JRParameter.REPORT_LOCALE, locale);
             FLaporan fLaporan = new FLaporan();
             hashs.put("Title", "Laporan Barang Keluar");
             hashs.put("TanggalKeluarAwal", FDateF.datetostr(JDTanggalBarangKeluarAwal.getDate(), "dd/MM/yyyy"));

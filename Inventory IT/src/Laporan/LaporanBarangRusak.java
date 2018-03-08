@@ -11,7 +11,9 @@ import LSubProces.History;
 import java.awt.event.KeyEvent;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRParameter;
 
 /**
  *

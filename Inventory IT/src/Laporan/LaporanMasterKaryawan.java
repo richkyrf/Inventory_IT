@@ -10,6 +10,8 @@ import LSubProces.FLaporan;
 import LSubProces.History;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
+import net.sf.jasperreports.engine.JRParameter;
 
 /**
  *
